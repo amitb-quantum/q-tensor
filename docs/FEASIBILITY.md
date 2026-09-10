@@ -28,8 +28,8 @@ and measure peak memory before scaling.
   32,607 MiB visible VRAM.
 - Windows NVIDIA driver/KMD: 610.74; `nvidia-smi` 610.53; CUDA UMD 13.3.
 - CPU: Intel Core Ultra 9 285K; WSL exposes 24 logical CPUs.
-- WSL RAM: 19 GiB plus 16 GiB swap. Host physical RAM shown by `nvidia-smi -q` is
-  32 GiB; WSL is memory-capped below that.
+- WSL RAM: 19 GiB plus 16 GiB swap. Host physical RAM could not be independently
+  captured from the sandbox, so no claim is made about the WSL memory cap.
 - GCC 15.2.0, Git 2.53.0, system Python 3.14.4.
 - No system `nvcc` or CMake. They are not needed for the wheel-based smoke path.
 - Nsight Systems CLI 2026.4.1 is installed; Nsight Compute is absent.
