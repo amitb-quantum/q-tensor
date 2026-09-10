@@ -36,3 +36,26 @@
 
 Next: freeze a seeded exact-reference circuit and explain the TVD failure before any
 speedup benchmark.
+
+## 2026-09-10 — Seeded statistical validation
+
+- Added exact complex128 Kraus-branch density-matrix references for frozen 2--5 qubit
+  circuits and seeded nested trajectory sweeps at 16, 64, 256, and 1,024 draws.
+- Preserved duplicate trajectory multiplicities and used categorical Kraus alternatives
+  before sending the identical grouped list to TN and CUDA-Q.
+- All 48 calibrated TN/reference, CUDA-Q/reference, and TN/CUDA-Q checks passed. Every
+  case's 1,024-trajectory TVD improved over its 16-trajectory endpoint.
+- Verified the upstream fixed-qubit path and every coherent random-gate family against
+  exact references; found no fresh-backend semantic mismatch in the bounded audits.
+- Identified the earlier end-to-end failure as stale CUDA-Q files: generated output is
+  keyed only by trajectory serial number and skipped when present, while the test creates
+  a new unseeded circuit and noise model on every run.
+- Reproduced clean-run PASS at TVD 0.0643 followed by cached-run FAIL at TVD 0.2101;
+  both upstream processes returned 0. Q-Tensor's strict wrapper returned 1.
+- Minimized the cache defect to two qubits: stale `X(q0)` CUDA-Q data compared with a
+  fresh `X(q1)` TN circuit has TVD 1; fresh backends both match the exact result.
+- Audited upstream PTS semantics: ordered Bernoulli depolarization changes the requested
+  channel, and duplicate filtering can change trajectory weights. The Q-Tensor harness
+  does not use those behaviors.
+- Gate 4 passes for the corrected bounded proportional path. No performance measurement
+  or speedup claim was made.

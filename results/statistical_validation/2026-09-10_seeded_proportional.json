@@ -1,0 +1,1721 @@
+{
+  "category": "q_tensor_original",
+  "command": [
+    "/home/manager/miniforge3/envs/q-tensor/bin/python",
+    "/mnt/c/Users/amitb/Documents/Q-Tensor/scripts/run_statistical_validation.py",
+    "--upstream",
+    "/home/manager/q-tensor/upstream/Accelerated_TN_PTSBE",
+    "--output",
+    "results/statistical_validation/2026-09-10_seeded_proportional.json",
+    "--trajectory-counts",
+    "16",
+    "64",
+    "256",
+    "1024",
+    "--shots-per-trajectory",
+    "64",
+    "--null-trials",
+    "2000"
+  ],
+  "experiment_id": "seeded-proportional-validation-v1",
+  "git_commit": "589f2978fbbdf98f6df86141144b39ce15b1f081",
+  "hardware": {
+    "compute_capability": "12.0",
+    "cuda_driver_api": 13030,
+    "cuda_runtime": 12090,
+    "name": "NVIDIA GeForce RTX 5090",
+    "sm_count": 170,
+    "total_global_memory_bytes": 34190458880
+  },
+  "measurements": {
+    "all_backend_statistical_checks_passed": true,
+    "all_convergence_endpoints_improved": true,
+    "cases": [
+      {
+        "case_id": "2q_asymmetric_x",
+        "convergence": {
+          "endpoint_improved_over_start": true,
+          "trajectory_tvd_log_log_slope": -0.7019090296034661
+        },
+        "exact_channel_distribution": {
+          "00": 0.7310040647269099,
+          "11": 0.2689959352730902
+        },
+        "exact_z_expectation": 0.46200812945381975,
+        "gates": [
+          {
+            "angle": 0.73,
+            "name": "rx",
+            "qubits": [
+              0
+            ]
+          },
+          {
+            "angle": null,
+            "name": "cx",
+            "qubits": [
+              0,
+              1
+            ]
+          }
+        ],
+        "noise_sites": [
+          {
+            "after_gate": 0,
+            "channel": "x",
+            "probability": 0.19,
+            "qubits": [
+              0
+            ]
+          }
+        ],
+        "nqubits": 2,
+        "observable": "Z0",
+        "reference_method": "exact complex128 Kraus-branch density matrix",
+        "seed": 1729,
+        "sweep": [
+          {
+            "conditioned_distribution": {
+              "00": 0.6862936005862176,
+              "11": 0.3137063994137824
+            },
+            "cudaq_counts": {
+              "00": 696,
+              "11": 328
+            },
+            "cudaq_vs_conditioned_exact": {
+              "null_quantile": 0.999,
+              "null_tvd_limit": 0.03492641308621758,
+              "null_z_expectation_error_limit": 0.06985282617243516,
+              "passed": true,
+              "tvd": 0.006606100586217578,
+              "z_expectation_error": 0.013212201172435156
+            },
+            "cudaq_vs_exact_channel": {
+              "tvd": 0.051316564726909875,
+              "z_expectation_error": 0.10263312945381975
+            },
+            "diagnosis": "finite_trajectory_and_shot_variance",
+            "shots_per_trajectory": 64,
+            "tn_counts": {
+              "00": 720,
+              "11": 304
+            },
+            "tn_vs_conditioned_exact": {
+              "null_quantile": 0.999,
+              "null_tvd_limit": 0.03199672558621758,
+              "null_z_expectation_error_limit": 0.06399345117243516,
+              "passed": true,
+              "tvd": 0.016831399413782422,
+              "z_expectation_error": 0.033662798827564844
+            },
+            "tn_vs_cudaq": {
+              "null_quantile": 0.999,
+              "null_tvd_limit": 0.0556640625,
+              "null_z_expectation_difference_limit": 0.111328125,
+              "passed": true,
+              "tvd": 0.0234375,
+              "z_expectation_difference": 0.046875
+            },
+            "tn_vs_exact_channel": {
+              "tvd": 0.027879064726909875,
+              "z_expectation_error": 0.05575812945381975
+            },
+            "total_backend_shots": 1024,
+            "trajectories": 16,
+            "trajectory_vs_exact_channel": {
+              "tvd": 0.044710464140692296,
+              "z_expectation_error": 0.08942092828138459
+            },
+            "unique_trajectories": 2
+          },
+          {
+            "conditioned_distribution": {
+              "00": 0.7561537008060493,
+              "11": 0.2438462991939508
+            },
+            "cudaq_counts": {
+              "00": 3095,
+              "11": 1001
+            },
+            "cudaq_vs_conditioned_exact": {
+              "null_quantile": 0.999,
+              "null_tvd_limit": 0.01787245080604924,
+              "null_z_expectation_error_limit": 0.035744901612098534,
+              "passed": true,
+              "tvd": 0.0005384664310492393,
+              "z_expectation_error": 0.0010769328620985341
+            },
+            "cudaq_vs_exact_channel": {
+              "tvd": 0.024611169648090125,
+              "z_expectation_error": 0.04922233929618025
+            },
+            "diagnosis": "finite_trajectory_and_shot_variance",
+            "shots_per_trajectory": 64,
+            "tn_counts": {
+              "00": 3117,
+              "11": 979
+            },
+            "tn_vs_conditioned_exact": {
+              "null_quantile": 0.999,
+              "null_tvd_limit": 0.01752793981895076,
+              "null_z_expectation_error_limit": 0.035055879637901466,
+              "passed": true,
+              "tvd": 0.004832627318950761,
+              "z_expectation_error": 0.009665254637901466
+            },
+            "tn_vs_cudaq": {
+              "null_quantile": 0.999,
+              "null_tvd_limit": 0.02734375,
+              "null_z_expectation_difference_limit": 0.0546875,
+              "passed": true,
+              "tvd": 0.00537109375,
+              "z_expectation_difference": 0.0107421875
+            },
+            "tn_vs_exact_channel": {
+              "tvd": 0.029982263398090125,
+              "z_expectation_error": 0.05996452679618025
+            },
+            "total_backend_shots": 4096,
+            "trajectories": 64,
+            "trajectory_vs_exact_channel": {
+              "tvd": 0.025149636079139365,
+              "z_expectation_error": 0.050299272158278785
+            },
+            "unique_trajectories": 2
+          },
+          {
+            "conditioned_distribution": {
+              "00": 0.7386886757510914,
+              "11": 0.2613113242489087
+            },
+            "cudaq_counts": {
+              "00": 12097,
+              "11": 4287
+            },
+            "cudaq_vs_conditioned_exact": {
+              "null_quantile": 0.999,
+              "null_tvd_limit": 0.009724410186408627,
+              "null_z_expectation_error_limit": 0.019448820372817255,
+              "passed": true,
+              "tvd": 0.0003463905948413726,
+              "z_expectation_error": 0.0006927811896827452
+            },
+            "cudaq_vs_exact_channel": {
+              "tvd": 0.007338220429340125,
+              "z_expectation_error": 0.01467644085868025
+            },
+            "diagnosis": "finite_trajectory_and_shot_variance",
+            "shots_per_trajectory": 64,
+            "tn_counts": {
+              "00": 12146,
+              "11": 4238
+            },
+            "tn_vs_conditioned_exact": {
+              "null_quantile": 0.999,
+              "null_tvd_limit": 0.008769242157341373,
+              "null_z_expectation_error_limit": 0.017538484314682745,
+              "passed": true,
+              "tvd": 0.0026443320614086274,
+              "z_expectation_error": 0.005288664122817255
+            },
+            "tn_vs_cudaq": {
+              "null_quantile": 0.999,
+              "null_tvd_limit": 0.0118408203125,
+              "null_z_expectation_difference_limit": 0.023681640625,
+              "passed": true,
+              "tvd": 0.00299072265625,
+              "z_expectation_difference": 0.0059814453125
+            },
+            "tn_vs_exact_channel": {
+              "tvd": 0.010328943085590125,
+              "z_expectation_error": 0.02065788617118025
+            },
+            "total_backend_shots": 16384,
+            "trajectories": 256,
+            "trajectory_vs_exact_channel": {
+              "tvd": 0.007684611024181498,
+              "z_expectation_error": 0.015369222048362996
+            },
+            "unique_trajectories": 2
+          },
+          {
+            "conditioned_distribution": {
+              "00": 0.733594710110062,
+              "11": 0.2664052898899381
+            },
+            "cudaq_counts": {
+              "00": 48016,
+              "11": 17520
+            },
+            "cudaq_vs_conditioned_exact": {
+              "null_quantile": 0.999,
+              "null_tvd_limit": 0.004289811374313057,
+              "null_z_expectation_error_limit": 0.00857962274862617,
+              "passed": true,
+              "tvd": 0.0009286944850619427,
+              "z_expectation_error": 0.00185738897012383
+            },
+            "cudaq_vs_exact_channel": {
+              "tvd": 0.0016619508980901254,
+              "z_expectation_error": 0.003323901796180251
+            },
+            "diagnosis": "finite_trajectory_and_shot_variance",
+            "shots_per_trajectory": 64,
+            "tn_counts": {
+              "00": 48161,
+              "11": 17375
+            },
+            "tn_vs_conditioned_exact": {
+              "null_quantile": 0.999,
+              "null_tvd_limit": 0.004712874172561943,
+              "null_z_expectation_error_limit": 0.00942574834512383,
+              "passed": true,
+              "tvd": 0.0012838299290005573,
+              "z_expectation_error": 0.00256765985800117
+            },
+            "tn_vs_cudaq": {
+              "null_quantile": 0.999,
+              "null_tvd_limit": 0.005859375,
+              "null_z_expectation_difference_limit": 0.01171875,
+              "passed": true,
+              "tvd": 0.0022125244140625,
+              "z_expectation_difference": 0.004425048828125
+            },
+            "tn_vs_exact_channel": {
+              "tvd": 0.0038744753121526254,
+              "z_expectation_error": 0.007748950624305251
+            },
+            "total_backend_shots": 65536,
+            "trajectories": 1024,
+            "trajectory_vs_exact_channel": {
+              "tvd": 0.002590645383152068,
+              "z_expectation_error": 0.005181290766304081
+            },
+            "unique_trajectories": 2
+          }
+        ]
+      },
+      {
+        "case_id": "3q_depolarizing1",
+        "convergence": {
+          "endpoint_improved_over_start": true,
+          "trajectory_tvd_log_log_slope": -0.9325331297467018
+        },
+        "exact_channel_distribution": {
+          "000": 0.3896391212233201,
+          "001": 0.1103608787766798,
+          "110": 0.3896391212233201,
+          "111": 0.1103608787766798
+        },
+        "exact_z_expectation": 0.5585564848932808,
+        "gates": [
+          {
+            "angle": null,
+            "name": "h",
+            "qubits": [
+              0
+            ]
+          },
+          {
+            "angle": null,
+            "name": "cx",
+            "qubits": [
+              0,
+              1
+            ]
+          },
+          {
+            "angle": 0.51,
+            "name": "ry",
+            "qubits": [
+              2
+            ]
+          },
+          {
+            "angle": null,
+            "name": "cz",
+            "qubits": [
+              1,
+              2
+            ]
+          }
+        ],
+        "noise_sites": [
+          {
+            "after_gate": 2,
+            "channel": "depolarizing1",
+            "probability": 0.27,
+            "qubits": [
+              2
+            ]
+          }
+        ],
+        "nqubits": 3,
+        "observable": "Z2",
+        "reference_method": "exact complex128 Kraus-branch density matrix",
+        "seed": 2718,
+        "sweep": [
+          {
+            "conditioned_distribution": {
+              "000": 0.3590930634557188,
+              "001": 0.14090693654428108,
+              "110": 0.3590930634557188,
+              "111": 0.14090693654428108
+            },
+            "cudaq_counts": {
+              "000": 380,
+              "001": 127,
+              "110": 361,
+              "111": 156
+            },
+            "cudaq_vs_conditioned_exact": {
+              "null_quantile": 0.999,
+              "null_tvd_limit": 0.0517578125,
+              "null_z_expectation_error_limit": 0.05386212117712452,
+              "passed": true,
+              "tvd": 0.0234375,
+              "z_expectation_error": 0.010893371177124522
+            },
+            "cudaq_vs_exact_channel": {
+              "tvd": 0.0556454299466404,
+              "z_expectation_error": 0.1112908598932808
+            },
+            "diagnosis": "finite_trajectory_and_shot_variance",
+            "shots_per_trajectory": 64,
+            "tn_counts": {
+              "000": 367,
+              "001": 153,
+              "110": 367,
+              "111": 137
+            },
+            "tn_vs_conditioned_exact": {
+              "null_quantile": 0.999,
+              "null_tvd_limit": 0.060546875,
+              "null_z_expectation_error_limit": 0.05190899617712452,
+              "passed": true,
+              "tvd": 0.008507125955718842,
+              "z_expectation_error": 0.0027785038228754777
+            },
+            "tn_vs_cudaq": {
+              "null_quantile": 0.999,
+              "null_tvd_limit": 0.0751953125,
+              "null_z_expectation_difference_limit": 0.06640625,
+              "passed": true,
+              "tvd": 0.03125,
+              "z_expectation_difference": 0.013671875
+            },
+            "tn_vs_exact_channel": {
+              "tvd": 0.0624813674466404,
+              "z_expectation_error": 0.1249627348932808
+            },
+            "total_backend_shots": 1024,
+            "trajectories": 16,
+            "trajectory_vs_exact_channel": {
+              "tvd": 0.06109211553520266,
+              "z_expectation_error": 0.12218423107040532
+            },
+            "unique_trajectories": 3
+          },
+          {
+            "conditioned_distribution": {
+              "000": 0.39318464578563095,
+              "001": 0.1068153542143689,
+              "110": 0.39318464578563095,
+              "111": 0.1068153542143689
+            },
+            "cudaq_counts": {
+              "000": 1598,
+              "001": 459,
+              "110": 1611,
+              "111": 428
+            },
+            "cudaq_vs_conditioned_exact": {
+              "null_quantile": 0.999,
+              "null_tvd_limit": 0.029296875,
+              "null_z_expectation_error_limit": 0.028335635607475873,
+              "passed": true,
+              "tvd": 0.00537109375,
+              "z_expectation_error": 0.005844051892524127
+            },
+            "cudaq_vs_exact_channel": {
+              "tvd": 0.005868691276679772,
+              "z_expectation_error": 0.008338046356719198
+            },
+            "diagnosis": "finite_trajectory_and_shot_variance",
+            "shots_per_trajectory": 64,
+            "tn_counts": {
+              "000": 1573,
+              "001": 447,
+              "110": 1630,
+              "111": 446
+            },
+            "tn_vs_conditioned_exact": {
+              "null_quantile": 0.999,
+              "null_tvd_limit": 0.029541015625,
+              "null_z_expectation_error_limit": 0.025894229357475873,
+              "passed": true,
+              "tvd": 0.009151442660631073,
+              "z_expectation_error": 0.008773739392524127
+            },
+            "tn_vs_cudaq": {
+              "null_quantile": 0.999,
+              "null_tvd_limit": 0.044921875,
+              "null_z_expectation_difference_limit": 0.0341796875,
+              "passed": true,
+              "tvd": 0.009033203125,
+              "z_expectation_difference": 0.0029296875
+            },
+            "tn_vs_exact_channel": {
+              "tvd": 0.008310097526679827,
+              "z_expectation_error": 0.005408358856719198
+            },
+            "total_backend_shots": 4096,
+            "trajectories": 64,
+            "trajectory_vs_exact_channel": {
+              "tvd": 0.007091049124621732,
+              "z_expectation_error": 0.014182098249243325
+            },
+            "unique_trajectories": 4
+          },
+          {
+            "conditioned_distribution": {
+              "000": 0.3795480128536662,
+              "001": 0.12045198714633377,
+              "110": 0.3795480128536662,
+              "111": 0.12045198714633377
+            },
+            "cudaq_counts": {
+              "000": 6222,
+              "001": 1967,
+              "110": 6189,
+              "111": 2006
+            },
+            "cudaq_vs_conditioned_exact": {
+              "null_quantile": 0.999,
+              "null_tvd_limit": 0.0135498046875,
+              "null_z_expectation_error_limit": 0.014278651710335044,
+              "passed": true,
+              "tvd": 0.002197265625,
+              "z_expectation_error": 0.003177402977164956
+            },
+            "cudaq_vs_exact_channel": {
+              "tvd": 0.0217709182278904,
+              "z_expectation_error": 0.0435418364557808
+            },
+            "diagnosis": "finite_trajectory_and_shot_variance",
+            "shots_per_trajectory": 64,
+            "tn_counts": {
+              "000": 6226,
+              "001": 1990,
+              "110": 6241,
+              "111": 1927
+            },
+            "tn_vs_conditioned_exact": {
+              "null_quantile": 0.999,
+              "null_tvd_limit": 0.01434326171875,
+              "null_z_expectation_error_limit": 0.014774082664664956,
+              "passed": true,
+              "tvd": 0.002837241052583761,
+              "z_expectation_error": 0.003658534522835044
+            },
+            "tn_vs_cudaq": {
+              "null_quantile": 0.999,
+              "null_tvd_limit": 0.02081298828125,
+              "null_z_expectation_difference_limit": 0.02001953125,
+              "passed": true,
+              "tvd": 0.00482177734375,
+              "z_expectation_difference": 0.0068359375
+            },
+            "tn_vs_exact_channel": {
+              "tvd": 0.0183529494778904,
+              "z_expectation_error": 0.0367058989557808
+            },
+            "total_backend_shots": 16384,
+            "trajectories": 256,
+            "trajectory_vs_exact_channel": {
+              "tvd": 0.02018221673930795,
+              "z_expectation_error": 0.040364433478615847
+            },
+            "unique_trajectories": 4
+          },
+          {
+            "conditioned_distribution": {
+              "000": 0.38934934277351585,
+              "001": 0.11065065722648403,
+              "110": 0.38934934277351585,
+              "111": 0.11065065722648403
+            },
+            "cudaq_counts": {
+              "000": 25356,
+              "001": 7238,
+              "110": 25614,
+              "111": 7328
+            },
+            "cudaq_vs_conditioned_exact": {
+              "null_quantile": 0.999,
+              "null_tvd_limit": 0.0083465576171875,
+              "null_z_expectation_error_limit": 0.006249910156563732,
+              "passed": true,
+              "tvd": 0.002655029296875,
+              "z_expectation_error": 0.0019164140628137316
+            },
+            "cudaq_vs_exact_channel": {
+              "tvd": 0.002737265754570173,
+              "z_expectation_error": 0.0030755278620308024
+            },
+            "diagnosis": "finite_trajectory_and_shot_variance",
+            "shots_per_trajectory": 64,
+            "tn_counts": {
+              "000": 25475,
+              "001": 7252,
+              "110": 25607,
+              "111": 7202
+            },
+            "tn_vs_conditioned_exact": {
+              "null_quantile": 0.999,
+              "null_tvd_limit": 0.0070648193359375,
+              "null_z_expectation_error_limit": 0.007073884765938732,
+              "passed": true,
+              "tvd": 0.0013885498046875,
+              "z_expectation_error": 0.0015015546871862684
+            },
+            "tn_vs_cudaq": {
+              "null_quantile": 0.999,
+              "null_tvd_limit": 0.00994873046875,
+              "null_z_expectation_difference_limit": 0.008819580078125,
+              "passed": true,
+              "tvd": 0.0020294189453125,
+              "z_expectation_difference": 0.00341796875
+            },
+            "tn_vs_exact_channel": {
+              "tvd": 0.0013885498046875,
+              "z_expectation_error": 0.0003424408879691976
+            },
+            "total_backend_shots": 65536,
+            "trajectories": 1024,
+            "trajectory_vs_exact_channel": {
+              "tvd": 0.0005795568996084938,
+              "z_expectation_error": 0.0011591137992170708
+            },
+            "unique_trajectories": 4
+          }
+        ]
+      },
+      {
+        "case_id": "4q_two_channels",
+        "convergence": {
+          "endpoint_improved_over_start": true,
+          "trajectory_tvd_log_log_slope": -0.5410837495309199
+        },
+        "exact_channel_distribution": {
+          "0000": 0.600354509747647,
+          "0011": 0.19183395115229168,
+          "1100": 0.15748852808912583,
+          "1111": 0.05032301101093557
+        },
+        "exact_z_expectation": 0.301355041517165,
+        "gates": [
+          {
+            "angle": 0.42,
+            "name": "rx",
+            "qubits": [
+              0
+            ]
+          },
+          {
+            "angle": null,
+            "name": "cx",
+            "qubits": [
+              0,
+              1
+            ]
+          },
+          {
+            "angle": 0.71,
+            "name": "ry",
+            "qubits": [
+              2
+            ]
+          },
+          {
+            "angle": null,
+            "name": "cx",
+            "qubits": [
+              2,
+              3
+            ]
+          },
+          {
+            "angle": null,
+            "name": "cz",
+            "qubits": [
+              1,
+              2
+            ]
+          }
+        ],
+        "noise_sites": [
+          {
+            "after_gate": 0,
+            "channel": "x",
+            "probability": 0.18,
+            "qubits": [
+              0
+            ]
+          },
+          {
+            "after_gate": 2,
+            "channel": "depolarizing1",
+            "probability": 0.24,
+            "qubits": [
+              2
+            ]
+          }
+        ],
+        "nqubits": 4,
+        "observable": "Z0Z2",
+        "reference_method": "exact complex128 Kraus-branch density matrix",
+        "seed": 3141,
+        "sweep": [
+          {
+            "conditioned_distribution": {
+              "0000": 0.614286021113571,
+              "0011": 0.3422584490425831,
+              "1100": 0.02790683063464927,
+              "1111": 0.015548699209196595
+            },
+            "cudaq_counts": {
+              "0000": 637,
+              "0011": 343,
+              "1100": 27,
+              "1111": 17
+            },
+            "cudaq_vs_conditioned_exact": {
+              "null_quantile": 0.999,
+              "null_tvd_limit": 0.03706128282276763,
+              "null_z_expectation_error_limit": 0.07412256564553527,
+              "passed": true,
+              "tvd": 0.008837154677232372,
+              "z_expectation_error": 0.017674309354464735
+            },
+            "cudaq_vs_exact_channel": {
+              "tvd": 0.1648427891000614,
+              "z_expectation_error": 0.024011291517165023
+            },
+            "diagnosis": "finite_trajectory_and_shot_variance",
+            "shots_per_trajectory": 64,
+            "tn_counts": {
+              "0000": 627,
+              "0011": 343,
+              "1100": 36,
+              "1111": 18
+            },
+            "tn_vs_conditioned_exact": {
+              "null_quantile": 0.999,
+              "null_tvd_limit": 0.03811414611357103,
+              "null_z_expectation_error_limit": 0.07607569064553527,
+              "passed": true,
+              "tvd": 0.00927884515615421,
+              "z_expectation_error": 9.61843544647345e-05
+            },
+            "tn_vs_cudaq": {
+              "null_quantile": 0.999,
+              "null_tvd_limit": 0.056640625,
+              "null_z_expectation_difference_limit": 0.107421875,
+              "passed": true,
+              "tvd": 0.009765625,
+              "z_expectation_difference": 0.017578125
+            },
+            "tn_vs_exact_channel": {
+              "tvd": 0.1550771641000614,
+              "z_expectation_error": 0.04158941651716502
+            },
+            "total_backend_shots": 1024,
+            "trajectories": 16,
+            "trajectory_vs_exact_channel": {
+              "tvd": 0.16435600925621563,
+              "z_expectation_error": 0.04168560087162976
+            },
+            "unique_trajectories": 4
+          },
+          {
+            "conditioned_distribution": {
+              "0000": 0.6506473913192433,
+              "0011": 0.2060279759902521,
+              "1100": 0.11003950355249383,
+              "1111": 0.03328512913801076
+            },
+            "cudaq_counts": {
+              "0000": 2653,
+              "0011": 857,
+              "1100": 449,
+              "1111": 137
+            },
+            "cudaq_vs_conditioned_exact": {
+              "null_quantile": 0.999,
+              "null_tvd_limit": 0.020602442332254074,
+              "null_z_expectation_error_limit": 0.03876347841450811,
+              "passed": true,
+              "tvd": 0.0033626761217371397,
+              "z_expectation_error": 0.005560353414508112
+            },
+            "cudaq_vs_exact_channel": {
+              "tvd": 0.06474513285006141,
+              "z_expectation_error": 0.06094964598283498
+            },
+            "diagnosis": "finite_trajectory_and_shot_variance",
+            "shots_per_trajectory": 64,
+            "tn_counts": {
+              "0000": 2674,
+              "0011": 847,
+              "1100": 446,
+              "1111": 129
+            },
+            "tn_vs_conditioned_exact": {
+              "null_quantile": 0.999,
+              "null_tvd_limit": 0.018567313194243314,
+              "null_z_expectation_error_limit": 0.03583379091450811,
+              "passed": true,
+              "tvd": 0.002943773315504581,
+              "z_expectation_error": 0.0007873028354918876
+            },
+            "tn_vs_cudaq": {
+              "null_quantile": 0.999,
+              "null_tvd_limit": 0.02880859375,
+              "null_z_expectation_difference_limit": 0.0576171875,
+              "passed": true,
+              "tvd": 0.005126953125,
+              "z_expectation_difference": 0.00634765625
+            },
+            "tn_vs_exact_channel": {
+              "tvd": 0.06743067972506141,
+              "z_expectation_error": 0.06729730223283498
+            },
+            "total_backend_shots": 4096,
+            "trajectories": 64,
+            "trajectory_vs_exact_channel": {
+              "tvd": 0.06448690640955683,
+              "z_expectation_error": 0.06650999939734309
+            },
+            "unique_trajectories": 7
+          },
+          {
+            "conditioned_distribution": {
+              "0000": 0.6006626343133182,
+              "0011": 0.2346122109576076,
+              "1100": 0.1274383986994519,
+              "1111": 0.03728675602962243
+            },
+            "cudaq_counts": {
+              "0000": 9841,
+              "0011": 3826,
+              "1100": 2104,
+              "1111": 613
+            },
+            "cudaq_vs_conditioned_exact": {
+              "null_quantile": 0.999,
+              "null_tvd_limit": 0.00993879325080943,
+              "null_z_expectation_error_limit": 0.01987758650161886,
+              "passed": true,
+              "tvd": 0.0011073648021756866,
+              "z_expectation_error": 0.0002242661891188602
+            },
+            "cudaq_vs_exact_channel": {
+              "tvd": 0.04197901956881141,
+              "z_expectation_error": 0.025231994642165023
+            },
+            "diagnosis": "finite_trajectory_and_shot_variance",
+            "shots_per_trajectory": 64,
+            "tn_counts": {
+              "0000": 9813,
+              "0011": 3856,
+              "1100": 2096,
+              "1111": 619
+            },
+            "tn_vs_conditioned_exact": {
+              "null_quantile": 0.999,
+              "null_tvd_limit": 0.00951154715705943,
+              "null_z_expectation_error_limit": 0.01902309431411886,
+              "passed": true,
+              "tvd": 0.00172464603206815,
+              "z_expectation_error": 0.00246128068588114
+            },
+            "tn_vs_cudaq": {
+              "null_quantile": 0.999,
+              "null_tvd_limit": 0.01287841796875,
+              "null_z_expectation_difference_limit": 0.024658203125,
+              "passed": true,
+              "tvd": 0.002197265625,
+              "z_expectation_difference": 0.002685546875
+            },
+            "tn_vs_exact_channel": {
+              "tvd": 0.04351761134770833,
+              "z_expectation_error": 0.027917541517165023
+            },
+            "total_backend_shots": 16384,
+            "trajectories": 256,
+            "trajectory_vs_exact_channel": {
+              "tvd": 0.043086384370987094,
+              "z_expectation_error": 0.025456260831283883
+            },
+            "unique_trajectories": 8
+          },
+          {
+            "conditioned_distribution": {
+              "0000": 0.5985882350392316,
+              "0011": 0.20726089242866072,
+              "1100": 0.14802749221158792,
+              "1111": 0.04612338032051977
+            },
+            "cudaq_counts": {
+              "0000": 39110,
+              "0011": 13657,
+              "1100": 9782,
+              "1111": 2987
+            },
+            "cudaq_vs_conditioned_exact": {
+              "null_quantile": 0.999,
+              "null_tvd_limit": 0.004681708133188883,
+              "null_z_expectation_error_limit": 0.009363416266377711,
+              "passed": true,
+              "tvd": 0.0023623721956888832,
+              "z_expectation_error": 0.004724744391377711
+            },
+            "cudaq_vs_exact_channel": {
+              "tvd": 0.016555331074270832,
+              "z_expectation_error": 0.016656555189040023
+            },
+            "diagnosis": "finite_trajectory_and_shot_variance",
+            "shots_per_trajectory": 64,
+            "tn_counts": {
+              "0000": 39369,
+              "0011": 13474,
+              "1100": 9737,
+              "1111": 2956
+            },
+            "tn_vs_conditioned_exact": {
+              "null_quantile": 0.999,
+              "null_tvd_limit": 0.004687626664882039,
+              "null_z_expectation_error_limit": 0.009088758063252711,
+              "passed": true,
+              "tvd": 0.0026823684523054614,
+              "z_expectation_error": 0.002233263421122289
+            },
+            "tn_vs_cudaq": {
+              "null_quantile": 0.999,
+              "null_tvd_limit": 0.007659912109375,
+              "null_z_expectation_difference_limit": 0.01531982421875,
+              "passed": true,
+              "tvd": 0.0039520263671875,
+              "z_expectation_difference": 0.0069580078125
+            },
+            "tn_vs_exact_channel": {
+              "tvd": 0.014131729529748907,
+              "z_expectation_error": 0.009698547376540023
+            },
+            "total_backend_shots": 65536,
+            "trajectories": 1024,
+            "trajectory_vs_exact_channel": {
+              "tvd": 0.015426941276369024,
+              "z_expectation_error": 0.011931810797662312
+            },
+            "unique_trajectories": 8
+          }
+        ]
+      },
+      {
+        "case_id": "5q_depolarizing2",
+        "convergence": {
+          "endpoint_improved_over_start": true,
+          "trajectory_tvd_log_log_slope": -0.6396440815565175
+        },
+        "exact_channel_distribution": {
+          "00000": 0.3062612673819547,
+          "00001": 0.05945095400564614,
+          "00110": 0.3062612673819547,
+          "00111": 0.05945095400564614,
+          "01000": 0.034430225061793,
+          "01001": 0.006683540965041103,
+          "01110": 0.034430225061793,
+          "01111": 0.006683540965041103,
+          "10000": 0.025542638496699577,
+          "10001": 0.004958296683845065,
+          "10110": 0.025542638496699577,
+          "10111": 0.004958296683845065,
+          "11000": 0.05248480907736935,
+          "11001": 0.010188268327650933,
+          "11110": 0.05248480907736935,
+          "11111": 0.010188268327650933
+        },
+        "exact_z_expectation": 0.7135411951704849,
+        "gates": [
+          {
+            "angle": 0.61,
+            "name": "rx",
+            "qubits": [
+              0
+            ]
+          },
+          {
+            "angle": 0.37,
+            "name": "ry",
+            "qubits": [
+              1
+            ]
+          },
+          {
+            "angle": null,
+            "name": "cx",
+            "qubits": [
+              0,
+              1
+            ]
+          },
+          {
+            "angle": null,
+            "name": "h",
+            "qubits": [
+              2
+            ]
+          },
+          {
+            "angle": null,
+            "name": "cx",
+            "qubits": [
+              2,
+              3
+            ]
+          },
+          {
+            "angle": 0.83,
+            "name": "ry",
+            "qubits": [
+              4
+            ]
+          },
+          {
+            "angle": null,
+            "name": "cz",
+            "qubits": [
+              1,
+              4
+            ]
+          }
+        ],
+        "noise_sites": [
+          {
+            "after_gate": 2,
+            "channel": "depolarizing2",
+            "probability": 0.22,
+            "qubits": [
+              0,
+              1
+            ]
+          }
+        ],
+        "nqubits": 5,
+        "observable": "Z0Z1",
+        "reference_method": "exact complex128 Kraus-branch density matrix",
+        "seed": 5772,
+        "sweep": [
+          {
+            "conditioned_distribution": {
+              "00000": 0.32294695355039765,
+              "00001": 0.06268995307801523,
+              "00110": 0.32294695355039765,
+              "00111": 0.06268995307801523,
+              "01000": 0.03656345674224484,
+              "01001": 0.007097640533040869,
+              "01110": 0.03656345674224484,
+              "01111": 0.007097640533040869,
+              "10000": 0.026402344053494738,
+              "10001": 0.005125181370088084,
+              "10110": 0.026402344053494738,
+              "10111": 0.005125181370088084,
+              "11000": 0.0328061856716795,
+              "11001": 0.006368285001039024,
+              "11110": 0.0328061856716795,
+              "11111": 0.006368285001039024
+            },
+            "cudaq_counts": {
+              "00000": 325,
+              "00001": 59,
+              "00110": 353,
+              "00111": 67,
+              "01000": 29,
+              "01001": 9,
+              "01110": 36,
+              "01111": 4,
+              "10000": 26,
+              "10001": 5,
+              "10110": 30,
+              "10111": 4,
+              "11000": 23,
+              "11001": 7,
+              "11110": 39,
+              "11111": 8
+            },
+            "cudaq_vs_conditioned_exact": {
+              "null_quantile": 0.999,
+              "null_tvd_limit": 0.06714026963254902,
+              "null_z_expectation_error_limit": 0.039089259204525884,
+              "passed": true,
+              "tvd": 0.0362969156112939,
+              "z_expectation_error": 0.021457615795474116
+            },
+            "cudaq_vs_exact_channel": {
+              "tvd": 0.06215135670691062,
+              "z_expectation_error": 0.007161929829515135
+            },
+            "diagnosis": "finite_trajectory_and_shot_variance",
+            "shots_per_trajectory": 64,
+            "tn_counts": {
+              "00000": 338,
+              "00001": 64,
+              "00110": 339,
+              "00111": 55,
+              "01000": 31,
+              "01001": 10,
+              "01110": 36,
+              "01111": 9,
+              "10000": 28,
+              "10001": 7,
+              "10110": 33,
+              "10111": 3,
+              "11000": 27,
+              "11001": 4,
+              "11110": 33,
+              "11111": 7
+            },
+            "tn_vs_conditioned_exact": {
+              "null_quantile": 0.999,
+              "null_tvd_limit": 0.07294515391610149,
+              "null_z_expectation_error_limit": 0.041042384204525884,
+              "passed": true,
+              "tvd": 0.02854234485500627,
+              "z_expectation_error": 0.0058861342045258835
+            },
+            "tn_vs_cudaq": {
+              "null_quantile": 0.999,
+              "null_tvd_limit": 0.0986328125,
+              "null_z_expectation_difference_limit": 0.052734375,
+              "passed": true,
+              "tvd": 0.0361328125,
+              "z_expectation_difference": 0.02734375
+            },
+            "tn_vs_exact_channel": {
+              "tvd": 0.06793563056132486,
+              "z_expectation_error": 0.020181820170484865
+            },
+            "total_backend_shots": 1024,
+            "trajectories": 16,
+            "trajectory_vs_exact_channel": {
+              "tvd": 0.04699721346460359,
+              "z_expectation_error": 0.014295685965958982
+            },
+            "unique_trajectories": 3
+          },
+          {
+            "conditioned_distribution": {
+              "00000": 0.3233155548682244,
+              "00001": 0.0627615053842532,
+              "00110": 0.3233155548682244,
+              "00111": 0.0627615053842532,
+              "01000": 0.030832321842856197,
+              "01001": 0.005985121668947043,
+              "01110": 0.030832321842856197,
+              "01111": 0.005985121668947043,
+              "10000": 0.026033742735668025,
+              "10001": 0.005053629063850134,
+              "10110": 0.026033742735668025,
+              "10111": 0.005053629063850134,
+              "11000": 0.03853732057106815,
+              "11001": 0.007480803865132849,
+              "11110": 0.03853732057106815,
+              "11111": 0.007480803865132849
+            },
+            "cudaq_counts": {
+              "00000": 1290,
+              "00001": 239,
+              "00110": 1375,
+              "00111": 283,
+              "01000": 126,
+              "01001": 19,
+              "01110": 131,
+              "01111": 18,
+              "10000": 96,
+              "10001": 23,
+              "10110": 117,
+              "10111": 25,
+              "11000": 163,
+              "11001": 32,
+              "11110": 125,
+              "11111": 34
+            },
+            "cudaq_vs_conditioned_exact": {
+              "null_quantile": 0.999,
+              "null_tvd_limit": 0.034169767154563935,
+              "null_z_expectation_error_limit": 0.01841980125471432,
+              "passed": true,
+              "tvd": 0.02640967311496406,
+              "z_expectation_error": 0.0006231674952856814
+            },
+            "cudaq_vs_exact_channel": {
+              "tvd": 0.0525770449910546,
+              "z_expectation_error": 0.015462711079515135
+            },
+            "diagnosis": "finite_trajectory_and_shot_variance",
+            "shots_per_trajectory": 64,
+            "tn_counts": {
+              "00000": 1373,
+              "00001": 266,
+              "00110": 1293,
+              "00111": 244,
+              "01000": 140,
+              "01001": 17,
+              "01110": 124,
+              "01111": 19,
+              "10000": 107,
+              "10001": 25,
+              "10110": 104,
+              "10111": 23,
+              "11000": 145,
+              "11001": 24,
+              "11110": 169,
+              "11111": 23
+            },
+            "tn_vs_conditioned_exact": {
+              "null_quantile": 0.999,
+              "null_tvd_limit": 0.03473646313690233,
+              "null_z_expectation_error_limit": 0.01868957374528568,
+              "passed": true,
+              "tvd": 0.021840030845229758,
+              "z_expectation_error": 0.0013299575047143186
+            },
+            "tn_vs_cudaq": {
+              "null_quantile": 0.999,
+              "null_tvd_limit": 0.048583984375,
+              "null_z_expectation_difference_limit": 0.0244140625,
+              "passed": true,
+              "tvd": 0.04443359375,
+              "z_expectation_difference": 0.001953125
+            },
+            "tn_vs_exact_channel": {
+              "tvd": 0.04634874723540845,
+              "z_expectation_error": 0.013509586079515135
+            },
+            "total_backend_shots": 4096,
+            "trajectories": 64,
+            "trajectory_vs_exact_channel": {
+              "tvd": 0.04190255096770036,
+              "z_expectation_error": 0.014839543584229453
+            },
+            "unique_trajectories": 9
+          },
+          {
+            "conditioned_distribution": {
+              "00000": 0.3035646724920439,
+              "00001": 0.05892749526029974,
+              "00110": 0.3035646724920439,
+              "00111": 0.05892749526029974,
+              "01000": 0.03315497007896032,
+              "01001": 0.0064359904798688946,
+              "01110": 0.03315497007896032,
+              "01111": 0.0064359904798688946,
+              "10000": 0.028285896662475423,
+              "10001": 0.005490813630677114,
+              "10110": 0.028285896662475423,
+              "10111": 0.005490813630677114,
+              "11000": 0.053713400784337034,
+              "11001": 0.01042676061133746,
+              "11110": 0.053713400784337034,
+              "11111": 0.01042676061133746
+            },
+            "cudaq_counts": {
+              "00000": 4978,
+              "00001": 1024,
+              "00110": 4918,
+              "00111": 969,
+              "01000": 513,
+              "01001": 123,
+              "01110": 564,
+              "01111": 100,
+              "10000": 447,
+              "10001": 91,
+              "10110": 477,
+              "10111": 96,
+              "11000": 845,
+              "11001": 156,
+              "11110": 899,
+              "11111": 184
+            },
+            "cudaq_vs_conditioned_exact": {
+              "null_quantile": 0.999,
+              "null_tvd_limit": 0.017032304520401928,
+              "null_z_expectation_error_limit": 0.009385761904572854,
+              "passed": true,
+              "tvd": 0.009617335640273127,
+              "z_expectation_error": 0.0008408400295728535
+            },
+            "cudaq_vs_exact_channel": {
+              "tvd": 0.01410901429445311,
+              "z_expectation_error": 0.007852718607984865
+            },
+            "diagnosis": "finite_trajectory_and_shot_variance",
+            "shots_per_trajectory": 64,
+            "tn_counts": {
+              "00000": 4929,
+              "00001": 973,
+              "00110": 4940,
+              "00111": 1005,
+              "01000": 542,
+              "01001": 106,
+              "01110": 537,
+              "01111": 120,
+              "10000": 475,
+              "10001": 77,
+              "10110": 452,
+              "10111": 88,
+              "11000": 915,
+              "11001": 158,
+              "11110": 901,
+              "11111": 166
+            },
+            "tn_vs_conditioned_exact": {
+              "null_quantile": 0.999,
+              "null_tvd_limit": 0.017485024438048315,
+              "null_z_expectation_error_limit": 0.009507832217072854,
+              "passed": true,
+              "tvd": 0.007913357632263146,
+              "z_expectation_error": 0.0008681443454271465
+            },
+            "tn_vs_cudaq": {
+              "null_quantile": 0.999,
+              "null_tvd_limit": 0.023193359375,
+              "null_z_expectation_difference_limit": 0.0130615234375,
+              "passed": true,
+              "tvd": 0.01275634765625,
+              "z_expectation_difference": 0.001708984375
+            },
+            "tn_vs_exact_channel": {
+              "tvd": 0.014307391322329749,
+              "z_expectation_error": 0.006143734232984865
+            },
+            "total_backend_shots": 16384,
+            "trajectories": 256,
+            "trajectory_vs_exact_channel": {
+              "tvd": 0.009485718206524198,
+              "z_expectation_error": 0.007011878578412012
+            },
+            "unique_trajectories": 16
+          },
+          {
+            "conditioned_distribution": {
+              "00000": 0.30631576508442826,
+              "00001": 0.05946153301366385,
+              "00110": 0.30631576508442826,
+              "00111": 0.05946153301366385,
+              "01000": 0.03274998592850948,
+              "01001": 0.0063573755955667255,
+              "01110": 0.03274998592850948,
+              "01111": 0.0063573755955667255,
+              "10000": 0.026784713245046464,
+              "10001": 0.005199406274250605,
+              "10110": 0.026784713245046464,
+              "10111": 0.005199406274250605,
+              "11000": 0.052868475759832646,
+              "11001": 0.010262745098702026,
+              "11110": 0.052868475759832646,
+              "11111": 0.010262745098702026
+            },
+            "cudaq_counts": {
+              "00000": 20192,
+              "00001": 3990,
+              "00110": 19946,
+              "00111": 3830,
+              "01000": 2129,
+              "01001": 421,
+              "01110": 2150,
+              "01111": 386,
+              "10000": 1783,
+              "10001": 337,
+              "10110": 1750,
+              "10111": 325,
+              "11000": 3446,
+              "11001": 666,
+              "11110": 3516,
+              "11111": 669
+            },
+            "cudaq_vs_conditioned_exact": {
+              "null_quantile": 0.999,
+              "null_tvd_limit": 0.008431238462622318,
+              "null_z_expectation_error_limit": 0.004428180032868045,
+              "passed": true,
+              "tvd": 0.0045368584042026275,
+              "z_expectation_error": 0.0011322815953680454
+            },
+            "cudaq_vs_exact_channel": {
+              "tvd": 0.0075664983314201045,
+              "z_expectation_error": 0.0032251622513901346
+            },
+            "diagnosis": "finite_trajectory_and_shot_variance",
+            "shots_per_trajectory": 64,
+            "tn_counts": {
+              "00000": 20104,
+              "00001": 3836,
+              "00110": 20227,
+              "00111": 3845,
+              "01000": 2132,
+              "01001": 422,
+              "01110": 2160,
+              "01111": 390,
+              "10000": 1806,
+              "10001": 348,
+              "10110": 1732,
+              "10111": 310,
+              "11000": 3488,
+              "11001": 694,
+              "11110": 3413,
+              "11111": 629
+            },
+            "tn_vs_conditioned_exact": {
+              "null_quantile": 0.999,
+              "null_tvd_limit": 0.00822180035381328,
+              "null_z_expectation_error_limit": 0.004452435201506955,
+              "passed": true,
+              "tvd": 0.004625870468298134,
+              "z_expectation_error": 0.0005524476109930454
+            },
+            "tn_vs_cudaq": {
+              "null_quantile": 0.999,
+              "null_tvd_limit": 0.0120697021484375,
+              "null_z_expectation_difference_limit": 0.006622314453125,
+              "passed": true,
+              "tvd": 0.006378173828125,
+              "z_expectation_difference": 0.000579833984375
+            },
+            "tn_vs_exact_channel": {
+              "tvd": 0.007270945989763432,
+              "z_expectation_error": 0.0026453282670151346
+            },
+            "total_backend_shots": 65536,
+            "trajectories": 1024,
+            "trajectory_vs_exact_channel": {
+              "tvd": 0.0040128090055158334,
+              "z_expectation_error": 0.002092880656022089
+            },
+            "unique_trajectories": 16
+          }
+        ]
+      }
+    ],
+    "conclusion": "PASS",
+    "minimized_stale_cache_audit": {
+      "cache_key_collision": "ptsa_example_serialnumber_0.npy",
+      "cached_circuit": "X(q0)",
+      "cached_cudaq_distribution": {
+        "10": 1.0
+      },
+      "current_circuit": "X(q1)",
+      "current_exact_distribution": {
+        "01": 1.0
+      },
+      "current_tn_distribution": {
+        "01": 1.0
+      },
+      "current_tn_vs_exact_tvd": 0.0,
+      "current_tn_vs_fresh_cudaq_tvd": 0.0,
+      "current_tn_vs_stale_cudaq_tvd": 1.0,
+      "fresh_cudaq_distribution": {
+        "01": 1.0
+      },
+      "nqubits": 2,
+      "shots": 4096
+    },
+    "qubit_order_audit": {
+      "cases": [
+        {
+          "case_id": "ordering_x_q0",
+          "cudaq": {
+            "10": 1.0
+          },
+          "cudaq_vs_exact_tvd": 0.0,
+          "direct_qiskit_tn": {
+            "01": 1.0
+          },
+          "direct_tn_vs_exact_tvd": 1.0,
+          "exact": {
+            "10": 1.0
+          },
+          "official_reversed_qiskit_tn": {
+            "10": 1.0
+          },
+          "official_tn_vs_exact_tvd": 0.0
+        },
+        {
+          "case_id": "ordering_bell",
+          "cudaq": {
+            "00": 0.503662109375,
+            "11": 0.496337890625
+          },
+          "cudaq_vs_exact_tvd": 0.003662109375,
+          "direct_qiskit_tn": {
+            "00": 0.4951171875,
+            "11": 0.5048828125
+          },
+          "direct_tn_vs_exact_tvd": 0.0048828125,
+          "exact": {
+            "00": 0.4999999999999999,
+            "11": 0.4999999999999999
+          },
+          "official_reversed_qiskit_tn": {
+            "00": 0.4951171875,
+            "11": 0.5048828125
+          },
+          "official_tn_vs_exact_tvd": 0.0048828125
+        }
+      ],
+      "shots_per_backend": 4096
+    },
+    "upstream_depolarizing_sampler_audit": [
+      {
+        "intended_total_error_probability": 0.27,
+        "intended_vs_upstream_tvd": 0.023571000000000022,
+        "non_identity_operators": 3,
+        "probability_parameter": 0.27,
+        "upstream_effective_total_error_probability": 0.2464289999999999,
+        "upstream_operator_probabilities": {
+          "0": 0.7535710000000001,
+          "1": 0.09000000000000001,
+          "2": 0.08190000000000001,
+          "3": 0.07452900000000001
+        }
+      },
+      {
+        "intended_total_error_probability": 0.22,
+        "intended_vs_upstream_tvd": 0.021212331731178268,
+        "non_identity_operators": 15,
+        "probability_parameter": 0.22,
+        "upstream_effective_total_error_probability": 0.19878766826882255,
+        "upstream_operator_probabilities": {
+          "0": 0.8012123317311775,
+          "1": 0.014666666666666666,
+          "10": 0.012840442689087673,
+          "11": 0.012652116196314386,
+          "12": 0.012466551825435108,
+          "13": 0.012283709065328725,
+          "14": 0.012103547999037238,
+          "15": 0.011926029295051356,
+          "2": 0.014451555555555554,
+          "3": 0.014239599407407407,
+          "4": 0.014030751949432096,
+          "5": 0.013824967587507092,
+          "6": 0.013622201396223653,
+          "7": 0.013422409109079039,
+          "8": 0.013225547108812546,
+          "9": 0.013031572417883296
+        }
+      }
+    ],
+    "upstream_fixed_path_audit": {
+      "cases": [
+        {
+          "case_id": "2q_asymmetric_x",
+          "cudaq_actual_shots": 32768,
+          "cudaq_vs_conditioned_tvd": 0.0001024027095757607,
+          "cudaq_z_expectation_error": 0.00020480541915146588,
+          "fixed_logical_qubits": 1,
+          "requested_shots_per_trajectory": 512,
+          "tn_actual_shots": 32770,
+          "tn_vs_conditioned_tvd": 4.784113952827074e-06,
+          "tn_vs_cudaq_tvd": 0.00010718682352858777,
+          "tn_z_expectation_error": 9.568227905654147e-06,
+          "trajectories": 64,
+          "unique_trajectories": 2
+        },
+        {
+          "case_id": "3q_depolarizing1",
+          "cudaq_actual_shots": 32768,
+          "cudaq_vs_conditioned_tvd": 0.0022849875825060595,
+          "cudaq_z_expectation_error": 0.002853329236274127,
+          "fixed_logical_qubits": 2,
+          "requested_shots_per_trajectory": 512,
+          "tn_actual_shots": 32776,
+          "tn_vs_conditioned_tvd": 0.00012325788807932003,
+          "tn_vs_cudaq_tvd": 0.0022233586384663995,
+          "tn_z_expectation_error": 0.00024651577615852904,
+          "trajectories": 64,
+          "unique_trajectories": 4
+        },
+        {
+          "case_id": "4q_two_channels",
+          "cudaq_actual_shots": 32768,
+          "cudaq_vs_conditioned_tvd": 0.00467493198111214,
+          "cudaq_z_expectation_error": 0.007208302633258112,
+          "fixed_logical_qubits": 2,
+          "requested_shots_per_trajectory": 512,
+          "tn_actual_shots": 32775,
+          "tn_vs_conditioned_tvd": 0.0004108264357372132,
+          "tn_vs_cudaq_tvd": 0.004628769374821217,
+          "tn_z_expectation_error": 0.0006034085727842364,
+          "trajectories": 64,
+          "unique_trajectories": 7
+        },
+        {
+          "case_id": "5q_depolarizing2",
+          "cudaq_actual_shots": 32768,
+          "cudaq_vs_conditioned_tvd": 0.006180516042596909,
+          "cudaq_z_expectation_error": 0.0004754653172143186,
+          "fixed_logical_qubits": 2,
+          "requested_shots_per_trajectory": 512,
+          "tn_actual_shots": 32786,
+          "tn_vs_conditioned_tvd": 0.002765234538220248,
+          "tn_vs_cudaq_tvd": 0.00604919906445872,
+          "tn_z_expectation_error": 0.00032608127896249783,
+          "trajectories": 64,
+          "unique_trajectories": 9
+        }
+      ],
+      "fixed_logical_qubits": "min(2, nqubits - 1)",
+      "shots_per_trajectory": 512,
+      "trajectory_count": 64
+    },
+    "upstream_gate_semantics_audit": {
+      "cases": [
+        {
+          "case_id": "one_qubit_gate_family",
+          "cudaq_vs_exact_tvd": 0.0002674101879761859,
+          "gates": [
+            "h",
+            "t",
+            "x",
+            "y",
+            "z",
+            "rx",
+            "h"
+          ],
+          "nqubits": 2,
+          "tn_vs_cudaq_tvd": 0.00628662109375,
+          "tn_vs_exact_tvd": 0.006019210905773814
+        },
+        {
+          "case_id": "controlled_cx",
+          "cudaq_vs_exact_tvd": 0.011606628659232896,
+          "gates": [
+            "rx",
+            "rx",
+            "cx",
+            "h",
+            "rx"
+          ],
+          "nqubits": 2,
+          "tn_vs_cudaq_tvd": 0.011213698516650147,
+          "tn_vs_exact_tvd": 0.00039863992752541157
+        },
+        {
+          "case_id": "controlled_cy",
+          "cudaq_vs_exact_tvd": 0.00634765625,
+          "gates": [
+            "rx",
+            "rx",
+            "cy",
+            "h",
+            "rx"
+          ],
+          "nqubits": 2,
+          "tn_vs_cudaq_tvd": 0.007964989176457132,
+          "tn_vs_exact_tvd": 0.0038144644491913404
+        },
+        {
+          "case_id": "controlled_cz",
+          "cudaq_vs_exact_tvd": 0.0047485967145211305,
+          "gates": [
+            "rx",
+            "rx",
+            "cz",
+            "h",
+            "rx"
+          ],
+          "nqubits": 2,
+          "tn_vs_cudaq_tvd": 0.011080583392537001,
+          "tn_vs_exact_tvd": 0.006682941714983216
+        },
+        {
+          "case_id": "controlled_ch",
+          "cudaq_vs_exact_tvd": 0.005140804457812837,
+          "gates": [
+            "rx",
+            "rx",
+            "ch",
+            "h",
+            "rx"
+          ],
+          "nqubits": 2,
+          "tn_vs_cudaq_tvd": 0.005167288106499857,
+          "tn_vs_exact_tvd": 0.0004577357339029754
+        },
+        {
+          "case_id": "controlled_crx",
+          "cudaq_vs_exact_tvd": 0.004917638200253802,
+          "gates": [
+            "rx",
+            "rx",
+            "crx",
+            "h",
+            "rx"
+          ],
+          "nqubits": 2,
+          "tn_vs_cudaq_tvd": 0.003549273493524928,
+          "tn_vs_exact_tvd": 0.003936527311565456
+        }
+      ],
+      "shots_per_backend": 16384
+    },
+    "upstream_trajectory_deduplication_audit": {
+      "case_id": "2q_asymmetric_x",
+      "distribution_tvd_from_reweighting": 0.005726237722937011,
+      "draws": 64,
+      "intended_multiplicities": {
+        "(0,)": 54,
+        "(1,)": 10
+      },
+      "retained_entries": 61,
+      "retained_multiplicities": {
+        "(0,)": 51,
+        "(1,)": 10
+      }
+    }
+  },
+  "parameters": {
+    "bitstring_convention": "q0 first",
+    "cudaq_target": "nvidia fp32",
+    "max_free_qubits": 2,
+    "null_quantile": 0.999,
+    "null_trials": 2000,
+    "shots_per_trajectory": 64,
+    "tn_dtype": "complex128",
+    "trajectory_counts": [
+      16,
+      64,
+      256,
+      1024
+    ],
+    "trajectory_sampling": "categorical Kraus alternatives; grouped with exact multiplicity"
+  },
+  "schema_version": 1,
+  "software": {
+    "packages": {
+      "cuda-quantum-cu12": "0.13.0",
+      "cupy-cuda12x": "13.6.0",
+      "cuquantum-python-cu12": "26.1.0",
+      "mpi4py": "4.1.0",
+      "numpy": "1.26.4",
+      "qiskit": "2.2.3",
+      "scipy": "1.16.2"
+    },
+    "python": "3.11.16"
+  },
+  "timestamp_utc": "2026-09-10T21:28:30Z",
+  "upstream_commit": "0569f848d9a3e385d6c20162c534a8031f6a69c5"
+}

@@ -1,4 +1,4 @@
-# Q-Tensor executive summary — Phase 0/1
+# Q-Tensor executive summary — statistical gate
 
 ## Problem
 
@@ -13,23 +13,25 @@ especially for non-proportional unique-data harvesting.
 
 ## What Q-Tensor independently tested
 
-Q-Tensor ran the pinned public code's gate mapping, merged-error contraction, and small
-end-to-end comparison on a local RTX 5090 under WSL2.
+Q-Tensor ran the pinned public code's gate mapping and merged-error checks, then built
+an independent exact density-matrix suite for four frozen 2--5 qubit circuits.
 
 ## RTX 5090 result
 
-The exact complex128 merged-error contraction passed on Blackwell. The full small
-workflow executed, but its distribution criterion failed (TVD 0.3039 > 0.15).
+The exact complex128 merged-error contraction passed on Blackwell. The seeded
+proportional suite passed all 48 calibrated TN/reference, CUDA-Q/reference, and
+TN/CUDA-Q comparisons.
 
 ## What caused the performance difference
 
-Not yet measured by Q-Tensor. Upstream attributes its gains to path reuse, removal of
-duplicate prefix contractions, and batch-size optimization.
+Not yet measured by Q-Tensor. Performance work remains intentionally blocked until the
+validated trajectory and cache semantics are used by a fair baseline.
 
 ## Statistical finding
 
-The supplied end-to-end script can exit successfully after printing statistical
-failure. Q-Tensor therefore treats execution and distribution validity as separate gates.
+The prior TVD failure came from CUDA-Q files cached by trajectory serial number and
+reused for a newly randomized circuit. A clean run passed at TVD 0.0643; a stale-cache
+rerun failed at 0.2101 while still exiting 0. Q-Tensor now fails that condition strictly.
 
 ## Downstream demonstration
 
@@ -37,15 +39,15 @@ Not attempted; sample semantics must pass first.
 
 ## What this means
 
-The RTX 5090 is software-compatible with the core upstream stack, but no Q-Tensor
-speedup or scientific sampling claim is justified yet.
+The corrected Q-Tensor proportional path is a valid small-circuit reference workflow.
+This clears a carefully semantics-matched first baseline, not a speedup claim.
 
 ## Limitations
 
-The H100 paper configurations were not rerun; Docker is not integrated in this WSL;
-the local GPU has much less memory; and the upstream smoke circuit is unseeded.
+The H100 paper configurations were not rerun; validation stops at five qubits; and the
+upstream PTS helper still samples depolarizing alternatives and duplicates incorrectly.
 
 ## Next experiment
 
-Use a frozen small circuit with an exact density-matrix reference, sweep seeded
-trajectory count, establish convergence, then time a semantics-matched CUDA-Q baseline.
+Time CUDA-Q explicit trajectories against TN proportional batching using the exact
+same frozen circuit, trajectory multiplicities, and shots, with validation as a gate.

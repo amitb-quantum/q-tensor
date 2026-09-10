@@ -39,6 +39,13 @@ noise patterns and requests 1,000 shots per pattern. Because it neither seeds th
 nor exits nonzero when `passed` is false, the wall time and TVD are diagnostic only.
 They are retained to explain Gate 4; they are not a validated scientific result.
 
+The subsequent seeded investigation resolved this diagnostic. Generated CUDA-Q files
+are reused by trajectory serial number even when the unseeded test has generated a new
+circuit and noise set. In an isolated directory, a clean run passed at TVD 0.0643 and
+the immediate stale-cache rerun failed at TVD 0.2101; both official processes exited
+0. See [`STATISTICAL_VALIDATION.md`](STATISTICAL_VALIDATION.md) for the minimized
+two-qubit reproduction, strict failure wrapper, and exact-reference PASS result.
+
 ## Reproduce the bounded core smoke
 
 ```bash

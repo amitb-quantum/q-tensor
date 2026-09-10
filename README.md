@@ -12,19 +12,21 @@ local RTX 5090, and which sampling guarantees survive each acceleration mode.
 
 ## Current finding
 
-**Core Blackwell execution works; end-to-end statistical agreement is not yet
-established.** The pinned NVIDIA code ran its complex128 gate-map and merged-error
-contraction checks on the RTX 5090. Its unseeded end-to-end comparison also executed,
-but the captured distribution check failed. No speedup claim is published.
+**The corrected proportional path passes seeded exact-reference validation.** Four
+frozen 2--5 qubit cases passed all 48 TN/reference, CUDA-Q/reference, and TN/CUDA-Q
+finite-shot checks. The earlier upstream failure was reproduced as stale CUDA-Q output
+reuse across newly randomized circuits. No speedup claim is published.
 
 | Category | Local RTX 5090 observation | Status |
 |---|---|---:|
 | **REPRODUCED RESULT** | Official gate-map check, 3.24 s process wall time | PASS |
 | **REPRODUCED RESULT** | Official separated-vs-merged error contraction, `allclose=True`, 3.15 s | PASS |
-| **REPRODUCED DIAGNOSTIC** | 10,015 TN vs 10,000 CUDA-Q samples; TVD 0.3039 vs 0.15 threshold | FAIL |
+| **Q-TENSOR ORIGINAL RESULT** | Seeded 2--5 qubit exact-reference suite; 48/48 calibrated checks | PASS |
+| **REPRODUCED DIAGNOSTIC** | Clean upstream run TVD 0.0643; stale-cache rerun TVD 0.2101 | PASS then FAIL |
 
 The timings include interpreter startup/imports and are smoke diagnostics, not GPU
-kernel benchmarks. See [the complete smoke record](reports/SMOKE_TEST.md).
+kernel benchmarks. See the [statistical validation](reports/STATISTICAL_VALIDATION.md)
+and [complete smoke record](reports/SMOKE_TEST.md).
 
 ## What Q-Tensor tests
 
@@ -49,6 +51,9 @@ python scripts/fetch_upstream.py
 pytest
 python scripts/run_upstream_smoke.py \
   --output results/smoke/latest_upstream_core.json
+PYTHONPATH=src python scripts/run_statistical_validation.py \
+  --upstream upstream/Accelerated_TN_PTSBE \
+  --output results/statistical_validation/latest.json
 ```
 
 The upstream checkout is detached at
@@ -66,6 +71,7 @@ Q_TENSOR_UPSTREAM="$PWD/upstream/Accelerated_TN_PTSBE" pytest -m gpu
 - [Upstream source, revision, dependencies, and licenses](docs/UPSTREAM.md)
 - [Project worklog](docs/WORKLOG.md)
 - [Executive summary](reports/EXECUTIVE_SUMMARY.md)
+- [Seeded exact-reference statistical validation](reports/STATISTICAL_VALIDATION.md)
 
 Every saved result uses one of three labels: `UPSTREAM CLAIM`, `REPRODUCED RESULT`, or
 `Q-TENSOR ORIGINAL RESULT`. The machine-readable schema requires hardware, software,
@@ -81,9 +87,10 @@ Upstream source and paper results are not vendored or relabeled as Q-Tensor resu
 ## Limitations
 
 The paper's H100 80 GB campaigns have not been rerun. This WSL distribution has no
-Docker integration, no system CUDA toolkit, and no Nsight Compute. The wheel-based core
-path works, but the first end-to-end statistical gate failed and must be understood
-before baseline timing, scaling, or downstream claims.
+Docker integration, no system CUDA toolkit, and no Nsight Compute. Validation is
+limited to small exact-reference cases. The unmodified upstream trajectory generator
+has cache, depolarizing-channel, and multiplicity defects, so Q-Tensor does not use it
+for scientific or benchmark claims.
 
 ## Repository structure
 
