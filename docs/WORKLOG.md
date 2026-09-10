@@ -59,3 +59,24 @@ speedup benchmark.
   does not use those behaviors.
 - Gate 4 passes for the corrected bounded proportional path. No performance measurement
   or speedup claim was made.
+
+## 2026-09-10 — First fair RTX 5090 comparison
+
+- Selected the validated five-qubit two-qubit-depolarizing case and swept trajectory
+  count only: 16, 64, 256, 1,024, and 4,096 draws with 64 shots per draw.
+- Attempted TN complex64/CUDA-Q fp32 first. The unmodified TN sampler rejected its own
+  hard-coded complex128 projection tensors, so no timing was retained. Switched both
+  methods to supported double precision: TN complex128 and CUDA-Q fp64.
+- Preserved the same seeded categorical trajectory prefixes, exact multiplicities,
+  noise operators, and total effective shots for both backends.
+- Isolated sweep points in fresh processes and alternated backend order across five
+  steady repetitions. Kept setup/path/compile, steady execution, and host sampling/
+  post-processing distinct where the backend APIs expose them.
+- All 15 exact-conditioned statistical gates passed. The plotter refuses invalid data.
+- Observed no crossover. At 4,096 trajectories, median TN time was 0.659389 s versus
+  0.056128 s for explicit CUDA-Q: baseline/TN = 0.08512x, or TN 11.75x slower.
+  Effective throughputs were 397,556 and 4,670,460 shots/s, respectively.
+- TN GPU contractions dominated the largest point (0.594723 s, about 90.2% of steady
+  total); host sampling was about 2.6%. Coarse telemetry showed low sustained GPU use.
+- Decision: do not launch a broad trajectory-only sweep. Next, run one bounded pilot
+  at greater circuit complexity while retaining exact-reference validation.

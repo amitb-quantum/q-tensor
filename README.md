@@ -14,8 +14,9 @@ local RTX 5090, and which sampling guarantees survive each acceleration mode.
 
 **The corrected proportional path passes seeded exact-reference validation.** Four
 frozen 2--5 qubit cases passed all 48 TN/reference, CUDA-Q/reference, and TN/CUDA-Q
-finite-shot checks. The earlier upstream failure was reproduced as stale CUDA-Q output
-reuse across newly randomized circuits. No speedup claim is published.
+finite-shot checks. In the first matched-precision five-qubit performance comparison,
+TN did not cross CUDA-Q through 4,096 trajectories. The result is a bounded negative
+measurement, not a general simulator claim.
 
 | Category | Local RTX 5090 observation | Status |
 |---|---|---:|
@@ -23,10 +24,12 @@ reuse across newly randomized circuits. No speedup claim is published.
 | **REPRODUCED RESULT** | Official separated-vs-merged error contraction, `allclose=True`, 3.15 s | PASS |
 | **Q-TENSOR ORIGINAL RESULT** | Seeded 2--5 qubit exact-reference suite; 48/48 calibrated checks | PASS |
 | **REPRODUCED DIAGNOSTIC** | Clean upstream run TVD 0.0643; stale-cache rerun TVD 0.2101 | PASS then FAIL |
+| **Q-TENSOR ORIGINAL RESULT** | 4,096 trajectories: TN 0.659389 s; CUDA-Q 0.056128 s; baseline/TN 0.08512x | NO CROSSOVER |
 
-The timings include interpreter startup/imports and are smoke diagnostics, not GPU
-kernel benchmarks. See the [statistical validation](reports/STATISTICAL_VALIDATION.md)
-and [complete smoke record](reports/SMOKE_TEST.md).
+The smoke timings include interpreter startup/imports and are not GPU kernel
+benchmarks. See the [statistical validation](reports/STATISTICAL_VALIDATION.md),
+[performance analysis](reports/PERFORMANCE_ANALYSIS.md), and
+[complete smoke record](reports/SMOKE_TEST.md).
 
 ## What Q-Tensor tests
 
@@ -72,6 +75,7 @@ Q_TENSOR_UPSTREAM="$PWD/upstream/Accelerated_TN_PTSBE" pytest -m gpu
 - [Project worklog](docs/WORKLOG.md)
 - [Executive summary](reports/EXECUTIVE_SUMMARY.md)
 - [Seeded exact-reference statistical validation](reports/STATISTICAL_VALIDATION.md)
+- [First fair RTX 5090 performance comparison](reports/PERFORMANCE_ANALYSIS.md)
 
 Every saved result uses one of three labels: `UPSTREAM CLAIM`, `REPRODUCED RESULT`, or
 `Q-TENSOR ORIGINAL RESULT`. The machine-readable schema requires hardware, software,

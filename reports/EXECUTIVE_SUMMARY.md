@@ -24,8 +24,9 @@ TN/CUDA-Q comparisons.
 
 ## What caused the performance difference
 
-Not yet measured by Q-Tensor. Performance work remains intentionally blocked until the
-validated trajectory and cache semantics are used by a fair baseline.
+For the first five-qubit comparison, explicit CUDA-Q remained cheaper than TN's 37--208
+conditional contractions. At 4,096 trajectories, GPU contractions accounted for about
+90% of TN steady time; path planning and host sampling were not dominant.
 
 ## Statistical finding
 
@@ -39,8 +40,9 @@ Not attempted; sample semantics must pass first.
 
 ## What this means
 
-The corrected Q-Tensor proportional path is a valid small-circuit reference workflow.
-This clears a carefully semantics-matched first baseline, not a speedup claim.
+The corrected path is statistically valid, but the first fair benchmark found no
+crossover. At 4,096 trajectories, baseline/TN was 0.08512x: TN was 11.75x slower on
+this small circuit. This is a bounded negative result, not a general simulator claim.
 
 ## Limitations
 
@@ -49,5 +51,5 @@ upstream PTS helper still samples depolarizing alternatives and duplicates incor
 
 ## Next experiment
 
-Time CUDA-Q explicit trajectories against TN proportional batching using the exact
-same frozen circuit, trajectory multiplicities, and shots, with validation as a gate.
+Run one bounded higher-complexity pilot with exact validation. Do not expand the sweep
+unless TN approaches or crosses the CUDA-Q baseline.

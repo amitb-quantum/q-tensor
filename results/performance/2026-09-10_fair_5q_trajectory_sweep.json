@@ -1,0 +1,2202 @@
+{
+  "category": "q_tensor_original",
+  "command": [
+    "/home/manager/miniforge3/envs/q-tensor/bin/python",
+    "/mnt/c/Users/amitb/Documents/Q-Tensor/scripts/run_fair_benchmark.py",
+    "--upstream",
+    "/home/manager/q-tensor/upstream/Accelerated_TN_PTSBE",
+    "--output",
+    "results/performance/2026-09-10_fair_5q_trajectory_sweep.json",
+    "--trajectory-counts",
+    "16",
+    "64",
+    "256",
+    "1024",
+    "4096",
+    "--shots-per-trajectory",
+    "64",
+    "--repeats",
+    "5",
+    "--null-trials",
+    "1000"
+  ],
+  "experiment_id": "fair-5q-trajectory-sweep-v1",
+  "git_commit": "969c46b64ce762f47633b691874e9c2e3058dd4a",
+  "hardware": {
+    "compute_capability": "12.0",
+    "cuda_driver_api": 13030,
+    "cuda_runtime": 12090,
+    "name": "NVIDIA GeForce RTX 5090",
+    "sm_count": 170,
+    "total_global_memory_bytes": 34190458880
+  },
+  "measurements": {
+    "all_timing_points_passed_validation": true,
+    "conclusion": "PASS",
+    "first_crossover_trajectories": null,
+    "points": [
+      {
+        "cold_setup_comparison_note": "reported as components only; no cold speedup is computed because TN initializes the shared GPU context before CUDA-Q within each isolated worker",
+        "common_input_preparation_seconds": 0.007670425999094732,
+        "cudaq": {
+          "first_steady_total_seconds": 0.0021312049793777987,
+          "host_postprocess": {
+            "max_seconds": 0.0002957760007120669,
+            "median_absolute_deviation_seconds": 1.7384998500347137e-05,
+            "median_seconds": 8.78610007930547e-05,
+            "min_seconds": 5.457700171973556e-05,
+            "repeats": 5
+          },
+          "raw_postprocess_seconds": [
+            0.0002957760007120669,
+            7.047600229270756e-05,
+            8.78610007930547e-05,
+            5.457700171973556e-05,
+            8.876498031895608e-05
+          ],
+          "raw_sample_call_seconds": [
+            0.0018354289786657318,
+            0.0031329679914051667,
+            0.002078071003779769,
+            0.0016641709953546524,
+            0.0020714599959319457
+          ],
+          "sample_call_including_device_sampling": {
+            "max_seconds": 0.0031329679914051667,
+            "median_absolute_deviation_seconds": 0.0002360310172662139,
+            "median_seconds": 0.0020714599959319457,
+            "min_seconds": 0.0016641709953546524,
+            "repeats": 5
+          },
+          "sampling_split_available": false,
+          "sampling_split_note": "CUDA-Q 0.13 cudaq.sample combines trajectory execution and device sampling",
+          "setup_compilation": {
+            "compile_warmup_seconds": 0.07797892499365844,
+            "context_note": "TN initialized the process CUDA context before this measurement",
+            "kernel_build_seconds": 0.00967169700015802,
+            "target_initialization_seconds": 0.0007855630101403221,
+            "total_seconds": 0.08843618500395678
+          },
+          "steady_total": {
+            "max_seconds": 0.0032034439936978742,
+            "median_absolute_deviation_seconds": 2.9019996873103082e-05,
+            "median_seconds": 0.002160224976250902,
+            "min_seconds": 0.001718747997074388,
+            "repeats": 5
+          }
+        },
+        "cudaq_effective_shots_per_second": 474024.7017128582,
+        "shots_per_trajectory": 64,
+        "steady_state_speedup_baseline_over_tn": 0.03464335860343505,
+        "telemetry": null,
+        "tn": {
+          "cold_first_use": {
+            "apply_errors_seconds": 0.3352427939971676,
+            "contractions": 37,
+            "gpu_contraction_seconds": 0.06949324667453767,
+            "host_postprocess_seconds": 9.505005436949432e-06,
+            "host_sampling_seconds": 0.0015233559970511124,
+            "setup_path_planning_seconds": 0.48566802201094106,
+            "steady_compute_orchestration_seconds": 0.4053007210168289,
+            "steady_loop_seconds": 0.40682407701388,
+            "steady_total_seconds": 0.40683358201931696,
+            "upstream_profile": {
+              "final_nshots": 64,
+              "largest_intermediate_batch0": 16.0,
+              "max_free_qubits": 2,
+              "nshots": 64,
+              "num_batches": 3,
+              "num_contractions": 37,
+              "num_noise_samples": 3,
+              "num_qubits": 5,
+              "opt_cost_batch0": 632.0,
+              "q_tensor_postprocess_seconds": 9.505005436949432e-06,
+              "time_apply_errors_total": 0.3352427939971676,
+              "time_build_expr_operands": 0.4816778370004613,
+              "time_circuit_to_einsum": 0.003311648004455492,
+              "time_contract_cpu_total": 0.07097914900805335,
+              "time_contract_gpu_total": 0.06949324667453767,
+              "time_contraction_loop": 0.40682407701388,
+              "time_load_circuit": 0.0006785370060242712,
+              "time_per_contract_gpu_avg": 0.0018781958560685856,
+              "time_per_contraction_loop_avg": 0.010995245324699459
+            },
+            "wall_seconds": 1.3066645539947785
+          },
+          "components": {
+            "apply_errors_seconds": {
+              "max_seconds": 0.01250658294884488,
+              "median_absolute_deviation_seconds": 2.9681992600671947e-05,
+              "median_seconds": 0.012403329004882835,
+              "min_seconds": 0.011130763989058323,
+              "repeats": 5
+            },
+            "gpu_contraction_seconds": {
+              "max_seconds": 0.04732918393611908,
+              "median_absolute_deviation_seconds": 0.00030703985691071106,
+              "median_seconds": 0.04702214407920837,
+              "min_seconds": 0.0420348162651062,
+              "repeats": 5
+            },
+            "host_postprocess_seconds": {
+              "max_seconds": 9.16000863071531e-06,
+              "median_absolute_deviation_seconds": 5.710026016458869e-07,
+              "median_seconds": 8.210001396946609e-06,
+              "min_seconds": 7.638998795300722e-06,
+              "repeats": 5
+            },
+            "host_sampling_seconds": {
+              "max_seconds": 0.0014400539948837832,
+              "median_absolute_deviation_seconds": 1.1092997738160193e-05,
+              "median_seconds": 0.0013593710027635098,
+              "min_seconds": 0.0013249469629954547,
+              "repeats": 5
+            },
+            "setup_path_planning_seconds": {
+              "max_seconds": 0.047367669991217554,
+              "median_absolute_deviation_seconds": 0.0004268790071364492,
+              "median_seconds": 0.04481802199734375,
+              "min_seconds": 0.04218969999055844,
+              "repeats": 5
+            },
+            "steady_compute_orchestration_seconds": {
+              "max_seconds": 0.061174514004960656,
+              "median_absolute_deviation_seconds": 0.0002660999889485538,
+              "median_seconds": 0.0609084140160121,
+              "min_seconds": 0.05442851304542273,
+              "repeats": 5
+            },
+            "steady_loop_seconds": {
+              "max_seconds": 0.06253388500772417,
+              "median_absolute_deviation_seconds": 0.0001854169968282804,
+              "median_seconds": 0.062348468010895886,
+              "min_seconds": 0.05575346000841819,
+              "repeats": 5
+            },
+            "steady_total_seconds": {
+              "max_seconds": 0.06254189200990368,
+              "median_absolute_deviation_seconds": 0.00018578500021249056,
+              "median_seconds": 0.062356107009691186,
+              "min_seconds": 0.055761670009815134,
+              "repeats": 5
+            },
+            "wall_seconds": {
+              "max_seconds": 0.11006897299375851,
+              "median_absolute_deviation_seconds": 0.0030979759903857484,
+              "median_seconds": 0.10697099700337276,
+              "min_seconds": 0.10120926798845176,
+              "repeats": 5
+            }
+          },
+          "contractions": 37,
+          "first_repeat": {
+            "apply_errors_seconds": 0.0124125330185052,
+            "contractions": 37,
+            "gpu_contraction_seconds": 0.04530265569686889,
+            "host_postprocess_seconds": 9.16000863071531e-06,
+            "host_sampling_seconds": 0.0013696430396521464,
+            "setup_path_planning_seconds": 0.04218969999055844,
+            "steady_compute_orchestration_seconds": 0.05923385095957201,
+            "steady_loop_seconds": 0.060603493999224156,
+            "steady_total_seconds": 0.06061265400785487,
+            "upstream_profile": {
+              "final_nshots": 64,
+              "largest_intermediate_batch0": 16.0,
+              "max_free_qubits": 2,
+              "nshots": 64,
+              "num_batches": 3,
+              "num_contractions": 37,
+              "num_noise_samples": 3,
+              "num_qubits": 5,
+              "opt_cost_batch0": 632.0,
+              "q_tensor_postprocess_seconds": 9.16000863071531e-06,
+              "time_apply_errors_total": 0.0124125330185052,
+              "time_build_expr_operands": 0.03965704998699948,
+              "time_circuit_to_einsum": 0.0020502249972196296,
+              "time_contract_cpu_total": 0.04764057006104849,
+              "time_contract_gpu_total": 0.04530265569686889,
+              "time_contraction_loop": 0.060603493999224156,
+              "time_load_circuit": 0.0004824250063393265,
+              "time_per_contract_gpu_avg": 0.0012243960999153754,
+              "time_per_contraction_loop_avg": 0.0016379322702493016
+            },
+            "wall_seconds": 0.10315183900820557
+          },
+          "raw_repeats": [
+            {
+              "apply_errors_seconds": 0.0124125330185052,
+              "contractions": 37,
+              "gpu_contraction_seconds": 0.04530265569686889,
+              "host_postprocess_seconds": 9.16000863071531e-06,
+              "host_sampling_seconds": 0.0013696430396521464,
+              "setup_path_planning_seconds": 0.04218969999055844,
+              "steady_compute_orchestration_seconds": 0.05923385095957201,
+              "steady_loop_seconds": 0.060603493999224156,
+              "steady_total_seconds": 0.06061265400785487,
+              "upstream_profile": {
+                "final_nshots": 64,
+                "largest_intermediate_batch0": 16.0,
+                "max_free_qubits": 2,
+                "nshots": 64,
+                "num_batches": 3,
+                "num_contractions": 37,
+                "num_noise_samples": 3,
+                "num_qubits": 5,
+                "opt_cost_batch0": 632.0,
+                "q_tensor_postprocess_seconds": 9.16000863071531e-06,
+                "time_apply_errors_total": 0.0124125330185052,
+                "time_build_expr_operands": 0.03965704998699948,
+                "time_circuit_to_einsum": 0.0020502249972196296,
+                "time_contract_cpu_total": 0.04764057006104849,
+                "time_contract_gpu_total": 0.04530265569686889,
+                "time_contraction_loop": 0.060603493999224156,
+                "time_load_circuit": 0.0004824250063393265,
+                "time_per_contract_gpu_avg": 0.0012243960999153754,
+                "time_per_contraction_loop_avg": 0.0016379322702493016
+              },
+              "wall_seconds": 0.10315183900820557
+            },
+            {
+              "apply_errors_seconds": 0.012403329004882835,
+              "contractions": 37,
+              "gpu_contraction_seconds": 0.04702214407920837,
+              "host_postprocess_seconds": 8.9270033640787e-06,
+              "host_sampling_seconds": 0.0013482780050253496,
+              "setup_path_planning_seconds": 0.047367669991217554,
+              "steady_compute_orchestration_seconds": 0.06112466999911703,
+              "steady_loop_seconds": 0.06247294800414238,
+              "steady_total_seconds": 0.06248187500750646,
+              "upstream_profile": {
+                "final_nshots": 64,
+                "largest_intermediate_batch0": 16.0,
+                "max_free_qubits": 2,
+                "nshots": 64,
+                "num_batches": 3,
+                "num_contractions": 37,
+                "num_noise_samples": 3,
+                "num_qubits": 5,
+                "opt_cost_batch0": 632.0,
+                "q_tensor_postprocess_seconds": 8.9270033640787e-06,
+                "time_apply_errors_total": 0.012403329004882835,
+                "time_build_expr_operands": 0.04355217299598735,
+                "time_circuit_to_einsum": 0.0034677509975153953,
+                "time_contract_cpu_total": 0.049475553998490795,
+                "time_contract_gpu_total": 0.04702214407920837,
+                "time_contraction_loop": 0.06247294800414238,
+                "time_load_circuit": 0.0003477459977148101,
+                "time_per_contract_gpu_avg": 0.0012708687588975235,
+                "time_per_contraction_loop_avg": 0.0016884580541660103
+              },
+              "wall_seconds": 0.11006897299375851
+            },
+            {
+              "apply_errors_seconds": 0.01250658294884488,
+              "contractions": 37,
+              "gpu_contraction_seconds": 0.04732918393611908,
+              "host_postprocess_seconds": 8.007002179510891e-06,
+              "host_sampling_seconds": 0.0013593710027635098,
+              "setup_path_planning_seconds": 0.04481802199734375,
+              "steady_compute_orchestration_seconds": 0.061174514004960656,
+              "steady_loop_seconds": 0.06253388500772417,
+              "steady_total_seconds": 0.06254189200990368,
+              "upstream_profile": {
+                "final_nshots": 64,
+                "largest_intermediate_batch0": 16.0,
+                "max_free_qubits": 2,
+                "nshots": 64,
+                "num_batches": 3,
+                "num_contractions": 37,
+                "num_noise_samples": 3,
+                "num_qubits": 5,
+                "opt_cost_batch0": 632.0,
+                "q_tensor_postprocess_seconds": 8.007002179510891e-06,
+                "time_apply_errors_total": 0.01250658294884488,
+                "time_build_expr_operands": 0.042085129985935055,
+                "time_circuit_to_einsum": 0.0023827190016163513,
+                "time_contract_cpu_total": 0.049435884997365065,
+                "time_contract_gpu_total": 0.04732918393611908,
+                "time_contraction_loop": 0.06253388500772417,
+                "time_load_circuit": 0.0003501730097923428,
+                "time_per_contract_gpu_avg": 0.0012791671334086239,
+                "time_per_contraction_loop_avg": 0.0016901050002087613
+              },
+              "wall_seconds": 0.10755285000777803
+            },
+            {
+              "apply_errors_seconds": 0.011130763989058323,
+              "contractions": 35,
+              "gpu_contraction_seconds": 0.0420348162651062,
+              "host_postprocess_seconds": 8.210001396946609e-06,
+              "host_sampling_seconds": 0.0013249469629954547,
+              "setup_path_planning_seconds": 0.04520592201151885,
+              "steady_compute_orchestration_seconds": 0.05442851304542273,
+              "steady_loop_seconds": 0.05575346000841819,
+              "steady_total_seconds": 0.055761670009815134,
+              "upstream_profile": {
+                "final_nshots": 64,
+                "largest_intermediate_batch0": 16.0,
+                "max_free_qubits": 2,
+                "nshots": 64,
+                "num_batches": 3,
+                "num_contractions": 35,
+                "num_noise_samples": 3,
+                "num_qubits": 5,
+                "opt_cost_batch0": 632.0,
+                "q_tensor_postprocess_seconds": 8.210001396946609e-06,
+                "time_apply_errors_total": 0.011130763989058323,
+                "time_build_expr_operands": 0.04284884400840383,
+                "time_circuit_to_einsum": 0.0020211500086588785,
+                "time_contract_cpu_total": 0.044003304952639155,
+                "time_contract_gpu_total": 0.0420348162651062,
+                "time_contraction_loop": 0.05575346000841819,
+                "time_load_circuit": 0.0003359279944561422,
+                "time_per_contract_gpu_avg": 0.0012009947504316057,
+                "time_per_contraction_loop_avg": 0.0015929560002405196
+              },
+              "wall_seconds": 0.10120926798845176
+            },
+            {
+              "apply_errors_seconds": 0.012373647012282163,
+              "contractions": 38,
+              "gpu_contraction_seconds": 0.047212671875953655,
+              "host_postprocess_seconds": 7.638998795300722e-06,
+              "host_sampling_seconds": 0.0014400539948837832,
+              "setup_path_planning_seconds": 0.0443911429902073,
+              "steady_compute_orchestration_seconds": 0.0609084140160121,
+              "steady_loop_seconds": 0.062348468010895886,
+              "steady_total_seconds": 0.062356107009691186,
+              "upstream_profile": {
+                "final_nshots": 64,
+                "largest_intermediate_batch0": 16.0,
+                "max_free_qubits": 2,
+                "nshots": 64,
+                "num_batches": 3,
+                "num_contractions": 38,
+                "num_noise_samples": 3,
+                "num_qubits": 5,
+                "opt_cost_batch0": 632.0,
+                "q_tensor_postprocess_seconds": 7.638998795300722e-06,
+                "time_apply_errors_total": 0.012373647012282163,
+                "time_build_expr_operands": 0.04205516100046225,
+                "time_circuit_to_einsum": 0.0018875559908337891,
+                "time_contract_cpu_total": 0.04934097299701534,
+                "time_contract_gpu_total": 0.047212671875953655,
+                "time_contraction_loop": 0.062348468010895886,
+                "time_load_circuit": 0.00044842599891126156,
+                "time_per_contract_gpu_avg": 0.0012424387335777276,
+                "time_per_contraction_loop_avg": 0.0016407491581814707
+              },
+              "wall_seconds": 0.10697099700337276
+            }
+          ]
+        },
+        "tn_effective_shots_per_second": 16421.807728324882,
+        "total_effective_shots": 1024,
+        "trajectories": 16,
+        "trajectory_multiplicities": {
+          "(0,)": 14,
+          "(1,)": 1,
+          "(11,)": 1
+        },
+        "unique_trajectories": 3,
+        "validation": {
+          "cudaq_vs_conditioned": {
+            "null_quantile": 0.999,
+            "null_tvd_limit": 0.06731209932935951,
+            "null_z_expectation_error_limit": 0.052761134204525884,
+            "passed": true,
+            "tvd": 0.018159199811249895,
+            "z_expectation_error": 0.007839259204525884
+          },
+          "passed": true,
+          "reference": "exact conditioned complex128 Kraus-branch statevector mixture",
+          "tn_vs_conditioned": {
+            "null_quantile": 0.999,
+            "null_tvd_limit": 0.07303520124969475,
+            "null_z_expectation_error_limit": 0.037136134204525884,
+            "passed": true,
+            "tvd": 0.043677319729478664,
+            "z_expectation_error": 0.0058326157954741165
+          },
+          "tn_vs_cudaq": {
+            "null_quantile": 0.999,
+            "null_tvd_limit": 0.091796875,
+            "null_z_expectation_difference_limit": 0.0546875,
+            "passed": true,
+            "tvd": 0.0556640625,
+            "z_expectation_difference": 0.013671875
+          },
+          "trajectory_vs_exact_channel_tvd": 0.0469972134646036,
+          "trajectory_vs_exact_channel_z_expectation_error": 0.014295685965958982
+        },
+        "worker_process_returncode": 0,
+        "worker_stderr_tail": "",
+        "worker_stdout_tail": "SWAPPING GATE ORDER WHEN CONSTRUCTING CIRCUIT BECAUSE QISKIT\nSWAPPING NOISE ORDER FOR TWO-QUBIT NOISE GATES BECAUSE QISKIT\n"
+      },
+      {
+        "cold_setup_comparison_note": "reported as components only; no cold speedup is computed because TN initializes the shared GPU context before CUDA-Q within each isolated worker",
+        "common_input_preparation_seconds": 0.0076349010050762445,
+        "cudaq": {
+          "first_steady_total_seconds": 0.004381963022751734,
+          "host_postprocess": {
+            "max_seconds": 0.00038620701525360346,
+            "median_absolute_deviation_seconds": 2.9072005418129265e-05,
+            "median_seconds": 0.00019495599553920329,
+            "min_seconds": 0.00010081501386594027,
+            "repeats": 5
+          },
+          "raw_postprocess_seconds": [
+            0.00038620701525360346,
+            0.00010081501386594027,
+            0.00020272099936846644,
+            0.00016588399012107402,
+            0.00019495599553920329
+          ],
+          "raw_sample_call_seconds": [
+            0.00399575600749813,
+            0.002743288001511246,
+            0.005824224994285032,
+            0.005258154997136444,
+            0.005773533004685305
+          ],
+          "sample_call_including_device_sampling": {
+            "max_seconds": 0.005824224994285032,
+            "median_absolute_deviation_seconds": 0.0005660699971485883,
+            "median_seconds": 0.005258154997136444,
+            "min_seconds": 0.002743288001511246,
+            "repeats": 5
+          },
+          "sampling_split_available": false,
+          "sampling_split_note": "CUDA-Q 0.13 cudaq.sample combines trajectory execution and device sampling",
+          "setup_compilation": {
+            "compile_warmup_seconds": 0.19562159800261725,
+            "context_note": "TN initialized the process CUDA context before this measurement",
+            "kernel_build_seconds": 0.029106558009516448,
+            "target_initialization_seconds": 0.0008903410052880645,
+            "total_seconds": 0.22561849701742176
+          },
+          "steady_total": {
+            "max_seconds": 0.006026945993653499,
+            "median_absolute_deviation_seconds": 0.0006029070063959807,
+            "median_seconds": 0.005424038987257518,
+            "min_seconds": 0.0028441030153771862,
+            "repeats": 5
+          }
+        },
+        "cudaq_effective_shots_per_second": 755156.8138840027,
+        "shots_per_trajectory": 64,
+        "steady_state_speedup_baseline_over_tn": 0.043172820586951884,
+        "telemetry": null,
+        "tn": {
+          "cold_first_use": {
+            "apply_errors_seconds": 0.41188261899515055,
+            "contractions": 111,
+            "gpu_contraction_seconds": 0.12922003096342086,
+            "host_postprocess_seconds": 2.1942993043921888e-05,
+            "host_sampling_seconds": 0.004189897939795628,
+            "setup_path_planning_seconds": 0.39288415099144913,
+            "steady_compute_orchestration_seconds": 0.5418157040548977,
+            "steady_loop_seconds": 0.5460056019946933,
+            "steady_total_seconds": 0.5460275449877372,
+            "upstream_profile": {
+              "final_nshots": 64,
+              "largest_intermediate_batch0": 16.0,
+              "max_free_qubits": 2,
+              "nshots": 64,
+              "num_batches": 3,
+              "num_contractions": 111,
+              "num_noise_samples": 9,
+              "num_qubits": 5,
+              "opt_cost_batch0": 632.0,
+              "q_tensor_postprocess_seconds": 2.1942993043921888e-05,
+              "time_apply_errors_total": 0.41188261899515055,
+              "time_build_expr_operands": 0.3894165149977198,
+              "time_circuit_to_einsum": 0.002763283991953358,
+              "time_contract_cpu_total": 0.13251542099169455,
+              "time_contract_gpu_total": 0.12922003096342086,
+              "time_contraction_loop": 0.5460056019946933,
+              "time_load_circuit": 0.0007043520017759874,
+              "time_per_contract_gpu_avg": 0.0011641444230938815,
+              "time_per_contraction_loop_avg": 0.004918969387339579
+            },
+            "wall_seconds": 1.3234695960127283
+          },
+          "components": {
+            "apply_errors_seconds": {
+              "max_seconds": 0.03385349603195209,
+              "median_absolute_deviation_seconds": 0.002869372983695939,
+              "median_seconds": 0.0207377969782101,
+              "min_seconds": 0.01786842399451416,
+              "repeats": 5
+            },
+            "gpu_contraction_seconds": {
+              "max_seconds": 0.12562537509202962,
+              "median_absolute_deviation_seconds": 0.007194848179817234,
+              "median_seconds": 0.09990780806541444,
+              "min_seconds": 0.0927129598855972,
+              "repeats": 5
+            },
+            "host_postprocess_seconds": {
+              "max_seconds": 8.859399531502277e-05,
+              "median_absolute_deviation_seconds": 1.4859979273751378e-06,
+              "median_seconds": 1.9450002582743764e-05,
+              "min_seconds": 1.531100133433938e-05,
+              "repeats": 5
+            },
+            "host_sampling_seconds": {
+              "max_seconds": 0.005122298971400596,
+              "median_absolute_deviation_seconds": 0.00021049304632470012,
+              "median_seconds": 0.0039013330242596567,
+              "min_seconds": 0.0036908399779349566,
+              "repeats": 5
+            },
+            "setup_path_planning_seconds": {
+              "max_seconds": 0.0549794819962699,
+              "median_absolute_deviation_seconds": 0.0010665510053513572,
+              "median_seconds": 0.05372392099525314,
+              "min_seconds": 0.05119440899579786,
+              "repeats": 5
+            },
+            "steady_compute_orchestration_seconds": {
+              "max_seconds": 0.16483671698370017,
+              "median_absolute_deviation_seconds": 0.01017773395869881,
+              "median_seconds": 0.12164557498181239,
+              "min_seconds": 0.11146784102311358,
+              "repeats": 5
+            },
+            "steady_loop_seconds": {
+              "max_seconds": 0.1692072659934638,
+              "median_absolute_deviation_seconds": 0.01037424401147291,
+              "median_seconds": 0.12554690800607204,
+              "min_seconds": 0.11517266399459913,
+              "repeats": 5
+            },
+            "steady_total_seconds": {
+              "max_seconds": 0.1692279709968716,
+              "median_absolute_deviation_seconds": 0.010447527005453594,
+              "median_seconds": 0.12563550200138707,
+              "min_seconds": 0.11518797499593347,
+              "repeats": 5
+            },
+            "wall_seconds": {
+              "max_seconds": 0.22326996499032248,
+              "median_absolute_deviation_seconds": 0.012267665995750576,
+              "median_seconds": 0.17896444999496453,
+              "min_seconds": 0.16669678399921395,
+              "repeats": 5
+            }
+          },
+          "contractions": 107,
+          "first_repeat": {
+            "apply_errors_seconds": 0.0207377969782101,
+            "contractions": 107,
+            "gpu_contraction_seconds": 0.0971574401855469,
+            "host_postprocess_seconds": 1.9450002582743764e-05,
+            "host_sampling_seconds": 0.0036908399779349566,
+            "setup_path_planning_seconds": 0.054790472000604495,
+            "steady_compute_orchestration_seconds": 0.11924503602494951,
+            "steady_loop_seconds": 0.12293587600288447,
+            "steady_total_seconds": 0.12295532600546721,
+            "upstream_profile": {
+              "final_nshots": 64,
+              "largest_intermediate_batch0": 16.0,
+              "max_free_qubits": 2,
+              "nshots": 64,
+              "num_batches": 3,
+              "num_contractions": 107,
+              "num_noise_samples": 9,
+              "num_qubits": 5,
+              "opt_cost_batch0": 632.0,
+              "q_tensor_postprocess_seconds": 1.9450002582743764e-05,
+              "time_apply_errors_total": 0.0207377969782101,
+              "time_build_expr_operands": 0.05179998899984639,
+              "time_circuit_to_einsum": 0.0025270570040447637,
+              "time_contract_cpu_total": 0.10055785099393688,
+              "time_contract_gpu_total": 0.0971574401855469,
+              "time_contraction_loop": 0.12293587600288447,
+              "time_load_circuit": 0.0004634259967133403,
+              "time_per_contract_gpu_avg": 0.0009080134596780084,
+              "time_per_contraction_loop_avg": 0.0011489334205877053
+            },
+            "wall_seconds": 0.17811532500491012
+          },
+          "raw_repeats": [
+            {
+              "apply_errors_seconds": 0.0207377969782101,
+              "contractions": 107,
+              "gpu_contraction_seconds": 0.0971574401855469,
+              "host_postprocess_seconds": 1.9450002582743764e-05,
+              "host_sampling_seconds": 0.0036908399779349566,
+              "setup_path_planning_seconds": 0.054790472000604495,
+              "steady_compute_orchestration_seconds": 0.11924503602494951,
+              "steady_loop_seconds": 0.12293587600288447,
+              "steady_total_seconds": 0.12295532600546721,
+              "upstream_profile": {
+                "final_nshots": 64,
+                "largest_intermediate_batch0": 16.0,
+                "max_free_qubits": 2,
+                "nshots": 64,
+                "num_batches": 3,
+                "num_contractions": 107,
+                "num_noise_samples": 9,
+                "num_qubits": 5,
+                "opt_cost_batch0": 632.0,
+                "q_tensor_postprocess_seconds": 1.9450002582743764e-05,
+                "time_apply_errors_total": 0.0207377969782101,
+                "time_build_expr_operands": 0.05179998899984639,
+                "time_circuit_to_einsum": 0.0025270570040447637,
+                "time_contract_cpu_total": 0.10055785099393688,
+                "time_contract_gpu_total": 0.0971574401855469,
+                "time_contraction_loop": 0.12293587600288447,
+                "time_load_circuit": 0.0004634259967133403,
+                "time_per_contract_gpu_avg": 0.0009080134596780084,
+                "time_per_contraction_loop_avg": 0.0011489334205877053
+              },
+              "wall_seconds": 0.17811532500491012
+            },
+            {
+              "apply_errors_seconds": 0.03227238592808135,
+              "contractions": 108,
+              "gpu_contraction_seconds": 0.1234860802292824,
+              "host_postprocess_seconds": 1.7964004655368626e-05,
+              "host_sampling_seconds": 0.005122298971400596,
+              "setup_path_planning_seconds": 0.0549794819962699,
+              "steady_compute_orchestration_seconds": 0.15741203603101894,
+              "steady_loop_seconds": 0.16253433500241954,
+              "steady_total_seconds": 0.1625522990070749,
+              "upstream_profile": {
+                "final_nshots": 64,
+                "largest_intermediate_batch0": 16.0,
+                "max_free_qubits": 2,
+                "nshots": 64,
+                "num_batches": 3,
+                "num_contractions": 108,
+                "num_noise_samples": 9,
+                "num_qubits": 5,
+                "opt_cost_batch0": 632.0,
+                "q_tensor_postprocess_seconds": 1.7964004655368626e-05,
+                "time_apply_errors_total": 0.03227238592808135,
+                "time_build_expr_operands": 0.05278430398902856,
+                "time_circuit_to_einsum": 0.001801894002710469,
+                "time_contract_cpu_total": 0.12791416801337618,
+                "time_contract_gpu_total": 0.1234860802292824,
+                "time_contraction_loop": 0.16253433500241954,
+                "time_load_circuit": 0.0003932840045308694,
+                "time_per_contract_gpu_avg": 0.0011433896317526147,
+                "time_per_contraction_loop_avg": 0.0015049475463186994
+              },
+              "wall_seconds": 0.2178443009906914
+            },
+            {
+              "apply_errors_seconds": 0.01960899101686664,
+              "contractions": 105,
+              "gpu_contraction_seconds": 0.09990780806541444,
+              "host_postprocess_seconds": 8.859399531502277e-05,
+              "host_sampling_seconds": 0.0039013330242596567,
+              "setup_path_planning_seconds": 0.05308002700621728,
+              "steady_compute_orchestration_seconds": 0.12164557498181239,
+              "steady_loop_seconds": 0.12554690800607204,
+              "steady_total_seconds": 0.12563550200138707,
+              "upstream_profile": {
+                "final_nshots": 64,
+                "largest_intermediate_batch0": 16.0,
+                "max_free_qubits": 2,
+                "nshots": 64,
+                "num_batches": 3,
+                "num_contractions": 105,
+                "num_noise_samples": 9,
+                "num_qubits": 5,
+                "opt_cost_batch0": 632.0,
+                "q_tensor_postprocess_seconds": 8.859399531502277e-05,
+                "time_apply_errors_total": 0.01960899101686664,
+                "time_build_expr_operands": 0.05019405100028962,
+                "time_circuit_to_einsum": 0.002480914001353085,
+                "time_contract_cpu_total": 0.10409245509072207,
+                "time_contract_gpu_total": 0.09990780806541444,
+                "time_contraction_loop": 0.12554690800607204,
+                "time_load_circuit": 0.00040506200457457453,
+                "time_per_contract_gpu_avg": 0.000951502933956328,
+                "time_per_contraction_loop_avg": 0.0011956848381530672
+              },
+              "wall_seconds": 0.17896444999496453
+            },
+            {
+              "apply_errors_seconds": 0.01786842399451416,
+              "contractions": 108,
+              "gpu_contraction_seconds": 0.0927129598855972,
+              "host_postprocess_seconds": 1.531100133433938e-05,
+              "host_sampling_seconds": 0.003704822971485555,
+              "setup_path_planning_seconds": 0.05119440899579786,
+              "steady_compute_orchestration_seconds": 0.11146784102311358,
+              "steady_loop_seconds": 0.11517266399459913,
+              "steady_total_seconds": 0.11518797499593347,
+              "upstream_profile": {
+                "final_nshots": 64,
+                "largest_intermediate_batch0": 16.0,
+                "max_free_qubits": 2,
+                "nshots": 64,
+                "num_batches": 3,
+                "num_contractions": 108,
+                "num_noise_samples": 9,
+                "num_qubits": 5,
+                "opt_cost_batch0": 632.0,
+                "q_tensor_postprocess_seconds": 1.531100133433938e-05,
+                "time_apply_errors_total": 0.01786842399451416,
+                "time_build_expr_operands": 0.04827738300082274,
+                "time_circuit_to_einsum": 0.0024967729987110943,
+                "time_contract_cpu_total": 0.09574307499860879,
+                "time_contract_gpu_total": 0.0927129598855972,
+                "time_contraction_loop": 0.11517266399459913,
+                "time_load_circuit": 0.00042025299626402557,
+                "time_per_contract_gpu_avg": 0.0008584533322740481,
+                "time_per_contraction_loop_avg": 0.0010664135555055476
+              },
+              "wall_seconds": 0.16669678399921395
+            },
+            {
+              "apply_errors_seconds": 0.03385349603195209,
+              "contractions": 108,
+              "gpu_contraction_seconds": 0.12562537509202962,
+              "host_postprocess_seconds": 2.0705003407783806e-05,
+              "host_sampling_seconds": 0.004370549009763636,
+              "setup_path_planning_seconds": 0.05372392099525314,
+              "steady_compute_orchestration_seconds": 0.16483671698370017,
+              "steady_loop_seconds": 0.1692072659934638,
+              "steady_total_seconds": 0.1692279709968716,
+              "upstream_profile": {
+                "final_nshots": 64,
+                "largest_intermediate_batch0": 16.0,
+                "max_free_qubits": 2,
+                "nshots": 64,
+                "num_batches": 3,
+                "num_contractions": 108,
+                "num_noise_samples": 9,
+                "num_qubits": 5,
+                "opt_cost_batch0": 632.0,
+                "q_tensor_postprocess_seconds": 2.0705003407783806e-05,
+                "time_apply_errors_total": 0.03385349603195209,
+                "time_build_expr_operands": 0.051376055998844095,
+                "time_circuit_to_einsum": 0.0019876529986504465,
+                "time_contract_cpu_total": 0.13336398501996882,
+                "time_contract_gpu_total": 0.12562537509202962,
+                "time_contraction_loop": 0.1692072659934638,
+                "time_load_circuit": 0.00036021199775859714,
+                "time_per_contract_gpu_avg": 0.0011631979175187929,
+                "time_per_contraction_loop_avg": 0.0015667339443839242
+              },
+              "wall_seconds": 0.22326996499032248
+            }
+          ]
+        },
+        "tn_effective_shots_per_second": 32602.249640828264,
+        "total_effective_shots": 4096,
+        "trajectories": 64,
+        "trajectory_multiplicities": {
+          "(0,)": 54,
+          "(1,)": 1,
+          "(11,)": 1,
+          "(12,)": 1,
+          "(13,)": 2,
+          "(3,)": 1,
+          "(4,)": 2,
+          "(5,)": 1,
+          "(8,)": 1
+        },
+        "unique_trajectories": 9,
+        "validation": {
+          "cudaq_vs_conditioned": {
+            "null_quantile": 0.999,
+            "null_tvd_limit": 0.03290519373352879,
+            "null_z_expectation_error_limit": 0.01771301124528568,
+            "passed": true,
+            "tvd": 0.018605344830935303,
+            "z_expectation_error": 0.007189332504714319
+          },
+          "passed": true,
+          "reference": "exact conditioned complex128 Kraus-branch statevector mixture",
+          "tn_vs_conditioned": {
+            "null_quantile": 0.999,
+            "null_tvd_limit": 0.039974459185418254,
+            "null_z_expectation_error_limit": 0.01841980125471432,
+            "passed": true,
+            "tvd": 0.014586046152918235,
+            "z_expectation_error": 0.0025762924952856814
+          },
+          "tn_vs_cudaq": {
+            "null_quantile": 0.999,
+            "null_tvd_limit": 0.048828125,
+            "null_z_expectation_difference_limit": 0.025390625,
+            "passed": true,
+            "tvd": 0.021484375,
+            "z_expectation_difference": 0.009765625
+          },
+          "trajectory_vs_exact_channel_tvd": 0.041902550967700354,
+          "trajectory_vs_exact_channel_z_expectation_error": 0.014839543584229453
+        },
+        "worker_process_returncode": 0,
+        "worker_stderr_tail": "",
+        "worker_stdout_tail": "SWAPPING GATE ORDER WHEN CONSTRUCTING CIRCUIT BECAUSE QISKIT\nSWAPPING NOISE ORDER FOR TWO-QUBIT NOISE GATES BECAUSE QISKIT\n"
+      },
+      {
+        "cold_setup_comparison_note": "reported as components only; no cold speedup is computed because TN initializes the shared GPU context before CUDA-Q within each isolated worker",
+        "common_input_preparation_seconds": 0.006329462004941888,
+        "cudaq": {
+          "first_steady_total_seconds": 0.0126648679288337,
+          "host_postprocess": {
+            "max_seconds": 0.0006366529851220548,
+            "median_absolute_deviation_seconds": 3.212901356164366e-05,
+            "median_seconds": 0.00032776198349893093,
+            "min_seconds": 0.0002951230126200244,
+            "repeats": 5
+          },
+          "raw_postprocess_seconds": [
+            0.0006366529851220548,
+            0.0003053829859709367,
+            0.0003598909970605746,
+            0.0002951230126200244,
+            0.00032776198349893093
+          ],
+          "raw_sample_call_seconds": [
+            0.012028214943711646,
+            0.010131259012268856,
+            0.011793544006650336,
+            0.010247953978250735,
+            0.01139394698839169
+          ],
+          "sample_call_including_device_sampling": {
+            "max_seconds": 0.012028214943711646,
+            "median_absolute_deviation_seconds": 0.0006342679553199559,
+            "median_seconds": 0.01139394698839169,
+            "min_seconds": 0.010131259012268856,
+            "repeats": 5
+          },
+          "sampling_split_available": false,
+          "sampling_split_note": "CUDA-Q 0.13 cudaq.sample combines trajectory execution and device sampling",
+          "setup_compilation": {
+            "compile_warmup_seconds": 0.30994598600955214,
+            "context_note": "TN initialized the process CUDA context before this measurement",
+            "kernel_build_seconds": 0.044657516991719604,
+            "target_initialization_seconds": 0.0007877839962020516,
+            "total_seconds": 0.3553912869974738
+          },
+          "steady_total": {
+            "max_seconds": 0.0126648679288337,
+            "median_absolute_deviation_seconds": 0.0009431589569430798,
+            "median_seconds": 0.011721708971890621,
+            "min_seconds": 0.010436641998239793,
+            "repeats": 5
+          }
+        },
+        "cudaq_effective_shots_per_second": 1397748.4033505558,
+        "shots_per_trajectory": 64,
+        "steady_state_speedup_baseline_over_tn": 0.03880928647131376,
+        "telemetry": null,
+        "tn": {
+          "cold_first_use": {
+            "apply_errors_seconds": 0.36176020598213654,
+            "contractions": 202,
+            "gpu_contraction_seconds": 0.24895558357238762,
+            "host_postprocess_seconds": 3.1167000997811556e-05,
+            "host_sampling_seconds": 0.00788307587208692,
+            "setup_path_planning_seconds": 0.4605561029893579,
+            "steady_compute_orchestration_seconds": 0.6139978401333792,
+            "steady_loop_seconds": 0.6218809160054661,
+            "steady_total_seconds": 0.621912083006464,
+            "upstream_profile": {
+              "final_nshots": 64,
+              "largest_intermediate_batch0": 16.0,
+              "max_free_qubits": 2,
+              "nshots": 64,
+              "num_batches": 3,
+              "num_contractions": 202,
+              "num_noise_samples": 16,
+              "num_qubits": 5,
+              "opt_cost_batch0": 632.0,
+              "q_tensor_postprocess_seconds": 3.1167000997811556e-05,
+              "time_apply_errors_total": 0.36176020598213654,
+              "time_build_expr_operands": 0.4577770159958163,
+              "time_circuit_to_einsum": 0.0019835029961541295,
+              "time_contract_cpu_total": 0.2574595010082703,
+              "time_contract_gpu_total": 0.24895558357238762,
+              "time_contraction_loop": 0.6218809160054661,
+              "time_load_circuit": 0.000795583997387439,
+              "time_per_contract_gpu_avg": 0.0012324533840217208,
+              "time_per_contraction_loop_avg": 0.003078618396066664
+            },
+            "wall_seconds": 1.5562114030035445
+          },
+          "components": {
+            "apply_errors_seconds": {
+              "max_seconds": 0.05757034201815259,
+              "median_absolute_deviation_seconds": 0.0036038940743310377,
+              "median_seconds": 0.05396644794382155,
+              "min_seconds": 0.03793393904925324,
+              "repeats": 5
+            },
+            "gpu_contraction_seconds": {
+              "max_seconds": 0.24749113583564752,
+              "median_absolute_deviation_seconds": 0.01268025577068313,
+              "median_seconds": 0.2348108800649644,
+              "min_seconds": 0.20940640079975137,
+              "repeats": 5
+            },
+            "host_postprocess_seconds": {
+              "max_seconds": 3.830398782156408e-05,
+              "median_absolute_deviation_seconds": 7.810012903064489e-07,
+              "median_seconds": 3.13079945044592e-05,
+              "min_seconds": 2.9066999559290707e-05,
+              "repeats": 5
+            },
+            "host_sampling_seconds": {
+              "max_seconds": 0.008060189022216946,
+              "median_absolute_deviation_seconds": 0.00025757899857126176,
+              "median_seconds": 0.007670815000892617,
+              "min_seconds": 0.007365984987700358,
+              "repeats": 5
+            },
+            "setup_path_planning_seconds": {
+              "max_seconds": 0.054056507971836254,
+              "median_absolute_deviation_seconds": 0.0009827369940467179,
+              "median_seconds": 0.05038957500073593,
+              "min_seconds": 0.04749955199076794,
+              "repeats": 5
+            },
+            "steady_compute_orchestration_seconds": {
+              "max_seconds": 0.31181114799983334,
+              "median_absolute_deviation_seconds": 0.017869814022560604,
+              "median_seconds": 0.29394133397727273,
+              "min_seconds": 0.25011690201063175,
+              "repeats": 5
+            },
+            "steady_loop_seconds": {
+              "max_seconds": 0.31948196300072595,
+              "median_absolute_deviation_seconds": 0.017480440001236275,
+              "median_seconds": 0.3020015229994897,
+              "min_seconds": 0.2574828869983321,
+              "repeats": 5
+            },
+            "steady_total_seconds": {
+              "max_seconds": 0.3195202669885475,
+              "median_absolute_deviation_seconds": 0.017486654993263073,
+              "median_seconds": 0.30203361199528445,
+              "min_seconds": 0.2575119539978914,
+              "repeats": 5
+            },
+            "wall_seconds": {
+              "max_seconds": 0.3739237609988777,
+              "median_absolute_deviation_seconds": 0.024032342989812605,
+              "median_seconds": 0.3498914180090651,
+              "min_seconds": 0.308149210002739,
+              "repeats": 5
+            }
+          },
+          "contractions": 202,
+          "first_repeat": {
+            "apply_errors_seconds": 0.05444180405174848,
+            "contractions": 202,
+            "gpu_contraction_seconds": 0.2348108800649644,
+            "host_postprocess_seconds": 3.208899579476565e-05,
+            "host_sampling_seconds": 0.008060189022216946,
+            "setup_path_planning_seconds": 0.04749955199076794,
+            "steady_compute_orchestration_seconds": 0.29394133397727273,
+            "steady_loop_seconds": 0.3020015229994897,
+            "steady_total_seconds": 0.30203361199528445,
+            "upstream_profile": {
+              "final_nshots": 64,
+              "largest_intermediate_batch0": 16.0,
+              "max_free_qubits": 2,
+              "nshots": 64,
+              "num_batches": 3,
+              "num_contractions": 202,
+              "num_noise_samples": 16,
+              "num_qubits": 5,
+              "opt_cost_batch0": 632.0,
+              "q_tensor_postprocess_seconds": 3.208899579476565e-05,
+              "time_apply_errors_total": 0.05444180405174848,
+              "time_build_expr_operands": 0.04490054299822077,
+              "time_circuit_to_einsum": 0.0020356070017442107,
+              "time_contract_cpu_total": 0.24410007589904126,
+              "time_contract_gpu_total": 0.2348108800649644,
+              "time_contraction_loop": 0.3020015229994897,
+              "time_load_circuit": 0.0005634019908029586,
+              "time_per_contract_gpu_avg": 0.0011624300993315069,
+              "time_per_contraction_loop_avg": 0.0014950570445519291
+            },
+            "wall_seconds": 0.3498914180090651
+          },
+          "raw_repeats": [
+            {
+              "apply_errors_seconds": 0.05444180405174848,
+              "contractions": 202,
+              "gpu_contraction_seconds": 0.2348108800649644,
+              "host_postprocess_seconds": 3.208899579476565e-05,
+              "host_sampling_seconds": 0.008060189022216946,
+              "setup_path_planning_seconds": 0.04749955199076794,
+              "steady_compute_orchestration_seconds": 0.29394133397727273,
+              "steady_loop_seconds": 0.3020015229994897,
+              "steady_total_seconds": 0.30203361199528445,
+              "upstream_profile": {
+                "final_nshots": 64,
+                "largest_intermediate_batch0": 16.0,
+                "max_free_qubits": 2,
+                "nshots": 64,
+                "num_batches": 3,
+                "num_contractions": 202,
+                "num_noise_samples": 16,
+                "num_qubits": 5,
+                "opt_cost_batch0": 632.0,
+                "q_tensor_postprocess_seconds": 3.208899579476565e-05,
+                "time_apply_errors_total": 0.05444180405174848,
+                "time_build_expr_operands": 0.04490054299822077,
+                "time_circuit_to_einsum": 0.0020356070017442107,
+                "time_contract_cpu_total": 0.24410007589904126,
+                "time_contract_gpu_total": 0.2348108800649644,
+                "time_contraction_loop": 0.3020015229994897,
+                "time_load_circuit": 0.0005634019908029586,
+                "time_per_contract_gpu_avg": 0.0011624300993315069,
+                "time_per_contraction_loop_avg": 0.0014950570445519291
+              },
+              "wall_seconds": 0.3498914180090651
+            },
+            {
+              "apply_errors_seconds": 0.05757034201815259,
+              "contractions": 199,
+              "gpu_contraction_seconds": 0.24749113583564752,
+              "host_postprocess_seconds": 3.830398782156408e-05,
+              "host_sampling_seconds": 0.007670815000892617,
+              "setup_path_planning_seconds": 0.054056507971836254,
+              "steady_compute_orchestration_seconds": 0.31181114799983334,
+              "steady_loop_seconds": 0.31948196300072595,
+              "steady_total_seconds": 0.3195202669885475,
+              "upstream_profile": {
+                "final_nshots": 64,
+                "largest_intermediate_batch0": 16.0,
+                "max_free_qubits": 2,
+                "nshots": 64,
+                "num_batches": 3,
+                "num_contractions": 199,
+                "num_noise_samples": 16,
+                "num_qubits": 5,
+                "opt_cost_batch0": 632.0,
+                "q_tensor_postprocess_seconds": 3.830398782156408e-05,
+                "time_apply_errors_total": 0.05757034201815259,
+                "time_build_expr_operands": 0.04983196199464146,
+                "time_circuit_to_einsum": 0.003667660988867283,
+                "time_contract_cpu_total": 0.25870460009900853,
+                "time_contract_gpu_total": 0.24749113583564752,
+                "time_contraction_loop": 0.31948196300072595,
+                "time_load_circuit": 0.0005568849883275107,
+                "time_per_contract_gpu_avg": 0.0012436740494253644,
+                "time_per_contraction_loop_avg": 0.001605437000003648
+              },
+              "wall_seconds": 0.3739237609988777
+            },
+            {
+              "apply_errors_seconds": 0.03793393904925324,
+              "contractions": 203,
+              "gpu_contraction_seconds": 0.20940640079975137,
+              "host_postprocess_seconds": 2.9066999559290707e-05,
+              "host_sampling_seconds": 0.007365984987700358,
+              "setup_path_planning_seconds": 0.05038957500073593,
+              "steady_compute_orchestration_seconds": 0.25011690201063175,
+              "steady_loop_seconds": 0.2574828869983321,
+              "steady_total_seconds": 0.2575119539978914,
+              "upstream_profile": {
+                "final_nshots": 64,
+                "largest_intermediate_batch0": 16.0,
+                "max_free_qubits": 2,
+                "nshots": 64,
+                "num_batches": 3,
+                "num_contractions": 203,
+                "num_noise_samples": 16,
+                "num_qubits": 5,
+                "opt_cost_batch0": 632.0,
+                "q_tensor_postprocess_seconds": 2.9066999559290707e-05,
+                "time_apply_errors_total": 0.03793393904925324,
+                "time_build_expr_operands": 0.04813666299742181,
+                "time_circuit_to_einsum": 0.001885060002678074,
+                "time_contract_cpu_total": 0.21689482586225495,
+                "time_contract_gpu_total": 0.20940640079975137,
+                "time_contraction_loop": 0.2574828869983321,
+                "time_load_circuit": 0.0003678520006360486,
+                "time_per_contract_gpu_avg": 0.0010315586246293171,
+                "time_per_contraction_loop_avg": 0.0012683886059031138
+              },
+              "wall_seconds": 0.308149210002739
+            },
+            {
+              "apply_errors_seconds": 0.04497553200053517,
+              "contractions": 203,
+              "gpu_contraction_seconds": 0.21842876863479616,
+              "host_postprocess_seconds": 3.1117990147322416e-05,
+              "host_sampling_seconds": 0.0076083529711468145,
+              "setup_path_planning_seconds": 0.0504264050105121,
+              "steady_compute_orchestration_seconds": 0.26680859303451143,
+              "steady_loop_seconds": 0.27441694600565825,
+              "steady_total_seconds": 0.27444806399580557,
+              "upstream_profile": {
+                "final_nshots": 64,
+                "largest_intermediate_batch0": 16.0,
+                "max_free_qubits": 2,
+                "nshots": 64,
+                "num_batches": 3,
+                "num_contractions": 203,
+                "num_noise_samples": 16,
+                "num_qubits": 5,
+                "opt_cost_batch0": 632.0,
+                "q_tensor_postprocess_seconds": 3.1117990147322416e-05,
+                "time_apply_errors_total": 0.04497553200053517,
+                "time_build_expr_operands": 0.04810315500071738,
+                "time_circuit_to_einsum": 0.0018519120058044791,
+                "time_contract_cpu_total": 0.22660496685421094,
+                "time_contract_gpu_total": 0.21842876863479616,
+                "time_contraction_loop": 0.27441694600565825,
+                "time_load_circuit": 0.0004713380039902404,
+                "time_per_contract_gpu_avg": 0.001076003786378306,
+                "time_per_contraction_loop_avg": 0.00135180761579142
+              },
+              "wall_seconds": 0.3253301049990114
+            },
+            {
+              "apply_errors_seconds": 0.05396644794382155,
+              "contractions": 202,
+              "gpu_contraction_seconds": 0.2427727993726731,
+              "host_postprocess_seconds": 3.13079945044592e-05,
+              "host_sampling_seconds": 0.007928393999463879,
+              "setup_path_planning_seconds": 0.04940683800668921,
+              "steady_compute_orchestration_seconds": 0.3023764029931044,
+              "steady_loop_seconds": 0.3103047969925683,
+              "steady_total_seconds": 0.31033610498707276,
+              "upstream_profile": {
+                "final_nshots": 64,
+                "largest_intermediate_batch0": 16.0,
+                "max_free_qubits": 2,
+                "nshots": 64,
+                "num_batches": 3,
+                "num_contractions": 202,
+                "num_noise_samples": 16,
+                "num_qubits": 5,
+                "opt_cost_batch0": 632.0,
+                "q_tensor_postprocess_seconds": 3.13079945044592e-05,
+                "time_apply_errors_total": 0.05396644794382155,
+                "time_build_expr_operands": 0.04701520000526216,
+                "time_circuit_to_einsum": 0.0020407249976415187,
+                "time_contract_cpu_total": 0.253160956010106,
+                "time_contract_gpu_total": 0.2427727993726731,
+                "time_contraction_loop": 0.3103047969925683,
+                "time_load_circuit": 0.0003509130037855357,
+                "time_per_contract_gpu_avg": 0.0012018455414488766,
+                "time_per_contraction_loop_avg": 0.001536162361349348
+              },
+              "wall_seconds": 0.35996655000781175
+            }
+          ]
+        },
+        "tn_effective_shots_per_second": 54245.61820045313,
+        "total_effective_shots": 16384,
+        "trajectories": 256,
+        "trajectory_multiplicities": {
+          "(0,)": 203,
+          "(1,)": 2,
+          "(10,)": 4,
+          "(11,)": 2,
+          "(12,)": 2,
+          "(13,)": 7,
+          "(14,)": 2,
+          "(15,)": 1,
+          "(2,)": 3,
+          "(3,)": 3,
+          "(4,)": 5,
+          "(5,)": 5,
+          "(6,)": 4,
+          "(7,)": 6,
+          "(8,)": 4,
+          "(9,)": 3
+        },
+        "unique_trajectories": 16,
+        "validation": {
+          "cudaq_vs_conditioned": {
+            "null_quantile": 0.999,
+            "null_tvd_limit": 0.015839304075597548,
+            "null_z_expectation_error_limit": 0.008924784970427146,
+            "passed": true,
+            "tvd": 0.011670429235499586,
+            "z_expectation_error": 0.0010849806545728535
+          },
+          "passed": true,
+          "reference": "exact conditioned complex128 Kraus-branch statevector mixture",
+          "tn_vs_conditioned": {
+            "null_quantile": 0.999,
+            "null_tvd_limit": 0.01707525906813069,
+            "null_z_expectation_error_limit": 0.010240254092072854,
+            "passed": true,
+            "tvd": 0.008465839879958324,
+            "z_expectation_error": 0.0045029494045728535
+          },
+          "tn_vs_cudaq": {
+            "null_quantile": 0.999,
+            "null_tvd_limit": 0.02459716796875,
+            "null_z_expectation_difference_limit": 0.012451171875,
+            "passed": true,
+            "tvd": 0.01666259765625,
+            "z_expectation_difference": 0.00341796875
+          },
+          "trajectory_vs_exact_channel_tvd": 0.0094857182065242,
+          "trajectory_vs_exact_channel_z_expectation_error": 0.007011878578412012
+        },
+        "worker_process_returncode": 0,
+        "worker_stderr_tail": "",
+        "worker_stdout_tail": "SWAPPING GATE ORDER WHEN CONSTRUCTING CIRCUIT BECAUSE QISKIT\nSWAPPING NOISE ORDER FOR TWO-QUBIT NOISE GATES BECAUSE QISKIT\n"
+      },
+      {
+        "cold_setup_comparison_note": "reported as components only; no cold speedup is computed because TN initializes the shared GPU context before CUDA-Q within each isolated worker",
+        "common_input_preparation_seconds": 0.008025948001886718,
+        "cudaq": {
+          "first_steady_total_seconds": 0.020703535032225773,
+          "host_postprocess": {
+            "max_seconds": 0.0006140530313132331,
+            "median_absolute_deviation_seconds": 4.1889972635544837e-05,
+            "median_seconds": 0.00038562098052352667,
+            "min_seconds": 0.0002705169899854809,
+            "repeats": 5
+          },
+          "raw_postprocess_seconds": [
+            0.0006140530313132331,
+            0.0002705169899854809,
+            0.00042065697198268026,
+            0.00034373100788798183,
+            0.00038562098052352667
+          ],
+          "raw_sample_call_seconds": [
+            0.02008948200091254,
+            0.013005207991227508,
+            0.02132493696990423,
+            0.01662256997951772,
+            0.019689627006300725
+          ],
+          "sample_call_including_device_sampling": {
+            "max_seconds": 0.02132493696990423,
+            "median_absolute_deviation_seconds": 0.001635309963603504,
+            "median_seconds": 0.019689627006300725,
+            "min_seconds": 0.013005207991227508,
+            "repeats": 5
+          },
+          "sampling_split_available": false,
+          "sampling_split_note": "CUDA-Q 0.13 cudaq.sample combines trajectory execution and device sampling",
+          "setup_compilation": {
+            "compile_warmup_seconds": 0.2985462840006221,
+            "context_note": "TN initialized the process CUDA context before this measurement",
+            "kernel_build_seconds": 0.043780367996077985,
+            "target_initialization_seconds": 0.0007525260007241741,
+            "total_seconds": 0.34307917799742427
+          },
+          "steady_total": {
+            "max_seconds": 0.02174559394188691,
+            "median_absolute_deviation_seconds": 0.0016703459550626576,
+            "median_seconds": 0.02007524798682425,
+            "min_seconds": 0.013275724981212988,
+            "repeats": 5
+          }
+        },
+        "cudaq_effective_shots_per_second": 3264517.5812031045,
+        "shots_per_trajectory": 64,
+        "steady_state_speedup_baseline_over_tn": 0.05160813350017423,
+        "telemetry": null,
+        "tn": {
+          "cold_first_use": {
+            "apply_errors_seconds": 0.353522169025382,
+            "contractions": 208,
+            "gpu_contraction_seconds": 0.3104599380493163,
+            "host_postprocess_seconds": 3.0014998628757894e-05,
+            "host_sampling_seconds": 0.009221572108799592,
+            "setup_path_planning_seconds": 0.371922033969895,
+            "steady_compute_orchestration_seconds": 0.6664616238849703,
+            "steady_loop_seconds": 0.6756831959937699,
+            "steady_total_seconds": 0.6757132109923987,
+            "upstream_profile": {
+              "final_nshots": 64,
+              "largest_intermediate_batch0": 16.0,
+              "max_free_qubits": 2,
+              "nshots": 64,
+              "num_batches": 3,
+              "num_contractions": 208,
+              "num_noise_samples": 16,
+              "num_qubits": 5,
+              "opt_cost_batch0": 632.0,
+              "q_tensor_postprocess_seconds": 3.0014998628757894e-05,
+              "time_apply_errors_total": 0.353522169025382,
+              "time_build_expr_operands": 0.36676197398628574,
+              "time_circuit_to_einsum": 0.0038514999905601144,
+              "time_contract_cpu_total": 0.3195400562544819,
+              "time_contract_gpu_total": 0.3104599380493163,
+              "time_contraction_loop": 0.6756831959937699,
+              "time_load_circuit": 0.0013085599930491298,
+              "time_per_contract_gpu_avg": 0.0014925958560063285,
+              "time_per_contraction_loop_avg": 0.0032484769038162017
+            },
+            "wall_seconds": 1.4706279260135489
+          },
+          "components": {
+            "apply_errors_seconds": {
+              "max_seconds": 0.07227492898527998,
+              "median_absolute_deviation_seconds": 0.005375753884436563,
+              "median_seconds": 0.05397285707294941,
+              "min_seconds": 0.0467065519769676,
+              "repeats": 5
+            },
+            "gpu_contraction_seconds": {
+              "max_seconds": 0.3428990396261214,
+              "median_absolute_deviation_seconds": 0.014457599580287583,
+              "median_seconds": 0.3206166082024573,
+              "min_seconds": 0.2995076798796653,
+              "repeats": 5
+            },
+            "host_postprocess_seconds": {
+              "max_seconds": 4.094101313967258e-05,
+              "median_absolute_deviation_seconds": 2.2260064724832773e-06,
+              "median_seconds": 3.453099634498358e-05,
+              "min_seconds": 3.2163996365852654e-05,
+              "repeats": 5
+            },
+            "host_sampling_seconds": {
+              "max_seconds": 0.009869926114333794,
+              "median_absolute_deviation_seconds": 3.1824150937609375e-05,
+              "median_seconds": 0.009838101963396184,
+              "min_seconds": 0.009399780989042483,
+              "repeats": 5
+            },
+            "setup_path_planning_seconds": {
+              "max_seconds": 0.052535833994625136,
+              "median_absolute_deviation_seconds": 0.0016704489826224744,
+              "median_seconds": 0.04922190298384521,
+              "min_seconds": 0.04755145400122274,
+              "repeats": 5
+            },
+            "steady_compute_orchestration_seconds": {
+              "max_seconds": 0.42213320595328696,
+              "median_absolute_deviation_seconds": 0.017639907135162503,
+              "median_seconds": 0.3791212450450985,
+              "min_seconds": 0.34962042901315726,
+              "repeats": 5
+            },
+            "steady_loop_seconds": {
+              "max_seconds": 0.43197834500460885,
+              "median_absolute_deviation_seconds": 0.017772150007658638,
+              "median_seconds": 0.38895934700849466,
+              "min_seconds": 0.35902021000219975,
+              "repeats": 5
+            },
+            "steady_total_seconds": {
+              "max_seconds": 0.4320192860177485,
+              "median_absolute_deviation_seconds": 0.017769924001186155,
+              "median_seconds": 0.38899387800483964,
+              "min_seconds": 0.359054233005736,
+              "repeats": 5
+            },
+            "wall_seconds": {
+              "max_seconds": 0.4809463970013894,
+              "median_absolute_deviation_seconds": 0.016824096004711464,
+              "median_seconds": 0.440844469005242,
+              "min_seconds": 0.4068381130055059,
+              "repeats": 5
+            }
+          },
+          "contractions": 208,
+          "first_repeat": {
+            "apply_errors_seconds": 0.05934861095738597,
+            "contractions": 208,
+            "gpu_contraction_seconds": 0.3288411839604378,
+            "host_postprocess_seconds": 3.2163996365852654e-05,
+            "host_sampling_seconds": 0.009869926114333794,
+            "setup_path_planning_seconds": 0.04922190298384521,
+            "steady_compute_orchestration_seconds": 0.39303853089222685,
+            "steady_loop_seconds": 0.40290845700656064,
+            "steady_total_seconds": 0.4029406210029265,
+            "upstream_profile": {
+              "final_nshots": 64,
+              "largest_intermediate_batch0": 16.0,
+              "max_free_qubits": 2,
+              "nshots": 64,
+              "num_batches": 3,
+              "num_contractions": 208,
+              "num_noise_samples": 16,
+              "num_qubits": 5,
+              "opt_cost_batch0": 632.0,
+              "q_tensor_postprocess_seconds": 3.2163996365852654e-05,
+              "time_apply_errors_total": 0.05934861095738597,
+              "time_build_expr_operands": 0.046584658994106576,
+              "time_circuit_to_einsum": 0.0020993629877921194,
+              "time_contract_cpu_total": 0.3401158429333009,
+              "time_contract_gpu_total": 0.3288411839604378,
+              "time_contraction_loop": 0.40290845700656064,
+              "time_load_circuit": 0.0005378810019465163,
+              "time_per_contract_gpu_avg": 0.001580967230579028,
+              "time_per_contraction_loop_avg": 0.0019370598894546186
+            },
+            "wall_seconds": 0.4524969149933895
+          },
+          "raw_repeats": [
+            {
+              "apply_errors_seconds": 0.05934861095738597,
+              "contractions": 208,
+              "gpu_contraction_seconds": 0.3288411839604378,
+              "host_postprocess_seconds": 3.2163996365852654e-05,
+              "host_sampling_seconds": 0.009869926114333794,
+              "setup_path_planning_seconds": 0.04922190298384521,
+              "steady_compute_orchestration_seconds": 0.39303853089222685,
+              "steady_loop_seconds": 0.40290845700656064,
+              "steady_total_seconds": 0.4029406210029265,
+              "upstream_profile": {
+                "final_nshots": 64,
+                "largest_intermediate_batch0": 16.0,
+                "max_free_qubits": 2,
+                "nshots": 64,
+                "num_batches": 3,
+                "num_contractions": 208,
+                "num_noise_samples": 16,
+                "num_qubits": 5,
+                "opt_cost_batch0": 632.0,
+                "q_tensor_postprocess_seconds": 3.2163996365852654e-05,
+                "time_apply_errors_total": 0.05934861095738597,
+                "time_build_expr_operands": 0.046584658994106576,
+                "time_circuit_to_einsum": 0.0020993629877921194,
+                "time_contract_cpu_total": 0.3401158429333009,
+                "time_contract_gpu_total": 0.3288411839604378,
+                "time_contraction_loop": 0.40290845700656064,
+                "time_load_circuit": 0.0005378810019465163,
+                "time_per_contract_gpu_avg": 0.001580967230579028,
+                "time_per_contraction_loop_avg": 0.0019370598894546186
+              },
+              "wall_seconds": 0.4524969149933895
+            },
+            {
+              "apply_errors_seconds": 0.05397285707294941,
+              "contractions": 208,
+              "gpu_contraction_seconds": 0.3206166082024573,
+              "host_postprocess_seconds": 3.453099634498358e-05,
+              "host_sampling_seconds": 0.009838101963396184,
+              "setup_path_planning_seconds": 0.05150981699989643,
+              "steady_compute_orchestration_seconds": 0.3791212450450985,
+              "steady_loop_seconds": 0.38895934700849466,
+              "steady_total_seconds": 0.38899387800483964,
+              "upstream_profile": {
+                "final_nshots": 64,
+                "largest_intermediate_batch0": 16.0,
+                "max_free_qubits": 2,
+                "nshots": 64,
+                "num_batches": 3,
+                "num_contractions": 208,
+                "num_noise_samples": 16,
+                "num_qubits": 5,
+                "opt_cost_batch0": 632.0,
+                "q_tensor_postprocess_seconds": 3.453099634498358e-05,
+                "time_apply_errors_total": 0.05397285707294941,
+                "time_build_expr_operands": 0.048059371998533607,
+                "time_circuit_to_einsum": 0.0030228499963413924,
+                "time_contract_cpu_total": 0.3316302511084359,
+                "time_contract_gpu_total": 0.3206166082024573,
+                "time_contraction_loop": 0.38895934700849466,
+                "time_load_circuit": 0.00042759500502143055,
+                "time_per_contract_gpu_avg": 0.0015414260009733523,
+                "time_per_contraction_loop_avg": 0.0018699968606177629
+              },
+              "wall_seconds": 0.440844469005242
+            },
+            {
+              "apply_errors_seconds": 0.05155618194839917,
+              "contractions": 208,
+              "gpu_contraction_seconds": 0.3061590086221697,
+              "host_postprocess_seconds": 3.6757002817466855e-05,
+              "host_sampling_seconds": 0.009705859090900049,
+              "setup_path_planning_seconds": 0.052535833994625136,
+              "steady_compute_orchestration_seconds": 0.361481337909936,
+              "steady_loop_seconds": 0.371187197000836,
+              "steady_total_seconds": 0.3712239540036535,
+              "upstream_profile": {
+                "final_nshots": 64,
+                "largest_intermediate_batch0": 16.0,
+                "max_free_qubits": 2,
+                "nshots": 64,
+                "num_batches": 3,
+                "num_contractions": 208,
+                "num_noise_samples": 16,
+                "num_qubits": 5,
+                "opt_cost_batch0": 632.0,
+                "q_tensor_postprocess_seconds": 3.6757002817466855e-05,
+                "time_apply_errors_total": 0.05155618194839917,
+                "time_build_expr_operands": 0.04873447499994654,
+                "time_circuit_to_einsum": 0.003423517002374865,
+                "time_contract_cpu_total": 0.31654122499458026,
+                "time_contract_gpu_total": 0.3061590086221697,
+                "time_contraction_loop": 0.371187197000836,
+                "time_load_circuit": 0.00037784199230372906,
+                "time_per_contract_gpu_avg": 0.0014719183106835082,
+                "time_per_contraction_loop_avg": 0.0017845538317347886
+              },
+              "wall_seconds": 0.4240203730005305
+            },
+            {
+              "apply_errors_seconds": 0.07227492898527998,
+              "contractions": 208,
+              "gpu_contraction_seconds": 0.3428990396261214,
+              "host_postprocess_seconds": 4.094101313967258e-05,
+              "host_sampling_seconds": 0.009845139051321894,
+              "setup_path_planning_seconds": 0.04855438001686707,
+              "steady_compute_orchestration_seconds": 0.42213320595328696,
+              "steady_loop_seconds": 0.43197834500460885,
+              "steady_total_seconds": 0.4320192860177485,
+              "upstream_profile": {
+                "final_nshots": 64,
+                "largest_intermediate_batch0": 16.0,
+                "max_free_qubits": 2,
+                "nshots": 64,
+                "num_batches": 3,
+                "num_contractions": 208,
+                "num_noise_samples": 16,
+                "num_qubits": 5,
+                "opt_cost_batch0": 632.0,
+                "q_tensor_postprocess_seconds": 4.094101313967258e-05,
+                "time_apply_errors_total": 0.07227492898527998,
+                "time_build_expr_operands": 0.044443117003538646,
+                "time_circuit_to_einsum": 0.0036974550021113828,
+                "time_contract_cpu_total": 0.35542821206036024,
+                "time_contract_gpu_total": 0.3428990396261214,
+                "time_contraction_loop": 0.43197834500460885,
+                "time_load_circuit": 0.0004138080112170428,
+                "time_per_contract_gpu_avg": 0.0016485530751255836,
+                "time_per_contraction_loop_avg": 0.002076818966368312
+              },
+              "wall_seconds": 0.4809463970013894
+            },
+            {
+              "apply_errors_seconds": 0.0467065519769676,
+              "contractions": 208,
+              "gpu_contraction_seconds": 0.2995076798796653,
+              "host_postprocess_seconds": 3.402300353627652e-05,
+              "host_sampling_seconds": 0.009399780989042483,
+              "setup_path_planning_seconds": 0.04755145400122274,
+              "steady_compute_orchestration_seconds": 0.34962042901315726,
+              "steady_loop_seconds": 0.35902021000219975,
+              "steady_total_seconds": 0.359054233005736,
+              "upstream_profile": {
+                "final_nshots": 64,
+                "largest_intermediate_batch0": 16.0,
+                "max_free_qubits": 2,
+                "nshots": 64,
+                "num_batches": 3,
+                "num_contractions": 208,
+                "num_noise_samples": 16,
+                "num_qubits": 5,
+                "opt_cost_batch0": 632.0,
+                "q_tensor_postprocess_seconds": 3.402300353627652e-05,
+                "time_apply_errors_total": 0.0467065519769676,
+                "time_build_expr_operands": 0.045289101006346755,
+                "time_circuit_to_einsum": 0.001906229997985065,
+                "time_contract_cpu_total": 0.3092383289767895,
+                "time_contract_gpu_total": 0.2995076798796653,
+                "time_contraction_loop": 0.35902021000219975,
+                "time_load_circuit": 0.0003561229968909174,
+                "time_per_contract_gpu_avg": 0.0014399407686522371,
+                "time_per_contraction_loop_avg": 0.0017260587019336526
+              },
+              "wall_seconds": 0.4068381130055059
+            }
+          ]
+        },
+        "tn_effective_shots_per_second": 168475.65914439567,
+        "total_effective_shots": 65536,
+        "trajectories": 1024,
+        "trajectory_multiplicities": {
+          "(0,)": 791,
+          "(1,)": 14,
+          "(10,)": 16,
+          "(11,)": 17,
+          "(12,)": 15,
+          "(13,)": 15,
+          "(14,)": 13,
+          "(15,)": 16,
+          "(2,)": 13,
+          "(3,)": 22,
+          "(4,)": 15,
+          "(5,)": 10,
+          "(6,)": 25,
+          "(7,)": 21,
+          "(8,)": 11,
+          "(9,)": 10
+        },
+        "unique_trajectories": 16,
+        "validation": {
+          "cudaq_vs_conditioned": {
+            "null_quantile": 0.999,
+            "null_tvd_limit": 0.010524017345927755,
+            "null_z_expectation_error_limit": 0.005795208639006955,
+            "passed": true,
+            "tvd": 0.0031892797394768267,
+            "z_expectation_error": 0.0006987730921319546
+          },
+          "passed": true,
+          "reference": "exact conditioned complex128 Kraus-branch statevector mixture",
+          "tn_vs_conditioned": {
+            "null_quantile": 0.999,
+            "null_tvd_limit": 0.008506111523351291,
+            "null_z_expectation_error_limit": 0.004824908548493045,
+            "passed": true,
+            "tvd": 0.0035971636321438342,
+            "z_expectation_error": 0.0006987730921319546
+          },
+          "tn_vs_cudaq": {
+            "null_quantile": 0.999,
+            "null_tvd_limit": 0.0118865966796875,
+            "null_z_expectation_difference_limit": 0.007568359375,
+            "passed": true,
+            "tvd": 0.0049896240234375,
+            "z_expectation_difference": 0.0
+          },
+          "trajectory_vs_exact_channel_tvd": 0.0040128090055158334,
+          "trajectory_vs_exact_channel_z_expectation_error": 0.002092880656022089
+        },
+        "worker_process_returncode": 0,
+        "worker_stderr_tail": "",
+        "worker_stdout_tail": "SWAPPING GATE ORDER WHEN CONSTRUCTING CIRCUIT BECAUSE QISKIT\nSWAPPING NOISE ORDER FOR TWO-QUBIT NOISE GATES BECAUSE QISKIT\n"
+      },
+      {
+        "cold_setup_comparison_note": "reported as components only; no cold speedup is computed because TN initializes the shared GPU context before CUDA-Q within each isolated worker",
+        "common_input_preparation_seconds": 0.007423396993544884,
+        "cudaq": {
+          "first_steady_total_seconds": 0.057925513028749265,
+          "host_postprocess": {
+            "max_seconds": 0.0007184209971455857,
+            "median_absolute_deviation_seconds": 1.80399656528607e-05,
+            "median_seconds": 0.0004624529683496803,
+            "min_seconds": 0.00041234397212974727,
+            "repeats": 5
+          },
+          "raw_postprocess_seconds": [
+            0.0007184209971455857,
+            0.0004624529683496803,
+            0.0004763480101246387,
+            0.0004444130026968196,
+            0.00041234397212974727
+          ],
+          "raw_sample_call_seconds": [
+            0.05720709203160368,
+            0.05091695103328675,
+            0.06020626603276469,
+            0.048562086027232,
+            0.05571574502391741
+          ],
+          "sample_call_including_device_sampling": {
+            "max_seconds": 0.06020626603276469,
+            "median_absolute_deviation_seconds": 0.004490521008847281,
+            "median_seconds": 0.05571574502391741,
+            "min_seconds": 0.048562086027232,
+            "repeats": 5
+          },
+          "sampling_split_available": false,
+          "sampling_split_note": "CUDA-Q 0.13 cudaq.sample combines trajectory execution and device sampling",
+          "setup_compilation": {
+            "compile_warmup_seconds": 0.3028893849987071,
+            "context_note": "TN initialized the process CUDA context before this measurement",
+            "kernel_build_seconds": 0.037492596995434724,
+            "target_initialization_seconds": 0.0006694309995509684,
+            "total_seconds": 0.3410514129936928
+          },
+          "steady_total": {
+            "max_seconds": 0.06068261404288933,
+            "median_absolute_deviation_seconds": 0.004554525046842173,
+            "median_seconds": 0.056128088996047154,
+            "min_seconds": 0.04900649902992882,
+            "repeats": 5
+          }
+        },
+        "cudaq_effective_shots_per_second": 4670460.097411505,
+        "shots_per_trajectory": 64,
+        "steady_state_speedup_baseline_over_tn": 0.0851213246838919,
+        "telemetry": {
+          "cudaq": {
+            "available": true,
+            "gpu_utilization_percent_median": 10.0,
+            "gpu_utilization_percent_peak": 18.0,
+            "interval_ms": 50,
+            "memory_used_mib_delta": 5.0,
+            "memory_used_mib_min": 5469.0,
+            "memory_used_mib_peak": 5474.0,
+            "samples": 8,
+            "scope": "global device counters; separate untimed telemetry run"
+          },
+          "tn": {
+            "available": true,
+            "gpu_utilization_percent_median": 2.0,
+            "gpu_utilization_percent_peak": 18.0,
+            "interval_ms": 50,
+            "memory_used_mib_delta": 3.0,
+            "memory_used_mib_min": 5471.0,
+            "memory_used_mib_peak": 5474.0,
+            "samples": 17,
+            "scope": "global device counters; separate untimed telemetry run"
+          }
+        },
+        "tn": {
+          "cold_first_use": {
+            "apply_errors_seconds": 0.4125869510608027,
+            "contractions": 208,
+            "gpu_contraction_seconds": 0.6712783944010742,
+            "host_postprocess_seconds": 3.6972007364965975e-05,
+            "host_sampling_seconds": 0.018921550989034586,
+            "setup_path_planning_seconds": 0.4344022680015769,
+            "steady_compute_orchestration_seconds": 1.080132079005125,
+            "steady_loop_seconds": 1.0990536299941596,
+            "steady_total_seconds": 1.0990906020015245,
+            "upstream_profile": {
+              "final_nshots": 64,
+              "largest_intermediate_batch0": 16.0,
+              "max_free_qubits": 2,
+              "nshots": 64,
+              "num_batches": 3,
+              "num_contractions": 208,
+              "num_noise_samples": 16,
+              "num_qubits": 5,
+              "opt_cost_batch0": 632.0,
+              "q_tensor_postprocess_seconds": 3.6972007364965975e-05,
+              "time_apply_errors_total": 0.4125869510608027,
+              "time_build_expr_operands": 0.4306980349938385,
+              "time_circuit_to_einsum": 0.0030739170033484697,
+              "time_contract_cpu_total": 0.682419806937105,
+              "time_contract_gpu_total": 0.6712783944010742,
+              "time_contraction_loop": 1.0990536299941596,
+              "time_load_circuit": 0.000630316004389897,
+              "time_per_contract_gpu_avg": 0.0032272999730820874,
+              "time_per_contraction_loop_avg": 0.005283911682664229
+            },
+            "wall_seconds": 1.9466809389996342
+          },
+          "components": {
+            "apply_errors_seconds": {
+              "max_seconds": 0.060521531937411055,
+              "median_absolute_deviation_seconds": 0.0015234172024065629,
+              "median_seconds": 0.051308177135069855,
+              "min_seconds": 0.04978475993266329,
+              "repeats": 5
+            },
+            "gpu_contraction_seconds": {
+              "max_seconds": 0.6113148499727243,
+              "median_absolute_deviation_seconds": 0.004432697892189141,
+              "median_seconds": 0.5947226890921589,
+              "min_seconds": 0.5759830403327941,
+              "repeats": 5
+            },
+            "host_postprocess_seconds": {
+              "max_seconds": 3.530400863382965e-05,
+              "median_absolute_deviation_seconds": 3.2050011213868856e-06,
+              "median_seconds": 3.195198951289058e-05,
+              "min_seconds": 2.7850997867062688e-05,
+              "repeats": 5
+            },
+            "host_sampling_seconds": {
+              "max_seconds": 0.017161175186629407,
+              "median_absolute_deviation_seconds": 8.653206168673933e-05,
+              "median_seconds": 0.017074643124942668,
+              "min_seconds": 0.016917254150030203,
+              "repeats": 5
+            },
+            "setup_path_planning_seconds": {
+              "max_seconds": 0.05196570801490452,
+              "median_absolute_deviation_seconds": 0.004556261017569341,
+              "median_seconds": 0.04269678200944327,
+              "min_seconds": 0.037698950021876954,
+              "repeats": 5
+            },
+            "steady_compute_orchestration_seconds": {
+              "max_seconds": 0.6696839118085336,
+              "median_absolute_deviation_seconds": 0.008192104214685969,
+              "median_seconds": 0.6422581049264409,
+              "min_seconds": 0.6209956678794697,
+              "repeats": 5
+            },
+            "steady_loop_seconds": {
+              "max_seconds": 0.686845086995163,
+              "median_absolute_deviation_seconds": 0.008024338996619917,
+              "median_seconds": 0.6593614290031837,
+              "min_seconds": 0.6380703110044124,
+              "repeats": 5
+            },
+            "steady_total_seconds": {
+              "max_seconds": 0.6868770389846759,
+              "median_absolute_deviation_seconds": 0.008031792007386684,
+              "median_seconds": 0.6593892800010508,
+              "min_seconds": 0.6381017570092808,
+              "repeats": 5
+            },
+            "wall_seconds": {
+              "max_seconds": 0.7298101570049766,
+              "median_absolute_deviation_seconds": 0.0180996390117798,
+              "median_seconds": 0.7117105179931968,
+              "min_seconds": 0.6765833410026971,
+              "repeats": 5
+            }
+          },
+          "contractions": 208,
+          "first_repeat": {
+            "apply_errors_seconds": 0.051308177135069855,
+            "contractions": 208,
+            "gpu_contraction_seconds": 0.5947226890921589,
+            "host_postprocess_seconds": 2.7850997867062688e-05,
+            "host_sampling_seconds": 0.017103324076742865,
+            "setup_path_planning_seconds": 0.05196570801490452,
+            "steady_compute_orchestration_seconds": 0.6422581049264409,
+            "steady_loop_seconds": 0.6593614290031837,
+            "steady_total_seconds": 0.6593892800010508,
+            "upstream_profile": {
+              "final_nshots": 64,
+              "largest_intermediate_batch0": 16.0,
+              "max_free_qubits": 2,
+              "nshots": 64,
+              "num_batches": 3,
+              "num_contractions": 208,
+              "num_noise_samples": 16,
+              "num_qubits": 5,
+              "opt_cost_batch0": 632.0,
+              "q_tensor_postprocess_seconds": 2.7850997867062688e-05,
+              "time_apply_errors_total": 0.051308177135069855,
+              "time_build_expr_operands": 0.048881209004321136,
+              "time_circuit_to_einsum": 0.0018652450089575723,
+              "time_contract_cpu_total": 0.6049447689001681,
+              "time_contract_gpu_total": 0.5947226890921589,
+              "time_contraction_loop": 0.6593614290031837,
+              "time_load_circuit": 0.0012192540016258135,
+              "time_per_contract_gpu_avg": 0.002859243697558456,
+              "time_per_contraction_loop_avg": 0.0031700068702076143
+            },
+            "wall_seconds": 0.7117105179931968
+          },
+          "raw_repeats": [
+            {
+              "apply_errors_seconds": 0.051308177135069855,
+              "contractions": 208,
+              "gpu_contraction_seconds": 0.5947226890921589,
+              "host_postprocess_seconds": 2.7850997867062688e-05,
+              "host_sampling_seconds": 0.017103324076742865,
+              "setup_path_planning_seconds": 0.05196570801490452,
+              "steady_compute_orchestration_seconds": 0.6422581049264409,
+              "steady_loop_seconds": 0.6593614290031837,
+              "steady_total_seconds": 0.6593892800010508,
+              "upstream_profile": {
+                "final_nshots": 64,
+                "largest_intermediate_batch0": 16.0,
+                "max_free_qubits": 2,
+                "nshots": 64,
+                "num_batches": 3,
+                "num_contractions": 208,
+                "num_noise_samples": 16,
+                "num_qubits": 5,
+                "opt_cost_batch0": 632.0,
+                "q_tensor_postprocess_seconds": 2.7850997867062688e-05,
+                "time_apply_errors_total": 0.051308177135069855,
+                "time_build_expr_operands": 0.048881209004321136,
+                "time_circuit_to_einsum": 0.0018652450089575723,
+                "time_contract_cpu_total": 0.6049447689001681,
+                "time_contract_gpu_total": 0.5947226890921589,
+                "time_contraction_loop": 0.6593614290031837,
+                "time_load_circuit": 0.0012192540016258135,
+                "time_per_contract_gpu_avg": 0.002859243697558456,
+                "time_per_contraction_loop_avg": 0.0031700068702076143
+              },
+              "wall_seconds": 0.7117105179931968
+            },
+            {
+              "apply_errors_seconds": 0.04994054994313046,
+              "contractions": 208,
+              "gpu_contraction_seconds": 0.5759830403327941,
+              "host_postprocess_seconds": 3.1446004868485034e-05,
+              "host_sampling_seconds": 0.017074643124942668,
+              "setup_path_planning_seconds": 0.03814052099187393,
+              "steady_compute_orchestration_seconds": 0.6209956678794697,
+              "steady_loop_seconds": 0.6380703110044124,
+              "steady_total_seconds": 0.6381017570092808,
+              "upstream_profile": {
+                "final_nshots": 64,
+                "largest_intermediate_batch0": 16.0,
+                "max_free_qubits": 2,
+                "nshots": 64,
+                "num_batches": 3,
+                "num_contractions": 208,
+                "num_noise_samples": 16,
+                "num_qubits": 5,
+                "opt_cost_batch0": 632.0,
+                "q_tensor_postprocess_seconds": 3.1446004868485034e-05,
+                "time_apply_errors_total": 0.04994054994313046,
+                "time_build_expr_operands": 0.034543311994639225,
+                "time_circuit_to_einsum": 0.0031530440028291196,
+                "time_contract_cpu_total": 0.5851308579731267,
+                "time_contract_gpu_total": 0.5759830403327941,
+                "time_contraction_loop": 0.6380703110044124,
+                "time_load_circuit": 0.00044416499440558255,
+                "time_per_contract_gpu_avg": 0.0027691492323692027,
+                "time_per_contraction_loop_avg": 0.0030676457259827517
+              },
+              "wall_seconds": 0.6765833410026971
+            },
+            {
+              "apply_errors_seconds": 0.060521531937411055,
+              "contractions": 208,
+              "gpu_contraction_seconds": 0.6113148499727243,
+              "host_postprocess_seconds": 3.195198951289058e-05,
+              "host_sampling_seconds": 0.017161175186629407,
+              "setup_path_planning_seconds": 0.04269678200944327,
+              "steady_compute_orchestration_seconds": 0.6696839118085336,
+              "steady_loop_seconds": 0.686845086995163,
+              "steady_total_seconds": 0.6868770389846759,
+              "upstream_profile": {
+                "final_nshots": 64,
+                "largest_intermediate_batch0": 16.0,
+                "max_free_qubits": 2,
+                "nshots": 64,
+                "num_batches": 3,
+                "num_contractions": 208,
+                "num_noise_samples": 16,
+                "num_qubits": 5,
+                "opt_cost_batch0": 632.0,
+                "q_tensor_postprocess_seconds": 3.195198951289058e-05,
+                "time_apply_errors_total": 0.060521531937411055,
+                "time_build_expr_operands": 0.040455544003634714,
+                "time_circuit_to_einsum": 0.001863091005361639,
+                "time_contract_cpu_total": 0.6230253639514558,
+                "time_contract_gpu_total": 0.6113148499727243,
+                "time_contraction_loop": 0.686845086995163,
+                "time_load_circuit": 0.0003781470004469156,
+                "time_per_contract_gpu_avg": 0.002939013701791944,
+                "time_per_contraction_loop_avg": 0.003302139841322899
+              },
+              "wall_seconds": 0.7298101570049766
+            },
+            {
+              "apply_errors_seconds": 0.04978475993266329,
+              "contractions": 208,
+              "gpu_contraction_seconds": 0.5906503990888594,
+              "host_postprocess_seconds": 3.515699063427746e-05,
+              "host_sampling_seconds": 0.016917254150030203,
+              "setup_path_planning_seconds": 0.037698950021876954,
+              "steady_compute_orchestration_seconds": 0.6373436328576645,
+              "steady_loop_seconds": 0.6542608870076947,
+              "steady_total_seconds": 0.654296043998329,
+              "upstream_profile": {
+                "final_nshots": 64,
+                "largest_intermediate_batch0": 16.0,
+                "max_free_qubits": 2,
+                "nshots": 64,
+                "num_batches": 3,
+                "num_contractions": 208,
+                "num_noise_samples": 16,
+                "num_qubits": 5,
+                "opt_cost_batch0": 632.0,
+                "q_tensor_postprocess_seconds": 3.515699063427746e-05,
+                "time_apply_errors_total": 0.04978475993266329,
+                "time_build_expr_operands": 0.033760383012122475,
+                "time_circuit_to_einsum": 0.0035100609966320917,
+                "time_contract_cpu_total": 0.5994594129297184,
+                "time_contract_gpu_total": 0.5906503990888594,
+                "time_contraction_loop": 0.6542608870076947,
+                "time_load_circuit": 0.00042850601312238723,
+                "time_per_contract_gpu_avg": 0.002839665380234901,
+                "time_per_contraction_loop_avg": 0.00314548503369084
+              },
+              "wall_seconds": 0.6923659379972378
+            },
+            {
+              "apply_errors_seconds": 0.053811768055311404,
+              "contractions": 208,
+              "gpu_contraction_seconds": 0.599155386984348,
+              "host_postprocess_seconds": 3.530400863382965e-05,
+              "host_sampling_seconds": 0.016935558858676814,
+              "setup_path_planning_seconds": 0.04604875198856462,
+              "steady_compute_orchestration_seconds": 0.6504502091411268,
+              "steady_loop_seconds": 0.6673857679998036,
+              "steady_total_seconds": 0.6674210720084375,
+              "upstream_profile": {
+                "final_nshots": 64,
+                "largest_intermediate_batch0": 16.0,
+                "max_free_qubits": 2,
+                "nshots": 64,
+                "num_batches": 3,
+                "num_contractions": 208,
+                "num_noise_samples": 16,
+                "num_qubits": 5,
+                "opt_cost_batch0": 632.0,
+                "q_tensor_postprocess_seconds": 3.530400863382965e-05,
+                "time_apply_errors_total": 0.053811768055311404,
+                "time_build_expr_operands": 0.04346096199878957,
+                "time_circuit_to_einsum": 0.002221688991994597,
+                "time_contract_cpu_total": 0.6100737868982833,
+                "time_contract_gpu_total": 0.599155386984348,
+                "time_contraction_loop": 0.6673857679998036,
+                "time_load_circuit": 0.0003661009977804497,
+                "time_per_contract_gpu_avg": 0.002880554745117058,
+                "time_per_contraction_loop_avg": 0.003208585423075979
+              },
+              "wall_seconds": 0.7137024310068227
+            }
+          ]
+        },
+        "tn_effective_shots_per_second": 397555.7503749261,
+        "total_effective_shots": 262144,
+        "trajectories": 4096,
+        "trajectory_multiplicities": {
+          "(0,)": 3189,
+          "(1,)": 54,
+          "(10,)": 61,
+          "(11,)": 64,
+          "(12,)": 61,
+          "(13,)": 58,
+          "(14,)": 53,
+          "(15,)": 61,
+          "(2,)": 73,
+          "(3,)": 54,
+          "(4,)": 62,
+          "(5,)": 56,
+          "(6,)": 76,
+          "(7,)": 66,
+          "(8,)": 57,
+          "(9,)": 51
+        },
+        "unique_trajectories": 16,
+        "validation": {
+          "cudaq_vs_conditioned": {
+            "null_quantile": 0.999,
+            "null_tvd_limit": 0.004161452465687679,
+            "null_z_expectation_error_limit": 0.0026339045366308156,
+            "passed": true,
+            "tvd": 0.0018799444473034579,
+            "z_expectation_error": 0.0003984919389745656
+          },
+          "passed": true,
+          "reference": "exact conditioned complex128 Kraus-branch statevector mixture",
+          "tn_vs_conditioned": {
+            "null_quantile": 0.999,
+            "null_tvd_limit": 0.0044708251953125,
+            "null_z_expectation_error_limit": 0.0022142878374120656,
+            "passed": true,
+            "tvd": 0.0029236763506847565,
+            "z_expectation_error": 0.00020012768116206558
+          },
+          "tn_vs_cudaq": {
+            "null_quantile": 0.999,
+            "null_tvd_limit": 0.006626129150390625,
+            "null_z_expectation_difference_limit": 0.003265380859375,
+            "passed": true,
+            "tvd": 0.003139495849609375,
+            "z_expectation_difference": 0.0001983642578125
+          },
+          "trajectory_vs_exact_channel_tvd": 0.0024818899290359716,
+          "trajectory_vs_exact_channel_z_expectation_error": 0.00291473692291655
+        },
+        "worker_process_returncode": 0,
+        "worker_stderr_tail": "",
+        "worker_stdout_tail": "SWAPPING GATE ORDER WHEN CONSTRUCTING CIRCUIT BECAUSE QISKIT\nSWAPPING NOISE ORDER FOR TWO-QUBIT NOISE GATES BECAUSE QISKIT\n"
+      }
+    ]
+  },
+  "parameters": {
+    "case": {
+      "case_id": "5q_depolarizing2",
+      "gates": [
+        {
+          "angle": 0.61,
+          "name": "rx",
+          "qubits": [
+            0
+          ]
+        },
+        {
+          "angle": 0.37,
+          "name": "ry",
+          "qubits": [
+            1
+          ]
+        },
+        {
+          "angle": null,
+          "name": "cx",
+          "qubits": [
+            0,
+            1
+          ]
+        },
+        {
+          "angle": null,
+          "name": "h",
+          "qubits": [
+            2
+          ]
+        },
+        {
+          "angle": null,
+          "name": "cx",
+          "qubits": [
+            2,
+            3
+          ]
+        },
+        {
+          "angle": 0.83,
+          "name": "ry",
+          "qubits": [
+            4
+          ]
+        },
+        {
+          "angle": null,
+          "name": "cz",
+          "qubits": [
+            1,
+            4
+          ]
+        }
+      ],
+      "noise_sites": [
+        {
+          "after_gate": 2,
+          "channel": "depolarizing2",
+          "probability": 0.22,
+          "qubits": [
+            0,
+            1
+          ]
+        }
+      ],
+      "nqubits": 5,
+      "observable": "Z0Z1",
+      "seed": 5772
+    },
+    "cudaq_target": "nvidia fp64",
+    "max_free_qubits": 2,
+    "null_trials_per_validation_check": 1000,
+    "process_isolation": "one fresh worker process per trajectory count",
+    "repeats": 5,
+    "shots_per_trajectory": 64,
+    "speedup_definition": "CUDA-Q explicit steady total / TN proportional steady total",
+    "tn_dtype": "complex128",
+    "trajectory_counts": [
+      16,
+      64,
+      256,
+      1024,
+      4096
+    ],
+    "trajectory_stream": "nested prefixes from frozen case seed"
+  },
+  "schema_version": 1,
+  "software": {
+    "packages": {
+      "cuda-quantum-cu12": "0.13.0",
+      "cupy-cuda12x": "13.6.0",
+      "cuquantum-python-cu12": "26.1.0",
+      "mpi4py": "4.1.0",
+      "numpy": "1.26.4",
+      "qiskit": "2.2.3",
+      "scipy": "1.16.2"
+    },
+    "python": "3.11.16"
+  },
+  "timestamp_utc": "2026-09-10T23:47:38Z",
+  "upstream_commit": "0569f848d9a3e385d6c20162c534a8031f6a69c5"
+}
