@@ -358,6 +358,32 @@ def ordering_audit(workdir: Path, shots: int) -> dict[str, Any]:
     return {"shots_per_backend": shots, "cases": results}
 
 
+def minimized_stale_cache_audit(workdir: Path, shots: int = 4096) -> dict[str, Any]:
+    """Minimize upstream's serial-number-only cache failure to two qubits."""
+
+    cached_case = ValidationCase("cached_x_q0", 2, (Gate("x", (0,)),), (), (0,), 930)
+    current_case = ValidationCase("current_x_q1", 2, (Gate("x", (1,)),), (), (1,), 931)
+    grouped = (((), 1),)
+    cached_cudaq = run_cudaq(cached_case, grouped, shots, cached_case.seed)
+    current_tn = run_tn_fixed(current_case, grouped, shots, current_case.seed, workdir)
+    fresh_cudaq = run_cudaq(current_case, grouped, shots, current_case.seed)
+    reference = exact_distribution(current_case)
+    return {
+        "nqubits": 2,
+        "shots": shots,
+        "cached_circuit": "X(q0)",
+        "current_circuit": "X(q1)",
+        "cache_key_collision": "ptsa_example_serialnumber_0.npy",
+        "cached_cudaq_distribution": normalized(cached_cudaq),
+        "current_tn_distribution": normalized(current_tn),
+        "fresh_cudaq_distribution": normalized(fresh_cudaq),
+        "current_exact_distribution": reference,
+        "current_tn_vs_stale_cudaq_tvd": total_variation_distance(current_tn, cached_cudaq),
+        "current_tn_vs_fresh_cudaq_tvd": total_variation_distance(current_tn, fresh_cudaq),
+        "current_tn_vs_exact_tvd": total_variation_distance(current_tn, reference),
+    }
+
+
 def fixed_path_audit(workdir: Path, trajectory_count: int, shots_per_trajectory: int) -> dict[str, Any]:
     """Compare the official test's TN sampler with the same CUDA-Q trajectories."""
 
@@ -491,6 +517,7 @@ def main() -> int:
     with tempfile.TemporaryDirectory(prefix="q-tensor-validation-") as temporary:
         workdir = Path(temporary)
         audit = ordering_audit(workdir, shots=4096)
+        stale_cache_audit = minimized_stale_cache_audit(workdir)
         for case in FROZEN_CASES:
             channel_reference = exact_distribution(case)
             master_draws = sample_trajectories(case, max(args.trajectory_counts), seed=case.seed)
@@ -672,6 +699,7 @@ def main() -> int:
             ),
             "cases": all_case_results,
             "qubit_order_audit": audit,
+            "minimized_stale_cache_audit": stale_cache_audit,
             "upstream_fixed_path_audit": fixed_audit,
             "upstream_gate_semantics_audit": gate_audit,
             "upstream_depolarizing_sampler_audit": depolarizing_audit,
