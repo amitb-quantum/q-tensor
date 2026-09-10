@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/amitb-quantum/q-tensor/benchmarks/result-schema-v1.json",
+  "title": "Q-Tensor benchmark result",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "experiment_id",
+    "category",
+    "timestamp_utc",
+    "command",
+    "git_commit",
+    "upstream_commit",
+    "hardware",
+    "software",
+    "parameters",
+    "measurements"
+  ],
+  "properties": {
+    "schema_version": {"const": 1},
+    "experiment_id": {"type": "string", "minLength": 1},
+    "category": {
+      "enum": ["upstream_claim", "reproduced_result", "q_tensor_original"]
+    },
+    "timestamp_utc": {"type": "string", "format": "date-time"},
+    "command": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+    "git_commit": {"type": ["string", "null"]},
+    "upstream_commit": {"type": ["string", "null"]},
+    "hardware": {"type": "object"},
+    "software": {"type": "object"},
+    "parameters": {"type": "object"},
+    "measurements": {"type": "object"}
+  },
+  "additionalProperties": true
+}

@@ -1,0 +1,14 @@
+schema_version = 1
+
+[experiment]
+name = "upstream-core-smoke"
+category = "reproduced_result"
+seed = 20260910
+
+[upstream]
+repository = "https://github.com/NVlabs/Accelerated_TN_PTSBE.git"
+commit = "0569f848d9a3e385d6c20162c534a8031f6a69c5"
+
+[workload]
+checks = ["gate_map", "merged_error_contraction"]
+precision = "complex128"

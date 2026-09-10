@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.coverage
+htmlcov/
+.venv/
+
+# Editors and operating systems
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Local environments and caches
+.conda/
+.cache/
+*.log
+
+# Fetched upstream source (revision is recorded in upstream/LOCK.json)
+upstream/Accelerated_TN_PTSBE/
+
+# Generated benchmark/profiler artifacts
+results/**/*.tmp
+results/**/*.trace
+results/**/*.nsys-rep
+results/**/*.ncu-rep
+reports/figures/generated/

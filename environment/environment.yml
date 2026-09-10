@@ -1,0 +1,21 @@
+name: q-tensor
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - pip=26.2.1
+  - openmpi=5.0.10
+  - pip:
+      - cuquantum-cu12==26.1.0
+      - cuquantum-python-cu12==26.1.0
+      - cupy-cuda12x==13.6.0
+      - cuda-quantum-cu12==0.13.0
+      - nvmath-python==0.7.0
+      - qiskit==2.2.3
+      - numpy==1.26.4
+      - pandas==2.3.2
+      - matplotlib==3.10.6
+      - scipy==1.16.2
+      - mpi4py==4.1.0
+      - pytest==8.4.2
+      - -e .

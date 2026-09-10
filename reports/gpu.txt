@@ -1,0 +1,24 @@
+Captured: 2026-09-10 America/Los_Angeles
+Host: vermithor
+Environment: Ubuntu 26.04.1 LTS under WSL2
+
+nvidia-smi: 610.53
+Windows NVIDIA KMD/driver: 610.74
+CUDA UMD compatibility reported by nvidia-smi: 13.3
+GPU: NVIDIA GeForce RTX 5090
+Architecture: Blackwell
+Compute capability: 12.0
+Streaming multiprocessors (CuPy device properties): 170
+Visible VRAM (nvidia-smi): 32607 MiB
+Total global memory (CuPy): 34190458880 bytes
+PCI bus: 00000000:02:00.0
+State during inventory: P8
+
+Pinned-environment runtime check:
+  CUDA runtime API: 12090 (12.9)
+  CUDA driver API: 13030 (13.3)
+  cuTensorNet: 21100 (2.11.0)
+
+The initial nvidia-smi process table reported no compute processes while also showing
+4757 MiB allocated by Windows/graphics. WSL nvidia-smi has a limited feature set, so
+that apparent discrepancy is not interpreted as benchmark memory use.

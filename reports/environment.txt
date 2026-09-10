@@ -1,0 +1,46 @@
+Captured: 2026-09-10 America/Los_Angeles
+
+Host and OS
+  hostname: vermithor
+  WSL: 2.7.10.0
+  distro: Ubuntu 26.04.1 LTS (Resolute Raccoon)
+  kernel: 6.18.33.2-microsoft-standard-WSL2
+  CPU: Intel(R) Core(TM) Ultra 9 285K
+  CPUs visible to WSL: 24
+  RAM visible to WSL: 19 GiB
+  swap: 16 GiB
+
+Host tools
+  git: 2.53.0
+  gcc: 15.2.0
+  system Python: 3.14.4
+  cmake: not installed
+  nvcc/system CUDA toolkit: not installed
+  Nsight Systems CLI: 2026.4.1.191-264138605071v0
+  Nsight Compute: not installed
+  Docker in Ubuntu-26.04: unavailable (Docker Desktop integration not enabled)
+
+Dedicated conda environment
+  name: q-tensor
+  path: /home/manager/miniforge3/envs/q-tensor
+  Python: 3.11.16
+  pip: 26.2.1
+  Open MPI: 5.0.10
+  cuquantum-cu12: 26.1.0
+  cuquantum-python-cu12: 26.1.0
+  cupy-cuda12x: 13.6.0
+  cuda-quantum-cu12: 0.13.0
+  CUDA-Q source revision reported by binary:
+    b66c5bb7fd8c08e5014e2f03e97e7b0e92691650
+  nvmath-python: 0.7.0
+  qiskit: 2.2.3
+  numpy: 1.26.4
+  pandas: 2.3.2
+  matplotlib: 3.10.6
+  scipy: 1.16.2
+  mpi4py: 4.1.0
+  pytest: 8.4.2
+
+The conda Open MPI dependency is explicit in environment/environment.yml because the
+direct pip environment otherwise cannot load CUDA-Q's MPI dependency. The upstream
+Docker appliance provides this transitively.

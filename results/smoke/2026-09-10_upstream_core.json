@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "experiment_id": "manual-upstream-core-20260910",
+  "category": "reproduced_result",
+  "timestamp_utc": "2026-09-10T20:36:00Z",
+  "command": [
+    "python",
+    "test_gate_map/test_gate_map.py",
+    "then",
+    "python",
+    "test_contract/test_contract.py"
+  ],
+  "git_commit": null,
+  "upstream_commit": "0569f848d9a3e385d6c20162c534a8031f6a69c5",
+  "hardware": {
+    "gpu": "NVIDIA GeForce RTX 5090",
+    "compute_capability": "12.0",
+    "sm_count": 170,
+    "visible_vram_mib": 32607
+  },
+  "software": {
+    "cuda_driver_api": 13030,
+    "cuda_runtime": 12090,
+    "cupy": "13.6.0",
+    "cuquantum_python": "26.1.0",
+    "cutensornet": 21100,
+    "python": "3.11.16",
+    "qiskit": "2.2.3"
+  },
+  "parameters": {
+    "precision": "complex128",
+    "scope": "official bounded core checks"
+  },
+  "measurements": {
+    "gate_map": {
+      "elapsed_seconds": 3.24,
+      "max_rss_kib": 1377612,
+      "passed": true
+    },
+    "merged_error_contraction": {
+      "allclose": true,
+      "elapsed_seconds": 3.15,
+      "max_rss_kib": 2074900,
+      "passed": true
+    },
+    "timing_scope": "process wall time including Python startup and imports"
+  }
+}

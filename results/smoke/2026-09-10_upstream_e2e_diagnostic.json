@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "experiment_id": "manual-upstream-e2e-diagnostic-20260910",
+  "category": "reproduced_result",
+  "timestamp_utc": "2026-09-10T20:40:00Z",
+  "command": ["python", "test_ptsbe/test_ptsbe.py"],
+  "git_commit": null,
+  "upstream_commit": "0569f848d9a3e385d6c20162c534a8031f6a69c5",
+  "hardware": {
+    "gpu": "NVIDIA GeForce RTX 5090",
+    "compute_capability": "12.0",
+    "visible_vram_mib": 32607
+  },
+  "software": {
+    "cuda_runtime": 12090,
+    "cudaq": "0.13.0",
+    "cupy": "13.6.0",
+    "cuquantum_python": "26.1.0",
+    "openmpi": "5.0.10",
+    "qiskit": "2.2.3"
+  },
+  "parameters": {
+    "circuit_generation": "unseeded random",
+    "gates": 160,
+    "noise_patterns": 10,
+    "precision": "complex128",
+    "qubits": 7,
+    "requested_shots_per_pattern": 1000
+  },
+  "measurements": {
+    "cudaq_reference_samples": 10000,
+    "elapsed_seconds": 7.99,
+    "max_rss_kib": 2178224,
+    "process_exit_code": 0,
+    "statistical_check_passed": false,
+    "tensor_network_samples": 10015,
+    "tvd": 0.3039,
+    "tvd_threshold": 0.15
+  },
+  "notes": "Diagnostic only: unseeded and statistically failed despite exit code 0."
+}

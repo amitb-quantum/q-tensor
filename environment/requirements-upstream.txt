@@ -1,0 +1,13 @@
+# Exact direct Python dependencies in the upstream public Dockerfile at
+# NVlabs/Accelerated_TN_PTSBE@0569f848d9a3e385d6c20162c534a8031f6a69c5.
+cuquantum-cu12==26.1.0
+cuquantum-python-cu12==26.1.0
+cupy-cuda12x==13.6.0
+cuda-quantum-cu12==0.13.0
+nvmath-python==0.7.0
+qiskit==2.2.3
+numpy==1.26.4
+pandas==2.3.2
+matplotlib==3.10.6
+scipy==1.16.2
+mpi4py==4.1.0

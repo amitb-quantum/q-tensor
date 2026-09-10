@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "q-tensor"
+version = "0.1.0"
+description = "Independent reproduction and characterization of GPU tensor-network quantum trajectories"
+readme = "README.md"
+requires-python = ">=3.11"
+license = "Apache-2.0"
+authors = [{name = "Q-Tensor contributors"}]
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest==8.4.2"]
+
+[project.scripts]
+q-tensor = "q_tensor.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+addopts = "-ra"
+testpaths = ["tests"]
+markers = [
+  "gpu: requires an NVIDIA GPU and the pinned upstream environment",
+]
