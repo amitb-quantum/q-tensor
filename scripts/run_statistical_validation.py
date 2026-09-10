@@ -125,29 +125,45 @@ def run_tn(
     workdir: Path,
     reverse_qubits: bool = True,
     max_free_qubits: int = 2,
-) -> dict[str, int]:
+    dtype: str = "complex128",
+    profile: bool = False,
+    prepare_circuit: bool = True,
+) -> dict[str, int] | tuple[dict[str, int], dict[str, Any]]:
     import cupy
     from utils_circuit import get_noisy_shots_batched
 
     circuit_path = workdir / f"{case.case_id}-{'reversed' if reverse_qubits else 'direct'}.qpy"
-    write_qiskit_circuit(case, circuit_path, reverse_qubits=reverse_qubits)
+    if prepare_circuit:
+        write_qiskit_circuit(case, circuit_path, reverse_qubits=reverse_qubits)
+    elif not circuit_path.is_file():
+        raise FileNotFoundError(f"prepared circuit not found: {circuit_path}")
     np.random.seed(seed)
     cupy.random.seed(seed)
     noise_samples = upstream_noise_samples(case, grouped, shots_per_trajectory)
-    per_trajectory = get_noisy_shots_batched(
+    result = get_noisy_shots_batched(
         str(circuit_path),
         noise_samples,
         case.nqubits,
         max_free_qubits,
         shots_per_trajectory,
-        "complex128",
+        dtype,
         proportional_sampling=True,
         full_rdm=False,
+        enable_profiling=profile,
         verbose_level=0,
     )
+    if profile:
+        per_trajectory, profiling = result
+    else:
+        per_trajectory = result
+    postprocess_started = time.perf_counter()
     combined: Counter[str] = Counter()
     for counts in per_trajectory:
         combined.update(counts)
+    postprocess_seconds = time.perf_counter() - postprocess_started
+    if profile:
+        profiling["q_tensor_postprocess_seconds"] = postprocess_seconds
+        return dict(combined), profiling
     return dict(combined)
 
 
