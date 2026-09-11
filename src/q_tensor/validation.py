@@ -8,8 +8,9 @@ The conventions in this module are deliberately explicit:
   independent Bernoulli decisions; and
 * repeated trajectory draws retain their multiplicity.
 
-The largest frozen case has five qubits, so dense statevectors and density
-matrices are a simple, independent reference rather than an optimization.
+The frozen statistical suite stops at five qubits.  Complexity-pilot cases use
+the same independent complex128 statevector reference, while density matrices
+remain reserved for the small frozen cases.
 """
 
 from __future__ import annotations
@@ -141,8 +142,8 @@ FROZEN_CASES: tuple[ValidationCase, ...] = (
 def validate_case(case: ValidationCase) -> None:
     """Reject case definitions that cannot represent upstream gate-local noise."""
 
-    if not 2 <= case.nqubits <= 5:
-        raise ValueError("validation cases must contain 2 through 5 qubits")
+    if not 2 <= case.nqubits <= 20:
+        raise ValueError("reference cases must contain 2 through 20 qubits")
     seen_gate_indices: set[int] = set()
     for index, gate in enumerate(case.gates):
         if gate.name not in {"x", "y", "z", "h", "t", "rx", "ry", "rz", "cx", "cy", "cz", "ch", "crx"}:
@@ -297,19 +298,19 @@ def _two_qubit_matrix(gate: Gate) -> np.ndarray:
 
 
 def _apply_local(state: np.ndarray, matrix: np.ndarray, qubits: tuple[int, ...]) -> np.ndarray:
-    result = np.zeros_like(state)
-    mask = sum(1 << q for q in qubits)
-    for base in range(state.size):
-        if base & mask:
-            continue
-        input_values = np.array(
-            [state[base | sum(((local >> bit) & 1) << q for bit, q in enumerate(qubits))] for local in range(2 ** len(qubits))]
-        )
-        output_values = matrix @ input_values
-        for local, value in enumerate(output_values):
-            index = base | sum(((local >> bit) & 1) << q for bit, q in enumerate(qubits))
-            result[index] = value
-    return result
+    nqubits = state.size.bit_length() - 1
+    if 2**nqubits != state.size:
+        raise ValueError("statevector length must be a power of two")
+    # NumPy's last tensor axis is q0.  Reversing the requested qubits before
+    # moving their axes to the front preserves the local matrix convention in
+    # which qubits[0] is the least-significant local bit.
+    target_axes = [nqubits - 1 - qubit for qubit in reversed(qubits)]
+    remaining_axes = [axis for axis in range(nqubits) if axis not in target_axes]
+    permutation = target_axes + remaining_axes
+    tensor = state.reshape((2,) * nqubits)
+    local = np.transpose(tensor, permutation).reshape(2 ** len(qubits), -1)
+    transformed = (matrix @ local).reshape((2,) * nqubits)
+    return np.transpose(transformed, np.argsort(permutation)).reshape(-1)
 
 
 def _apply_gate(state: np.ndarray, gate: Gate) -> np.ndarray:
@@ -372,6 +373,16 @@ def exact_density_matrix(case: ValidationCase) -> np.ndarray:
 def exact_distribution(case: ValidationCase) -> dict[str, float]:
     diagonal = np.real(np.diag(exact_density_matrix(case)))
     return {bitstring(index, case.nqubits): float(value) for index, value in enumerate(diagonal) if value > 1e-15}
+
+
+def exact_branch_distribution(case: ValidationCase) -> dict[str, float]:
+    """Return the exact channel distribution without forming a density matrix."""
+
+    result: Counter[str] = Counter()
+    for trajectory, branch_probability in enumerate_trajectories(case):
+        for outcome, probability in trajectory_distribution(case, trajectory).items():
+            result[outcome] += branch_probability * probability
+    return dict(result)
 
 
 def conditioned_distribution(

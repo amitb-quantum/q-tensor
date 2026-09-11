@@ -1,0 +1,5267 @@
+{
+  "category": "q_tensor_original",
+  "command": [
+    "/home/manager/miniforge3/envs/q-tensor/bin/python",
+    "/mnt/c/Users/amitb/Documents/Q-Tensor/scripts/run_complexity_crossover.py",
+    "--upstream",
+    "/home/manager/q-tensor/upstream/Accelerated_TN_PTSBE",
+    "--output",
+    "results/performance/2026-09-10_complexity_crossover_pilot.json",
+    "--qubits",
+    "5",
+    "8",
+    "11",
+    "--depths",
+    "2",
+    "4",
+    "--trajectory-count",
+    "1024",
+    "--shots-per-trajectory",
+    "64",
+    "--repeats",
+    "5",
+    "--null-trials",
+    "1000"
+  ],
+  "experiment_id": "validated-complexity-crossover-pilot-v1",
+  "git_commit": "42256bb52457b1b351ac5510b1935fb40d4d4df3",
+  "hardware": {
+    "compute_capability": "12.0",
+    "cuda_driver_api": 13030,
+    "cuda_runtime": 12090,
+    "name": "NVIDIA GeForce RTX 5090",
+    "sm_count": 170,
+    "total_global_memory_bytes": 34190458880
+  },
+  "measurements": {
+    "all_timing_points_passed_validation": true,
+    "conclusion": "PASS",
+    "crossover": {
+      "approach_definition": "CUDA-Q/TN steady runtime ratio >= 0.8",
+      "best_measured_point": {
+        "entangling_depth": 2,
+        "nqubits": 5,
+        "speedup_baseline_over_tn": 0.030988661239152546
+      },
+      "first_approach_point": null,
+      "first_crossover_point": null
+    },
+    "points": [
+      {
+        "case": {
+          "case_id": "brickwork_5q_d2",
+          "gates": [
+            {
+              "angle": 0.184,
+              "name": "rx",
+              "qubits": [
+                0
+              ]
+            },
+            {
+              "angle": 0.22099999999999997,
+              "name": "ry",
+              "qubits": [
+                1
+              ]
+            },
+            {
+              "angle": 0.258,
+              "name": "rx",
+              "qubits": [
+                2
+              ]
+            },
+            {
+              "angle": 0.295,
+              "name": "ry",
+              "qubits": [
+                3
+              ]
+            },
+            {
+              "angle": 0.33199999999999996,
+              "name": "rx",
+              "qubits": [
+                4
+              ]
+            },
+            {
+              "angle": null,
+              "name": "cx",
+              "qubits": [
+                0,
+                1
+              ]
+            },
+            {
+              "angle": null,
+              "name": "cx",
+              "qubits": [
+                2,
+                3
+              ]
+            },
+            {
+              "angle": 0.15700000000000003,
+              "name": "rz",
+              "qubits": [
+                0
+              ]
+            },
+            {
+              "angle": 0.24400000000000002,
+              "name": "rz",
+              "qubits": [
+                1
+              ]
+            },
+            {
+              "angle": 0.331,
+              "name": "rz",
+              "qubits": [
+                2
+              ]
+            },
+            {
+              "angle": 0.41800000000000004,
+              "name": "rz",
+              "qubits": [
+                3
+              ]
+            },
+            {
+              "angle": 0.505,
+              "name": "rz",
+              "qubits": [
+                4
+              ]
+            },
+            {
+              "angle": 0.258,
+              "name": "ry",
+              "qubits": [
+                0
+              ]
+            },
+            {
+              "angle": 0.33199999999999996,
+              "name": "rx",
+              "qubits": [
+                1
+              ]
+            },
+            {
+              "angle": 0.40599999999999997,
+              "name": "ry",
+              "qubits": [
+                2
+              ]
+            },
+            {
+              "angle": 0.48,
+              "name": "rx",
+              "qubits": [
+                3
+              ]
+            },
+            {
+              "angle": 0.5539999999999999,
+              "name": "ry",
+              "qubits": [
+                4
+              ]
+            },
+            {
+              "angle": null,
+              "name": "cx",
+              "qubits": [
+                1,
+                2
+              ]
+            },
+            {
+              "angle": null,
+              "name": "cx",
+              "qubits": [
+                3,
+                4
+              ]
+            },
+            {
+              "angle": 0.186,
+              "name": "rz",
+              "qubits": [
+                0
+              ]
+            },
+            {
+              "angle": 0.30200000000000005,
+              "name": "rz",
+              "qubits": [
+                1
+              ]
+            },
+            {
+              "angle": 0.41800000000000004,
+              "name": "rz",
+              "qubits": [
+                2
+              ]
+            },
+            {
+              "angle": 0.534,
+              "name": "rz",
+              "qubits": [
+                3
+              ]
+            },
+            {
+              "angle": 0.099,
+              "name": "rz",
+              "qubits": [
+                4
+              ]
+            }
+          ],
+          "noise_sites": [
+            {
+              "after_gate": 5,
+              "channel": "depolarizing2",
+              "probability": 0.22,
+              "qubits": [
+                0,
+                1
+              ]
+            }
+          ],
+          "nqubits": 5,
+          "observable": "Z0Z4",
+          "seed": 5772
+        },
+        "coherent_gate_count": 24,
+        "common_input_preparation_seconds": 0.008622102992376313,
+        "cudaq": {
+          "first_steady_total_seconds": 0.02169786303420551,
+          "host_postprocess": {
+            "max_seconds": 0.0007119289948605001,
+            "median_absolute_deviation_seconds": 5.754691665060818e-05,
+            "median_seconds": 0.0003643319651018828,
+            "min_seconds": 0.0003041490417672321,
+            "repeats": 5
+          },
+          "raw_postprocess_seconds": [
+            0.0007119289948605001,
+            0.0003798369725700468,
+            0.0003643319651018828,
+            0.00030678504845127463,
+            0.0003041490417672321
+          ],
+          "raw_sample_call_seconds": [
+            0.02098593403934501,
+            0.018770995986415073,
+            0.01792856602696702,
+            0.014395340011105873,
+            0.01685942496987991
+          ],
+          "sample_call_including_device_sampling": {
+            "max_seconds": 0.02098593403934501,
+            "median_absolute_deviation_seconds": 0.0010691410570871085,
+            "median_seconds": 0.01792856602696702,
+            "min_seconds": 0.014395340011105873,
+            "repeats": 5
+          },
+          "sampling_split_available": false,
+          "sampling_split_note": "CUDA-Q 0.13 cudaq.sample combines trajectory execution and device sampling",
+          "setup_compilation": {
+            "compile_warmup_seconds": 0.33270602401171345,
+            "context_note": "TN initialized the process CUDA context before this measurement",
+            "kernel_build_seconds": 0.05279279399837833,
+            "target_initialization_seconds": 0.0007867559907026589,
+            "total_seconds": 0.38628557400079444
+          },
+          "steady_total": {
+            "max_seconds": 0.02169786303420551,
+            "median_absolute_deviation_seconds": 0.0011293239804217592,
+            "median_seconds": 0.0182928979920689,
+            "min_seconds": 0.014702125059557147,
+            "repeats": 5
+          }
+        },
+        "cudaq_effective_shots_per_second": 3582592.546485193,
+        "entangling_depth": 2,
+        "nqubits": 5,
+        "shots_per_trajectory": 64,
+        "steady_state_speedup_baseline_over_tn": 0.030988661239152546,
+        "telemetry": null,
+        "tn": {
+          "cold_first_use": {
+            "apply_errors_seconds": 0.35497743799351156,
+            "contractions": 286,
+            "gpu_contraction_seconds": 0.532118720769882,
+            "host_postprocess_seconds": 3.7480000173673034e-05,
+            "host_sampling_seconds": 0.011875572075950913,
+            "setup_path_planning_seconds": 0.5025466840161243,
+            "steady_compute_orchestration_seconds": 0.8898197509261081,
+            "steady_loop_seconds": 0.901695323002059,
+            "steady_total_seconds": 0.9017328030022327,
+            "upstream_profile": {
+              "final_nshots": 64,
+              "largest_intermediate_batch0": 16.0,
+              "max_free_qubits": 2,
+              "nshots": 64,
+              "num_batches": 3,
+              "num_contractions": 286,
+              "num_noise_samples": 16,
+              "num_qubits": 5,
+              "opt_cost_batch0": 1840.0,
+              "q_tensor_postprocess_seconds": 3.7480000173673034e-05,
+              "time_apply_errors_total": 0.35497743799351156,
+              "time_build_expr_operands": 0.49698049400467426,
+              "time_circuit_to_einsum": 0.004058631006046198,
+              "time_contract_cpu_total": 0.5427736248675501,
+              "time_contract_gpu_total": 0.532118720769882,
+              "time_contraction_loop": 0.901695323002059,
+              "time_load_circuit": 0.0015075590054038912,
+              "time_per_contract_gpu_avg": 0.0018605549677268602,
+              "time_per_contraction_loop_avg": 0.003152780849657549
+            },
+            "wall_seconds": 1.8412832689937204
+          },
+          "components": {
+            "apply_errors_seconds": {
+              "max_seconds": 0.10097146703628823,
+              "median_absolute_deviation_seconds": 0.0075324368954170495,
+              "median_seconds": 0.0639054749335628,
+              "min_seconds": 0.05637303803814575,
+              "repeats": 5
+            },
+            "gpu_contraction_seconds": {
+              "max_seconds": 0.5952138590812688,
+              "median_absolute_deviation_seconds": 0.015616480112075448,
+              "median_seconds": 0.5104868478775022,
+              "min_seconds": 0.4761889270544052,
+              "repeats": 5
+            },
+            "host_postprocess_seconds": {
+              "max_seconds": 4.9932990805245936e-05,
+              "median_absolute_deviation_seconds": 6.289919838309288e-07,
+              "median_seconds": 4.2307001422159374e-05,
+              "min_seconds": 4.1678009438328445e-05,
+              "repeats": 5
+            },
+            "host_sampling_seconds": {
+              "max_seconds": 0.012969630042789504,
+              "median_absolute_deviation_seconds": 0.0002646668435772881,
+              "median_seconds": 0.011899222954525612,
+              "min_seconds": 0.011341588950017467,
+              "repeats": 5
+            },
+            "setup_path_planning_seconds": {
+              "max_seconds": 0.06791022101242561,
+              "median_absolute_deviation_seconds": 0.0030981270101619884,
+              "median_seconds": 0.06032922401209362,
+              "min_seconds": 0.056864359983592294,
+              "repeats": 5
+            },
+            "steady_compute_orchestration_seconds": {
+              "max_seconds": 0.7029353749676375,
+              "median_absolute_deviation_seconds": 0.029795875074341893,
+              "median_seconds": 0.5783071109763114,
+              "min_seconds": 0.535481998056639,
+              "repeats": 5
+            },
+            "steady_loop_seconds": {
+              "max_seconds": 0.715905005010427,
+              "median_absolute_deviation_seconds": 0.02973952800675761,
+              "median_seconds": 0.5902626809984213,
+              "min_seconds": 0.5468235870066565,
+              "repeats": 5
+            },
+            "steady_total_seconds": {
+              "max_seconds": 0.7159472810162697,
+              "median_absolute_deviation_seconds": 0.029742742990492843,
+              "median_seconds": 0.5903093990054913,
+              "min_seconds": 0.5468658940080786,
+              "repeats": 5
+            },
+            "wall_seconds": {
+              "max_seconds": 0.7844381059985608,
+              "median_absolute_deviation_seconds": 0.030106168997008353,
+              "median_seconds": 0.6510272220039042,
+              "min_seconds": 0.6044449120090576,
+              "repeats": 5
+            }
+          },
+          "contractions": 281,
+          "first_repeat": {
+            "apply_errors_seconds": 0.10097146703628823,
+            "contractions": 281,
+            "gpu_contraction_seconds": 0.5952138590812688,
+            "host_postprocess_seconds": 4.227600584272295e-05,
+            "host_sampling_seconds": 0.012969630042789504,
+            "setup_path_planning_seconds": 0.06791022101242561,
+            "steady_compute_orchestration_seconds": 0.7029353749676375,
+            "steady_loop_seconds": 0.715905005010427,
+            "steady_total_seconds": 0.7159472810162697,
+            "upstream_profile": {
+              "final_nshots": 64,
+              "largest_intermediate_batch0": 16.0,
+              "max_free_qubits": 2,
+              "nshots": 64,
+              "num_batches": 3,
+              "num_contractions": 281,
+              "num_noise_samples": 16,
+              "num_qubits": 5,
+              "opt_cost_batch0": 1840.0,
+              "q_tensor_postprocess_seconds": 4.227600584272295e-05,
+              "time_apply_errors_total": 0.10097146703628823,
+              "time_build_expr_operands": 0.06407956100883894,
+              "time_circuit_to_einsum": 0.003111383004579693,
+              "time_contract_cpu_total": 0.6096657799062086,
+              "time_contract_gpu_total": 0.5952138590812688,
+              "time_contraction_loop": 0.715905005010427,
+              "time_load_circuit": 0.0007192769990069792,
+              "time_per_contract_gpu_avg": 0.002118198786766081,
+              "time_per_contraction_loop_avg": 0.0025477046441652208
+            },
+            "wall_seconds": 0.7844381059985608
+          },
+          "raw_repeats": [
+            {
+              "apply_errors_seconds": 0.10097146703628823,
+              "contractions": 281,
+              "gpu_contraction_seconds": 0.5952138590812688,
+              "host_postprocess_seconds": 4.227600584272295e-05,
+              "host_sampling_seconds": 0.012969630042789504,
+              "setup_path_planning_seconds": 0.06791022101242561,
+              "steady_compute_orchestration_seconds": 0.7029353749676375,
+              "steady_loop_seconds": 0.715905005010427,
+              "steady_total_seconds": 0.7159472810162697,
+              "upstream_profile": {
+                "final_nshots": 64,
+                "largest_intermediate_batch0": 16.0,
+                "max_free_qubits": 2,
+                "nshots": 64,
+                "num_batches": 3,
+                "num_contractions": 281,
+                "num_noise_samples": 16,
+                "num_qubits": 5,
+                "opt_cost_batch0": 1840.0,
+                "q_tensor_postprocess_seconds": 4.227600584272295e-05,
+                "time_apply_errors_total": 0.10097146703628823,
+                "time_build_expr_operands": 0.06407956100883894,
+                "time_circuit_to_einsum": 0.003111383004579693,
+                "time_contract_cpu_total": 0.6096657799062086,
+                "time_contract_gpu_total": 0.5952138590812688,
+                "time_contraction_loop": 0.715905005010427,
+                "time_load_circuit": 0.0007192769990069792,
+                "time_per_contract_gpu_avg": 0.002118198786766081,
+                "time_per_contraction_loop_avg": 0.0025477046441652208
+              },
+              "wall_seconds": 0.7844381059985608
+            },
+            {
+              "apply_errors_seconds": 0.08002557003055699,
+              "contractions": 283,
+              "gpu_contraction_seconds": 0.5229448955059052,
+              "host_postprocess_seconds": 4.9932990805245936e-05,
+              "host_sampling_seconds": 0.011899222954525612,
+              "setup_path_planning_seconds": 0.0605498070071917,
+              "steady_compute_orchestration_seconds": 0.6081029860506533,
+              "steady_loop_seconds": 0.6200022090051789,
+              "steady_total_seconds": 0.6200521419959841,
+              "upstream_profile": {
+                "final_nshots": 64,
+                "largest_intermediate_batch0": 16.0,
+                "max_free_qubits": 2,
+                "nshots": 64,
+                "num_batches": 3,
+                "num_contractions": 283,
+                "num_noise_samples": 16,
+                "num_qubits": 5,
+                "opt_cost_batch0": 1840.0,
+                "q_tensor_postprocess_seconds": 4.9932990805245936e-05,
+                "time_apply_errors_total": 0.08002557003055699,
+                "time_build_expr_operands": 0.05491890299890656,
+                "time_circuit_to_einsum": 0.005063150005298667,
+                "time_contract_cpu_total": 0.535023282005568,
+                "time_contract_gpu_total": 0.5229448955059052,
+                "time_contraction_loop": 0.6200022090051789,
+                "time_load_circuit": 0.0005677540029864758,
+                "time_per_contract_gpu_avg": 0.0018478618215756366,
+                "time_per_contraction_loop_avg": 0.0021908205265200667
+              },
+              "wall_seconds": 0.6811333910009125
+            },
+            {
+              "apply_errors_seconds": 0.0639054749335628,
+              "contractions": 285,
+              "gpu_contraction_seconds": 0.5104868478775022,
+              "host_postprocess_seconds": 4.671800707001239e-05,
+              "host_sampling_seconds": 0.011955570022109896,
+              "setup_path_planning_seconds": 0.06032922401209362,
+              "steady_compute_orchestration_seconds": 0.5783071109763114,
+              "steady_loop_seconds": 0.5902626809984213,
+              "steady_total_seconds": 0.5903093990054913,
+              "upstream_profile": {
+                "final_nshots": 64,
+                "largest_intermediate_batch0": 16.0,
+                "max_free_qubits": 2,
+                "nshots": 64,
+                "num_batches": 3,
+                "num_contractions": 285,
+                "num_noise_samples": 16,
+                "num_qubits": 5,
+                "opt_cost_batch0": 1840.0,
+                "q_tensor_postprocess_seconds": 4.671800707001239e-05,
+                "time_apply_errors_total": 0.0639054749335628,
+                "time_build_expr_operands": 0.05639994599914644,
+                "time_circuit_to_einsum": 0.0033954480022657663,
+                "time_contract_cpu_total": 0.5215070659469347,
+                "time_contract_gpu_total": 0.5104868478775022,
+                "time_contraction_loop": 0.5902626809984213,
+                "time_load_circuit": 0.0005338300106814131,
+                "time_per_contract_gpu_avg": 0.0017911819223772006,
+                "time_per_contraction_loop_avg": 0.00207109712631025
+              },
+              "wall_seconds": 0.6510272220039042
+            },
+            {
+              "apply_errors_seconds": 0.060569082968868315,
+              "contractions": 284,
+              "gpu_contraction_seconds": 0.49487036776542676,
+              "host_postprocess_seconds": 4.1678009438328445e-05,
+              "host_sampling_seconds": 0.011634556110948324,
+              "setup_path_planning_seconds": 0.056864359983592294,
+              "steady_compute_orchestration_seconds": 0.558482520878897,
+              "steady_loop_seconds": 0.5701170769898454,
+              "steady_total_seconds": 0.5701587549992837,
+              "upstream_profile": {
+                "final_nshots": 64,
+                "largest_intermediate_batch0": 16.0,
+                "max_free_qubits": 2,
+                "nshots": 64,
+                "num_batches": 3,
+                "num_contractions": 284,
+                "num_noise_samples": 16,
+                "num_qubits": 5,
+                "opt_cost_batch0": 1840.0,
+                "q_tensor_postprocess_seconds": 4.1678009438328445e-05,
+                "time_apply_errors_total": 0.060569082968868315,
+                "time_build_expr_operands": 0.05308371898718178,
+                "time_circuit_to_einsum": 0.0031470920075662434,
+                "time_contract_cpu_total": 0.5049587399553275,
+                "time_contract_gpu_total": 0.49487036776542676,
+                "time_contraction_loop": 0.5701170769898454,
+                "time_load_circuit": 0.000633548988844268,
+                "time_per_contract_gpu_avg": 0.0017425012949486857,
+                "time_per_contraction_loop_avg": 0.0020074544964431176
+              },
+              "wall_seconds": 0.6275072050048038
+            },
+            {
+              "apply_errors_seconds": 0.05637303803814575,
+              "contractions": 279,
+              "gpu_contraction_seconds": 0.4761889270544052,
+              "host_postprocess_seconds": 4.2307001422159374e-05,
+              "host_sampling_seconds": 0.011341588950017467,
+              "setup_path_planning_seconds": 0.05723109700193163,
+              "steady_compute_orchestration_seconds": 0.535481998056639,
+              "steady_loop_seconds": 0.5468235870066565,
+              "steady_total_seconds": 0.5468658940080786,
+              "upstream_profile": {
+                "final_nshots": 64,
+                "largest_intermediate_batch0": 16.0,
+                "max_free_qubits": 2,
+                "nshots": 64,
+                "num_batches": 3,
+                "num_contractions": 279,
+                "num_noise_samples": 16,
+                "num_qubits": 5,
+                "opt_cost_batch0": 1840.0,
+                "q_tensor_postprocess_seconds": 4.2307001422159374e-05,
+                "time_apply_errors_total": 0.05637303803814575,
+                "time_build_expr_operands": 0.05459884900483303,
+                "time_circuit_to_einsum": 0.0021937819983577356,
+                "time_contract_cpu_total": 0.4859374510415364,
+                "time_contract_gpu_total": 0.4761889270544052,
+                "time_contraction_loop": 0.5468235870066565,
+                "time_load_circuit": 0.0004384659987408668,
+                "time_per_contract_gpu_avg": 0.0017067703478652516,
+                "time_per_contraction_loop_avg": 0.001959941172066869
+              },
+              "wall_seconds": 0.6044449120090576
+            }
+          ]
+        },
+        "tn_dominant_measured_component": "gpu_contraction_seconds",
+        "tn_effective_shots_per_second": 111019.74678094251,
+        "tn_measured_component_medians_seconds": {
+          "apply_errors_seconds": 0.0639054749335628,
+          "gpu_contraction_seconds": 0.5104868478775022,
+          "host_postprocess_seconds": 4.2307001422159374e-05,
+          "host_sampling_seconds": 0.011899222954525612
+        },
+        "total_effective_shots": 65536,
+        "trajectories": 1024,
+        "trajectory_multiplicities": {
+          "(0,)": 791,
+          "(1,)": 14,
+          "(10,)": 16,
+          "(11,)": 17,
+          "(12,)": 15,
+          "(13,)": 15,
+          "(14,)": 13,
+          "(15,)": 16,
+          "(2,)": 13,
+          "(3,)": 22,
+          "(4,)": 15,
+          "(5,)": 10,
+          "(6,)": 25,
+          "(7,)": 21,
+          "(8,)": 11,
+          "(9,)": 10
+        },
+        "unique_trajectories": 16,
+        "validation": {
+          "cudaq_vs_conditioned": {
+            "null_quantile": 0.999,
+            "null_tvd_limit": 0.007036600059156893,
+            "null_z_expectation_error_limit": 0.009164152727029806,
+            "passed": true,
+            "tvd": 0.003134328135473675,
+            "z_expectation_error": 0.0019137281323451938
+          },
+          "passed": true,
+          "reference": "exact conditioned complex128 Kraus-branch statevector mixture",
+          "tn_vs_conditioned": {
+            "null_quantile": 0.999,
+            "null_tvd_limit": 0.007323593856493024,
+            "null_z_expectation_error_limit": 0.008920012102029806,
+            "passed": true,
+            "tvd": 0.003766509709146593,
+            "z_expectation_error": 0.004861174211404806
+          },
+          "tn_vs_cudaq": {
+            "null_quantile": 0.999,
+            "null_tvd_limit": 0.0113525390625,
+            "null_z_expectation_difference_limit": 0.013946533203125,
+            "passed": true,
+            "tvd": 0.0044708251953125,
+            "z_expectation_difference": 0.00677490234375
+          },
+          "trajectory_vs_exact_channel_tvd": 0.004487488865221387,
+          "trajectory_vs_exact_channel_z_expectation_error": 0.0056628825783286985
+        },
+        "worker_process_returncode": 0,
+        "worker_stderr_tail": "",
+        "worker_stdout_tail": "SWAPPING GATE ORDER WHEN CONSTRUCTING CIRCUIT BECAUSE QISKIT\nSWAPPING NOISE ORDER FOR TWO-QUBIT NOISE GATES BECAUSE QISKIT\n"
+      },
+      {
+        "case": {
+          "case_id": "brickwork_5q_d4",
+          "gates": [
+            {
+              "angle": 0.184,
+              "name": "rx",
+              "qubits": [
+                0
+              ]
+            },
+            {
+              "angle": 0.22099999999999997,
+              "name": "ry",
+              "qubits": [
+                1
+              ]
+            },
+            {
+              "angle": 0.258,
+              "name": "rx",
+              "qubits": [
+                2
+              ]
+            },
+            {
+              "angle": 0.295,
+              "name": "ry",
+              "qubits": [
+                3
+              ]
+            },
+            {
+              "angle": 0.33199999999999996,
+              "name": "rx",
+              "qubits": [
+                4
+              ]
+            },
+            {
+              "angle": null,
+              "name": "cx",
+              "qubits": [
+                0,
+                1
+              ]
+            },
+            {
+              "angle": null,
+              "name": "cx",
+              "qubits": [
+                2,
+                3
+              ]
+            },
+            {
+              "angle": 0.15700000000000003,
+              "name": "rz",
+              "qubits": [
+                0
+              ]
+            },
+            {
+              "angle": 0.24400000000000002,
+              "name": "rz",
+              "qubits": [
+                1
+              ]
+            },
+            {
+              "angle": 0.331,
+              "name": "rz",
+              "qubits": [
+                2
+              ]
+            },
+            {
+              "angle": 0.41800000000000004,
+              "name": "rz",
+              "qubits": [
+                3
+              ]
+            },
+            {
+              "angle": 0.505,
+              "name": "rz",
+              "qubits": [
+                4
+              ]
+            },
+            {
+              "angle": 0.258,
+              "name": "ry",
+              "qubits": [
+                0
+              ]
+            },
+            {
+              "angle": 0.33199999999999996,
+              "name": "rx",
+              "qubits": [
+                1
+              ]
+            },
+            {
+              "angle": 0.40599999999999997,
+              "name": "ry",
+              "qubits": [
+                2
+              ]
+            },
+            {
+              "angle": 0.48,
+              "name": "rx",
+              "qubits": [
+                3
+              ]
+            },
+            {
+              "angle": 0.5539999999999999,
+              "name": "ry",
+              "qubits": [
+                4
+              ]
+            },
+            {
+              "angle": null,
+              "name": "cx",
+              "qubits": [
+                1,
+                2
+              ]
+            },
+            {
+              "angle": null,
+              "name": "cx",
+              "qubits": [
+                3,
+                4
+              ]
+            },
+            {
+              "angle": 0.186,
+              "name": "rz",
+              "qubits": [
+                0
+              ]
+            },
+            {
+              "angle": 0.30200000000000005,
+              "name": "rz",
+              "qubits": [
+                1
+              ]
+            },
+            {
+              "angle": 0.41800000000000004,
+              "name": "rz",
+              "qubits": [
+                2
+              ]
+            },
+            {
+              "angle": 0.534,
+              "name": "rz",
+              "qubits": [
+                3
+              ]
+            },
+            {
+              "angle": 0.099,
+              "name": "rz",
+              "qubits": [
+                4
+              ]
+            },
+            {
+              "angle": 0.33199999999999996,
+              "name": "rx",
+              "qubits": [
+                0
+              ]
+            },
+            {
+              "angle": 0.44299999999999995,
+              "name": "ry",
+              "qubits": [
+                1
+              ]
+            },
+            {
+              "angle": 0.5539999999999999,
+              "name": "rx",
+              "qubits": [
+                2
+              ]
+            },
+            {
+              "angle": 0.6649999999999999,
+              "name": "ry",
+              "qubits": [
+                3
+              ]
+            },
+            {
+              "angle": 0.147,
+              "name": "rx",
+              "qubits": [
+                4
+              ]
+            },
+            {
+              "angle": null,
+              "name": "cx",
+              "qubits": [
+                0,
+                1
+              ]
+            },
+            {
+              "angle": null,
+              "name": "cx",
+              "qubits": [
+                2,
+                3
+              ]
+            },
+            {
+              "angle": 0.21500000000000002,
+              "name": "rz",
+              "qubits": [
+                0
+              ]
+            },
+            {
+              "angle": 0.36000000000000004,
+              "name": "rz",
+              "qubits": [
+                1
+              ]
+            },
+            {
+              "angle": 0.505,
+              "name": "rz",
+              "qubits": [
+                2
+              ]
+            },
+            {
+              "angle": 0.099,
+              "name": "rz",
+              "qubits": [
+                3
+              ]
+            },
+            {
+              "angle": 0.24400000000000002,
+              "name": "rz",
+              "qubits": [
+                4
+              ]
+            },
+            {
+              "angle": 0.40599999999999997,
+              "name": "ry",
+              "qubits": [
+                0
+              ]
+            },
+            {
+              "angle": 0.5539999999999999,
+              "name": "rx",
+              "qubits": [
+                1
+              ]
+            },
+            {
+              "angle": 0.702,
+              "name": "ry",
+              "qubits": [
+                2
+              ]
+            },
+            {
+              "angle": 0.22099999999999997,
+              "name": "rx",
+              "qubits": [
+                3
+              ]
+            },
+            {
+              "angle": 0.369,
+              "name": "ry",
+              "qubits": [
+                4
+              ]
+            },
+            {
+              "angle": null,
+              "name": "cx",
+              "qubits": [
+                1,
+                2
+              ]
+            },
+            {
+              "angle": null,
+              "name": "cx",
+              "qubits": [
+                3,
+                4
+              ]
+            },
+            {
+              "angle": 0.24400000000000002,
+              "name": "rz",
+              "qubits": [
+                0
+              ]
+            },
+            {
+              "angle": 0.41800000000000004,
+              "name": "rz",
+              "qubits": [
+                1
+              ]
+            },
+            {
+              "angle": 0.5920000000000001,
+              "name": "rz",
+              "qubits": [
+                2
+              ]
+            },
+            {
+              "angle": 0.21500000000000002,
+              "name": "rz",
+              "qubits": [
+                3
+              ]
+            },
+            {
+              "angle": 0.389,
+              "name": "rz",
+              "qubits": [
+                4
+              ]
+            }
+          ],
+          "noise_sites": [
+            {
+              "after_gate": 5,
+              "channel": "depolarizing2",
+              "probability": 0.22,
+              "qubits": [
+                0,
+                1
+              ]
+            }
+          ],
+          "nqubits": 5,
+          "observable": "Z0Z4",
+          "seed": 5772
+        },
+        "coherent_gate_count": 48,
+        "common_input_preparation_seconds": 0.007257917997776531,
+        "cudaq": {
+          "first_steady_total_seconds": 0.019540420995326713,
+          "host_postprocess": {
+            "max_seconds": 0.0006741019751643762,
+            "median_absolute_deviation_seconds": 0.0001457349571865052,
+            "median_seconds": 0.00046396498510148376,
+            "min_seconds": 0.00031823002791497856,
+            "repeats": 5
+          },
+          "raw_postprocess_seconds": [
+            0.0006415130192181095,
+            0.00031823002791497856,
+            0.00046396498510148376,
+            0.0006741019751643762,
+            0.0004037019971292466
+          ],
+          "raw_sample_call_seconds": [
+            0.018898907976108603,
+            0.014557465008692816,
+            0.022727605028194375,
+            0.020831900008488446,
+            0.020411630015587434
+          ],
+          "sample_call_including_device_sampling": {
+            "max_seconds": 0.022727605028194375,
+            "median_absolute_deviation_seconds": 0.001512722039478831,
+            "median_seconds": 0.020411630015587434,
+            "min_seconds": 0.014557465008692816,
+            "repeats": 5
+          },
+          "sampling_split_available": false,
+          "sampling_split_note": "CUDA-Q 0.13 cudaq.sample combines trajectory execution and device sampling",
+          "setup_compilation": {
+            "compile_warmup_seconds": 0.3393601449934067,
+            "context_note": "TN initialized the process CUDA context before this measurement",
+            "kernel_build_seconds": 0.07318665100319777,
+            "target_initialization_seconds": 0.0007233159994939342,
+            "total_seconds": 0.4132701119960984
+          },
+          "steady_total": {
+            "max_seconds": 0.02319157001329586,
+            "median_absolute_deviation_seconds": 0.001274911017389968,
+            "median_seconds": 0.02081533201271668,
+            "min_seconds": 0.014875695036607794,
+            "repeats": 5
+          }
+        },
+        "cudaq_effective_shots_per_second": 3148448.4590475033,
+        "entangling_depth": 4,
+        "nqubits": 5,
+        "shots_per_trajectory": 64,
+        "steady_state_speedup_baseline_over_tn": 0.02023178783096079,
+        "telemetry": null,
+        "tn": {
+          "cold_first_use": {
+            "apply_errors_seconds": 0.4298301850067219,
+            "contractions": 336,
+            "gpu_contraction_seconds": 0.928217887163162,
+            "host_postprocess_seconds": 4.920999344903976e-05,
+            "host_sampling_seconds": 0.01541106594959274,
+            "setup_path_planning_seconds": 0.47985578498628456,
+            "steady_compute_orchestration_seconds": 1.3629517090594163,
+            "steady_loop_seconds": 1.378362775009009,
+            "steady_total_seconds": 1.378411985002458,
+            "upstream_profile": {
+              "final_nshots": 64,
+              "largest_intermediate_batch0": 32.0,
+              "max_free_qubits": 2,
+              "nshots": 64,
+              "num_batches": 3,
+              "num_contractions": 336,
+              "num_noise_samples": 16,
+              "num_qubits": 5,
+              "opt_cost_batch0": 5984.0,
+              "q_tensor_postprocess_seconds": 4.920999344903976e-05,
+              "time_apply_errors_total": 0.4298301850067219,
+              "time_build_expr_operands": 0.47364205798658077,
+              "time_circuit_to_einsum": 0.004626344001735561,
+              "time_contract_cpu_total": 0.9426984800375067,
+              "time_contract_gpu_total": 0.928217887163162,
+              "time_contraction_loop": 1.378362775009009,
+              "time_load_circuit": 0.0015873829979682341,
+              "time_per_contract_gpu_avg": 0.0027625532356046487,
+              "time_per_contraction_loop_avg": 0.004102270163717289
+            },
+            "wall_seconds": 2.2645866209932137
+          },
+          "components": {
+            "apply_errors_seconds": {
+              "max_seconds": 0.12117198100895621,
+              "median_absolute_deviation_seconds": 0.0023667320201639086,
+              "median_seconds": 0.11155697301728651,
+              "min_seconds": 0.09242755398736335,
+              "repeats": 5
+            },
+            "gpu_contraction_seconds": {
+              "max_seconds": 0.9233325440883644,
+              "median_absolute_deviation_seconds": 0.015964286804199257,
+              "median_seconds": 0.8956439988613127,
+              "min_seconds": 0.8443363193273552,
+              "repeats": 5
+            },
+            "host_postprocess_seconds": {
+              "max_seconds": 8.385999535676092e-05,
+              "median_absolute_deviation_seconds": 2.88498995359987e-06,
+              "median_seconds": 6.34360039839521e-05,
+              "min_seconds": 5.665200296789408e-05,
+              "repeats": 5
+            },
+            "host_sampling_seconds": {
+              "max_seconds": 0.01794181602599565,
+              "median_absolute_deviation_seconds": 0.0008716962183825672,
+              "median_seconds": 0.01610126304149162,
+              "min_seconds": 0.01485876204969827,
+              "repeats": 5
+            },
+            "setup_path_planning_seconds": {
+              "max_seconds": 0.09021033001772594,
+              "median_absolute_deviation_seconds": 0.003438945015659556,
+              "median_seconds": 0.08565587201155722,
+              "min_seconds": 0.08094397601962555,
+              "repeats": 5
+            },
+            "steady_compute_orchestration_seconds": {
+              "max_seconds": 1.0423917599546257,
+              "median_absolute_deviation_seconds": 0.022300743803498335,
+              "median_seconds": 1.0135499341704417,
+              "min_seconds": 0.939093859953573,
+              "repeats": 5
+            },
+            "steady_loop_seconds": {
+              "max_seconds": 1.057250522004324,
+              "median_absolute_deviation_seconds": 0.02501299300638493,
+              "median_seconds": 1.0287795009935508,
+              "min_seconds": 0.9551951229950646,
+              "repeats": 5
+            },
+            "steady_total_seconds": {
+              "max_seconds": 1.057307174007292,
+              "median_absolute_deviation_seconds": 0.02501587799633853,
+              "median_seconds": 1.0288429369975347,
+              "min_seconds": 0.9552573889814084,
+              "repeats": 5
+            },
+            "wall_seconds": {
+              "max_seconds": 1.1401308920030715,
+              "median_absolute_deviation_seconds": 0.02293642799486406,
+              "median_seconds": 1.117127044009976,
+              "min_seconds": 1.0368379739957163,
+              "repeats": 5
+            }
+          },
+          "contractions": 336,
+          "first_repeat": {
+            "apply_errors_seconds": 0.11155697301728651,
+            "contractions": 336,
+            "gpu_contraction_seconds": 0.9233325440883644,
+            "host_postprocess_seconds": 5.665200296789408e-05,
+            "host_sampling_seconds": 0.01485876204969827,
+            "setup_path_planning_seconds": 0.08221692699589767,
+            "steady_compute_orchestration_seconds": 1.0423917599546257,
+            "steady_loop_seconds": 1.057250522004324,
+            "steady_total_seconds": 1.057307174007292,
+            "upstream_profile": {
+              "final_nshots": 64,
+              "largest_intermediate_batch0": 32.0,
+              "max_free_qubits": 2,
+              "nshots": 64,
+              "num_batches": 3,
+              "num_contractions": 336,
+              "num_noise_samples": 16,
+              "num_qubits": 5,
+              "opt_cost_batch0": 5984.0,
+              "q_tensor_postprocess_seconds": 5.665200296789408e-05,
+              "time_apply_errors_total": 0.11155697301728651,
+              "time_build_expr_operands": 0.07629532800638117,
+              "time_circuit_to_einsum": 0.005281220990582369,
+              "time_contract_cpu_total": 0.9392286320362473,
+              "time_contract_gpu_total": 0.9233325440883644,
+              "time_contraction_loop": 1.057250522004324,
+              "time_load_circuit": 0.0006403779989341274,
+              "time_per_contract_gpu_avg": 0.002748013524072513,
+              "time_per_contraction_loop_avg": 0.0031465789345366786
+            },
+            "wall_seconds": 1.1401308920030715
+          },
+          "raw_repeats": [
+            {
+              "apply_errors_seconds": 0.11155697301728651,
+              "contractions": 336,
+              "gpu_contraction_seconds": 0.9233325440883644,
+              "host_postprocess_seconds": 5.665200296789408e-05,
+              "host_sampling_seconds": 0.01485876204969827,
+              "setup_path_planning_seconds": 0.08221692699589767,
+              "steady_compute_orchestration_seconds": 1.0423917599546257,
+              "steady_loop_seconds": 1.057250522004324,
+              "steady_total_seconds": 1.057307174007292,
+              "upstream_profile": {
+                "final_nshots": 64,
+                "largest_intermediate_batch0": 32.0,
+                "max_free_qubits": 2,
+                "nshots": 64,
+                "num_batches": 3,
+                "num_contractions": 336,
+                "num_noise_samples": 16,
+                "num_qubits": 5,
+                "opt_cost_batch0": 5984.0,
+                "q_tensor_postprocess_seconds": 5.665200296789408e-05,
+                "time_apply_errors_total": 0.11155697301728651,
+                "time_build_expr_operands": 0.07629532800638117,
+                "time_circuit_to_einsum": 0.005281220990582369,
+                "time_contract_cpu_total": 0.9392286320362473,
+                "time_contract_gpu_total": 0.9233325440883644,
+                "time_contraction_loop": 1.057250522004324,
+                "time_load_circuit": 0.0006403779989341274,
+                "time_per_contract_gpu_avg": 0.002748013524072513,
+                "time_per_contraction_loop_avg": 0.0031465789345366786
+              },
+              "wall_seconds": 1.1401308920030715
+            },
+            {
+              "apply_errors_seconds": 0.09242755398736335,
+              "contractions": 336,
+              "gpu_contraction_seconds": 0.8443363193273552,
+              "host_postprocess_seconds": 6.226598634384573e-05,
+              "host_sampling_seconds": 0.01610126304149162,
+              "setup_path_planning_seconds": 0.08094397601962555,
+              "steady_compute_orchestration_seconds": 0.939093859953573,
+              "steady_loop_seconds": 0.9551951229950646,
+              "steady_total_seconds": 0.9552573889814084,
+              "upstream_profile": {
+                "final_nshots": 64,
+                "largest_intermediate_batch0": 32.0,
+                "max_free_qubits": 2,
+                "nshots": 64,
+                "num_batches": 3,
+                "num_contractions": 336,
+                "num_noise_samples": 16,
+                "num_qubits": 5,
+                "opt_cost_batch0": 5984.0,
+                "q_tensor_postprocess_seconds": 6.226598634384573e-05,
+                "time_apply_errors_total": 0.09242755398736335,
+                "time_build_expr_operands": 0.07721251300245058,
+                "time_circuit_to_einsum": 0.003087964010774158,
+                "time_contract_cpu_total": 0.8562983228621306,
+                "time_contract_gpu_total": 0.8443363193273552,
+                "time_contraction_loop": 0.9551951229950646,
+                "time_load_circuit": 0.0006434990064008161,
+                "time_per_contract_gpu_avg": 0.002512905712283795,
+                "time_per_contraction_loop_avg": 0.0028428426279615017
+              },
+              "wall_seconds": 1.0368379739957163
+            },
+            {
+              "apply_errors_seconds": 0.12117198100895621,
+              "contractions": 335,
+              "gpu_contraction_seconds": 0.911608285665512,
+              "host_postprocess_seconds": 6.632099393755198e-05,
+              "host_sampling_seconds": 0.01794181602599565,
+              "setup_path_planning_seconds": 0.08565587201155722,
+              "steady_compute_orchestration_seconds": 1.03585067797394,
+              "steady_loop_seconds": 1.0537924939999357,
+              "steady_total_seconds": 1.0538588149938732,
+              "upstream_profile": {
+                "final_nshots": 64,
+                "largest_intermediate_batch0": 32.0,
+                "max_free_qubits": 2,
+                "nshots": 64,
+                "num_batches": 3,
+                "num_contractions": 335,
+                "num_noise_samples": 16,
+                "num_qubits": 5,
+                "opt_cost_batch0": 5984.0,
+                "q_tensor_postprocess_seconds": 6.632099393755198e-05,
+                "time_apply_errors_total": 0.12117198100895621,
+                "time_build_expr_operands": 0.08023378200596198,
+                "time_circuit_to_einsum": 0.004763092001667246,
+                "time_contract_cpu_total": 0.9251893659238704,
+                "time_contract_gpu_total": 0.911608285665512,
+                "time_contraction_loop": 1.0537924939999357,
+                "time_load_circuit": 0.0006589980039279908,
+                "time_per_contract_gpu_avg": 0.002721218763180633,
+                "time_per_contraction_loop_avg": 0.0031456492358207036
+              },
+              "wall_seconds": 1.1400634720048402
+            },
+            {
+              "apply_errors_seconds": 0.1091902409971226,
+              "contractions": 335,
+              "gpu_contraction_seconds": 0.8917503992319117,
+              "host_postprocess_seconds": 8.385999535676092e-05,
+              "host_sampling_seconds": 0.01612147205742076,
+              "setup_path_planning_seconds": 0.09021033001772594,
+              "steady_compute_orchestration_seconds": 1.0060038659430575,
+              "steady_loop_seconds": 1.0221253380004782,
+              "steady_total_seconds": 1.022209197995835,
+              "upstream_profile": {
+                "final_nshots": 64,
+                "largest_intermediate_batch0": 32.0,
+                "max_free_qubits": 2,
+                "nshots": 64,
+                "num_batches": 3,
+                "num_contractions": 335,
+                "num_noise_samples": 16,
+                "num_qubits": 5,
+                "opt_cost_batch0": 5984.0,
+                "q_tensor_postprocess_seconds": 8.385999535676092e-05,
+                "time_apply_errors_total": 0.1091902409971226,
+                "time_build_expr_operands": 0.08402217400725931,
+                "time_circuit_to_einsum": 0.005529817004571669,
+                "time_contract_cpu_total": 0.9055531060148496,
+                "time_contract_gpu_total": 0.8917503992319117,
+                "time_contraction_loop": 1.0221253380004782,
+                "time_load_circuit": 0.000658339005894959,
+                "time_per_contract_gpu_avg": 0.0026619414902445127,
+                "time_per_contraction_loop_avg": 0.003051120411941726
+              },
+              "wall_seconds": 1.1133683590014698
+            },
+            {
+              "apply_errors_seconds": 0.11165221392002422,
+              "contractions": 335,
+              "gpu_contraction_seconds": 0.8956439988613127,
+              "host_postprocess_seconds": 6.34360039839521e-05,
+              "host_sampling_seconds": 0.015229566823109053,
+              "setup_path_planning_seconds": 0.08772306998434942,
+              "steady_compute_orchestration_seconds": 1.0135499341704417,
+              "steady_loop_seconds": 1.0287795009935508,
+              "steady_total_seconds": 1.0288429369975347,
+              "upstream_profile": {
+                "final_nshots": 64,
+                "largest_intermediate_batch0": 32.0,
+                "max_free_qubits": 2,
+                "nshots": 64,
+                "num_batches": 3,
+                "num_contractions": 335,
+                "num_noise_samples": 16,
+                "num_qubits": 5,
+                "opt_cost_batch0": 5984.0,
+                "q_tensor_postprocess_seconds": 6.34360039839521e-05,
+                "time_apply_errors_total": 0.11165221392002422,
+                "time_build_expr_operands": 0.08073014099500142,
+                "time_circuit_to_einsum": 0.006428392996895127,
+                "time_contract_cpu_total": 0.9100128971331287,
+                "time_contract_gpu_total": 0.8956439988613127,
+                "time_contraction_loop": 1.0287795009935508,
+                "time_load_circuit": 0.0005645359924528748,
+                "time_per_contract_gpu_avg": 0.002673564175705411,
+                "time_per_contraction_loop_avg": 0.0030709835850553755
+              },
+              "wall_seconds": 1.117127044009976
+            }
+          ]
+        },
+        "tn_dominant_measured_component": "gpu_contraction_seconds",
+        "tn_effective_shots_per_second": 63698.74122016453,
+        "tn_measured_component_medians_seconds": {
+          "apply_errors_seconds": 0.11155697301728651,
+          "gpu_contraction_seconds": 0.8956439988613127,
+          "host_postprocess_seconds": 6.34360039839521e-05,
+          "host_sampling_seconds": 0.01610126304149162
+        },
+        "total_effective_shots": 65536,
+        "trajectories": 1024,
+        "trajectory_multiplicities": {
+          "(0,)": 791,
+          "(1,)": 14,
+          "(10,)": 16,
+          "(11,)": 17,
+          "(12,)": 15,
+          "(13,)": 15,
+          "(14,)": 13,
+          "(15,)": 16,
+          "(2,)": 13,
+          "(3,)": 22,
+          "(4,)": 15,
+          "(5,)": 10,
+          "(6,)": 25,
+          "(7,)": 21,
+          "(8,)": 11,
+          "(9,)": 10
+        },
+        "unique_trajectories": 16,
+        "validation": {
+          "cudaq_vs_conditioned": {
+            "null_quantile": 0.999,
+            "null_tvd_limit": 0.012285406677781347,
+            "null_z_expectation_error_limit": 0.01290470418632772,
+            "passed": true,
+            "tvd": 0.007645435283634745,
+            "z_expectation_error": 0.00100284871757772
+          },
+          "passed": true,
+          "reference": "exact conditioned complex128 Kraus-branch statevector mixture",
+          "tn_vs_conditioned": {
+            "null_quantile": 0.999,
+            "null_tvd_limit": 0.011704610250814127,
+            "null_z_expectation_error_limit": 0.01221126261054728,
+            "passed": true,
+            "tvd": 0.008599555764618858,
+            "z_expectation_error": 0.00493961629570272
+          },
+          "tn_vs_cudaq": {
+            "null_quantile": 0.999,
+            "null_tvd_limit": 0.015533447265625,
+            "null_z_expectation_difference_limit": 0.017913818359375,
+            "passed": true,
+            "tvd": 0.0103607177734375,
+            "z_expectation_difference": 0.003936767578125
+          },
+          "trajectory_vs_exact_channel_tvd": 0.004637585101670527,
+          "trajectory_vs_exact_channel_z_expectation_error": 0.00038043812453925074
+        },
+        "worker_process_returncode": 0,
+        "worker_stderr_tail": "",
+        "worker_stdout_tail": "SWAPPING GATE ORDER WHEN CONSTRUCTING CIRCUIT BECAUSE QISKIT\nSWAPPING NOISE ORDER FOR TWO-QUBIT NOISE GATES BECAUSE QISKIT\n"
+      },
+      {
+        "case": {
+          "case_id": "brickwork_8q_d2",
+          "gates": [
+            {
+              "angle": 0.184,
+              "name": "rx",
+              "qubits": [
+                0
+              ]
+            },
+            {
+              "angle": 0.22099999999999997,
+              "name": "ry",
+              "qubits": [
+                1
+              ]
+            },
+            {
+              "angle": 0.258,
+              "name": "rx",
+              "qubits": [
+                2
+              ]
+            },
+            {
+              "angle": 0.295,
+              "name": "ry",
+              "qubits": [
+                3
+              ]
+            },
+            {
+              "angle": 0.33199999999999996,
+              "name": "rx",
+              "qubits": [
+                4
+              ]
+            },
+            {
+              "angle": 0.369,
+              "name": "ry",
+              "qubits": [
+                5
+              ]
+            },
+            {
+              "angle": 0.40599999999999997,
+              "name": "rx",
+              "qubits": [
+                6
+              ]
+            },
+            {
+              "angle": 0.44299999999999995,
+              "name": "ry",
+              "qubits": [
+                7
+              ]
+            },
+            {
+              "angle": null,
+              "name": "cx",
+              "qubits": [
+                0,
+                1
+              ]
+            },
+            {
+              "angle": null,
+              "name": "cx",
+              "qubits": [
+                2,
+                3
+              ]
+            },
+            {
+              "angle": null,
+              "name": "cx",
+              "qubits": [
+                4,
+                5
+              ]
+            },
+            {
+              "angle": null,
+              "name": "cx",
+              "qubits": [
+                6,
+                7
+              ]
+            },
+            {
+              "angle": 0.15700000000000003,
+              "name": "rz",
+              "qubits": [
+                0
+              ]
+            },
+            {
+              "angle": 0.24400000000000002,
+              "name": "rz",
+              "qubits": [
+                1
+              ]
+            },
+            {
+              "angle": 0.331,
+              "name": "rz",
+              "qubits": [
+                2
+              ]
+            },
+            {
+              "angle": 0.41800000000000004,
+              "name": "rz",
+              "qubits": [
+                3
+              ]
+            },
+            {
+              "angle": 0.505,
+              "name": "rz",
+              "qubits": [
+                4
+              ]
+            },
+            {
+              "angle": 0.5920000000000001,
+              "name": "rz",
+              "qubits": [
+                5
+              ]
+            },
+            {
+              "angle": 0.128,
+              "name": "rz",
+              "qubits": [
+                6
+              ]
+            },
+            {
+              "angle": 0.21500000000000002,
+              "name": "rz",
+              "qubits": [
+                7
+              ]
+            },
+            {
+              "angle": 0.258,
+              "name": "ry",
+              "qubits": [
+                0
+              ]
+            },
+            {
+              "angle": 0.33199999999999996,
+              "name": "rx",
+              "qubits": [
+                1
+              ]
+            },
+            {
+              "angle": 0.40599999999999997,
+              "name": "ry",
+              "qubits": [
+                2
+              ]
+            },
+            {
+              "angle": 0.48,
+              "name": "rx",
+              "qubits": [
+                3
+              ]
+            },
+            {
+              "angle": 0.5539999999999999,
+              "name": "ry",
+              "qubits": [
+                4
+              ]
+            },
+            {
+              "angle": 0.628,
+              "name": "rx",
+              "qubits": [
+                5
+              ]
+            },
+            {
+              "angle": 0.702,
+              "name": "ry",
+              "qubits": [
+                6
+              ]
+            },
+            {
+              "angle": 0.147,
+              "name": "rx",
+              "qubits": [
+                7
+              ]
+            },
+            {
+              "angle": null,
+              "name": "cx",
+              "qubits": [
+                1,
+                2
+              ]
+            },
+            {
+              "angle": null,
+              "name": "cx",
+              "qubits": [
+                3,
+                4
+              ]
+            },
+            {
+              "angle": null,
+              "name": "cx",
+              "qubits": [
+                5,
+                6
+              ]
+            },
+            {
+              "angle": 0.186,
+              "name": "rz",
+              "qubits": [
+                0
+              ]
+            },
+            {
+              "angle": 0.30200000000000005,
+              "name": "rz",
+              "qubits": [
+                1
+              ]
+            },
+            {
+              "angle": 0.41800000000000004,
+              "name": "rz",
+              "qubits": [
+                2
+              ]
+            },
+            {
+              "angle": 0.534,
+              "name": "rz",
+              "qubits": [
+                3
+              ]
+            },
+            {
+              "angle": 0.099,
+              "name": "rz",
+              "qubits": [
+                4
+              ]
+            },
+            {
+              "angle": 0.21500000000000002,
+              "name": "rz",
+              "qubits": [
+                5
+              ]
+            },
+            {
+              "angle": 0.331,
+              "name": "rz",
+              "qubits": [
+                6
+              ]
+            },
+            {
+              "angle": 0.447,
+              "name": "rz",
+              "qubits": [
+                7
+              ]
+            }
+          ],
+          "noise_sites": [
+            {
+              "after_gate": 8,
+              "channel": "depolarizing2",
+              "probability": 0.22,
+              "qubits": [
+                0,
+                1
+              ]
+            }
+          ],
+          "nqubits": 8,
+          "observable": "Z0Z7",
+          "seed": 5772
+        },
+        "coherent_gate_count": 39,
+        "common_input_preparation_seconds": 0.007830103990272619,
+        "cudaq": {
+          "first_steady_total_seconds": 0.025031058001331985,
+          "host_postprocess": {
+            "max_seconds": 0.0008342829969478771,
+            "median_absolute_deviation_seconds": 2.2379987058229744e-05,
+            "median_seconds": 0.0005604230100288987,
+            "min_seconds": 0.00045175402192398906,
+            "repeats": 5
+          },
+          "raw_postprocess_seconds": [
+            0.0008342829969478771,
+            0.0005828029970871285,
+            0.0005569370114244521,
+            0.00045175402192398906,
+            0.0005604230100288987
+          ],
+          "raw_sample_call_seconds": [
+            0.024196775004384108,
+            0.019676807016367093,
+            0.019047001958824694,
+            0.015581728977849707,
+            0.01939765296992846
+          ],
+          "sample_call_including_device_sampling": {
+            "max_seconds": 0.024196775004384108,
+            "median_absolute_deviation_seconds": 0.0003506510111037642,
+            "median_seconds": 0.01939765296992846,
+            "min_seconds": 0.015581728977849707,
+            "repeats": 5
+          },
+          "sampling_split_available": false,
+          "sampling_split_note": "CUDA-Q 0.13 cudaq.sample combines trajectory execution and device sampling",
+          "setup_compilation": {
+            "compile_warmup_seconds": 0.34006296400912106,
+            "context_note": "TN initialized the process CUDA context before this measurement",
+            "kernel_build_seconds": 0.0674770829937188,
+            "target_initialization_seconds": 0.0006666250119451433,
+            "total_seconds": 0.408206672014785
+          },
+          "steady_total": {
+            "max_seconds": 0.025031058001331985,
+            "median_absolute_deviation_seconds": 0.0003541370097082108,
+            "median_seconds": 0.019958075979957357,
+            "min_seconds": 0.016033482999773696,
+            "repeats": 5
+          }
+        },
+        "cudaq_effective_shots_per_second": 3283683.2601405913,
+        "entangling_depth": 2,
+        "nqubits": 8,
+        "shots_per_trajectory": 64,
+        "steady_state_speedup_baseline_over_tn": 0.008431836335122404,
+        "telemetry": null,
+        "tn": {
+          "cold_first_use": {
+            "apply_errors_seconds": 0.45940547400095966,
+            "contractions": 926,
+            "gpu_contraction_seconds": 2.1547559044361115,
+            "host_postprocess_seconds": 0.00012104399502277374,
+            "host_sampling_seconds": 0.03673984779743478,
+            "setup_path_planning_seconds": 0.43138486599491443,
+            "steady_compute_orchestration_seconds": 2.6257752252131468,
+            "steady_loop_seconds": 2.6625150730105815,
+            "steady_total_seconds": 2.6626361170056043,
+            "upstream_profile": {
+              "final_nshots": 64,
+              "largest_intermediate_batch0": 16.0,
+              "max_free_qubits": 2,
+              "nshots": 64,
+              "num_batches": 4,
+              "num_contractions": 926,
+              "num_noise_samples": 16,
+              "num_qubits": 8,
+              "opt_cost_batch0": 3144.0,
+              "q_tensor_postprocess_seconds": 0.00012104399502277374,
+              "time_apply_errors_total": 0.45940547400095966,
+              "time_build_expr_operands": 0.4247163999971235,
+              "time_circuit_to_einsum": 0.00518137399922125,
+              "time_contract_cpu_total": 2.192364869712037,
+              "time_contract_gpu_total": 2.1547559044361115,
+              "time_contraction_loop": 2.6625150730105815,
+              "time_load_circuit": 0.0014870919985696673,
+              "time_per_contract_gpu_avg": 0.002326950220773339,
+              "time_per_contraction_loop_avg": 0.002875286255950952
+            },
+            "wall_seconds": 3.508986818997073
+          },
+          "components": {
+            "apply_errors_seconds": {
+              "max_seconds": 0.179929714940954,
+              "median_absolute_deviation_seconds": 0.0032686699996702373,
+              "median_seconds": 0.14783540902135428,
+              "min_seconds": 0.1215680589521071,
+              "repeats": 5
+            },
+            "gpu_contraction_seconds": {
+              "max_seconds": 2.276580067753793,
+              "median_absolute_deviation_seconds": 0.10692908847332028,
+              "median_seconds": 2.168867361426353,
+              "min_seconds": 2.02353356552124,
+              "repeats": 5
+            },
+            "host_postprocess_seconds": {
+              "max_seconds": 0.00010833100532181561,
+              "median_absolute_deviation_seconds": 9.451003279536963e-06,
+              "median_seconds": 9.603600483387709e-05,
+              "min_seconds": 8.242600597441196e-05,
+              "repeats": 5
+            },
+            "host_sampling_seconds": {
+              "max_seconds": 0.03792254069412593,
+              "median_absolute_deviation_seconds": 0.0012918592110509053,
+              "median_seconds": 0.036149286112049595,
+              "min_seconds": 0.03484456388105173,
+              "repeats": 5
+            },
+            "setup_path_planning_seconds": {
+              "max_seconds": 0.1005365990131395,
+              "median_absolute_deviation_seconds": 0.0006965150096220896,
+              "median_seconds": 0.09839757499867119,
+              "min_seconds": 0.096177848012303,
+              "repeats": 5
+            },
+            "steady_compute_orchestration_seconds": {
+              "max_seconds": 2.4750692520465236,
+              "median_absolute_deviation_seconds": 0.11111330344283488,
+              "median_seconds": 2.3307587258750573,
+              "min_seconds": 2.155723625095561,
+              "repeats": 5
+            },
+            "steady_loop_seconds": {
+              "max_seconds": 2.5121701860043686,
+              "median_absolute_deviation_seconds": 0.11288655802491121,
+              "median_seconds": 2.366908011987107,
+              "min_seconds": 2.19058105199656,
+              "repeats": 5
+            },
+            "steady_total_seconds": {
+              "max_seconds": 2.5122625259973574,
+              "median_absolute_deviation_seconds": 0.11290961902705021,
+              "median_seconds": 2.3669904379930813,
+              "min_seconds": 2.1906770880013937,
+              "repeats": 5
+            },
+            "wall_seconds": {
+              "max_seconds": 2.6135235900001135,
+              "median_absolute_deviation_seconds": 0.11437631900480483,
+              "median_seconds": 2.4652807639940875,
+              "min_seconds": 2.289671222999459,
+              "repeats": 5
+            }
+          },
+          "contractions": 911,
+          "first_repeat": {
+            "apply_errors_seconds": 0.1485056339588482,
+            "contractions": 911,
+            "gpu_contraction_seconds": 2.0858252782821647,
+            "host_postprocess_seconds": 0.00010833100532181561,
+            "host_sampling_seconds": 0.03484456388105173,
+            "setup_path_planning_seconds": 0.096177848012303,
+            "steady_compute_orchestration_seconds": 2.247312574123498,
+            "steady_loop_seconds": 2.28215713800455,
+            "steady_total_seconds": 2.2822654690098716,
+            "upstream_profile": {
+              "final_nshots": 64,
+              "largest_intermediate_batch0": 16.0,
+              "max_free_qubits": 2,
+              "nshots": 64,
+              "num_batches": 4,
+              "num_contractions": 911,
+              "num_noise_samples": 16,
+              "num_qubits": 8,
+              "opt_cost_batch0": 3144.0,
+              "q_tensor_postprocess_seconds": 0.00010833100532181561,
+              "time_apply_errors_total": 0.1485056339588482,
+              "time_build_expr_operands": 0.09256479500618298,
+              "time_circuit_to_einsum": 0.002864804002456367,
+              "time_contract_cpu_total": 2.1229430011298973,
+              "time_contract_gpu_total": 2.0858252782821647,
+              "time_contraction_loop": 2.28215713800455,
+              "time_load_circuit": 0.0007482490036636591,
+              "time_per_contract_gpu_avg": 0.002289599646851992,
+              "time_per_contraction_loop_avg": 0.0025051121163606476
+            },
+            "wall_seconds": 2.379151447006734
+          },
+          "raw_repeats": [
+            {
+              "apply_errors_seconds": 0.1485056339588482,
+              "contractions": 911,
+              "gpu_contraction_seconds": 2.0858252782821647,
+              "host_postprocess_seconds": 0.00010833100532181561,
+              "host_sampling_seconds": 0.03484456388105173,
+              "setup_path_planning_seconds": 0.096177848012303,
+              "steady_compute_orchestration_seconds": 2.247312574123498,
+              "steady_loop_seconds": 2.28215713800455,
+              "steady_total_seconds": 2.2822654690098716,
+              "upstream_profile": {
+                "final_nshots": 64,
+                "largest_intermediate_batch0": 16.0,
+                "max_free_qubits": 2,
+                "nshots": 64,
+                "num_batches": 4,
+                "num_contractions": 911,
+                "num_noise_samples": 16,
+                "num_qubits": 8,
+                "opt_cost_batch0": 3144.0,
+                "q_tensor_postprocess_seconds": 0.00010833100532181561,
+                "time_apply_errors_total": 0.1485056339588482,
+                "time_build_expr_operands": 0.09256479500618298,
+                "time_circuit_to_einsum": 0.002864804002456367,
+                "time_contract_cpu_total": 2.1229430011298973,
+                "time_contract_gpu_total": 2.0858252782821647,
+                "time_contraction_loop": 2.28215713800455,
+                "time_load_circuit": 0.0007482490036636591,
+                "time_per_contract_gpu_avg": 0.002289599646851992,
+                "time_per_contraction_loop_avg": 0.0025051121163606476
+              },
+              "wall_seconds": 2.379151447006734
+            },
+            {
+              "apply_errors_seconds": 0.14783540902135428,
+              "contractions": 930,
+              "gpu_contraction_seconds": 2.2757964498996732,
+              "host_postprocess_seconds": 0.00010548700811341405,
+              "host_sampling_seconds": 0.03792254069412593,
+              "setup_path_planning_seconds": 0.09907653099799063,
+              "steady_compute_orchestration_seconds": 2.441872029317892,
+              "steady_loop_seconds": 2.479794570012018,
+              "steady_total_seconds": 2.4799000570201315,
+              "upstream_profile": {
+                "final_nshots": 64,
+                "largest_intermediate_batch0": 16.0,
+                "max_free_qubits": 2,
+                "nshots": 64,
+                "num_batches": 4,
+                "num_contractions": 930,
+                "num_noise_samples": 16,
+                "num_qubits": 8,
+                "opt_cost_batch0": 3144.0,
+                "q_tensor_postprocess_seconds": 0.00010548700811341405,
+                "time_apply_errors_total": 0.14783540902135428,
+                "time_build_expr_operands": 0.09367779799504206,
+                "time_circuit_to_einsum": 0.004783616997883655,
+                "time_contract_cpu_total": 2.3199292769131716,
+                "time_contract_gpu_total": 2.2757964498996732,
+                "time_contraction_loop": 2.479794570012018,
+                "time_load_circuit": 0.0006151160050649196,
+                "time_per_contract_gpu_avg": 0.002447092956881369,
+                "time_per_contraction_loop_avg": 0.002666445774206471
+              },
+              "wall_seconds": 2.5796570829988923
+            },
+            {
+              "apply_errors_seconds": 0.1215680589521071,
+              "contractions": 924,
+              "gpu_contraction_seconds": 2.02353356552124,
+              "host_postprocess_seconds": 9.603600483387709e-05,
+              "host_sampling_seconds": 0.03485742690099869,
+              "setup_path_planning_seconds": 0.09839757499867119,
+              "steady_compute_orchestration_seconds": 2.155723625095561,
+              "steady_loop_seconds": 2.19058105199656,
+              "steady_total_seconds": 2.1906770880013937,
+              "upstream_profile": {
+                "final_nshots": 64,
+                "largest_intermediate_batch0": 16.0,
+                "max_free_qubits": 2,
+                "nshots": 64,
+                "num_batches": 4,
+                "num_contractions": 924,
+                "num_noise_samples": 16,
+                "num_qubits": 8,
+                "opt_cost_batch0": 3144.0,
+                "q_tensor_postprocess_seconds": 9.603600483387709e-05,
+                "time_apply_errors_total": 0.1215680589521071,
+                "time_build_expr_operands": 0.09500621000188403,
+                "time_circuit_to_einsum": 0.002850627002771944,
+                "time_contract_cpu_total": 2.0575145442562643,
+                "time_contract_gpu_total": 2.02353356552124,
+                "time_contraction_loop": 2.19058105199656,
+                "time_load_circuit": 0.0005407379940152168,
+                "time_per_contract_gpu_avg": 0.0021899713912567533,
+                "time_per_contraction_loop_avg": 0.0023707587142819913
+              },
+              "wall_seconds": 2.289671222999459
+            },
+            {
+              "apply_errors_seconds": 0.179929714940954,
+              "contractions": 918,
+              "gpu_contraction_seconds": 2.276580067753793,
+              "host_postprocess_seconds": 9.233999298885465e-05,
+              "host_sampling_seconds": 0.03710093395784497,
+              "setup_path_planning_seconds": 0.1005365990131395,
+              "steady_compute_orchestration_seconds": 2.4750692520465236,
+              "steady_loop_seconds": 2.5121701860043686,
+              "steady_total_seconds": 2.5122625259973574,
+              "upstream_profile": {
+                "final_nshots": 64,
+                "largest_intermediate_batch0": 16.0,
+                "max_free_qubits": 2,
+                "nshots": 64,
+                "num_batches": 4,
+                "num_contractions": 918,
+                "num_noise_samples": 16,
+                "num_qubits": 8,
+                "opt_cost_batch0": 3144.0,
+                "q_tensor_postprocess_seconds": 9.233999298885465e-05,
+                "time_apply_errors_total": 0.179929714940954,
+                "time_build_expr_operands": 0.09551499599183444,
+                "time_circuit_to_einsum": 0.004397531010909006,
+                "time_contract_cpu_total": 2.319827336643357,
+                "time_contract_gpu_total": 2.276580067753793,
+                "time_contraction_loop": 2.5121701860043686,
+                "time_load_circuit": 0.0006240720103960484,
+                "time_per_contract_gpu_avg": 0.0024799347143287503,
+                "time_per_contraction_loop_avg": 0.002736568830070118
+              },
+              "wall_seconds": 2.6135235900001135
+            },
+            {
+              "apply_errors_seconds": 0.14456673902168404,
+              "contractions": 917,
+              "gpu_contraction_seconds": 2.168867361426353,
+              "host_postprocess_seconds": 8.242600597441196e-05,
+              "host_sampling_seconds": 0.036149286112049595,
+              "setup_path_planning_seconds": 0.0977010599890491,
+              "steady_compute_orchestration_seconds": 2.3307587258750573,
+              "steady_loop_seconds": 2.366908011987107,
+              "steady_total_seconds": 2.3669904379930813,
+              "upstream_profile": {
+                "final_nshots": 64,
+                "largest_intermediate_batch0": 16.0,
+                "max_free_qubits": 2,
+                "nshots": 64,
+                "num_batches": 4,
+                "num_contractions": 917,
+                "num_noise_samples": 16,
+                "num_qubits": 8,
+                "opt_cost_batch0": 3144.0,
+                "q_tensor_postprocess_seconds": 8.242600597441196e-05,
+                "time_apply_errors_total": 0.14456673902168404,
+                "time_build_expr_operands": 0.09246233900194056,
+                "time_circuit_to_einsum": 0.004709763990831561,
+                "time_contract_cpu_total": 2.2095247890247265,
+                "time_contract_gpu_total": 2.168867361426353,
+                "time_contraction_loop": 2.366908011987107,
+                "time_load_circuit": 0.0005289569962769747,
+                "time_per_contract_gpu_avg": 0.0023651770571715956,
+                "time_per_contraction_loop_avg": 0.0025811428702149477
+              },
+              "wall_seconds": 2.4652807639940875
+            }
+          ]
+        },
+        "tn_dominant_measured_component": "gpu_contraction_seconds",
+        "tn_effective_shots_per_second": 27687.479825886632,
+        "tn_measured_component_medians_seconds": {
+          "apply_errors_seconds": 0.14783540902135428,
+          "gpu_contraction_seconds": 2.168867361426353,
+          "host_postprocess_seconds": 9.603600483387709e-05,
+          "host_sampling_seconds": 0.036149286112049595
+        },
+        "total_effective_shots": 65536,
+        "trajectories": 1024,
+        "trajectory_multiplicities": {
+          "(0,)": 791,
+          "(1,)": 14,
+          "(10,)": 16,
+          "(11,)": 17,
+          "(12,)": 15,
+          "(13,)": 15,
+          "(14,)": 13,
+          "(15,)": 16,
+          "(2,)": 13,
+          "(3,)": 22,
+          "(4,)": 15,
+          "(5,)": 10,
+          "(6,)": 25,
+          "(7,)": 21,
+          "(8,)": 11,
+          "(9,)": 10
+        },
+        "unique_trajectories": 16,
+        "validation": {
+          "cudaq_vs_conditioned": {
+            "null_quantile": 0.999,
+            "null_tvd_limit": 0.013224704475980282,
+            "null_z_expectation_error_limit": 0.007047820851607045,
+            "passed": true,
+            "tvd": 0.007795463544822023,
+            "z_expectation_error": 8.981303910704508e-05
+          },
+          "passed": true,
+          "reference": "exact conditioned complex128 Kraus-branch statevector mixture",
+          "tn_vs_conditioned": {
+            "null_quantile": 0.999,
+            "null_tvd_limit": 0.013042340747362102,
+            "null_z_expectation_error_limit": 0.008054900929732045,
+            "passed": true,
+            "tvd": 0.008675492771248404,
+            "z_expectation_error": 0.001737762257857045
+          },
+          "tn_vs_cudaq": {
+            "null_quantile": 0.999,
+            "null_tvd_limit": 0.01849365234375,
+            "null_z_expectation_difference_limit": 0.0111083984375,
+            "passed": true,
+            "tvd": 0.013031005859375,
+            "z_expectation_difference": 0.00164794921875
+          },
+          "trajectory_vs_exact_channel_tvd": 0.004487488865221471,
+          "trajectory_vs_exact_channel_z_expectation_error": 0.007489331857712833
+        },
+        "worker_process_returncode": 0,
+        "worker_stderr_tail": "",
+        "worker_stdout_tail": "SWAPPING GATE ORDER WHEN CONSTRUCTING CIRCUIT BECAUSE QISKIT\nSWAPPING NOISE ORDER FOR TWO-QUBIT NOISE GATES BECAUSE QISKIT\n"
+      },
+      {
+        "case": {
+          "case_id": "brickwork_8q_d4",
+          "gates": [
+            {
+              "angle": 0.184,
+              "name": "rx",
+              "qubits": [
+                0
+              ]
+            },
+            {
+              "angle": 0.22099999999999997,
+              "name": "ry",
+              "qubits": [
+                1
+              ]
+            },
+            {
+              "angle": 0.258,
+              "name": "rx",
+              "qubits": [
+                2
+              ]
+            },
+            {
+              "angle": 0.295,
+              "name": "ry",
+              "qubits": [
+                3
+              ]
+            },
+            {
+              "angle": 0.33199999999999996,
+              "name": "rx",
+              "qubits": [
+                4
+              ]
+            },
+            {
+              "angle": 0.369,
+              "name": "ry",
+              "qubits": [
+                5
+              ]
+            },
+            {
+              "angle": 0.40599999999999997,
+              "name": "rx",
+              "qubits": [
+                6
+              ]
+            },
+            {
+              "angle": 0.44299999999999995,
+              "name": "ry",
+              "qubits": [
+                7
+              ]
+            },
+            {
+              "angle": null,
+              "name": "cx",
+              "qubits": [
+                0,
+                1
+              ]
+            },
+            {
+              "angle": null,
+              "name": "cx",
+              "qubits": [
+                2,
+                3
+              ]
+            },
+            {
+              "angle": null,
+              "name": "cx",
+              "qubits": [
+                4,
+                5
+              ]
+            },
+            {
+              "angle": null,
+              "name": "cx",
+              "qubits": [
+                6,
+                7
+              ]
+            },
+            {
+              "angle": 0.15700000000000003,
+              "name": "rz",
+              "qubits": [
+                0
+              ]
+            },
+            {
+              "angle": 0.24400000000000002,
+              "name": "rz",
+              "qubits": [
+                1
+              ]
+            },
+            {
+              "angle": 0.331,
+              "name": "rz",
+              "qubits": [
+                2
+              ]
+            },
+            {
+              "angle": 0.41800000000000004,
+              "name": "rz",
+              "qubits": [
+                3
+              ]
+            },
+            {
+              "angle": 0.505,
+              "name": "rz",
+              "qubits": [
+                4
+              ]
+            },
+            {
+              "angle": 0.5920000000000001,
+              "name": "rz",
+              "qubits": [
+                5
+              ]
+            },
+            {
+              "angle": 0.128,
+              "name": "rz",
+              "qubits": [
+                6
+              ]
+            },
+            {
+              "angle": 0.21500000000000002,
+              "name": "rz",
+              "qubits": [
+                7
+              ]
+            },
+            {
+              "angle": 0.258,
+              "name": "ry",
+              "qubits": [
+                0
+              ]
+            },
+            {
+              "angle": 0.33199999999999996,
+              "name": "rx",
+              "qubits": [
+                1
+              ]
+            },
+            {
+              "angle": 0.40599999999999997,
+              "name": "ry",
+              "qubits": [
+                2
+              ]
+            },
+            {
+              "angle": 0.48,
+              "name": "rx",
+              "qubits": [
+                3
+              ]
+            },
+            {
+              "angle": 0.5539999999999999,
+              "name": "ry",
+              "qubits": [
+                4
+              ]
+            },
+            {
+              "angle": 0.628,
+              "name": "rx",
+              "qubits": [
+                5
+              ]
+            },
+            {
+              "angle": 0.702,
+              "name": "ry",
+              "qubits": [
+                6
+              ]
+            },
+            {
+              "angle": 0.147,
+              "name": "rx",
+              "qubits": [
+                7
+              ]
+            },
+            {
+              "angle": null,
+              "name": "cx",
+              "qubits": [
+                1,
+                2
+              ]
+            },
+            {
+              "angle": null,
+              "name": "cx",
+              "qubits": [
+                3,
+                4
+              ]
+            },
+            {
+              "angle": null,
+              "name": "cx",
+              "qubits": [
+                5,
+                6
+              ]
+            },
+            {
+              "angle": 0.186,
+              "name": "rz",
+              "qubits": [
+                0
+              ]
+            },
+            {
+              "angle": 0.30200000000000005,
+              "name": "rz",
+              "qubits": [
+                1
+              ]
+            },
+            {
+              "angle": 0.41800000000000004,
+              "name": "rz",
+              "qubits": [
+                2
+              ]
+            },
+            {
+              "angle": 0.534,
+              "name": "rz",
+              "qubits": [
+                3
+              ]
+            },
+            {
+              "angle": 0.099,
+              "name": "rz",
+              "qubits": [
+                4
+              ]
+            },
+            {
+              "angle": 0.21500000000000002,
+              "name": "rz",
+              "qubits": [
+                5
+              ]
+            },
+            {
+              "angle": 0.331,
+              "name": "rz",
+              "qubits": [
+                6
+              ]
+            },
+            {
+              "angle": 0.447,
+              "name": "rz",
+              "qubits": [
+                7
+              ]
+            },
+            {
+              "angle": 0.33199999999999996,
+              "name": "rx",
+              "qubits": [
+                0
+              ]
+            },
+            {
+              "angle": 0.44299999999999995,
+              "name": "ry",
+              "qubits": [
+                1
+              ]
+            },
+            {
+              "angle": 0.5539999999999999,
+              "name": "rx",
+              "qubits": [
+                2
+              ]
+            },
+            {
+              "angle": 0.6649999999999999,
+              "name": "ry",
+              "qubits": [
+                3
+              ]
+            },
+            {
+              "angle": 0.147,
+              "name": "rx",
+              "qubits": [
+                4
+              ]
+            },
+            {
+              "angle": 0.258,
+              "name": "ry",
+              "qubits": [
+                5
+              ]
+            },
+            {
+              "angle": 0.369,
+              "name": "rx",
+              "qubits": [
+                6
+              ]
+            },
+            {
+              "angle": 0.48,
+              "name": "ry",
+              "qubits": [
+                7
+              ]
+            },
+            {
+              "angle": null,
+              "name": "cx",
+              "qubits": [
+                0,
+                1
+              ]
+            },
+            {
+              "angle": null,
+              "name": "cx",
+              "qubits": [
+                2,
+                3
+              ]
+            },
+            {
+              "angle": null,
+              "name": "cx",
+              "qubits": [
+                4,
+                5
+              ]
+            },
+            {
+              "angle": null,
+              "name": "cx",
+              "qubits": [
+                6,
+                7
+              ]
+            },
+            {
+              "angle": 0.21500000000000002,
+              "name": "rz",
+              "qubits": [
+                0
+              ]
+            },
+            {
+              "angle": 0.36000000000000004,
+              "name": "rz",
+              "qubits": [
+                1
+              ]
+            },
+            {
+              "angle": 0.505,
+              "name": "rz",
+              "qubits": [
+                2
+              ]
+            },
+            {
+              "angle": 0.099,
+              "name": "rz",
+              "qubits": [
+                3
+              ]
+            },
+            {
+              "angle": 0.24400000000000002,
+              "name": "rz",
+              "qubits": [
+                4
+              ]
+            },
+            {
+              "angle": 0.389,
+              "name": "rz",
+              "qubits": [
+                5
+              ]
+            },
+            {
+              "angle": 0.534,
+              "name": "rz",
+              "qubits": [
+                6
+              ]
+            },
+            {
+              "angle": 0.128,
+              "name": "rz",
+              "qubits": [
+                7
+              ]
+            },
+            {
+              "angle": 0.40599999999999997,
+              "name": "ry",
+              "qubits": [
+                0
+              ]
+            },
+            {
+              "angle": 0.5539999999999999,
+              "name": "rx",
+              "qubits": [
+                1
+              ]
+            },
+            {
+              "angle": 0.702,
+              "name": "ry",
+              "qubits": [
+                2
+              ]
+            },
+            {
+              "angle": 0.22099999999999997,
+              "name": "rx",
+              "qubits": [
+                3
+              ]
+            },
+            {
+              "angle": 0.369,
+              "name": "ry",
+              "qubits": [
+                4
+              ]
+            },
+            {
+              "angle": 0.517,
+              "name": "rx",
+              "qubits": [
+                5
+              ]
+            },
+            {
+              "angle": 0.6649999999999999,
+              "name": "ry",
+              "qubits": [
+                6
+              ]
+            },
+            {
+              "angle": 0.184,
+              "name": "rx",
+              "qubits": [
+                7
+              ]
+            },
+            {
+              "angle": null,
+              "name": "cx",
+              "qubits": [
+                1,
+                2
+              ]
+            },
+            {
+              "angle": null,
+              "name": "cx",
+              "qubits": [
+                3,
+                4
+              ]
+            },
+            {
+              "angle": null,
+              "name": "cx",
+              "qubits": [
+                5,
+                6
+              ]
+            },
+            {
+              "angle": 0.24400000000000002,
+              "name": "rz",
+              "qubits": [
+                0
+              ]
+            },
+            {
+              "angle": 0.41800000000000004,
+              "name": "rz",
+              "qubits": [
+                1
+              ]
+            },
+            {
+              "angle": 0.5920000000000001,
+              "name": "rz",
+              "qubits": [
+                2
+              ]
+            },
+            {
+              "angle": 0.21500000000000002,
+              "name": "rz",
+              "qubits": [
+                3
+              ]
+            },
+            {
+              "angle": 0.389,
+              "name": "rz",
+              "qubits": [
+                4
+              ]
+            },
+            {
+              "angle": 0.5630000000000001,
+              "name": "rz",
+              "qubits": [
+                5
+              ]
+            },
+            {
+              "angle": 0.186,
+              "name": "rz",
+              "qubits": [
+                6
+              ]
+            },
+            {
+              "angle": 0.36000000000000004,
+              "name": "rz",
+              "qubits": [
+                7
+              ]
+            }
+          ],
+          "noise_sites": [
+            {
+              "after_gate": 8,
+              "channel": "depolarizing2",
+              "probability": 0.22,
+              "qubits": [
+                0,
+                1
+              ]
+            }
+          ],
+          "nqubits": 8,
+          "observable": "Z0Z7",
+          "seed": 5772
+        },
+        "coherent_gate_count": 78,
+        "common_input_preparation_seconds": 0.00732496299315244,
+        "cudaq": {
+          "first_steady_total_seconds": 0.024423991970252246,
+          "host_postprocess": {
+            "max_seconds": 0.0011208369833184406,
+            "median_absolute_deviation_seconds": 9.564704669173807e-05,
+            "median_seconds": 0.0009162940259557217,
+            "min_seconds": 0.0007342720200540498,
+            "repeats": 5
+          },
+          "raw_postprocess_seconds": [
+            0.0011208369833184406,
+            0.0007342720200540498,
+            0.0009243679960491136,
+            0.0008206469792639837,
+            0.0009162940259557217
+          ],
+          "raw_sample_call_seconds": [
+            0.023303154986933805,
+            0.018448790040565655,
+            0.025891124998452142,
+            0.0189202280016616,
+            0.023370941955363378
+          ],
+          "sample_call_including_device_sampling": {
+            "max_seconds": 0.025891124998452142,
+            "median_absolute_deviation_seconds": 0.002587970011518337,
+            "median_seconds": 0.023303154986933805,
+            "min_seconds": 0.018448790040565655,
+            "repeats": 5
+          },
+          "sampling_split_available": false,
+          "sampling_split_note": "CUDA-Q 0.13 cudaq.sample combines trajectory execution and device sampling",
+          "setup_compilation": {
+            "compile_warmup_seconds": 0.3800745670014294,
+            "context_note": "TN initialized the process CUDA context before this measurement",
+            "kernel_build_seconds": 0.10943353199400008,
+            "target_initialization_seconds": 0.0007313960086321458,
+            "total_seconds": 0.4902394950040616
+          },
+          "steady_total": {
+            "max_seconds": 0.026815492994501255,
+            "median_absolute_deviation_seconds": 0.002528257013182156,
+            "median_seconds": 0.0242872359813191,
+            "min_seconds": 0.019183062060619704,
+            "repeats": 5
+          }
+        },
+        "cudaq_effective_shots_per_second": 2698372.1017248738,
+        "entangling_depth": 4,
+        "nqubits": 8,
+        "shots_per_trajectory": 64,
+        "steady_state_speedup_baseline_over_tn": 0.004787159974606613,
+        "telemetry": null,
+        "tn": {
+          "cold_first_use": {
+            "apply_errors_seconds": 0.5298587069555651,
+            "contractions": 1311,
+            "gpu_contraction_seconds": 5.050676765680314,
+            "host_postprocess_seconds": 0.0001934000028995797,
+            "host_sampling_seconds": 0.06210320003447123,
+            "setup_path_planning_seconds": 0.5118343689973699,
+            "steady_compute_orchestration_seconds": 5.592479661965626,
+            "steady_loop_seconds": 5.6545828620000975,
+            "steady_total_seconds": 5.654776262002997,
+            "upstream_profile": {
+              "final_nshots": 64,
+              "largest_intermediate_batch0": 64.0,
+              "max_free_qubits": 2,
+              "nshots": 64,
+              "num_batches": 4,
+              "num_contractions": 1311,
+              "num_noise_samples": 16,
+              "num_qubits": 8,
+              "opt_cost_batch0": 12896.0,
+              "q_tensor_postprocess_seconds": 0.0001934000028995797,
+              "time_apply_errors_total": 0.5298587069555651,
+              "time_build_expr_operands": 0.5050850400002673,
+              "time_circuit_to_einsum": 0.004984109997167252,
+              "time_contract_cpu_total": 5.108383107042755,
+              "time_contract_gpu_total": 5.050676765680314,
+              "time_contraction_loop": 5.6545828620000975,
+              "time_load_circuit": 0.001765218999935314,
+              "time_per_contract_gpu_avg": 0.0038525375787035196,
+              "time_per_contraction_loop_avg": 0.004313182961098473
+            },
+            "wall_seconds": 6.70388199199806
+          },
+          "components": {
+            "apply_errors_seconds": {
+              "max_seconds": 0.2470821209863061,
+              "median_absolute_deviation_seconds": 0.028416541987098753,
+              "median_seconds": 0.21397777496895287,
+              "min_seconds": 0.1854581800143933,
+              "repeats": 5
+            },
+            "gpu_contraction_seconds": {
+              "max_seconds": 5.105696927785868,
+              "median_absolute_deviation_seconds": 0.09800687670708541,
+              "median_seconds": 4.816488124370574,
+              "min_seconds": 4.60353129625321,
+              "repeats": 5
+            },
+            "host_postprocess_seconds": {
+              "max_seconds": 0.0004168070008745417,
+              "median_absolute_deviation_seconds": 8.95401171874255e-06,
+              "median_seconds": 0.00022492100833915174,
+              "min_seconds": 0.0002159669966204092,
+              "repeats": 5
+            },
+            "host_sampling_seconds": {
+              "max_seconds": 0.060738999891327694,
+              "median_absolute_deviation_seconds": 0.0012596857704920694,
+              "median_seconds": 0.05874711285287049,
+              "min_seconds": 0.057156979106366634,
+              "repeats": 5
+            },
+            "setup_path_planning_seconds": {
+              "max_seconds": 0.1617814549972536,
+              "median_absolute_deviation_seconds": 0.0013371969980653375,
+              "median_seconds": 0.15704206700320356,
+              "min_seconds": 0.15306946501368657,
+              "repeats": 5
+            },
+            "steady_compute_orchestration_seconds": {
+              "max_seconds": 5.37650693791511,
+              "median_absolute_deviation_seconds": 0.1117311057751067,
+              "median_seconds": 5.012385625115712,
+              "min_seconds": 4.795244923385326,
+              "repeats": 5
+            },
+            "steady_loop_seconds": {
+              "max_seconds": 5.4339943649974884,
+              "median_absolute_deviation_seconds": 0.10814908499014564,
+              "median_seconds": 5.07312462500704,
+              "min_seconds": 4.854793841004721,
+              "repeats": 5
+            },
+            "steady_total_seconds": {
+              "max_seconds": 5.434210851992248,
+              "median_absolute_deviation_seconds": 0.10807744298654143,
+              "median_seconds": 5.0734122340072645,
+              "min_seconds": 4.85501876201306,
+              "repeats": 5
+            },
+            "wall_seconds": {
+              "max_seconds": 5.592417266991106,
+              "median_absolute_deviation_seconds": 0.105634445004398,
+              "median_seconds": 5.2325373700005,
+              "min_seconds": 5.009170778997941,
+              "repeats": 5
+            }
+          },
+          "contractions": 1315,
+          "first_repeat": {
+            "apply_errors_seconds": 0.21999919896188658,
+            "contractions": 1315,
+            "gpu_contraction_seconds": 4.888973696470256,
+            "host_postprocess_seconds": 0.0002159669966204092,
+            "host_sampling_seconds": 0.057156979106366634,
+            "setup_path_planning_seconds": 0.15570487000513822,
+            "steady_compute_orchestration_seconds": 5.124116730890819,
+            "steady_loop_seconds": 5.1812737099971855,
+            "steady_total_seconds": 5.181489676993806,
+            "upstream_profile": {
+              "final_nshots": 64,
+              "largest_intermediate_batch0": 64.0,
+              "max_free_qubits": 2,
+              "nshots": 64,
+              "num_batches": 4,
+              "num_contractions": 1315,
+              "num_noise_samples": 16,
+              "num_qubits": 8,
+              "opt_cost_batch0": 12896.0,
+              "q_tensor_postprocess_seconds": 0.0002159669966204092,
+              "time_apply_errors_total": 0.21999919896188658,
+              "time_build_expr_operands": 0.1502254850056488,
+              "time_circuit_to_einsum": 0.003986691008321941,
+              "time_contract_cpu_total": 4.944529256754322,
+              "time_contract_gpu_total": 4.888973696470256,
+              "time_contraction_loop": 5.1812737099971855,
+              "time_load_circuit": 0.0014926939911674708,
+              "time_per_contract_gpu_avg": 0.0037178507197492437,
+              "time_per_contraction_loop_avg": 0.003940132098857175
+            },
+            "wall_seconds": 5.338171815004898
+          },
+          "raw_repeats": [
+            {
+              "apply_errors_seconds": 0.21999919896188658,
+              "contractions": 1315,
+              "gpu_contraction_seconds": 4.888973696470256,
+              "host_postprocess_seconds": 0.0002159669966204092,
+              "host_sampling_seconds": 0.057156979106366634,
+              "setup_path_planning_seconds": 0.15570487000513822,
+              "steady_compute_orchestration_seconds": 5.124116730890819,
+              "steady_loop_seconds": 5.1812737099971855,
+              "steady_total_seconds": 5.181489676993806,
+              "upstream_profile": {
+                "final_nshots": 64,
+                "largest_intermediate_batch0": 64.0,
+                "max_free_qubits": 2,
+                "nshots": 64,
+                "num_batches": 4,
+                "num_contractions": 1315,
+                "num_noise_samples": 16,
+                "num_qubits": 8,
+                "opt_cost_batch0": 12896.0,
+                "q_tensor_postprocess_seconds": 0.0002159669966204092,
+                "time_apply_errors_total": 0.21999919896188658,
+                "time_build_expr_operands": 0.1502254850056488,
+                "time_circuit_to_einsum": 0.003986691008321941,
+                "time_contract_cpu_total": 4.944529256754322,
+                "time_contract_gpu_total": 4.888973696470256,
+                "time_contraction_loop": 5.1812737099971855,
+                "time_load_circuit": 0.0014926939911674708,
+                "time_per_contract_gpu_avg": 0.0037178507197492437,
+                "time_per_contraction_loop_avg": 0.003940132098857175
+              },
+              "wall_seconds": 5.338171815004898
+            },
+            {
+              "apply_errors_seconds": 0.2470821209863061,
+              "contractions": 1300,
+              "gpu_contraction_seconds": 5.105696927785868,
+              "host_postprocess_seconds": 0.00021648699475917965,
+              "host_sampling_seconds": 0.05748742708237842,
+              "setup_path_planning_seconds": 0.15704206700320356,
+              "steady_compute_orchestration_seconds": 5.37650693791511,
+              "steady_loop_seconds": 5.4339943649974884,
+              "steady_total_seconds": 5.434210851992248,
+              "upstream_profile": {
+                "final_nshots": 64,
+                "largest_intermediate_batch0": 64.0,
+                "max_free_qubits": 2,
+                "nshots": 64,
+                "num_batches": 4,
+                "num_contractions": 1300,
+                "num_noise_samples": 16,
+                "num_qubits": 8,
+                "opt_cost_batch0": 12896.0,
+                "q_tensor_postprocess_seconds": 0.00021648699475917965,
+                "time_apply_errors_total": 0.2470821209863061,
+                "time_build_expr_operands": 0.149618832001579,
+                "time_circuit_to_einsum": 0.006621805994655006,
+                "time_contract_cpu_total": 5.168812441217597,
+                "time_contract_gpu_total": 5.105696927785868,
+                "time_contraction_loop": 5.4339943649974884,
+                "time_load_circuit": 0.0008014290069695562,
+                "time_per_contract_gpu_avg": 0.003927459175219898,
+                "time_per_contraction_loop_avg": 0.0041799956653826836
+              },
+              "wall_seconds": 5.592417266991106
+            },
+            {
+              "apply_errors_seconds": 0.18556123298185412,
+              "contractions": 1312,
+              "gpu_contraction_seconds": 4.816488124370574,
+              "host_postprocess_seconds": 0.0002876090002246201,
+              "host_sampling_seconds": 0.060738999891327694,
+              "setup_path_planning_seconds": 0.1579350710089784,
+              "steady_compute_orchestration_seconds": 5.012385625115712,
+              "steady_loop_seconds": 5.07312462500704,
+              "steady_total_seconds": 5.0734122340072645,
+              "upstream_profile": {
+                "final_nshots": 64,
+                "largest_intermediate_batch0": 64.0,
+                "max_free_qubits": 2,
+                "nshots": 64,
+                "num_batches": 4,
+                "num_contractions": 1312,
+                "num_noise_samples": 16,
+                "num_qubits": 8,
+                "opt_cost_batch0": 12896.0,
+                "q_tensor_postprocess_seconds": 0.0002876090002246201,
+                "time_apply_errors_total": 0.18556123298185412,
+                "time_build_expr_operands": 0.14992254100798164,
+                "time_circuit_to_einsum": 0.0070872159994905815,
+                "time_contract_cpu_total": 4.869220020977082,
+                "time_contract_gpu_total": 4.816488124370574,
+                "time_contraction_loop": 5.07312462500704,
+                "time_load_circuit": 0.0009253140015061945,
+                "time_per_contract_gpu_avg": 0.00367110375333123,
+                "time_per_contraction_loop_avg": 0.0038667108422309757
+              },
+              "wall_seconds": 5.2325373700005
+            },
+            {
+              "apply_errors_seconds": 0.1854581800143933,
+              "contractions": 1308,
+              "gpu_contraction_seconds": 4.60353129625321,
+              "host_postprocess_seconds": 0.00022492100833915174,
+              "host_sampling_seconds": 0.05954891761939507,
+              "setup_path_planning_seconds": 0.15306946501368657,
+              "steady_compute_orchestration_seconds": 4.795244923385326,
+              "steady_loop_seconds": 4.854793841004721,
+              "steady_total_seconds": 4.85501876201306,
+              "upstream_profile": {
+                "final_nshots": 64,
+                "largest_intermediate_batch0": 64.0,
+                "max_free_qubits": 2,
+                "nshots": 64,
+                "num_batches": 4,
+                "num_contractions": 1308,
+                "num_noise_samples": 16,
+                "num_qubits": 8,
+                "opt_cost_batch0": 12896.0,
+                "q_tensor_postprocess_seconds": 0.00022492100833915174,
+                "time_apply_errors_total": 0.1854581800143933,
+                "time_build_expr_operands": 0.14807651400042232,
+                "time_circuit_to_einsum": 0.0041187150054611266,
+                "time_contract_cpu_total": 4.651062723103678,
+                "time_contract_gpu_total": 4.60353129625321,
+                "time_contraction_loop": 4.854793841004721,
+                "time_load_circuit": 0.0008742360078031197,
+                "time_per_contract_gpu_avg": 0.0035195193396431266,
+                "time_per_contraction_loop_avg": 0.0037116160863950465
+              },
+              "wall_seconds": 5.009170778997941
+            },
+            {
+              "apply_errors_seconds": 0.21397777496895287,
+              "contractions": 1312,
+              "gpu_contraction_seconds": 4.7184812476634885,
+              "host_postprocess_seconds": 0.0004168070008745417,
+              "host_sampling_seconds": 0.05874711285287049,
+              "setup_path_planning_seconds": 0.1617814549972536,
+              "steady_compute_orchestration_seconds": 4.945407861145213,
+              "steady_loop_seconds": 5.004154973998084,
+              "steady_total_seconds": 5.004571780998958,
+              "upstream_profile": {
+                "final_nshots": 64,
+                "largest_intermediate_batch0": 64.0,
+                "max_free_qubits": 2,
+                "nshots": 64,
+                "num_batches": 4,
+                "num_contractions": 1312,
+                "num_noise_samples": 16,
+                "num_qubits": 8,
+                "opt_cost_batch0": 12896.0,
+                "q_tensor_postprocess_seconds": 0.0004168070008745417,
+                "time_apply_errors_total": 0.21397777496895287,
+                "time_build_expr_operands": 0.15694963799614925,
+                "time_circuit_to_einsum": 0.004102785009308718,
+                "time_contract_cpu_total": 4.772519759164425,
+                "time_contract_gpu_total": 4.7184812476634885,
+                "time_contraction_loop": 5.004154973998084,
+                "time_load_circuit": 0.0007290319917956367,
+                "time_per_contract_gpu_avg": 0.003596403389987415,
+                "time_per_contraction_loop_avg": 0.003814142510669271
+              },
+              "wall_seconds": 5.1673387860064395
+            }
+          ]
+        },
+        "tn_dominant_measured_component": "gpu_contraction_seconds",
+        "tn_effective_shots_per_second": 12917.538921972442,
+        "tn_measured_component_medians_seconds": {
+          "apply_errors_seconds": 0.21397777496895287,
+          "gpu_contraction_seconds": 4.816488124370574,
+          "host_postprocess_seconds": 0.00022492100833915174,
+          "host_sampling_seconds": 0.05874711285287049
+        },
+        "total_effective_shots": 65536,
+        "trajectories": 1024,
+        "trajectory_multiplicities": {
+          "(0,)": 791,
+          "(1,)": 14,
+          "(10,)": 16,
+          "(11,)": 17,
+          "(12,)": 15,
+          "(13,)": 15,
+          "(14,)": 13,
+          "(15,)": 16,
+          "(2,)": 13,
+          "(3,)": 22,
+          "(4,)": 15,
+          "(5,)": 10,
+          "(6,)": 25,
+          "(7,)": 21,
+          "(8,)": 11,
+          "(9,)": 10
+        },
+        "unique_trajectories": 16,
+        "validation": {
+          "cudaq_vs_conditioned": {
+            "null_quantile": 0.999,
+            "null_tvd_limit": 0.024026252403232425,
+            "null_z_expectation_error_limit": 0.012196406606802379,
+            "passed": true,
+            "tvd": 0.01847394486304288,
+            "z_expectation_error": 0.0003463180025726209
+          },
+          "passed": true,
+          "reference": "exact conditioned complex128 Kraus-branch statevector mixture",
+          "tn_vs_conditioned": {
+            "null_quantile": 0.999,
+            "null_tvd_limit": 0.022529110032796257,
+            "null_z_expectation_error_limit": 0.010975703481802379,
+            "passed": true,
+            "tvd": 0.017242636443704898,
+            "z_expectation_error": 0.003132685903677379
+          },
+          "tn_vs_cudaq": {
+            "null_quantile": 0.999,
+            "null_tvd_limit": 0.03277587890625,
+            "null_z_expectation_difference_limit": 0.014801025390625,
+            "passed": true,
+            "tvd": 0.0235748291015625,
+            "z_expectation_difference": 0.00347900390625
+          },
+          "trajectory_vs_exact_channel_tvd": 0.0046245313223030925,
+          "trajectory_vs_exact_channel_z_expectation_error": 0.00434921761620044
+        },
+        "worker_process_returncode": 0,
+        "worker_stderr_tail": "",
+        "worker_stdout_tail": "SWAPPING GATE ORDER WHEN CONSTRUCTING CIRCUIT BECAUSE QISKIT\nSWAPPING NOISE ORDER FOR TWO-QUBIT NOISE GATES BECAUSE QISKIT\n"
+      },
+      {
+        "case": {
+          "case_id": "brickwork_11q_d2",
+          "gates": [
+            {
+              "angle": 0.184,
+              "name": "rx",
+              "qubits": [
+                0
+              ]
+            },
+            {
+              "angle": 0.22099999999999997,
+              "name": "ry",
+              "qubits": [
+                1
+              ]
+            },
+            {
+              "angle": 0.258,
+              "name": "rx",
+              "qubits": [
+                2
+              ]
+            },
+            {
+              "angle": 0.295,
+              "name": "ry",
+              "qubits": [
+                3
+              ]
+            },
+            {
+              "angle": 0.33199999999999996,
+              "name": "rx",
+              "qubits": [
+                4
+              ]
+            },
+            {
+              "angle": 0.369,
+              "name": "ry",
+              "qubits": [
+                5
+              ]
+            },
+            {
+              "angle": 0.40599999999999997,
+              "name": "rx",
+              "qubits": [
+                6
+              ]
+            },
+            {
+              "angle": 0.44299999999999995,
+              "name": "ry",
+              "qubits": [
+                7
+              ]
+            },
+            {
+              "angle": 0.48,
+              "name": "rx",
+              "qubits": [
+                8
+              ]
+            },
+            {
+              "angle": 0.517,
+              "name": "ry",
+              "qubits": [
+                9
+              ]
+            },
+            {
+              "angle": 0.5539999999999999,
+              "name": "rx",
+              "qubits": [
+                10
+              ]
+            },
+            {
+              "angle": null,
+              "name": "cx",
+              "qubits": [
+                0,
+                1
+              ]
+            },
+            {
+              "angle": null,
+              "name": "cx",
+              "qubits": [
+                2,
+                3
+              ]
+            },
+            {
+              "angle": null,
+              "name": "cx",
+              "qubits": [
+                4,
+                5
+              ]
+            },
+            {
+              "angle": null,
+              "name": "cx",
+              "qubits": [
+                6,
+                7
+              ]
+            },
+            {
+              "angle": null,
+              "name": "cx",
+              "qubits": [
+                8,
+                9
+              ]
+            },
+            {
+              "angle": 0.15700000000000003,
+              "name": "rz",
+              "qubits": [
+                0
+              ]
+            },
+            {
+              "angle": 0.24400000000000002,
+              "name": "rz",
+              "qubits": [
+                1
+              ]
+            },
+            {
+              "angle": 0.331,
+              "name": "rz",
+              "qubits": [
+                2
+              ]
+            },
+            {
+              "angle": 0.41800000000000004,
+              "name": "rz",
+              "qubits": [
+                3
+              ]
+            },
+            {
+              "angle": 0.505,
+              "name": "rz",
+              "qubits": [
+                4
+              ]
+            },
+            {
+              "angle": 0.5920000000000001,
+              "name": "rz",
+              "qubits": [
+                5
+              ]
+            },
+            {
+              "angle": 0.128,
+              "name": "rz",
+              "qubits": [
+                6
+              ]
+            },
+            {
+              "angle": 0.21500000000000002,
+              "name": "rz",
+              "qubits": [
+                7
+              ]
+            },
+            {
+              "angle": 0.30200000000000005,
+              "name": "rz",
+              "qubits": [
+                8
+              ]
+            },
+            {
+              "angle": 0.389,
+              "name": "rz",
+              "qubits": [
+                9
+              ]
+            },
+            {
+              "angle": 0.47600000000000003,
+              "name": "rz",
+              "qubits": [
+                10
+              ]
+            },
+            {
+              "angle": 0.258,
+              "name": "ry",
+              "qubits": [
+                0
+              ]
+            },
+            {
+              "angle": 0.33199999999999996,
+              "name": "rx",
+              "qubits": [
+                1
+              ]
+            },
+            {
+              "angle": 0.40599999999999997,
+              "name": "ry",
+              "qubits": [
+                2
+              ]
+            },
+            {
+              "angle": 0.48,
+              "name": "rx",
+              "qubits": [
+                3
+              ]
+            },
+            {
+              "angle": 0.5539999999999999,
+              "name": "ry",
+              "qubits": [
+                4
+              ]
+            },
+            {
+              "angle": 0.628,
+              "name": "rx",
+              "qubits": [
+                5
+              ]
+            },
+            {
+              "angle": 0.702,
+              "name": "ry",
+              "qubits": [
+                6
+              ]
+            },
+            {
+              "angle": 0.147,
+              "name": "rx",
+              "qubits": [
+                7
+              ]
+            },
+            {
+              "angle": 0.22099999999999997,
+              "name": "ry",
+              "qubits": [
+                8
+              ]
+            },
+            {
+              "angle": 0.295,
+              "name": "rx",
+              "qubits": [
+                9
+              ]
+            },
+            {
+              "angle": 0.369,
+              "name": "ry",
+              "qubits": [
+                10
+              ]
+            },
+            {
+              "angle": null,
+              "name": "cx",
+              "qubits": [
+                1,
+                2
+              ]
+            },
+            {
+              "angle": null,
+              "name": "cx",
+              "qubits": [
+                3,
+                4
+              ]
+            },
+            {
+              "angle": null,
+              "name": "cx",
+              "qubits": [
+                5,
+                6
+              ]
+            },
+            {
+              "angle": null,
+              "name": "cx",
+              "qubits": [
+                7,
+                8
+              ]
+            },
+            {
+              "angle": null,
+              "name": "cx",
+              "qubits": [
+                9,
+                10
+              ]
+            },
+            {
+              "angle": 0.186,
+              "name": "rz",
+              "qubits": [
+                0
+              ]
+            },
+            {
+              "angle": 0.30200000000000005,
+              "name": "rz",
+              "qubits": [
+                1
+              ]
+            },
+            {
+              "angle": 0.41800000000000004,
+              "name": "rz",
+              "qubits": [
+                2
+              ]
+            },
+            {
+              "angle": 0.534,
+              "name": "rz",
+              "qubits": [
+                3
+              ]
+            },
+            {
+              "angle": 0.099,
+              "name": "rz",
+              "qubits": [
+                4
+              ]
+            },
+            {
+              "angle": 0.21500000000000002,
+              "name": "rz",
+              "qubits": [
+                5
+              ]
+            },
+            {
+              "angle": 0.331,
+              "name": "rz",
+              "qubits": [
+                6
+              ]
+            },
+            {
+              "angle": 0.447,
+              "name": "rz",
+              "qubits": [
+                7
+              ]
+            },
+            {
+              "angle": 0.5630000000000001,
+              "name": "rz",
+              "qubits": [
+                8
+              ]
+            },
+            {
+              "angle": 0.128,
+              "name": "rz",
+              "qubits": [
+                9
+              ]
+            },
+            {
+              "angle": 0.24400000000000002,
+              "name": "rz",
+              "qubits": [
+                10
+              ]
+            }
+          ],
+          "noise_sites": [
+            {
+              "after_gate": 11,
+              "channel": "depolarizing2",
+              "probability": 0.22,
+              "qubits": [
+                0,
+                1
+              ]
+            }
+          ],
+          "nqubits": 11,
+          "observable": "Z0Z10",
+          "seed": 5772
+        },
+        "coherent_gate_count": 54,
+        "common_input_preparation_seconds": 0.007453997997799888,
+        "cudaq": {
+          "first_steady_total_seconds": 0.028554784032166936,
+          "host_postprocess": {
+            "max_seconds": 0.0011648060171864927,
+            "median_absolute_deviation_seconds": 2.852975740097463e-06,
+            "median_seconds": 0.0008228090009652078,
+            "min_seconds": 0.0008199560252251104,
+            "repeats": 5
+          },
+          "raw_postprocess_seconds": [
+            0.0011648060171864927,
+            0.0008205380436265841,
+            0.0008728379907552153,
+            0.0008228090009652078,
+            0.0008199560252251104
+          ],
+          "raw_sample_call_seconds": [
+            0.027389978014980443,
+            0.02054620097624138,
+            0.022824661020422354,
+            0.019825727998977527,
+            0.021286661984049715
+          ],
+          "sample_call_including_device_sampling": {
+            "max_seconds": 0.027389978014980443,
+            "median_absolute_deviation_seconds": 0.001460933985072188,
+            "median_seconds": 0.021286661984049715,
+            "min_seconds": 0.019825727998977527,
+            "repeats": 5
+          },
+          "sampling_split_available": false,
+          "sampling_split_note": "CUDA-Q 0.13 cudaq.sample combines trajectory execution and device sampling",
+          "setup_compilation": {
+            "compile_warmup_seconds": 0.3601117189973593,
+            "context_note": "TN initialized the process CUDA context before this measurement",
+            "kernel_build_seconds": 0.08966194100503344,
+            "target_initialization_seconds": 0.0009245190012734383,
+            "total_seconds": 0.45069817900366616
+          },
+          "steady_total": {
+            "max_seconds": 0.028554784032166936,
+            "median_absolute_deviation_seconds": 0.0014580810093320906,
+            "median_seconds": 0.022106618009274825,
+            "min_seconds": 0.020648536999942735,
+            "repeats": 5
+          }
+        },
+        "cudaq_effective_shots_per_second": 2964542.110082347,
+        "entangling_depth": 2,
+        "nqubits": 11,
+        "shots_per_trajectory": 64,
+        "steady_state_speedup_baseline_over_tn": 0.0018377622638142232,
+        "telemetry": null,
+        "tn": {
+          "cold_first_use": {
+            "apply_errors_seconds": 0.5974295479682041,
+            "contractions": 3862,
+            "gpu_contraction_seconds": 12.226424000382393,
+            "host_postprocess_seconds": 0.00018853999790735543,
+            "host_sampling_seconds": 0.16848656751972158,
+            "setup_path_planning_seconds": 0.6284068799868692,
+            "steady_compute_orchestration_seconds": 12.871580647479277,
+            "steady_loop_seconds": 13.040067214998999,
+            "steady_total_seconds": 13.040255754996906,
+            "upstream_profile": {
+              "final_nshots": 64,
+              "largest_intermediate_batch0": 16.0,
+              "max_free_qubits": 2,
+              "nshots": 64,
+              "num_batches": 6,
+              "num_contractions": 3862,
+              "num_noise_samples": 16,
+              "num_qubits": 11,
+              "opt_cost_batch0": 4640.0,
+              "q_tensor_postprocess_seconds": 0.00018853999790735543,
+              "time_apply_errors_total": 0.5974295479682041,
+              "time_build_expr_operands": 0.6206034709903179,
+              "time_circuit_to_einsum": 0.005995636995066889,
+              "time_contract_cpu_total": 12.404471018249751,
+              "time_contract_gpu_total": 12.226424000382393,
+              "time_contraction_loop": 13.040067214998999,
+              "time_load_circuit": 0.001807772001484409,
+              "time_per_contract_gpu_avg": 0.003165827032724597,
+              "time_per_contraction_loop_avg": 0.0033765062700670634
+            },
+            "wall_seconds": 14.12659836000239
+          },
+          "components": {
+            "apply_errors_seconds": {
+              "max_seconds": 0.3172190130717354,
+              "median_absolute_deviation_seconds": 0.026381931122159585,
+              "median_seconds": 0.25863016507355496,
+              "min_seconds": 0.23224823395139538,
+              "repeats": 5
+            },
+            "gpu_contraction_seconds": {
+              "max_seconds": 12.095862267732633,
+              "median_absolute_deviation_seconds": 0.23759229564669404,
+              "median_seconds": 11.573559747219086,
+              "min_seconds": 11.061071557521785,
+              "repeats": 5
+            },
+            "host_postprocess_seconds": {
+              "max_seconds": 0.00019301800057291985,
+              "median_absolute_deviation_seconds": 9.346011211164296e-06,
+              "median_seconds": 0.00017384099191986024,
+              "min_seconds": 0.00016159900405909866,
+              "repeats": 5
+            },
+            "host_sampling_seconds": {
+              "max_seconds": 0.17217203445034102,
+              "median_absolute_deviation_seconds": 0.0028983576921746135,
+              "median_seconds": 0.15948081765964162,
+              "min_seconds": 0.156582459967467,
+              "repeats": 5
+            },
+            "setup_path_planning_seconds": {
+              "max_seconds": 0.19344222101790365,
+              "median_absolute_deviation_seconds": 0.007878372023697011,
+              "median_seconds": 0.17535202602448408,
+              "min_seconds": 0.16418774501653388,
+              "repeats": 5
+            },
+            "steady_compute_orchestration_seconds": {
+              "max_seconds": 12.461892675753916,
+              "median_absolute_deviation_seconds": 0.19071349526348058,
+              "median_seconds": 11.869421790339402,
+              "min_seconds": 11.328436728043016,
+              "repeats": 5
+            },
+            "steady_loop_seconds": {
+              "max_seconds": 12.627193459004047,
+              "median_absolute_deviation_seconds": 0.19339691000641324,
+              "median_seconds": 12.028902607999044,
+              "min_seconds": 11.485019188010483,
+              "repeats": 5
+            },
+            "steady_total_seconds": {
+              "max_seconds": 12.627364919011598,
+              "median_absolute_deviation_seconds": 0.19340674100385513,
+              "median_seconds": 12.029095625999616,
+              "min_seconds": 11.485180787014542,
+              "repeats": 5
+            },
+            "wall_seconds": {
+              "max_seconds": 12.80399607300933,
+              "median_absolute_deviation_seconds": 0.19675360999826808,
+              "median_seconds": 12.197775331995217,
+              "min_seconds": 11.679866402992047,
+              "repeats": 5
+            }
+          },
+          "contractions": 3912,
+          "first_repeat": {
+            "apply_errors_seconds": 0.25863016507355496,
+            "contractions": 3912,
+            "gpu_contraction_seconds": 11.573559747219086,
+            "host_postprocess_seconds": 0.00019301800057291985,
+            "host_sampling_seconds": 0.15948081765964162,
+            "setup_path_planning_seconds": 0.16747365400078706,
+            "steady_compute_orchestration_seconds": 11.869421790339402,
+            "steady_loop_seconds": 12.028902607999044,
+            "steady_total_seconds": 12.029095625999616,
+            "upstream_profile": {
+              "final_nshots": 64,
+              "largest_intermediate_batch0": 16.0,
+              "max_free_qubits": 2,
+              "nshots": 64,
+              "num_batches": 6,
+              "num_contractions": 3912,
+              "num_noise_samples": 16,
+              "num_qubits": 11,
+              "opt_cost_batch0": 4640.0,
+              "q_tensor_postprocess_seconds": 0.00019301800057291985,
+              "time_apply_errors_total": 0.25863016507355496,
+              "time_build_expr_operands": 0.16247374899103306,
+              "time_circuit_to_einsum": 0.004147118001128547,
+              "time_contract_cpu_total": 11.733311633201083,
+              "time_contract_gpu_total": 11.573559747219086,
+              "time_contraction_loop": 12.028902607999044,
+              "time_load_circuit": 0.0008527870086254552,
+              "time_per_contract_gpu_avg": 0.0029584764180007887,
+              "time_per_contraction_loop_avg": 0.0030748728548054814
+            },
+            "wall_seconds": 12.197775331995217
+          },
+          "raw_repeats": [
+            {
+              "apply_errors_seconds": 0.25863016507355496,
+              "contractions": 3912,
+              "gpu_contraction_seconds": 11.573559747219086,
+              "host_postprocess_seconds": 0.00019301800057291985,
+              "host_sampling_seconds": 0.15948081765964162,
+              "setup_path_planning_seconds": 0.16747365400078706,
+              "steady_compute_orchestration_seconds": 11.869421790339402,
+              "steady_loop_seconds": 12.028902607999044,
+              "steady_total_seconds": 12.029095625999616,
+              "upstream_profile": {
+                "final_nshots": 64,
+                "largest_intermediate_batch0": 16.0,
+                "max_free_qubits": 2,
+                "nshots": 64,
+                "num_batches": 6,
+                "num_contractions": 3912,
+                "num_noise_samples": 16,
+                "num_qubits": 11,
+                "opt_cost_batch0": 4640.0,
+                "q_tensor_postprocess_seconds": 0.00019301800057291985,
+                "time_apply_errors_total": 0.25863016507355496,
+                "time_build_expr_operands": 0.16247374899103306,
+                "time_circuit_to_einsum": 0.004147118001128547,
+                "time_contract_cpu_total": 11.733311633201083,
+                "time_contract_gpu_total": 11.573559747219086,
+                "time_contraction_loop": 12.028902607999044,
+                "time_load_circuit": 0.0008527870086254552,
+                "time_per_contract_gpu_avg": 0.0029584764180007887,
+                "time_per_contraction_loop_avg": 0.0030748728548054814
+              },
+              "wall_seconds": 12.197775331995217
+            },
+            {
+              "apply_errors_seconds": 0.23224823395139538,
+              "contractions": 3809,
+              "gpu_contraction_seconds": 11.061071557521785,
+              "host_postprocess_seconds": 0.00016159900405909866,
+              "host_sampling_seconds": 0.156582459967467,
+              "setup_path_planning_seconds": 0.19344222101790365,
+              "steady_compute_orchestration_seconds": 11.328436728043016,
+              "steady_loop_seconds": 11.485019188010483,
+              "steady_total_seconds": 11.485180787014542,
+              "upstream_profile": {
+                "final_nshots": 64,
+                "largest_intermediate_batch0": 16.0,
+                "max_free_qubits": 2,
+                "nshots": 64,
+                "num_batches": 6,
+                "num_contractions": 3809,
+                "num_noise_samples": 16,
+                "num_qubits": 11,
+                "opt_cost_batch0": 4640.0,
+                "q_tensor_postprocess_seconds": 0.00016159900405909866,
+                "time_apply_errors_total": 0.23224823395139538,
+                "time_build_expr_operands": 0.18589409500418697,
+                "time_circuit_to_einsum": 0.006837620006990619,
+                "time_contract_cpu_total": 11.216554222090053,
+                "time_contract_gpu_total": 11.061071557521785,
+                "time_contraction_loop": 11.485019188010483,
+                "time_load_circuit": 0.0007105060067260638,
+                "time_per_contract_gpu_avg": 0.0029039305743034354,
+                "time_per_contraction_loop_avg": 0.0030152321312708016
+              },
+              "wall_seconds": 11.679866402992047
+            },
+            {
+              "apply_errors_seconds": 0.3002835149236489,
+              "contractions": 3688,
+              "gpu_contraction_seconds": 11.335967451572392,
+              "host_postprocess_seconds": 0.00018318700313102454,
+              "host_sampling_seconds": 0.15679740291670896,
+              "setup_path_planning_seconds": 0.16418774501653388,
+              "steady_compute_orchestration_seconds": 11.678708295075921,
+              "steady_loop_seconds": 11.83550569799263,
+              "steady_total_seconds": 11.835688884995761,
+              "upstream_profile": {
+                "final_nshots": 64,
+                "largest_intermediate_batch0": 16.0,
+                "max_free_qubits": 2,
+                "nshots": 64,
+                "num_batches": 6,
+                "num_contractions": 3688,
+                "num_noise_samples": 16,
+                "num_qubits": 11,
+                "opt_cost_batch0": 4640.0,
+                "q_tensor_postprocess_seconds": 0.00018318700313102454,
+                "time_apply_errors_total": 0.3002835149236489,
+                "time_build_expr_operands": 0.16005917399888858,
+                "time_circuit_to_einsum": 0.0034823660098481923,
+                "time_contract_cpu_total": 11.494799745632918,
+                "time_contract_gpu_total": 11.335967451572392,
+                "time_contraction_loop": 11.83550569799263,
+                "time_load_circuit": 0.0006462050077971071,
+                "time_per_contract_gpu_avg": 0.0030737438860011907,
+                "time_per_contraction_loop_avg": 0.003209193518978479
+              },
+              "wall_seconds": 12.001021721996949
+            },
+            {
+              "apply_errors_seconds": 0.3172190130717354,
+              "contractions": 3917,
+              "gpu_contraction_seconds": 12.095862267732633,
+              "host_postprocess_seconds": 0.00017146000755019486,
+              "host_sampling_seconds": 0.16530078325013164,
+              "setup_path_planning_seconds": 0.17535202602448408,
+              "steady_compute_orchestration_seconds": 12.461892675753916,
+              "steady_loop_seconds": 12.627193459004047,
+              "steady_total_seconds": 12.627364919011598,
+              "upstream_profile": {
+                "final_nshots": 64,
+                "largest_intermediate_batch0": 16.0,
+                "max_free_qubits": 2,
+                "nshots": 64,
+                "num_batches": 6,
+                "num_contractions": 3917,
+                "num_noise_samples": 16,
+                "num_qubits": 11,
+                "opt_cost_batch0": 4640.0,
+                "q_tensor_postprocess_seconds": 0.00017146000755019486,
+                "time_apply_errors_total": 0.3172190130717354,
+                "time_build_expr_operands": 0.16856411800836213,
+                "time_circuit_to_einsum": 0.005630219005979598,
+                "time_contract_cpu_total": 12.266820036631543,
+                "time_contract_gpu_total": 12.095862267732633,
+                "time_contraction_loop": 12.627193459004047,
+                "time_load_circuit": 0.0011576890101423487,
+                "time_per_contract_gpu_avg": 0.003088042447723419,
+                "time_per_contraction_loop_avg": 0.003223689930815432
+              },
+              "wall_seconds": 12.80399607300933
+            },
+            {
+              "apply_errors_seconds": 0.2565199710224988,
+              "contractions": 3872,
+              "gpu_contraction_seconds": 11.66290314197542,
+              "host_postprocess_seconds": 0.00017384099191986024,
+              "host_sampling_seconds": 0.17217203445034102,
+              "setup_path_planning_seconds": 0.17592396899999585,
+              "steady_compute_orchestration_seconds": 11.953189600550104,
+              "steady_loop_seconds": 12.125361635000445,
+              "steady_total_seconds": 12.125535475992365,
+              "upstream_profile": {
+                "final_nshots": 64,
+                "largest_intermediate_batch0": 16.0,
+                "max_free_qubits": 2,
+                "nshots": 64,
+                "num_batches": 6,
+                "num_contractions": 3872,
+                "num_noise_samples": 16,
+                "num_qubits": 11,
+                "opt_cost_batch0": 4640.0,
+                "q_tensor_postprocess_seconds": 0.00017384099191986024,
+                "time_apply_errors_total": 0.2565199710224988,
+                "time_build_expr_operands": 0.16718600699095987,
+                "time_circuit_to_einsum": 0.008127262000925839,
+                "time_contract_cpu_total": 11.826379856254789,
+                "time_contract_gpu_total": 11.66290314197542,
+                "time_contraction_loop": 12.125361635000445,
+                "time_load_circuit": 0.0006107000081101432,
+                "time_per_contract_gpu_avg": 0.003012113414766379,
+                "time_per_contraction_loop_avg": 0.003131550009039371
+              },
+              "wall_seconds": 12.30258113599848
+            }
+          ]
+        },
+        "tn_dominant_measured_component": "gpu_contraction_seconds",
+        "tn_effective_shots_per_second": 5448.123619397527,
+        "tn_measured_component_medians_seconds": {
+          "apply_errors_seconds": 0.25863016507355496,
+          "gpu_contraction_seconds": 11.573559747219086,
+          "host_postprocess_seconds": 0.00017384099191986024,
+          "host_sampling_seconds": 0.15948081765964162
+        },
+        "total_effective_shots": 65536,
+        "trajectories": 1024,
+        "trajectory_multiplicities": {
+          "(0,)": 791,
+          "(1,)": 14,
+          "(10,)": 16,
+          "(11,)": 17,
+          "(12,)": 15,
+          "(13,)": 15,
+          "(14,)": 13,
+          "(15,)": 16,
+          "(2,)": 13,
+          "(3,)": 22,
+          "(4,)": 15,
+          "(5,)": 10,
+          "(6,)": 25,
+          "(7,)": 21,
+          "(8,)": 11,
+          "(9,)": 10
+        },
+        "unique_trajectories": 16,
+        "validation": {
+          "cudaq_vs_conditioned": {
+            "null_quantile": 0.999,
+            "null_tvd_limit": 0.023105944698044122,
+            "null_z_expectation_error_limit": 0.010147465566971214,
+            "passed": true,
+            "tvd": 0.018906972987009416,
+            "z_expectation_error": 0.005081547598221214
+          },
+          "passed": true,
+          "reference": "exact conditioned complex128 Kraus-branch statevector mixture",
+          "tn_vs_conditioned": {
+            "null_quantile": 0.999,
+            "null_tvd_limit": 0.022672196449833735,
+            "null_z_expectation_error_limit": 0.013565434316971214,
+            "passed": true,
+            "tvd": 0.017685195388299834,
+            "z_expectation_error": 0.003982914785721214
+          },
+          "tn_vs_cudaq": {
+            "null_quantile": 0.999,
+            "null_tvd_limit": 0.032745361328125,
+            "null_z_expectation_difference_limit": 0.01806640625,
+            "passed": true,
+            "tvd": 0.024871826171875,
+            "z_expectation_difference": 0.0010986328125
+          },
+          "trajectory_vs_exact_channel_tvd": 0.004487488865221787,
+          "trajectory_vs_exact_channel_z_expectation_error": 0.005021706570090934
+        },
+        "worker_process_returncode": 0,
+        "worker_stderr_tail": "",
+        "worker_stdout_tail": "SWAPPING GATE ORDER WHEN CONSTRUCTING CIRCUIT BECAUSE QISKIT\nSWAPPING NOISE ORDER FOR TWO-QUBIT NOISE GATES BECAUSE QISKIT\n"
+      },
+      {
+        "case": {
+          "case_id": "brickwork_11q_d4",
+          "gates": [
+            {
+              "angle": 0.184,
+              "name": "rx",
+              "qubits": [
+                0
+              ]
+            },
+            {
+              "angle": 0.22099999999999997,
+              "name": "ry",
+              "qubits": [
+                1
+              ]
+            },
+            {
+              "angle": 0.258,
+              "name": "rx",
+              "qubits": [
+                2
+              ]
+            },
+            {
+              "angle": 0.295,
+              "name": "ry",
+              "qubits": [
+                3
+              ]
+            },
+            {
+              "angle": 0.33199999999999996,
+              "name": "rx",
+              "qubits": [
+                4
+              ]
+            },
+            {
+              "angle": 0.369,
+              "name": "ry",
+              "qubits": [
+                5
+              ]
+            },
+            {
+              "angle": 0.40599999999999997,
+              "name": "rx",
+              "qubits": [
+                6
+              ]
+            },
+            {
+              "angle": 0.44299999999999995,
+              "name": "ry",
+              "qubits": [
+                7
+              ]
+            },
+            {
+              "angle": 0.48,
+              "name": "rx",
+              "qubits": [
+                8
+              ]
+            },
+            {
+              "angle": 0.517,
+              "name": "ry",
+              "qubits": [
+                9
+              ]
+            },
+            {
+              "angle": 0.5539999999999999,
+              "name": "rx",
+              "qubits": [
+                10
+              ]
+            },
+            {
+              "angle": null,
+              "name": "cx",
+              "qubits": [
+                0,
+                1
+              ]
+            },
+            {
+              "angle": null,
+              "name": "cx",
+              "qubits": [
+                2,
+                3
+              ]
+            },
+            {
+              "angle": null,
+              "name": "cx",
+              "qubits": [
+                4,
+                5
+              ]
+            },
+            {
+              "angle": null,
+              "name": "cx",
+              "qubits": [
+                6,
+                7
+              ]
+            },
+            {
+              "angle": null,
+              "name": "cx",
+              "qubits": [
+                8,
+                9
+              ]
+            },
+            {
+              "angle": 0.15700000000000003,
+              "name": "rz",
+              "qubits": [
+                0
+              ]
+            },
+            {
+              "angle": 0.24400000000000002,
+              "name": "rz",
+              "qubits": [
+                1
+              ]
+            },
+            {
+              "angle": 0.331,
+              "name": "rz",
+              "qubits": [
+                2
+              ]
+            },
+            {
+              "angle": 0.41800000000000004,
+              "name": "rz",
+              "qubits": [
+                3
+              ]
+            },
+            {
+              "angle": 0.505,
+              "name": "rz",
+              "qubits": [
+                4
+              ]
+            },
+            {
+              "angle": 0.5920000000000001,
+              "name": "rz",
+              "qubits": [
+                5
+              ]
+            },
+            {
+              "angle": 0.128,
+              "name": "rz",
+              "qubits": [
+                6
+              ]
+            },
+            {
+              "angle": 0.21500000000000002,
+              "name": "rz",
+              "qubits": [
+                7
+              ]
+            },
+            {
+              "angle": 0.30200000000000005,
+              "name": "rz",
+              "qubits": [
+                8
+              ]
+            },
+            {
+              "angle": 0.389,
+              "name": "rz",
+              "qubits": [
+                9
+              ]
+            },
+            {
+              "angle": 0.47600000000000003,
+              "name": "rz",
+              "qubits": [
+                10
+              ]
+            },
+            {
+              "angle": 0.258,
+              "name": "ry",
+              "qubits": [
+                0
+              ]
+            },
+            {
+              "angle": 0.33199999999999996,
+              "name": "rx",
+              "qubits": [
+                1
+              ]
+            },
+            {
+              "angle": 0.40599999999999997,
+              "name": "ry",
+              "qubits": [
+                2
+              ]
+            },
+            {
+              "angle": 0.48,
+              "name": "rx",
+              "qubits": [
+                3
+              ]
+            },
+            {
+              "angle": 0.5539999999999999,
+              "name": "ry",
+              "qubits": [
+                4
+              ]
+            },
+            {
+              "angle": 0.628,
+              "name": "rx",
+              "qubits": [
+                5
+              ]
+            },
+            {
+              "angle": 0.702,
+              "name": "ry",
+              "qubits": [
+                6
+              ]
+            },
+            {
+              "angle": 0.147,
+              "name": "rx",
+              "qubits": [
+                7
+              ]
+            },
+            {
+              "angle": 0.22099999999999997,
+              "name": "ry",
+              "qubits": [
+                8
+              ]
+            },
+            {
+              "angle": 0.295,
+              "name": "rx",
+              "qubits": [
+                9
+              ]
+            },
+            {
+              "angle": 0.369,
+              "name": "ry",
+              "qubits": [
+                10
+              ]
+            },
+            {
+              "angle": null,
+              "name": "cx",
+              "qubits": [
+                1,
+                2
+              ]
+            },
+            {
+              "angle": null,
+              "name": "cx",
+              "qubits": [
+                3,
+                4
+              ]
+            },
+            {
+              "angle": null,
+              "name": "cx",
+              "qubits": [
+                5,
+                6
+              ]
+            },
+            {
+              "angle": null,
+              "name": "cx",
+              "qubits": [
+                7,
+                8
+              ]
+            },
+            {
+              "angle": null,
+              "name": "cx",
+              "qubits": [
+                9,
+                10
+              ]
+            },
+            {
+              "angle": 0.186,
+              "name": "rz",
+              "qubits": [
+                0
+              ]
+            },
+            {
+              "angle": 0.30200000000000005,
+              "name": "rz",
+              "qubits": [
+                1
+              ]
+            },
+            {
+              "angle": 0.41800000000000004,
+              "name": "rz",
+              "qubits": [
+                2
+              ]
+            },
+            {
+              "angle": 0.534,
+              "name": "rz",
+              "qubits": [
+                3
+              ]
+            },
+            {
+              "angle": 0.099,
+              "name": "rz",
+              "qubits": [
+                4
+              ]
+            },
+            {
+              "angle": 0.21500000000000002,
+              "name": "rz",
+              "qubits": [
+                5
+              ]
+            },
+            {
+              "angle": 0.331,
+              "name": "rz",
+              "qubits": [
+                6
+              ]
+            },
+            {
+              "angle": 0.447,
+              "name": "rz",
+              "qubits": [
+                7
+              ]
+            },
+            {
+              "angle": 0.5630000000000001,
+              "name": "rz",
+              "qubits": [
+                8
+              ]
+            },
+            {
+              "angle": 0.128,
+              "name": "rz",
+              "qubits": [
+                9
+              ]
+            },
+            {
+              "angle": 0.24400000000000002,
+              "name": "rz",
+              "qubits": [
+                10
+              ]
+            },
+            {
+              "angle": 0.33199999999999996,
+              "name": "rx",
+              "qubits": [
+                0
+              ]
+            },
+            {
+              "angle": 0.44299999999999995,
+              "name": "ry",
+              "qubits": [
+                1
+              ]
+            },
+            {
+              "angle": 0.5539999999999999,
+              "name": "rx",
+              "qubits": [
+                2
+              ]
+            },
+            {
+              "angle": 0.6649999999999999,
+              "name": "ry",
+              "qubits": [
+                3
+              ]
+            },
+            {
+              "angle": 0.147,
+              "name": "rx",
+              "qubits": [
+                4
+              ]
+            },
+            {
+              "angle": 0.258,
+              "name": "ry",
+              "qubits": [
+                5
+              ]
+            },
+            {
+              "angle": 0.369,
+              "name": "rx",
+              "qubits": [
+                6
+              ]
+            },
+            {
+              "angle": 0.48,
+              "name": "ry",
+              "qubits": [
+                7
+              ]
+            },
+            {
+              "angle": 0.591,
+              "name": "rx",
+              "qubits": [
+                8
+              ]
+            },
+            {
+              "angle": 0.702,
+              "name": "ry",
+              "qubits": [
+                9
+              ]
+            },
+            {
+              "angle": 0.184,
+              "name": "rx",
+              "qubits": [
+                10
+              ]
+            },
+            {
+              "angle": null,
+              "name": "cx",
+              "qubits": [
+                0,
+                1
+              ]
+            },
+            {
+              "angle": null,
+              "name": "cx",
+              "qubits": [
+                2,
+                3
+              ]
+            },
+            {
+              "angle": null,
+              "name": "cx",
+              "qubits": [
+                4,
+                5
+              ]
+            },
+            {
+              "angle": null,
+              "name": "cx",
+              "qubits": [
+                6,
+                7
+              ]
+            },
+            {
+              "angle": null,
+              "name": "cx",
+              "qubits": [
+                8,
+                9
+              ]
+            },
+            {
+              "angle": 0.21500000000000002,
+              "name": "rz",
+              "qubits": [
+                0
+              ]
+            },
+            {
+              "angle": 0.36000000000000004,
+              "name": "rz",
+              "qubits": [
+                1
+              ]
+            },
+            {
+              "angle": 0.505,
+              "name": "rz",
+              "qubits": [
+                2
+              ]
+            },
+            {
+              "angle": 0.099,
+              "name": "rz",
+              "qubits": [
+                3
+              ]
+            },
+            {
+              "angle": 0.24400000000000002,
+              "name": "rz",
+              "qubits": [
+                4
+              ]
+            },
+            {
+              "angle": 0.389,
+              "name": "rz",
+              "qubits": [
+                5
+              ]
+            },
+            {
+              "angle": 0.534,
+              "name": "rz",
+              "qubits": [
+                6
+              ]
+            },
+            {
+              "angle": 0.128,
+              "name": "rz",
+              "qubits": [
+                7
+              ]
+            },
+            {
+              "angle": 0.273,
+              "name": "rz",
+              "qubits": [
+                8
+              ]
+            },
+            {
+              "angle": 0.41800000000000004,
+              "name": "rz",
+              "qubits": [
+                9
+              ]
+            },
+            {
+              "angle": 0.5630000000000001,
+              "name": "rz",
+              "qubits": [
+                10
+              ]
+            },
+            {
+              "angle": 0.40599999999999997,
+              "name": "ry",
+              "qubits": [
+                0
+              ]
+            },
+            {
+              "angle": 0.5539999999999999,
+              "name": "rx",
+              "qubits": [
+                1
+              ]
+            },
+            {
+              "angle": 0.702,
+              "name": "ry",
+              "qubits": [
+                2
+              ]
+            },
+            {
+              "angle": 0.22099999999999997,
+              "name": "rx",
+              "qubits": [
+                3
+              ]
+            },
+            {
+              "angle": 0.369,
+              "name": "ry",
+              "qubits": [
+                4
+              ]
+            },
+            {
+              "angle": 0.517,
+              "name": "rx",
+              "qubits": [
+                5
+              ]
+            },
+            {
+              "angle": 0.6649999999999999,
+              "name": "ry",
+              "qubits": [
+                6
+              ]
+            },
+            {
+              "angle": 0.184,
+              "name": "rx",
+              "qubits": [
+                7
+              ]
+            },
+            {
+              "angle": 0.33199999999999996,
+              "name": "ry",
+              "qubits": [
+                8
+              ]
+            },
+            {
+              "angle": 0.48,
+              "name": "rx",
+              "qubits": [
+                9
+              ]
+            },
+            {
+              "angle": 0.628,
+              "name": "ry",
+              "qubits": [
+                10
+              ]
+            },
+            {
+              "angle": null,
+              "name": "cx",
+              "qubits": [
+                1,
+                2
+              ]
+            },
+            {
+              "angle": null,
+              "name": "cx",
+              "qubits": [
+                3,
+                4
+              ]
+            },
+            {
+              "angle": null,
+              "name": "cx",
+              "qubits": [
+                5,
+                6
+              ]
+            },
+            {
+              "angle": null,
+              "name": "cx",
+              "qubits": [
+                7,
+                8
+              ]
+            },
+            {
+              "angle": null,
+              "name": "cx",
+              "qubits": [
+                9,
+                10
+              ]
+            },
+            {
+              "angle": 0.24400000000000002,
+              "name": "rz",
+              "qubits": [
+                0
+              ]
+            },
+            {
+              "angle": 0.41800000000000004,
+              "name": "rz",
+              "qubits": [
+                1
+              ]
+            },
+            {
+              "angle": 0.5920000000000001,
+              "name": "rz",
+              "qubits": [
+                2
+              ]
+            },
+            {
+              "angle": 0.21500000000000002,
+              "name": "rz",
+              "qubits": [
+                3
+              ]
+            },
+            {
+              "angle": 0.389,
+              "name": "rz",
+              "qubits": [
+                4
+              ]
+            },
+            {
+              "angle": 0.5630000000000001,
+              "name": "rz",
+              "qubits": [
+                5
+              ]
+            },
+            {
+              "angle": 0.186,
+              "name": "rz",
+              "qubits": [
+                6
+              ]
+            },
+            {
+              "angle": 0.36000000000000004,
+              "name": "rz",
+              "qubits": [
+                7
+              ]
+            },
+            {
+              "angle": 0.534,
+              "name": "rz",
+              "qubits": [
+                8
+              ]
+            },
+            {
+              "angle": 0.15700000000000003,
+              "name": "rz",
+              "qubits": [
+                9
+              ]
+            },
+            {
+              "angle": 0.331,
+              "name": "rz",
+              "qubits": [
+                10
+              ]
+            }
+          ],
+          "noise_sites": [
+            {
+              "after_gate": 11,
+              "channel": "depolarizing2",
+              "probability": 0.22,
+              "qubits": [
+                0,
+                1
+              ]
+            }
+          ],
+          "nqubits": 11,
+          "observable": "Z0Z10",
+          "seed": 5772
+        },
+        "coherent_gate_count": 108,
+        "common_input_preparation_seconds": 0.008833556988975033,
+        "cudaq": {
+          "first_steady_total_seconds": 0.030479858978651464,
+          "host_postprocess": {
+            "max_seconds": 0.002274518003105186,
+            "median_absolute_deviation_seconds": 1.6630045138299465e-05,
+            "median_seconds": 0.0020371520513435826,
+            "min_seconds": 0.002020522006205283,
+            "repeats": 5
+          },
+          "raw_postprocess_seconds": [
+            0.002274518003105186,
+            0.002020522006205283,
+            0.0020371520513435826,
+            0.0020220860315021127,
+            0.0021840750123374164
+          ],
+          "raw_sample_call_seconds": [
+            0.028205340975546278,
+            0.03208315497613512,
+            0.025613391044316813,
+            0.02456429597805254,
+            0.026397669018479064
+          ],
+          "sample_call_including_device_sampling": {
+            "max_seconds": 0.03208315497613512,
+            "median_absolute_deviation_seconds": 0.001807671957067214,
+            "median_seconds": 0.026397669018479064,
+            "min_seconds": 0.02456429597805254,
+            "repeats": 5
+          },
+          "sampling_split_available": false,
+          "sampling_split_note": "CUDA-Q 0.13 cudaq.sample combines trajectory execution and device sampling",
+          "setup_compilation": {
+            "compile_warmup_seconds": 0.3958563320047688,
+            "context_note": "TN initialized the process CUDA context before this measurement",
+            "kernel_build_seconds": 0.13676757499342784,
+            "target_initialization_seconds": 0.0006946110079297796,
+            "total_seconds": 0.5333185180061264
+          },
+          "steady_total": {
+            "max_seconds": 0.0341036769823404,
+            "median_absolute_deviation_seconds": 0.0018981149478349835,
+            "median_seconds": 0.02858174403081648,
+            "min_seconds": 0.026586382009554654,
+            "repeats": 5
+          }
+        },
+        "cudaq_effective_shots_per_second": 2292932.1573008248,
+        "entangling_depth": 4,
+        "nqubits": 11,
+        "shots_per_trajectory": 64,
+        "steady_state_speedup_baseline_over_tn": 0.000608445390044831,
+        "telemetry": {
+          "cudaq": {
+            "available": true,
+            "gpu_utilization_percent_median": 29.5,
+            "gpu_utilization_percent_peak": 48.0,
+            "interval_ms": 50,
+            "memory_used_mib_delta": 8.0,
+            "memory_used_mib_min": 5075.0,
+            "memory_used_mib_peak": 5083.0,
+            "samples": 4,
+            "scope": "global device counters; separate untimed telemetry run"
+          },
+          "tn": {
+            "available": true,
+            "gpu_utilization_percent_median": 47.0,
+            "gpu_utilization_percent_peak": 51.0,
+            "interval_ms": 50,
+            "memory_used_mib_delta": 159.0,
+            "memory_used_mib_min": 5065.0,
+            "memory_used_mib_peak": 5224.0,
+            "samples": 911,
+            "scope": "global device counters; separate untimed telemetry run"
+          }
+        },
+        "tn": {
+          "cold_first_use": {
+            "apply_errors_seconds": 0.8447895379649708,
+            "contractions": 10278,
+            "gpu_contraction_seconds": 50.81998073935511,
+            "host_postprocess_seconds": 0.0004731439985334873,
+            "host_sampling_seconds": 0.42038698532269336,
+            "setup_path_planning_seconds": 0.6861346319928998,
+            "steady_compute_orchestration_seconds": 51.81279979366809,
+            "steady_loop_seconds": 52.233186778990785,
+            "steady_total_seconds": 52.23365992298932,
+            "upstream_profile": {
+              "final_nshots": 64,
+              "largest_intermediate_batch0": 128.0,
+              "max_free_qubits": 2,
+              "nshots": 64,
+              "num_batches": 6,
+              "num_contractions": 10278,
+              "num_noise_samples": 16,
+              "num_qubits": 11,
+              "opt_cost_batch0": 20216.0,
+              "q_tensor_postprocess_seconds": 0.0004731439985334873,
+              "time_apply_errors_total": 0.8447895379649708,
+              "time_build_expr_operands": 0.6743655799946282,
+              "time_circuit_to_einsum": 0.009903685000608675,
+              "time_contract_cpu_total": 51.30012083618203,
+              "time_contract_gpu_total": 50.81998073935511,
+              "time_contraction_loop": 52.233186778990785,
+              "time_load_circuit": 0.0018653669976629317,
+              "time_per_contract_gpu_avg": 0.004944539865669888,
+              "time_per_contraction_loop_avg": 0.00508203802091757
+            },
+            "wall_seconds": 53.42715049699473
+          },
+          "components": {
+            "apply_errors_seconds": {
+              "max_seconds": 0.5220145140192471,
+              "median_absolute_deviation_seconds": 0.011813595934654586,
+              "median_seconds": 0.4449877059814753,
+              "min_seconds": 0.4038200178911211,
+              "repeats": 5
+            },
+            "gpu_contraction_seconds": {
+              "max_seconds": 48.885454291820594,
+              "median_absolute_deviation_seconds": 1.4165396802423587,
+              "median_seconds": 46.02529862856878,
+              "min_seconds": 44.07516165685646,
+              "repeats": 5
+            },
+            "host_postprocess_seconds": {
+              "max_seconds": 0.0005099639965919778,
+              "median_absolute_deviation_seconds": 2.104400482494384e-05,
+              "median_seconds": 0.0004889199917670339,
+              "min_seconds": 0.0004634950018953532,
+              "repeats": 5
+            },
+            "host_sampling_seconds": {
+              "max_seconds": 0.4358936795470072,
+              "median_absolute_deviation_seconds": 0.013431049446808174,
+              "median_seconds": 0.3964238124608528,
+              "min_seconds": 0.3807439804513706,
+              "repeats": 5
+            },
+            "setup_path_planning_seconds": {
+              "max_seconds": 0.29509524897730444,
+              "median_absolute_deviation_seconds": 0.007523098000092432,
+              "median_seconds": 0.27763743299874477,
+              "min_seconds": 0.26881326000147965,
+              "repeats": 5
+            },
+            "steady_compute_orchestration_seconds": {
+              "max_seconds": 49.534968365886016,
+              "median_absolute_deviation_seconds": 1.442023630006588,
+              "median_seconds": 46.57814564554428,
+              "min_seconds": 44.498434361448744,
+              "repeats": 5
+            },
+            "steady_loop_seconds": {
+              "max_seconds": 49.94399831400369,
+              "median_absolute_deviation_seconds": 1.4263437979971059,
+              "median_seconds": 46.974569458005135,
+              "min_seconds": 44.93432804099575,
+              "repeats": 5
+            },
+            "steady_total_seconds": {
+              "max_seconds": 49.94449244700081,
+              "median_absolute_deviation_seconds": 1.426366291983868,
+              "median_seconds": 46.97503588401014,
+              "min_seconds": 44.93483800499234,
+              "repeats": 5
+            },
+            "wall_seconds": {
+              "max_seconds": 50.241446408996126,
+              "median_absolute_deviation_seconds": 1.4398499999952037,
+              "median_seconds": 47.24874348100275,
+              "min_seconds": 45.214748933998635,
+              "repeats": 5
+            }
+          },
+          "contractions": 10280,
+          "first_repeat": {
+            "apply_errors_seconds": 0.5220145140192471,
+            "contractions": 10280,
+            "gpu_contraction_seconds": 48.885454291820594,
+            "host_postprocess_seconds": 0.0004941329971188679,
+            "host_sampling_seconds": 0.4090299481176771,
+            "setup_path_planning_seconds": 0.29509524897730444,
+            "steady_compute_orchestration_seconds": 49.534968365886016,
+            "steady_loop_seconds": 49.94399831400369,
+            "steady_total_seconds": 49.94449244700081,
+            "upstream_profile": {
+              "final_nshots": 64,
+              "largest_intermediate_batch0": 128.0,
+              "max_free_qubits": 2,
+              "nshots": 64,
+              "num_batches": 6,
+              "num_contractions": 10280,
+              "num_noise_samples": 16,
+              "num_qubits": 11,
+              "opt_cost_batch0": 20216.0,
+              "q_tensor_postprocess_seconds": 0.0004941329971188679,
+              "time_apply_errors_total": 0.5220145140192471,
+              "time_build_expr_operands": 0.28403367698774673,
+              "time_circuit_to_einsum": 0.009858406992862001,
+              "time_contract_cpu_total": 49.33421395784535,
+              "time_contract_gpu_total": 48.885454291820594,
+              "time_contraction_loop": 49.94399831400369,
+              "time_load_circuit": 0.0012031649966957048,
+              "time_per_contract_gpu_avg": 0.004755394386363871,
+              "time_per_contraction_loop_avg": 0.004858365594747441
+            },
+            "wall_seconds": 50.241446408996126
+          },
+          "raw_repeats": [
+            {
+              "apply_errors_seconds": 0.5220145140192471,
+              "contractions": 10280,
+              "gpu_contraction_seconds": 48.885454291820594,
+              "host_postprocess_seconds": 0.0004941329971188679,
+              "host_sampling_seconds": 0.4090299481176771,
+              "setup_path_planning_seconds": 0.29509524897730444,
+              "steady_compute_orchestration_seconds": 49.534968365886016,
+              "steady_loop_seconds": 49.94399831400369,
+              "steady_total_seconds": 49.94449244700081,
+              "upstream_profile": {
+                "final_nshots": 64,
+                "largest_intermediate_batch0": 128.0,
+                "max_free_qubits": 2,
+                "nshots": 64,
+                "num_batches": 6,
+                "num_contractions": 10280,
+                "num_noise_samples": 16,
+                "num_qubits": 11,
+                "opt_cost_batch0": 20216.0,
+                "q_tensor_postprocess_seconds": 0.0004941329971188679,
+                "time_apply_errors_total": 0.5220145140192471,
+                "time_build_expr_operands": 0.28403367698774673,
+                "time_circuit_to_einsum": 0.009858406992862001,
+                "time_contract_cpu_total": 49.33421395784535,
+                "time_contract_gpu_total": 48.885454291820594,
+                "time_contraction_loop": 49.94399831400369,
+                "time_load_circuit": 0.0012031649966957048,
+                "time_per_contract_gpu_avg": 0.004755394386363871,
+                "time_per_contraction_loop_avg": 0.004858365594747441
+              },
+              "wall_seconds": 50.241446408996126
+            },
+            {
+              "apply_errors_seconds": 0.4331741100468207,
+              "contractions": 10365,
+              "gpu_contraction_seconds": 47.441838308811136,
+              "host_postprocess_seconds": 0.0004889199917670339,
+              "host_sampling_seconds": 0.3807439804513706,
+              "setup_path_planning_seconds": 0.2851605309988372,
+              "steady_compute_orchestration_seconds": 48.02016927555087,
+              "steady_loop_seconds": 48.40091325600224,
+              "steady_total_seconds": 48.40140217599401,
+              "upstream_profile": {
+                "final_nshots": 64,
+                "largest_intermediate_batch0": 128.0,
+                "max_free_qubits": 2,
+                "nshots": 64,
+                "num_batches": 6,
+                "num_contractions": 10365,
+                "num_noise_samples": 16,
+                "num_qubits": 11,
+                "opt_cost_batch0": 20216.0,
+                "q_tensor_postprocess_seconds": 0.0004889199917670339,
+                "time_apply_errors_total": 0.4331741100468207,
+                "time_build_expr_operands": 0.2750013089971617,
+                "time_circuit_to_einsum": 0.009151895996183157,
+                "time_contract_cpu_total": 47.883346047136,
+                "time_contract_gpu_total": 47.441838308811136,
+                "time_contraction_loop": 48.40091325600224,
+                "time_load_circuit": 0.0010073260054923594,
+                "time_per_contract_gpu_avg": 0.0045771189878254835,
+                "time_per_contraction_loop_avg": 0.004669649132272286
+              },
+              "wall_seconds": 48.68859348099795
+            },
+            {
+              "apply_errors_seconds": 0.4449877059814753,
+              "contractions": 10269,
+              "gpu_contraction_seconds": 45.63470927238479,
+              "host_postprocess_seconds": 0.0004634950018953532,
+              "host_sampling_seconds": 0.3829927630140446,
+              "setup_path_planning_seconds": 0.26881326000147965,
+              "steady_compute_orchestration_seconds": 46.20098366797902,
+              "steady_loop_seconds": 46.58397643099306,
+              "steady_total_seconds": 46.58443992599496,
+              "upstream_profile": {
+                "final_nshots": 64,
+                "largest_intermediate_batch0": 128.0,
+                "max_free_qubits": 2,
+                "nshots": 64,
+                "num_batches": 6,
+                "num_contractions": 10269,
+                "num_noise_samples": 16,
+                "num_qubits": 11,
+                "opt_cost_batch0": 20216.0,
+                "q_tensor_postprocess_seconds": 0.0004634950018953532,
+                "time_apply_errors_total": 0.4449877059814753,
+                "time_build_expr_operands": 0.2575443209934747,
+                "time_circuit_to_einsum": 0.010417345009045675,
+                "time_contract_cpu_total": 46.0530946462095,
+                "time_contract_gpu_total": 45.63470927238479,
+                "time_contraction_loop": 46.58397643099306,
+                "time_load_circuit": 0.000851593998959288,
+                "time_per_contract_gpu_avg": 0.004443929230926555,
+                "time_per_contraction_loop_avg": 0.0045363693086954
+              },
+              "wall_seconds": 46.85506828999496
+            },
+            {
+              "apply_errors_seconds": 0.45431596199341584,
+              "contractions": 10286,
+              "gpu_contraction_seconds": 46.02529862856878,
+              "host_postprocess_seconds": 0.00046642600500490516,
+              "host_sampling_seconds": 0.3964238124608528,
+              "setup_path_planning_seconds": 0.2718098839832237,
+              "steady_compute_orchestration_seconds": 46.57814564554428,
+              "steady_loop_seconds": 46.974569458005135,
+              "steady_total_seconds": 46.97503588401014,
+              "upstream_profile": {
+                "final_nshots": 64,
+                "largest_intermediate_batch0": 128.0,
+                "max_free_qubits": 2,
+                "nshots": 64,
+                "num_batches": 6,
+                "num_contractions": 10286,
+                "num_noise_samples": 16,
+                "num_qubits": 11,
+                "opt_cost_batch0": 20216.0,
+                "q_tensor_postprocess_seconds": 0.00046642600500490516,
+                "time_apply_errors_total": 0.45431596199341584,
+                "time_build_expr_operands": 0.26502950298890937,
+                "time_circuit_to_einsum": 0.005879525997443125,
+                "time_contract_cpu_total": 46.43124850532331,
+                "time_contract_gpu_total": 46.02529862856878,
+                "time_contraction_loop": 46.974569458005135,
+                "time_load_circuit": 0.0009008549968712032,
+                "time_per_contract_gpu_avg": 0.0044745575178464685,
+                "time_per_contraction_loop_avg": 0.004566845173829004
+              },
+              "wall_seconds": 47.24874348100275
+            },
+            {
+              "apply_errors_seconds": 0.4038200178911211,
+              "contractions": 10310,
+              "gpu_contraction_seconds": 44.07516165685646,
+              "host_postprocess_seconds": 0.0005099639965919778,
+              "host_sampling_seconds": 0.4358936795470072,
+              "setup_path_planning_seconds": 0.27763743299874477,
+              "steady_compute_orchestration_seconds": 44.498434361448744,
+              "steady_loop_seconds": 44.93432804099575,
+              "steady_total_seconds": 44.93483800499234,
+              "upstream_profile": {
+                "final_nshots": 64,
+                "largest_intermediate_batch0": 128.0,
+                "max_free_qubits": 2,
+                "nshots": 64,
+                "num_batches": 6,
+                "num_contractions": 10310,
+                "num_noise_samples": 16,
+                "num_qubits": 11,
+                "opt_cost_batch0": 20216.0,
+                "q_tensor_postprocess_seconds": 0.0005099639965919778,
+                "time_apply_errors_total": 0.4038200178911211,
+                "time_build_expr_operands": 0.2723550009977771,
+                "time_circuit_to_einsum": 0.004442890000063926,
+                "time_contract_cpu_total": 44.435219098231755,
+                "time_contract_gpu_total": 44.07516165685646,
+                "time_contraction_loop": 44.93432804099575,
+                "time_load_circuit": 0.000839542000903748,
+                "time_per_contract_gpu_avg": 0.0042749914313148845,
+                "time_per_contraction_loop_avg": 0.004358324737244981
+              },
+              "wall_seconds": 45.214748933998635
+            }
+          ]
+        },
+        "tn_dominant_measured_component": "gpu_contraction_seconds",
+        "tn_effective_shots_per_second": 1395.124000795236,
+        "tn_measured_component_medians_seconds": {
+          "apply_errors_seconds": 0.4449877059814753,
+          "gpu_contraction_seconds": 46.02529862856878,
+          "host_postprocess_seconds": 0.0004889199917670339,
+          "host_sampling_seconds": 0.3964238124608528
+        },
+        "total_effective_shots": 65536,
+        "trajectories": 1024,
+        "trajectory_multiplicities": {
+          "(0,)": 791,
+          "(1,)": 14,
+          "(10,)": 16,
+          "(11,)": 17,
+          "(12,)": 15,
+          "(13,)": 15,
+          "(14,)": 13,
+          "(15,)": 16,
+          "(2,)": 13,
+          "(3,)": 22,
+          "(4,)": 15,
+          "(5,)": 10,
+          "(6,)": 25,
+          "(7,)": 21,
+          "(8,)": 11,
+          "(9,)": 10
+        },
+        "unique_trajectories": 16,
+        "validation": {
+          "cudaq_vs_conditioned": {
+            "null_quantile": 0.999,
+            "null_tvd_limit": 0.05280548256176042,
+            "null_z_expectation_error_limit": 0.0128538572912354,
+            "passed": true,
+            "tvd": 0.0499524471443638,
+            "z_expectation_error": 0.0007569825525145998
+          },
+          "passed": true,
+          "reference": "exact conditioned complex128 Kraus-branch statevector mixture",
+          "tn_vs_conditioned": {
+            "null_quantile": 0.999,
+            "null_tvd_limit": 0.05348087475331555,
+            "null_z_expectation_error_limit": 0.0145628416662354,
+            "passed": true,
+            "tvd": 0.04828429489925262,
+            "z_expectation_error": 0.0015013182287354002
+          },
+          "tn_vs_cudaq": {
+            "null_quantile": 0.999,
+            "null_tvd_limit": 0.0753631591796875,
+            "null_z_expectation_difference_limit": 0.01666259765625,
+            "passed": true,
+            "tvd": 0.0695343017578125,
+            "z_expectation_difference": 0.00225830078125
+          },
+          "trajectory_vs_exact_channel_tvd": 0.004624726710070798,
+          "trajectory_vs_exact_channel_z_expectation_error": 0.0007620060443578949
+        },
+        "worker_process_returncode": 0,
+        "worker_stderr_tail": "",
+        "worker_stdout_tail": "SWAPPING GATE ORDER WHEN CONSTRUCTING CIRCUIT BECAUSE QISKIT\nSWAPPING NOISE ORDER FOR TWO-QUBIT NOISE GATES BECAUSE QISKIT\n"
+      }
+    ]
+  },
+  "parameters": {
+    "cudaq_target": "nvidia fp64",
+    "entangling_depths": [
+      2,
+      4
+    ],
+    "max_free_qubits": 2,
+    "null_trials_per_validation_check": 1000,
+    "process_isolation": "one fresh worker process per qubit/depth point",
+    "qubits": [
+      5,
+      8,
+      11
+    ],
+    "repeats": 5,
+    "shots_per_trajectory": 64,
+    "speedup_definition": "CUDA-Q explicit steady total / TN proportional steady total",
+    "timing_order": "TN cold first-use, CUDA-Q build/compile warmup, alternating steady repeats",
+    "tn_dtype": "complex128",
+    "total_effective_shots": 65536,
+    "trajectory_count": 1024,
+    "trajectory_stream": "identical categorical code list and multiplicities from seed 5772"
+  },
+  "schema_version": 1,
+  "software": {
+    "packages": {
+      "cuda-quantum-cu12": "0.13.0",
+      "cupy-cuda12x": "13.6.0",
+      "cuquantum-python-cu12": "26.1.0",
+      "mpi4py": "4.1.0",
+      "numpy": "1.26.4",
+      "qiskit": "2.2.3",
+      "scipy": "1.16.2"
+    },
+    "python": "3.11.16"
+  },
+  "timestamp_utc": "2026-09-11T04:32:05Z",
+  "upstream_commit": "0569f848d9a3e385d6c20162c534a8031f6a69c5"
+}

@@ -253,14 +253,27 @@ def _support(case: ValidationCase) -> list[str]:
 
 
 def _sample_stratified(case: ValidationCase, grouped, shots_per_trajectory: int, rng) -> dict[str, int]:
+    return _stratified_sampler(case, grouped, shots_per_trajectory)(rng)
+
+
+def _stratified_sampler(case: ValidationCase, grouped, shots_per_trajectory: int):
+    """Precompute exact branch probabilities for repeated seeded null draws."""
+
     support = _support(case)
-    counts = np.zeros(len(support), dtype=np.int64)
+    plan = []
     for trajectory, multiplicity in grouped:
         distribution = trajectory_distribution(case, trajectory)
         probabilities = np.array([distribution.get(bits, 0.0) for bits in support])
         probabilities /= probabilities.sum()
-        counts += rng.multinomial(multiplicity * shots_per_trajectory, probabilities)
-    return {bits: int(value) for bits, value in zip(support, counts) if value}
+        plan.append((multiplicity * shots_per_trajectory, probabilities))
+
+    def sample(rng) -> dict[str, int]:
+        counts = np.zeros(len(support), dtype=np.int64)
+        for shots, probabilities in plan:
+            counts += rng.multinomial(shots, probabilities)
+        return {bits: int(value) for bits, value in zip(support, counts) if value}
+
+    return sample
 
 
 def _metrics(observed: Mapping[str, int] | Mapping[str, float], reference, observable) -> tuple[float, float]:
@@ -281,8 +294,9 @@ def backend_comparison(
 ) -> dict[str, Any]:
     observed_tvd, observed_expectation = _metrics(observed, reference, case.observable_qubits)
     rng = np.random.default_rng(seed)
+    sample_null = _stratified_sampler(case, grouped, shots_per_trajectory)
     null = [
-        _metrics(_sample_stratified(case, grouped, shots_per_trajectory, rng), reference, case.observable_qubits)
+        _metrics(sample_null(rng), reference, case.observable_qubits)
         for _ in range(null_trials)
     ]
     tvd_limit = float(np.quantile([item[0] for item in null], NULL_QUANTILE, method="higher"))
@@ -309,10 +323,11 @@ def two_backend_comparison(
 ) -> dict[str, Any]:
     observed_tvd, observed_expectation = _metrics(left, right, case.observable_qubits)
     rng = np.random.default_rng(seed)
+    sample_null = _stratified_sampler(case, grouped, shots_per_trajectory)
     null: list[tuple[float, float]] = []
     for _ in range(null_trials):
-        first = _sample_stratified(case, grouped, shots_per_trajectory, rng)
-        second = _sample_stratified(case, grouped, shots_per_trajectory, rng)
+        first = sample_null(rng)
+        second = sample_null(rng)
         null.append(_metrics(first, second, case.observable_qubits))
     tvd_limit = float(np.quantile([item[0] for item in null], NULL_QUANTILE, method="higher"))
     expectation_limit = float(np.quantile([item[1] for item in null], NULL_QUANTILE, method="higher"))

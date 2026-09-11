@@ -12,6 +12,7 @@ from q_tensor.validation import (
     channel_outcomes,
     conditioned_distribution,
     enumerate_trajectories,
+    exact_branch_distribution,
     exact_density_matrix,
     exact_distribution,
     group_trajectories,
@@ -22,6 +23,41 @@ from q_tensor.validation import (
     upstream_noise_samples,
     z_expectation,
 )
+from q_tensor.validation import _apply_local
+
+
+def legacy_apply_local(state: np.ndarray, matrix: np.ndarray, qubits: tuple[int, ...]) -> np.ndarray:
+    result = np.zeros_like(state)
+    mask = sum(1 << qubit for qubit in qubits)
+    for base in range(state.size):
+        if base & mask:
+            continue
+        values = np.array(
+            [
+                state[
+                    base
+                    | sum(((local >> bit) & 1) << qubit for bit, qubit in enumerate(qubits))
+                ]
+                for local in range(2 ** len(qubits))
+            ]
+        )
+        output = matrix @ values
+        for local, value in enumerate(output):
+            index = base | sum(
+                ((local >> bit) & 1) << qubit for bit, qubit in enumerate(qubits)
+            )
+            result[index] = value
+    return result
+
+
+def test_vectorized_local_application_preserves_qubit_order() -> None:
+    rng = np.random.default_rng(94)
+    state = rng.normal(size=16) + 1j * rng.normal(size=16)
+    state /= np.linalg.norm(state)
+    for qubits in ((0,), (3,), (0, 2), (3, 1)):
+        width = 2 ** len(qubits)
+        matrix = rng.normal(size=(width, width)) + 1j * rng.normal(size=(width, width))
+        assert np.allclose(_apply_local(state, matrix, qubits), legacy_apply_local(state, matrix, qubits))
 
 
 def test_frozen_cases_cover_two_through_five_qubits() -> None:
@@ -32,6 +68,7 @@ def test_frozen_cases_cover_two_through_five_qubits() -> None:
         assert np.isclose(np.trace(density), 1)
         assert np.allclose(density, density.conj().T)
         assert math.isclose(sum(exact_distribution(case).values()), 1)
+        assert total_variation_distance(exact_distribution(case), exact_branch_distribution(case)) < 1e-12
 
 
 def test_exact_bell_distribution_uses_q0_first_strings() -> None:
