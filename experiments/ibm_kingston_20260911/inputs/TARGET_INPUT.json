@@ -1,0 +1,160 @@
+{
+  "backend": "ibm_kingston",
+  "dt_seconds": 4e-09,
+  "instructions": {
+    "cz": [
+      {
+        "duration_s": 6.8e-08,
+        "error": 0.0011690128160559976,
+        "qubits": [
+          79,
+          93
+        ]
+      },
+      {
+        "duration_s": 6.8e-08,
+        "error": 0.0011950469987148382,
+        "qubits": [
+          93,
+          94
+        ]
+      },
+      {
+        "duration_s": 6.8e-08,
+        "error": 0.0013193294560577828,
+        "qubits": [
+          94,
+          95
+        ]
+      }
+    ],
+    "measure": [
+      {
+        "duration_s": 2.18e-06,
+        "error": 0.0057373046875,
+        "qubits": [
+          79
+        ]
+      },
+      {
+        "duration_s": 2.18e-06,
+        "error": 0.0068359375,
+        "qubits": [
+          93
+        ]
+      },
+      {
+        "duration_s": 2.18e-06,
+        "error": 0.0128173828125,
+        "qubits": [
+          94
+        ]
+      },
+      {
+        "duration_s": 2.18e-06,
+        "error": 0.005859375,
+        "qubits": [
+          95
+        ]
+      }
+    ],
+    "rz": [
+      {
+        "duration_s": 0.0,
+        "error": 0.0,
+        "qubits": [
+          79
+        ]
+      },
+      {
+        "duration_s": 0.0,
+        "error": 0.0,
+        "qubits": [
+          93
+        ]
+      },
+      {
+        "duration_s": 0.0,
+        "error": 0.0,
+        "qubits": [
+          94
+        ]
+      },
+      {
+        "duration_s": 0.0,
+        "error": 0.0,
+        "qubits": [
+          95
+        ]
+      }
+    ],
+    "sx": [
+      {
+        "duration_s": 3.2e-08,
+        "error": 0.000331300263873242,
+        "qubits": [
+          79
+        ]
+      },
+      {
+        "duration_s": 3.2e-08,
+        "error": 0.0003121526518602572,
+        "qubits": [
+          93
+        ]
+      },
+      {
+        "duration_s": 3.2e-08,
+        "error": 0.00036667470185189956,
+        "qubits": [
+          94
+        ]
+      },
+      {
+        "duration_s": 3.2e-08,
+        "error": 0.0004436916913846387,
+        "qubits": [
+          95
+        ]
+      }
+    ],
+    "x": [
+      {
+        "duration_s": 3.2e-08,
+        "error": 0.000331300263873242,
+        "qubits": [
+          79
+        ]
+      },
+      {
+        "duration_s": 3.2e-08,
+        "error": 0.0003121526518602572,
+        "qubits": [
+          93
+        ]
+      },
+      {
+        "duration_s": 3.2e-08,
+        "error": 0.00036667470185189956,
+        "qubits": [
+          94
+        ]
+      },
+      {
+        "duration_s": 3.2e-08,
+        "error": 0.0004436916913846387,
+        "qubits": [
+          95
+        ]
+      }
+    ]
+  },
+  "physical_path": [
+    79,
+    93,
+    94,
+    95
+  ],
+  "schema": "q-tensor.ibm-target.v1",
+  "snapshot": "2026-09-11T21:29:53+00:00"
+}

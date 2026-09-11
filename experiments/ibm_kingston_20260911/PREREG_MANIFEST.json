@@ -1,0 +1,28 @@
+{
+  "backend": "ibm_kingston",
+  "calibration_snapshot": "2026-09-11T21:29:53+00:00",
+  "circuit_ids": [
+    "QTIBM_CZ03",
+    "QTIBM_CZ06",
+    "QTIBM_CZ09",
+    "QTIBM_CZ12"
+  ],
+  "circuit_seed": 20260911,
+  "experiment": "Prospective Q-Tensor prediction of IBM Kingston hardware",
+  "physical_mapping": {
+    "logical_0": 79,
+    "logical_1": 93,
+    "logical_2": 94,
+    "logical_3": 95
+  },
+  "post_hardware_model_tuning": false,
+  "primary_hypothesis": "The frozen calibration-informed Q-Tensor prediction will have lower TVD to IBM hardware than the ideal noiseless prediction for a majority of the preregistered circuits.",
+  "primary_metric": "total_variation_distance",
+  "q_tensor_commit": "916911fd658ef7c15a5cc673c5abf4ab056833c0",
+  "qpu_submission": "NOT_AUTHORIZED",
+  "readout_mitigation": false,
+  "schema": "q-tensor.ibm-prereg.v1",
+  "secondary_analysis": "Report prediction error as CZ count increases; no post-hoc parameter fitting is permitted.",
+  "shots_per_circuit": 4096,
+  "success_rule": "TVD(Q-Tensor,IBM) < TVD(Ideal,IBM) on at least 3 of 4 circuits."
+}

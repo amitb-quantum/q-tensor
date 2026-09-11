@@ -1,0 +1,5 @@
+The analysis protocol was specified in the ChatGPT conversation before IBM QPU submission.
+The local ANALYSIS_PROTOCOL.json artifact was inadvertently absent when the analysis script was first invoked.
+The first analysis invocation terminated with FileNotFoundError before producing or displaying any hardware comparison.
+No IBM counts were manually inspected and no analysis rule was changed.
+This file reconstructs the previously specified protocol before any hardware-result analysis.

@@ -1,0 +1,33 @@
+{
+  "schema": "q-tensor.ibm-analysis-protocol.v1",
+  "status": "FROZEN_BEFORE_QPU",
+  "hardware_shots_per_circuit": 4096,
+
+  "primary_metric": "total_variation_distance",
+
+  "primary_success_rule":
+    "TVD(QTensor_full, IBM) < TVD(ideal_noiseless, IBM) on at least 3 of 4 preregistered circuits",
+
+  "per_circuit_delta":
+    "TVD(ideal_noiseless,IBM) - TVD(QTensor_full,IBM); positive values favor Q-Tensor",
+
+  "secondary_control_delta":
+    "TVD(ideal_plus_readout_only,IBM) - TVD(QTensor_full,IBM); positive values show gate-noise modeling adds value beyond readout calibration",
+
+  "uncertainty": {
+    "method": "nonparametric bootstrap of observed IBM outcomes",
+    "replicates": 10000,
+    "seed": 2026091199,
+    "confidence_interval": "95% percentile",
+    "strong_predictive_win":
+      "lower confidence bound of per-circuit delta is greater than zero"
+  },
+
+  "bitstring_normalization":
+    "IBM c3c2c1c0 display order is reversed to Q-Tensor q0q1q2q3 before comparison",
+
+  "rerun_policy":
+    "No circuit may be rerun because of an unfavorable scientific result. Rerun only for documented provider/job failure or incorrect shot count.",
+
+  "model_changes_after_hardware": "PROHIBITED"
+}

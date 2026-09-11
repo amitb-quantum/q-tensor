@@ -1,0 +1,10 @@
+experiment=Q-Tensor prospective IBM hardware validation
+backend=ibm_kingston
+physical_path=79,93,94,95
+calibration_snapshot=2026-09-11T21:29:53+00:00
+selection_score=0.10200018059238125
+estimated_circuit_error=0.08631786007238196
+robust=true
+pending_jobs_at_selection=0
+selection_rule=fresh cross-backend recommendation from ibm_backend_path_audit.py v2.0.0
+qpu_submission=NOT_AUTHORIZED

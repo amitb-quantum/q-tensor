@@ -1,0 +1,53 @@
+{
+  "schema": "q-tensor.ibm-prediction-protocol.v1",
+  "status": "FROZEN_BEFORE_QPU",
+  "backend": "ibm_kingston",
+  "calibration_snapshot": "2026-09-11T21:29:53+00:00",
+  "physical_qubits": [79, 93, 94, 95],
+
+  "trajectory_samples_per_circuit": 100000,
+  "base_seed": 2026091100,
+
+  "coherent_model": {
+    "sx_representation": "rx(pi/2), globally phase-equivalent for measurement probabilities",
+    "rz": "ideal/noiseless virtual gate",
+    "cz": "native"
+  },
+
+  "gate_noise_model": {
+    "type": "independent categorical Pauli depolarizing after each physical gate",
+    "one_qubit_conversion": "p_pauli = 3/2 * IBM_reported_average_gate_error",
+    "two_qubit_conversion": "p_pauli = 5/4 * IBM_reported_average_gate_error",
+    "trajectory_multiplicity": "preserved",
+    "post_hardware_parameter_fitting": false
+  },
+
+  "readout_model": {
+    "type": "independent asymmetric assignment error",
+    "source": "prob_meas0_prep1 and prob_meas1_prep0 from frozen IBM properties"
+  },
+
+  "relaxation_model": {
+    "explicit_T1_T2_during_gates": false,
+    "reason": "avoid double-counting decoherence already represented in IBM reported gate error; idle-specific relaxation is outside the primary model"
+  },
+
+  "predictions_to_freeze": [
+    "ideal_noiseless",
+    "ideal_plus_readout_only",
+    "q_tensor_gate_noise_pre_readout",
+    "q_tensor_full_calibration_informed"
+  ],
+
+  "bitstring_convention": {
+    "q_tensor": "left-to-right = logical q0,q1,q2,q3",
+    "ibm_counts_future_normalization": "reverse Qiskit classical display order c3c2c1c0 into q0q1q2q3 before comparison"
+  },
+
+  "primary_metric": "total_variation_distance",
+  "primary_success_rule": "TVD(full_QTensor,IBM) < TVD(ideal_noiseless,IBM) on at least 3 of 4 preregistered circuits",
+
+  "secondary_control": "Compare full_QTensor against ideal_plus_readout_only to test whether gate-noise modeling adds predictive value beyond readout calibration alone.",
+
+  "qpu_submission": "NOT_AUTHORIZED"
+}

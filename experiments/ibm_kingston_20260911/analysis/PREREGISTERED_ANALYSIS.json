@@ -1,0 +1,106 @@
+{
+  "backend": "ibm_kingston",
+  "bootstrap_replicates": 10000,
+  "bootstrap_seed": 2026091199,
+  "circuits": [
+    {
+      "circuit": "QTIBM_CZ03",
+      "control_delta_95pct_ci": [
+        -0.0023076466070229146,
+        0.0016819380354365573
+      ],
+      "cz_count": 3,
+      "delta_95pct_ci": [
+        -0.003348290185840284,
+        0.012888314921929765
+      ],
+      "delta_ideal_minus_qtensor": 0.005092284722476879,
+      "delta_readout_only_minus_qtensor": -0.001322363525491338,
+      "gate_noise_adds_value": false,
+      "qtensor_beats_ideal": true,
+      "shots": 4096,
+      "strong_gate_noise_value": false,
+      "strong_predictive_win": false,
+      "tvd_ideal_vs_ibm": 0.027627376535559287,
+      "tvd_qtensor_full_vs_ibm": 0.022535091813082407,
+      "tvd_readout_only_vs_ibm": 0.02121272828759107
+    },
+    {
+      "circuit": "QTIBM_CZ06",
+      "control_delta_95pct_ci": [
+        0.0001621301221022553,
+        0.0034935551607452858
+      ],
+      "cz_count": 6,
+      "delta_95pct_ci": [
+        0.0030304603995356325,
+        0.013629832657671724
+      ],
+      "delta_ideal_minus_qtensor": 0.009733938490594903,
+      "delta_readout_only_minus_qtensor": 0.0019579517039107486,
+      "gate_noise_adds_value": true,
+      "qtensor_beats_ideal": true,
+      "shots": 4096,
+      "strong_gate_noise_value": true,
+      "strong_predictive_win": true,
+      "tvd_ideal_vs_ibm": 0.04120085844967703,
+      "tvd_qtensor_full_vs_ibm": 0.03146691995908213,
+      "tvd_readout_only_vs_ibm": 0.03342487166299288
+    },
+    {
+      "circuit": "QTIBM_CZ09",
+      "control_delta_95pct_ci": [
+        0.0003639586057605114,
+        0.007769629585225956
+      ],
+      "cz_count": 9,
+      "delta_95pct_ci": [
+        0.005963670951966535,
+        0.024127898876603566
+      ],
+      "delta_ideal_minus_qtensor": 0.0175800296281428,
+      "delta_readout_only_minus_qtensor": 0.0027170709320561565,
+      "gate_noise_adds_value": true,
+      "qtensor_beats_ideal": true,
+      "shots": 4096,
+      "strong_gate_noise_value": true,
+      "strong_predictive_win": true,
+      "tvd_ideal_vs_ibm": 0.048037723418511744,
+      "tvd_qtensor_full_vs_ibm": 0.030457693790368945,
+      "tvd_readout_only_vs_ibm": 0.0331747647224251
+    },
+    {
+      "circuit": "QTIBM_CZ12",
+      "control_delta_95pct_ci": [
+        -0.0005963424337327536,
+        0.009371499681460818
+      ],
+      "cz_count": 12,
+      "delta_95pct_ci": [
+        0.004194951142570772,
+        0.02194977209321779
+      ],
+      "delta_ideal_minus_qtensor": 0.01945489983083585,
+      "delta_readout_only_minus_qtensor": 0.006891140761502969,
+      "gate_noise_adds_value": true,
+      "qtensor_beats_ideal": true,
+      "shots": 4096,
+      "strong_gate_noise_value": false,
+      "strong_predictive_win": true,
+      "tvd_ideal_vs_ibm": 0.04610768451912277,
+      "tvd_qtensor_full_vs_ibm": 0.02665278468828692,
+      "tvd_readout_only_vs_ibm": 0.03354392544978989
+    }
+  ],
+  "job_id": "dai8c4hhvn6c73cstebg",
+  "prediction_sha256": "40887db2dd269101023bd05435563281eebd6a60de63e0b0a7616162698c4700",
+  "raw_hardware_sha256": "b875a74cfdf9c8a66ed4ba559ed274f09623ea7c21f465cbad9f23f0d23166e0",
+  "schema": "q-tensor.ibm-preregistered-analysis.v1",
+  "summary": {
+    "gate_noise_beats_readout_only_count": 3,
+    "primary_result": "PASS",
+    "primary_success_rule": "Q-Tensor beats ideal on at least 3 of 4 circuits",
+    "qtensor_beats_ideal_count": 4,
+    "strong_predictive_win_count": 3
+  }
+}
