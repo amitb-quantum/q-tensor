@@ -1,49 +1,96 @@
 # Q-Tensor
 
-Independent reproduction and characterization of GPU-accelerated noisy quantum
-trajectory simulation with tensor networks.
+Independent reproduction, correction, benchmarking, and prospective hardware validation of GPU-accelerated noisy quantum trajectory simulation with tensor networks.
 
-## Why this exists
+Q-Tensor started from NVIDIA Research's open-source PTSBE work and asks three practical questions:
 
-Noisy simulations need many stochastic trajectories. Repeating tensor-network path
-planning and conditional contractions can dominate useful data generation. Q-Tensor
-tests what NVIDIA's UPV/NBS implementation actually reuses, how it performs on one
-local RTX 5090, and which sampling guarantees survive each acceleration mode.
+1. **Are the sampling semantics statistically correct?**
+2. **Where does tensor-network batching actually become faster?**
+3. **Can a frozen calibration-informed trajectory model predict real quantum hardware better than an ideal noiseless model?**
 
-## Current finding
+## Results at a glance
 
-**The corrected proportional path passes seeded exact-reference validation.** Four
-frozen 2--5 qubit cases passed all 48 TN/reference, CUDA-Q/reference, and TN/CUDA-Q
-finite-shot checks. In the first matched-precision five-qubit performance comparison,
-TN did not cross CUDA-Q through 4,096 trajectories. The result is a bounded negative
-measurement, not a general simulator claim.
-
-| Category | Local RTX 5090 observation | Status |
+| Result | Observation | Status |
 |---|---|---:|
-| **REPRODUCED RESULT** | Official gate-map check, 3.24 s process wall time | PASS |
-| **REPRODUCED RESULT** | Official separated-vs-merged error contraction, `allclose=True`, 3.15 s | PASS |
-| **Q-TENSOR ORIGINAL RESULT** | Seeded 2--5 qubit exact-reference suite; 48/48 calibrated checks | PASS |
-| **REPRODUCED DIAGNOSTIC** | Clean upstream run TVD 0.0643; stale-cache rerun TVD 0.2101 | PASS then FAIL |
-| **Q-TENSOR ORIGINAL RESULT** | 4,096 trajectories: TN 0.659389 s; CUDA-Q 0.056128 s; baseline/TN 0.08512x | NO CROSSOVER |
+| **Statistical validation** | Corrected proportional sampling passed **48/48** seeded TN/reference, CUDA-Q/reference, and TN/CUDA-Q finite-shot checks on 2–5 qubit exact-reference cases | **PASS** |
+| **Small-workload regime** | No proportional crossover through the validated 11-qubit sweep; CUDA-Q remained faster | **NO CROSSOVER** |
+| **50q proportional crossover** | Exact public 50-qubit / 200-gate Figure-3 workload: TN **40.419 s** vs CUDA-Q TensorNet **277.865 s** for the same frozen 1,000 effective shots | **6.875× TN speedup** |
+| **Non-proportional regime** | Figure-3 PTSBE generated **24,378,496 distinct labeled records from 40 contractions**; this is a unique-data-harvest result, **not** a raw execution speedup | **REPRODUCED** |
+| **Prospective IBM hardware test** | Frozen Q-Tensor prediction was closer to IBM Kingston than the ideal model on **4/4 circuits**, with **3/4 statistically strong wins** | **PASS** |
+| **Gate-noise control** | Full calibration-informed model beat the readout-only control on **3/4 IBM circuits** | **PASS** |
 
-The smoke timings include interpreter startup/imports and are not GPU kernel
-benchmarks. See the [statistical validation](reports/STATISTICAL_VALIDATION.md),
-[performance analysis](reports/PERFORMANCE_ANALYSIS.md), and
-[complete smoke record](reports/SMOKE_TEST.md).
+The central finding is not that tensor networks always win. They do not. Q-Tensor measured a clear regime split: small proportional workloads favored CUDA-Q, while the exact 50q/200g workload produced a measured **6.875× equal-shot proportional crossover**. Separately, a prospectively frozen calibration-informed model predicted IBM Kingston hardware more accurately than the ideal noiseless circuit on every preregistered test circuit.
 
-## What Q-Tensor tests
+## Prospective IBM hardware validation
 
-- reproduction of the official public implementation on non-H100 hardware;
-- cold-start/path-planning, contraction, sampling, orchestration, and memory costs;
-- proportional sampling against exact small-circuit references;
-- explicitly separate coverage-oriented non-proportional data semantics;
-- one bounded downstream QEC/validation demonstration after statistical validation.
+Q-Tensor's first real-QPU experiment was executed on IBM `ibm_kingston` using physical qubits `[79, 93, 94, 95]`.
+
+Before the QPU run, Q-Tensor froze and hashed:
+
+- the physical-qubit selection;
+- calibration inputs;
+- exact IBM ISA circuits;
+- the noise-model construction rules;
+- 100,000-trajectory predictions for each circuit;
+- the TVD success criterion and bootstrap analysis protocol.
+
+No model parameter was tuned after observing hardware results.
+
+| Circuit | CZs | Ideal → IBM TVD | Q-Tensor → IBM TVD | Δ | Result |
+|---|---:|---:|---:|---:|---|
+| `QTIBM_CZ03` | 3 | 0.027627 | **0.022535** | +0.005092 | Win |
+| `QTIBM_CZ06` | 6 | 0.041201 | **0.031467** | +0.009734 | **Strong win** |
+| `QTIBM_CZ09` | 9 | 0.048038 | **0.030458** | +0.017580 | **Strong win** |
+| `QTIBM_CZ12` | 12 | 0.046108 | **0.026653** | +0.019455 | **Strong win** |
+
+Primary preregistered result: **PASS** — Q-Tensor beat the ideal model on 4/4 circuits, with the complete 95% bootstrap interval above zero on 3/4. The IBM job used **6 quantum seconds**.
+
+See the full [IBM hardware validation report](reports/IBM_HARDWARE_VALIDATION.md).
+
+## 50-qubit proportional crossover
+
+On the exact public Figure-3 circuit-0 workload — 50 qubits, 200 coherent gates, 200 retained noise sites — Q-Tensor gave both methods the same ten frozen categorical trajectories and exactly 1,000 effective shots per backend.
+
+| Timing / throughput | TN proportional | CUDA-Q TensorNet | CUDA-Q / TN |
+|---|---:|---:|---:|
+| Steady execution | **40.419 s** | 277.865 s | **6.875×** |
+| Path-inclusive TN / CUDA-Q steady | 40.848 s | 277.865 s | **6.802×** |
+| Effective shots/s | **24.74** | 3.60 | **6.875×** |
+
+This establishes a crossover at this measured 50q/200g point only. Q-Tensor does **not** infer where the crossover boundary lies between the earlier 11-qubit measurements and this workload.
+
+See the [Figure-3 proportional control](reports/FIGURE3_PROPORTIONAL_CONTROL.md).
+
+## Why the sampling correction matters
+
+The upstream artifact can produce misleading validation results because CUDA-Q reference files are cached by trajectory serial number rather than by the circuit/noise configuration that generated them. A clean run can pass while an immediate rerun against stale cached reference data can fail.
+
+Q-Tensor also separates two sampling semantics that should not be conflated:
+
+- **Proportional sampling:** trajectory multiplicities are preserved and outputs represent physical sampling weights.
+- **Non-proportional unique-record harvesting:** deliberately expands distinct labeled outcomes for dataset generation; useful, but not an IID proportional sample and not a raw simulator speedup.
+
+Q-Tensor uses categorical Kraus sampling and preserves trajectory multiplicity for its scientific and benchmark claims.
+
+See the [statistical validation report](reports/STATISTICAL_VALIDATION.md) and [regime reconciliation](reports/REGIME_RECONCILIATION.md).
 
 ## Hardware
 
-Initial host: RTX 5090 (Blackwell, compute capability 12.0, 170 SMs, 32,607 MiB
-visible VRAM), Intel Core Ultra 9 285K, Ubuntu 26.04.1 under WSL2. See
-[`reports/gpu.txt`](reports/gpu.txt) and [`reports/environment.txt`](reports/environment.txt).
+Primary local test system:
+
+- NVIDIA GeForce RTX 5090, 32 GiB, compute capability 12.0, 170 SMs
+- Intel Core Ultra 9 285K
+- Ubuntu 26.04.1 under WSL2
+
+Real-QPU validation:
+
+- IBM Quantum `ibm_kingston`
+- 156-qubit processor
+- selected physical path `[79, 93, 94, 95]`
+- 4 × 4,096 hardware shots
+- 6 IBM-reported quantum seconds
+
+See [`reports/gpu.txt`](reports/gpu.txt) and [`reports/environment.txt`](reports/environment.txt).
 
 ## Reproduce the foundation
 
@@ -59,46 +106,56 @@ PYTHONPATH=src python scripts/run_statistical_validation.py \
   --output results/statistical_validation/latest.json
 ```
 
-The upstream checkout is detached at
-`0569f848d9a3e385d6c20162c534a8031f6a69c5`. GPU tests are kept out of the normal
-unit suite; run them explicitly with:
+The upstream checkout is pinned at:
+
+```text
+0569f848d9a3e385d6c20162c534a8031f6a69c5
+```
+
+GPU tests are intentionally kept out of the normal unit suite:
 
 ```bash
 Q_TENSOR_UPSTREAM="$PWD/upstream/Accelerated_TN_PTSBE" pytest -m gpu
 ```
 
-## Methodology
+## Reports
+
+- [IBM prospective hardware validation](reports/IBM_HARDWARE_VALIDATION.md)
+- [Figure-3 proportional crossover](reports/FIGURE3_PROPORTIONAL_CONTROL.md)
+- [Statistical validation](reports/STATISTICAL_VALIDATION.md)
+- [Complexity crossover sweep](reports/COMPLEXITY_CROSSOVER.md)
+- [Regime reconciliation](reports/REGIME_RECONCILIATION.md)
+- [Performance analysis](reports/PERFORMANCE_ANALYSIS.md)
+- [Executive summary](reports/EXECUTIVE_SUMMARY.md)
+- [Smoke-test record](reports/SMOKE_TEST.md)
+
+## Methodology and provenance
 
 - [Paper notes and sampling semantics](docs/PAPER_NOTES.md)
-- [RTX 5090 / WSL feasibility and decision gates](docs/FEASIBILITY.md)
+- [RTX 5090 / WSL feasibility](docs/FEASIBILITY.md)
 - [Upstream source, revision, dependencies, and licenses](docs/UPSTREAM.md)
 - [Project worklog](docs/WORKLOG.md)
-- [Executive summary](reports/EXECUTIVE_SUMMARY.md)
-- [Seeded exact-reference statistical validation](reports/STATISTICAL_VALIDATION.md)
-- [First fair RTX 5090 performance comparison](reports/PERFORMANCE_ANALYSIS.md)
 
-Every saved result uses one of three labels: `UPSTREAM CLAIM`, `REPRODUCED RESULT`, or
-`Q-TENSOR ORIGINAL RESULT`. The machine-readable schema requires hardware, software,
-parameters, commands, both Git revisions, timestamps, and measurements.
+Saved results distinguish `UPSTREAM CLAIM`, `REPRODUCED RESULT`, and `Q-TENSOR ORIGINAL RESULT`. Machine-readable result records capture hardware, software, parameters, commands, revisions, timestamps, and measurements.
+
+The IBM experiment additionally preserves separate hashes for calibration selection, exact circuits, frozen predictions, raw hardware results, and final preregistered analysis.
 
 ## Upstream NVIDIA work
 
-Q-Tensor uses NVIDIA Research's Apache-2.0
-[`NVlabs/Accelerated_TN_PTSBE`](https://github.com/NVlabs/Accelerated_TN_PTSBE), the
-artifact associated with [arXiv:2604.08467v1](https://arxiv.org/abs/2604.08467).
-Upstream source and paper results are not vendored or relabeled as Q-Tensor results.
+Q-Tensor uses NVIDIA Research's Apache-2.0 [`NVlabs/Accelerated_TN_PTSBE`](https://github.com/NVlabs/Accelerated_TN_PTSBE), associated with [arXiv:2604.08467v1](https://arxiv.org/abs/2604.08467).
+
+Upstream source and paper results are not relabeled as Q-Tensor results.
 
 ## Limitations
 
-The paper's H100 80 GB campaigns have not been rerun. This WSL distribution has no
-Docker integration, no system CUDA toolkit, and no Nsight Compute. Validation is
-limited to small exact-reference cases. The unmodified upstream trajectory generator
-has cache, depolarizing-channel, and multiplicity defects, so Q-Tensor does not use it
-for scientific or benchmark claims.
+The results are deliberately bounded to measured workloads and hardware.
+
+- The original H100 80 GB campaigns were not rerun.
+- The 6.875× proportional speedup is established only at the measured 50q/200g point; the crossover boundary was not located.
+- The IBM experiment covers one processor, one four-qubit path, four related circuits, and one calibration regime.
+- The IBM model uses independent stochastic Pauli gate noise and asymmetric readout error; it does not model all coherent, correlated, leakage, crosstalk, or time-dependent effects.
+- The IBM result validates Q-Tensor's calibration-informed prediction methodology under the tested conditions; it is **not** a claim that PTSBE itself was directly validated by IBM hardware.
 
 ## Repository structure
 
-`src/` contains independent utilities; `scripts/` reproducible runners; `configs/`
-versioned inputs; `benchmarks/` schemas; `results/` raw machine-readable observations;
-`reports/` interpreted results; `docs/` provenance/method notes; and `upstream/` the
-revision lock and fetch policy.
+`src/` contains independent utilities; `scripts/` reproducible runners; `configs/` versioned inputs; `benchmarks/` schemas; `results/` raw machine-readable observations; `reports/` interpreted results; `docs/` provenance and method notes; and `upstream/` the revision lock and fetch policy.
