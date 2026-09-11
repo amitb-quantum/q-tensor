@@ -90,11 +90,17 @@ def sample_cudaq_kernels(prepared, nqubits: int, shots_per_trajectory: int, seed
     return dict(counts), sample_seconds, postprocess_seconds
 
 
-def prepare_cudaq(case, grouped, seed: int):
+def prepare_cudaq(
+    case,
+    grouped,
+    seed: int,
+    target: str = CUDAQ_TARGET,
+    option: str = CUDAQ_OPTION,
+):
     import cudaq
 
     started = time.perf_counter()
-    cudaq.set_target(CUDAQ_TARGET, option=CUDAQ_OPTION)
+    cudaq.set_target(target, option=option)
     target_seconds = time.perf_counter() - started
     started = time.perf_counter()
     prepared = build_cudaq_kernels(case, grouped)
@@ -105,6 +111,9 @@ def prepare_cudaq(case, grouped, seed: int):
         cudaq.sample(kernel, shots_count=1)
     compile_seconds = time.perf_counter() - started
     return prepared, {
+        "target": target,
+        "option": option,
+        "target_precision": str(cudaq.get_target().get_precision()),
         "target_initialization_seconds": target_seconds,
         "kernel_build_seconds": build_seconds,
         "compile_warmup_seconds": compile_seconds,
@@ -112,7 +121,14 @@ def prepare_cudaq(case, grouped, seed: int):
     }
 
 
-def timed_tn(case, grouped, shots_per_trajectory: int, seed: int, workdir: Path):
+def timed_tn(
+    case,
+    grouped,
+    shots_per_trajectory: int,
+    seed: int,
+    workdir: Path,
+    max_free_qubits: int = 2,
+):
     choice_seconds = 0.0
     original_choice = np.random.choice
 
@@ -133,7 +149,7 @@ def timed_tn(case, grouped, shots_per_trajectory: int, seed: int, workdir: Path)
             seed,
             workdir,
             reverse_qubits=True,
-            max_free_qubits=2,
+            max_free_qubits=max_free_qubits,
             dtype=TN_DTYPE,
             profile=True,
             prepare_circuit=False,
