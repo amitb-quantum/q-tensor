@@ -249,6 +249,8 @@ class SmiMonitor:
             "scope": "global device counters; separate untimed telemetry run",
             "interval_ms": 50,
             "samples": len(self.samples),
+            "gpu_utilization_percent_mean": float(np.mean(utilizations)),
+            "gpu_utilization_percent_p90": float(np.quantile(utilizations, 0.9)),
             "gpu_utilization_percent_peak": max(utilizations),
             "gpu_utilization_percent_median": float(np.median(utilizations)),
             "memory_used_mib_min": min(memories),

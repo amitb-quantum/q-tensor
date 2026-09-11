@@ -1,0 +1,891 @@
+{
+  "category": "q_tensor_original",
+  "command": [
+    "/home/manager/miniforge3/envs/q-tensor/bin/python",
+    "/mnt/c/Users/amitb/Documents/Q-Tensor/scripts/run_regime_reconciliation.py",
+    "--upstream",
+    "/home/manager/q-tensor/upstream/Accelerated_TN_PTSBE",
+    "--q-tensor-baseline",
+    "results/performance/2026-09-10_complexity_crossover_pilot.json",
+    "--output",
+    "results/performance/2026-09-11_regime_reconciliation.json",
+    "--timeout",
+    "1200"
+  ],
+  "experiment_id": "official-50q-200g-regime-reconciliation-v1",
+  "git_commit": "977ce9631dfd6bb6b3c21ddffb7082a4757dad9e",
+  "hardware": {
+    "compute_capability": "12.0",
+    "cuda_driver_api": 13030,
+    "cuda_runtime": 12090,
+    "name": "NVIDIA GeForce RTX 5090",
+    "sm_count": 170,
+    "total_global_memory_bytes": 34190458880
+  },
+  "measurements": {
+    "retained_h100_circuit_0": {
+      "circuit_id": 0,
+      "cudaq_sample_seconds_one_shot": 11.237314,
+      "hardware": "NVIDIA H100 80GB HBM3",
+      "official_metric_throughput_advantage": 4561420.551983233,
+      "ptsbe_contraction_loop_seconds": 49.2857,
+      "ptsbe_num_contractions": 40,
+      "ptsbe_path_build_seconds": 11.5628,
+      "ptsbe_unique_records": 20005920,
+      "ptsbe_unique_records_per_second": 405917.33504850295,
+      "source": "retained upstream Figure 3 public logs"
+    },
+    "rtx_5090": {
+      "reduction": {
+        "batch_profile": [
+          {
+            "batch": 0,
+            "contractions": 10,
+            "gpu_contraction_seconds": 0.15214665699005128,
+            "population_entries": 1024,
+            "qubits": 10
+          },
+          {
+            "batch": 1,
+            "contractions": 10,
+            "gpu_contraction_seconds": 0.17147443199157716,
+            "population_entries": 1024,
+            "qubits": 10
+          },
+          {
+            "batch": 2,
+            "contractions": 10,
+            "gpu_contraction_seconds": 0.12544947242736815,
+            "population_entries": 4,
+            "qubits": 2
+          },
+          {
+            "batch": 3,
+            "contractions": 10,
+            "gpu_contraction_seconds": 27.662877319335934,
+            "population_entries": 268435456,
+            "qubits": 28
+          }
+        ],
+        "final_batch_fraction_of_gpu_contraction_time": 0.9840256333956643,
+        "manuscript_text_cudaq_1_hypersample_control": {
+          "cudaq_sample_seconds_one_shot": 1.564012,
+          "full_subprocess_wall_throughput_advantage": 2276995.6241451544,
+          "official_metric_throughput_advantage": 881659.8437169523,
+          "output_count_ratio_ptsbe_over_cudaq": 24378496.0,
+          "path_inclusive_ptsbe_execution_throughput_advantage": 835830.5353262483,
+          "ptsbe_unique_records_per_contraction_second": 563716.8025034029,
+          "raw_runtime_speedup_cudaq_over_ptsbe": 0.036165473198877904
+        },
+        "mean_final_population_occupancy": 0.009081697463989258,
+        "mean_unique_records_per_final_batch_contraction": 2437849.6,
+        "path_reuse_per_batch": 10,
+        "path_sets_built": 4,
+        "ptsbe_apply_errors_seconds": 0.8025175269867759,
+        "ptsbe_contraction_loop_seconds": 43.24599850800587,
+        "ptsbe_contractions": 40,
+        "ptsbe_gpu_contraction_seconds": 28.111947880744932,
+        "ptsbe_loop_minus_gpu_and_error_seconds": 14.33153310027416,
+        "ptsbe_path_build_seconds": 2.3112940220016753,
+        "ptsbe_path_inclusive_execution_seconds": 45.618380537998746,
+        "ptsbe_stim_to_pts_seconds": 0.016226803010795265,
+        "ptsbe_trajectory_sampling_seconds": 0.08074819300964009,
+        "ptsbe_unique_records": 24378496,
+        "public_artifact_cudaq_100_hypersamples": {
+          "cudaq_sample_seconds_one_shot": 2.604577,
+          "full_subprocess_wall_throughput_advantage": 2994677.1889789747,
+          "official_metric_throughput_advantage": 1468243.8183139057,
+          "output_count_ratio_ptsbe_over_cudaq": 24378496.0,
+          "path_inclusive_ptsbe_execution_throughput_advantage": 1391909.234111044,
+          "ptsbe_unique_records_per_contraction_second": 563716.8025034029,
+          "raw_runtime_speedup_cudaq_over_ptsbe": 0.06022700573135872
+        }
+      },
+      "stages": [
+        {
+          "command": [
+            "/home/manager/miniforge3/envs/q-tensor/bin/python",
+            "/home/manager/q-tensor/upstream/Accelerated_TN_PTSBE/scaling/scaling_comparison_avg.py",
+            "--num_circuits",
+            "1",
+            "--nnoise_samples",
+            "10",
+            "--cudaq_nshots",
+            "1",
+            "--smart-opt-off",
+            "both",
+            "--verbose_level",
+            "3",
+            "--unique_sampling",
+            "--take_all_final",
+            "--batch_shots_policy",
+            "custom",
+            "--batch_qubit_policy",
+            "custom",
+            "--cudaq_timeout",
+            "4500",
+            "--ptsbe_sample_timeout",
+            "3600",
+            "--nqubits",
+            "50",
+            "--ngates",
+            "200",
+            "--num_hyper_samples",
+            "100",
+            "--shots_per_batch",
+            "1,1,1,100",
+            "--qubits_per_batch",
+            "10,10,2,28",
+            "--circuit_dir",
+            "/home/manager/q-tensor/upstream/Accelerated_TN_PTSBE/scaling/data_collection/circuits/50q_200g",
+            "--circuit_id",
+            "0",
+            "--work_dir",
+            "/tmp/q-tensor-regime-reconciliation-cgd6368u/ptsbe-work",
+            "--json_output",
+            "/tmp/q-tensor-regime-reconciliation-cgd6368u/ptsbe.json",
+            "--skip_cudaq"
+          ],
+          "label": "official_ptsbe",
+          "stderr_tail": "",
+          "stdout_tail": "act_batch_2          : 0.12544947242736815\n  num_contractions_batch_2      : 10\n  gpu_contract_batch_3          : 27.662877319335934\n  num_contractions_batch_3      : 10\n==================================================\n\n\n\u001b[1;92mPTSBE Results:\u001b[0m\n  Total number of distinct PTSBE shots collected:       24378496\n  Total number of overall PTSBE shots collected:          24378496\n  Total number of distinct PTSBE pieces of labeled training data collected:     24378496\n\n\u001b[1;92mCircuit 1 Summary:\u001b[0m (CUDA-Q: sample time; PTSBE: contraction loop only.)\n  PTSBE total: 43.2460s\n  PTSBE shots/s: 563716.80\n  PTSBE unique shots/s: 563716.80\n  num_contractions: 40\n\n======================================================================\n\u001b[1;96mAVERAGED RESULTS (N=1 circuits)\u001b[0m\n======================================================================\n\n\u001b[1;92mTiming Comparison (Averaged) (Note this makes sense only when proportional_sampling = true and nnoise_samples = 1):\u001b[0m (CUDA-Q: sample time; PTSBE: contraction loop only.)\n  CUDA-Q total:             0.0000s +/- 0.0000s\n  PTSBE total:             43.2460s +/- 0.0000s\n  \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n  \u001b[1;91mSPEEDUP:                    0.00x +/- 0.00x (CUDA-Q faster)\u001b[0m\n\n\u001b[1;92mThroughput Comparison (Averaged):\u001b[0m (CUDA-Q: sample time; PTSBE: contraction loop only.)\n  CUDA-Q shots/s:             0.00 +/- 0.00\n  PTSBE shots/s:         563716.80 +/- 0.00\n  \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n  \u001b[1;91mTHROUGHPUT ADVANTAGE:       0.00x +/- 0.00x (CUDA-Q faster)\u001b[0m\n\n\u001b[1;92mUnique Throughput Comparison (Averaged):\u001b[0m (CUDA-Q: sample time; PTSBE: contraction loop only.)\n  CUDA-Q unique shots/s:       0.00 +/- 0.00\n  PTSBE unique shots/s:  563716.80 +/- 0.00\n  \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n  \u001b[1;91mUNIQUE THROUGHPUT ADVANTAGE:       0.00x +/- 0.00x (CUDA-Q faster)\u001b[0m\n\n======================================================================\n\n\u001b[1;92mResults saved to: /tmp/q-tensor-regime-reconciliation-cgd6368u/ptsbe.json\u001b[0m\n\n",
+          "subprocess_wall_seconds": 47.45748703600839,
+          "telemetry": {
+            "available": true,
+            "gpu_utilization_percent_mean": 5.487700534759358,
+            "gpu_utilization_percent_median": 0.0,
+            "gpu_utilization_percent_p90": 11.0,
+            "gpu_utilization_percent_peak": 95.0,
+            "interval_ms": 50,
+            "memory_used_mib_delta": 13249.0,
+            "memory_used_mib_min": 4521.0,
+            "memory_used_mib_peak": 17770.0,
+            "samples": 935,
+            "scope": "global device counters; separate untimed telemetry run"
+          },
+          "upstream_result": {
+            "comparison": {
+              "ptsbe_shots_per_second_mean": 563716.8025034029,
+              "ptsbe_shots_per_second_std": 0.0,
+              "ptsbe_unique_shots_per_second_mean": 563716.8025034029,
+              "ptsbe_unique_shots_per_second_std": 0.0
+            },
+            "config": {
+              "batch_qubit_policy": "custom",
+              "batch_shots_policy": "custom",
+              "circuit_dir": "/home/manager/q-tensor/upstream/Accelerated_TN_PTSBE/scaling/data_collection/circuits/50q_200g",
+              "circuit_id": 0,
+              "circuit_idx": 0,
+              "cudaq_nshots": 1,
+              "final_batch_qubits": null,
+              "final_nshots": 100,
+              "first_fixed": 10,
+              "max_free_qubits": 10,
+              "ngates": 200,
+              "nnoise_samples": 10,
+              "no_count_degenerate_shots": false,
+              "nqubits": 50,
+              "num_fixed": 40,
+              "prob_range": [
+                0.02,
+                0.2
+              ],
+              "proportion_two_qubit": 0.2,
+              "ptsbe_nshots": 100,
+              "qubits_per_batch": [
+                10,
+                10,
+                2,
+                28
+              ],
+              "shots_per_batch": [
+                1,
+                1,
+                1,
+                100
+              ],
+              "smart_opt_off": "both"
+            },
+            "cudaq": {},
+            "individual_results": [
+              {
+                "comparison": {
+                  "ptsbe_shots_per_second": 563716.8025034029,
+                  "ptsbe_total": 43.24599850800587,
+                  "ptsbe_unique_shots_per_second": 563716.8025034029
+                },
+                "config": {
+                  "batch_qubit_policy": "custom",
+                  "batch_shots_policy": "custom",
+                  "circuit_dir": "/home/manager/q-tensor/upstream/Accelerated_TN_PTSBE/scaling/data_collection/circuits/50q_200g",
+                  "circuit_id": 0,
+                  "circuit_idx": 0,
+                  "cudaq_nshots": 1,
+                  "final_batch_qubits": null,
+                  "final_nshots": 100,
+                  "first_fixed": 10,
+                  "max_free_qubits": 10,
+                  "ngates": 200,
+                  "nnoise_samples": 10,
+                  "no_count_degenerate_shots": false,
+                  "nqubits": 50,
+                  "num_fixed": 40,
+                  "prob_range": [
+                    0.02,
+                    0.2
+                  ],
+                  "proportion_two_qubit": 0.2,
+                  "ptsbe_nshots": 100,
+                  "qubits_per_batch": [
+                    10,
+                    10,
+                    2,
+                    28
+                  ],
+                  "shots_per_batch": [
+                    1,
+                    1,
+                    1,
+                    100
+                  ],
+                  "smart_opt_off": "both"
+                },
+                "cudaq": {},
+                "ptsbe": {
+                  "base_shots_per_batch": [
+                    1,
+                    1,
+                    1,
+                    100
+                  ],
+                  "gpu_contract_batch_0": 0.15214665699005128,
+                  "gpu_contract_batch_1": 0.17147443199157716,
+                  "gpu_contract_batch_2": 0.12544947242736815,
+                  "gpu_contract_batch_3": 27.662877319335934,
+                  "gpu_contract_per_batch": [
+                    0.15214665699005128,
+                    0.17147443199157716,
+                    0.12544947242736815,
+                    27.662877319335934
+                  ],
+                  "largest_intermediate_batch0": 1024.0,
+                  "max_free_qubits": 10,
+                  "nshots": 100,
+                  "num_batches": 4,
+                  "num_contractions": 40,
+                  "num_contractions_batch_0": 10,
+                  "num_contractions_batch_1": 10,
+                  "num_contractions_batch_2": 10,
+                  "num_contractions_batch_3": 10,
+                  "num_contractions_per_batch": [
+                    10,
+                    10,
+                    10,
+                    10
+                  ],
+                  "num_distinct_shots": 24378496,
+                  "num_noise_samples": 10,
+                  "num_qubits": 50,
+                  "num_timed_out_samples": 0,
+                  "num_total_shots": 24378496,
+                  "num_unique_per_error": 24378496,
+                  "oom_error": false,
+                  "opt_cost_batch0": 26693.0,
+                  "time_apply_errors_total": 0.8025175269867759,
+                  "time_build_expr_operands": 2.3112940220016753,
+                  "time_circuit_to_einsum": 0.010084137000376359,
+                  "time_contract_batch_0": 0.1525160369637888,
+                  "time_contract_batch_1": 0.17381980999198277,
+                  "time_contract_batch_2": 0.12590087202261202,
+                  "time_contract_batch_3": 27.663781008988735,
+                  "time_contract_cpu_total": 28.11601772796712,
+                  "time_contract_gpu_total": 28.111947880744932,
+                  "time_contract_per_batch": [
+                    0.1525160369637888,
+                    0.17381980999198277,
+                    0.12590087202261202,
+                    27.663781008988735
+                  ],
+                  "time_contraction_loop": 43.24599850800587,
+                  "time_execution": 45.618380537998746,
+                  "time_load_circuit": 0.00221350000356324,
+                  "time_per_contract_gpu_avg": 0.7027986970186233,
+                  "time_per_contraction_loop_avg": 1.0811499627001466,
+                  "time_pts_sampling": 0.08074819300964009,
+                  "time_stim_to_pts": 0.016226803010795265
+                },
+                "time_build_circuit": 0.00011707100202329457
+              }
+            ],
+            "num_circuits": 1,
+            "ptsbe": {
+              "gpu_contract_batch_0_mean": 0.15214665699005128,
+              "gpu_contract_batch_0_std": 0.0,
+              "gpu_contract_batch_1_mean": 0.17147443199157716,
+              "gpu_contract_batch_1_std": 0.0,
+              "gpu_contract_batch_2_mean": 0.12544947242736815,
+              "gpu_contract_batch_2_std": 0.0,
+              "gpu_contract_batch_3_mean": 27.662877319335934,
+              "gpu_contract_batch_3_std": 0.0,
+              "num_contractions_batch_0_mean": 10.0,
+              "num_contractions_batch_0_std": 0.0,
+              "num_contractions_batch_1_mean": 10.0,
+              "num_contractions_batch_1_std": 0.0,
+              "num_contractions_batch_2_mean": 10.0,
+              "num_contractions_batch_2_std": 0.0,
+              "num_contractions_batch_3_mean": 10.0,
+              "num_contractions_batch_3_std": 0.0,
+              "num_contractions_mean": 40.0,
+              "num_contractions_std": 0.0,
+              "num_distinct_shots_mean": 24378496.0,
+              "num_distinct_shots_std": 0.0,
+              "num_total_shots_mean": 24378496.0,
+              "num_total_shots_std": 0.0,
+              "num_unique_per_error_mean": 24378496.0,
+              "num_unique_per_error_std": 0.0,
+              "time_apply_errors_total_mean": 0.8025175269867759,
+              "time_apply_errors_total_std": 0.0,
+              "time_build_expr_operands_mean": 2.3112940220016753,
+              "time_build_expr_operands_std": 0.0,
+              "time_circuit_to_einsum_mean": 0.010084137000376359,
+              "time_circuit_to_einsum_std": 0.0,
+              "time_contract_batch_0_mean": 0.1525160369637888,
+              "time_contract_batch_0_std": 0.0,
+              "time_contract_batch_1_mean": 0.17381980999198277,
+              "time_contract_batch_1_std": 0.0,
+              "time_contract_batch_2_mean": 0.12590087202261202,
+              "time_contract_batch_2_std": 0.0,
+              "time_contract_batch_3_mean": 27.663781008988735,
+              "time_contract_batch_3_std": 0.0,
+              "time_contract_gpu_total_mean": 28.111947880744932,
+              "time_contract_gpu_total_std": 0.0,
+              "time_contraction_loop_mean": 43.24599850800587,
+              "time_contraction_loop_std": 0.0,
+              "time_execution_mean": 45.618380537998746,
+              "time_execution_std": 0.0,
+              "time_load_circuit_mean": 0.00221350000356324,
+              "time_load_circuit_std": 0.0
+            }
+          }
+        },
+        {
+          "command": [
+            "/home/manager/miniforge3/envs/q-tensor/bin/python",
+            "/home/manager/q-tensor/upstream/Accelerated_TN_PTSBE/scaling/scaling_comparison_avg.py",
+            "--num_circuits",
+            "1",
+            "--nnoise_samples",
+            "10",
+            "--cudaq_nshots",
+            "1",
+            "--smart-opt-off",
+            "both",
+            "--verbose_level",
+            "3",
+            "--unique_sampling",
+            "--take_all_final",
+            "--batch_shots_policy",
+            "custom",
+            "--batch_qubit_policy",
+            "custom",
+            "--cudaq_timeout",
+            "4500",
+            "--ptsbe_sample_timeout",
+            "3600",
+            "--nqubits",
+            "50",
+            "--ngates",
+            "200",
+            "--num_hyper_samples",
+            "100",
+            "--shots_per_batch",
+            "1,1,1,100",
+            "--qubits_per_batch",
+            "10,10,2,28",
+            "--circuit_dir",
+            "/home/manager/q-tensor/upstream/Accelerated_TN_PTSBE/scaling/data_collection/circuits/50q_200g",
+            "--circuit_id",
+            "0",
+            "--work_dir",
+            "/tmp/q-tensor-regime-reconciliation-cgd6368u/cudaq-hs100-work",
+            "--json_output",
+            "/tmp/q-tensor-regime-reconciliation-cgd6368u/cudaq-hs100.json",
+            "--skip_ptsbe"
+          ],
+          "label": "public_artifact_cudaq_hs100",
+          "stderr_tail": "",
+          "stdout_tail": "daq_output.py\n\n=== CUDA-Q Timing Breakdown ===\n  Setup time:           0.000040s\n  Sample time:          2.604577s\n  Total time:           2.604617s\n  Per-shot time:        2.604577s\n\n=== CUDA-Q Results ===\n  Total number of distinct CUDA-Q shots collected:       1\n  Total number of distinct pieces of unlabeled CUDA-Q training data collected:       1\n  Total number of overall CUDA-Q shots collected:          1\n\n[GPU MEM] After CUDA-Q cleanup: 32.43 GB free / 34.19 GB total (1.76 GB in use)\n\n\u001b[1;92mCircuit 1 Summary:\u001b[0m (CUDA-Q: sample time; PTSBE: contraction loop only.)\n  CUDA-Q total: 2.6046s\n  CUDA-Q shots/s: 0.38\n  CUDA-Q unique shots/s: 0.38\n\n======================================================================\n\u001b[1;96mAVERAGED RESULTS (N=1 circuits)\u001b[0m\n======================================================================\n\n\u001b[1;92mTiming Comparison (Averaged) (Note this makes sense only when proportional_sampling = true and nnoise_samples = 1):\u001b[0m (CUDA-Q: sample time; PTSBE: contraction loop only.)\n  CUDA-Q total:             2.6046s +/- 0.0000s\n  PTSBE total:              0.0000s +/- 0.0000s\n  \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n  \u001b[1;91mSPEEDUP:                    0.00x +/- 0.00x (CUDA-Q faster)\u001b[0m\n\n\u001b[1;92mThroughput Comparison (Averaged):\u001b[0m (CUDA-Q: sample time; PTSBE: contraction loop only.)\n  CUDA-Q shots/s:             0.38 +/- 0.00\n  PTSBE shots/s:              0.00 +/- 0.00\n  \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n  \u001b[1;91mTHROUGHPUT ADVANTAGE:       0.00x +/- 0.00x (CUDA-Q faster)\u001b[0m\n\n\u001b[1;92mUnique Throughput Comparison (Averaged):\u001b[0m (CUDA-Q: sample time; PTSBE: contraction loop only.)\n  CUDA-Q unique shots/s:       0.38 +/- 0.00\n  PTSBE unique shots/s:       0.00 +/- 0.00\n  \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n  \u001b[1;91mUNIQUE THROUGHPUT ADVANTAGE:       0.00x +/- 0.00x (CUDA-Q faster)\u001b[0m\n\n======================================================================\n\n\u001b[1;92mResults saved to: /tmp/q-tensor-regime-reconciliation-cgd6368u/cudaq-hs100.json\u001b[0m\n\n",
+          "subprocess_wall_seconds": 5.829721975998837,
+          "telemetry": {
+            "available": true,
+            "gpu_utilization_percent_mean": 2.9655172413793105,
+            "gpu_utilization_percent_median": 0.0,
+            "gpu_utilization_percent_p90": 6.0,
+            "gpu_utilization_percent_peak": 42.0,
+            "interval_ms": 50,
+            "memory_used_mib_delta": 16502.0,
+            "memory_used_mib_min": 4521.0,
+            "memory_used_mib_peak": 21023.0,
+            "samples": 116,
+            "scope": "global device counters; separate untimed telemetry run"
+          },
+          "upstream_result": {
+            "comparison": {
+              "cudaq_shots_per_second_mean": 0.38393950342032507,
+              "cudaq_shots_per_second_std": 0.0,
+              "cudaq_unique_shots_per_second_mean": 0.38393950342032507,
+              "cudaq_unique_shots_per_second_std": 0.0
+            },
+            "config": {
+              "batch_qubit_policy": "custom",
+              "batch_shots_policy": "custom",
+              "circuit_dir": "/home/manager/q-tensor/upstream/Accelerated_TN_PTSBE/scaling/data_collection/circuits/50q_200g",
+              "circuit_id": 0,
+              "circuit_idx": 0,
+              "cudaq_nshots": 1,
+              "final_batch_qubits": null,
+              "final_nshots": 100,
+              "first_fixed": 10,
+              "max_free_qubits": 10,
+              "ngates": 200,
+              "nnoise_samples": 10,
+              "no_count_degenerate_shots": false,
+              "nqubits": 50,
+              "num_fixed": 40,
+              "prob_range": [
+                0.02,
+                0.2
+              ],
+              "proportion_two_qubit": 0.2,
+              "ptsbe_nshots": 100,
+              "qubits_per_batch": [
+                10,
+                10,
+                2,
+                28
+              ],
+              "shots_per_batch": [
+                1,
+                1,
+                1,
+                100
+              ],
+              "smart_opt_off": "both"
+            },
+            "cudaq": {
+              "num_distinct_shots_mean": 1.0,
+              "num_distinct_shots_std": 0.0,
+              "num_total_shots_mean": 1.0,
+              "num_total_shots_std": 0.0,
+              "time_sample_mean": 2.604577,
+              "time_sample_std": 0.0,
+              "time_setup_mean": 4e-05,
+              "time_setup_std": 0.0,
+              "time_total_mean": 2.604617,
+              "time_total_std": 0.0
+            },
+            "individual_results": [
+              {
+                "comparison": {
+                  "cudaq_shots_per_second": 0.38393950342032507,
+                  "cudaq_total": 2.604577,
+                  "cudaq_unique_shots_per_second": 0.38393950342032507
+                },
+                "config": {
+                  "batch_qubit_policy": "custom",
+                  "batch_shots_policy": "custom",
+                  "circuit_dir": "/home/manager/q-tensor/upstream/Accelerated_TN_PTSBE/scaling/data_collection/circuits/50q_200g",
+                  "circuit_id": 0,
+                  "circuit_idx": 0,
+                  "cudaq_nshots": 1,
+                  "final_batch_qubits": null,
+                  "final_nshots": 100,
+                  "first_fixed": 10,
+                  "max_free_qubits": 10,
+                  "ngates": 200,
+                  "nnoise_samples": 10,
+                  "no_count_degenerate_shots": false,
+                  "nqubits": 50,
+                  "num_fixed": 40,
+                  "prob_range": [
+                    0.02,
+                    0.2
+                  ],
+                  "proportion_two_qubit": 0.2,
+                  "ptsbe_nshots": 100,
+                  "qubits_per_batch": [
+                    10,
+                    10,
+                    2,
+                    28
+                  ],
+                  "shots_per_batch": [
+                    1,
+                    1,
+                    1,
+                    100
+                  ],
+                  "smart_opt_off": "both"
+                },
+                "cudaq": {
+                  "num_distinct_shots": 1,
+                  "num_total_shots": 1,
+                  "time_execution_wallclock": 4.306079746995238,
+                  "time_per_shot": 2.604577,
+                  "time_sample": 2.604577,
+                  "time_setup": 4e-05,
+                  "time_stim_to_cudaq": 0.016417763006757013,
+                  "time_total": 2.604617
+                },
+                "ptsbe": {},
+                "time_build_circuit": 0.0001022440119413659
+              }
+            ],
+            "num_circuits": 1,
+            "ptsbe": {}
+          }
+        },
+        {
+          "command": [
+            "/home/manager/miniforge3/envs/q-tensor/bin/python",
+            "/home/manager/q-tensor/upstream/Accelerated_TN_PTSBE/scaling/scaling_comparison_avg.py",
+            "--num_circuits",
+            "1",
+            "--nnoise_samples",
+            "10",
+            "--cudaq_nshots",
+            "1",
+            "--smart-opt-off",
+            "both",
+            "--verbose_level",
+            "3",
+            "--unique_sampling",
+            "--take_all_final",
+            "--batch_shots_policy",
+            "custom",
+            "--batch_qubit_policy",
+            "custom",
+            "--cudaq_timeout",
+            "4500",
+            "--ptsbe_sample_timeout",
+            "3600",
+            "--nqubits",
+            "50",
+            "--ngates",
+            "200",
+            "--num_hyper_samples",
+            "1",
+            "--shots_per_batch",
+            "1,1,1,100",
+            "--qubits_per_batch",
+            "10,10,2,28",
+            "--circuit_dir",
+            "/home/manager/q-tensor/upstream/Accelerated_TN_PTSBE/scaling/data_collection/circuits/50q_200g",
+            "--circuit_id",
+            "0",
+            "--work_dir",
+            "/tmp/q-tensor-regime-reconciliation-cgd6368u/cudaq-hs1-work",
+            "--json_output",
+            "/tmp/q-tensor-regime-reconciliation-cgd6368u/cudaq-hs1.json",
+            "--skip_ptsbe"
+          ],
+          "label": "manuscript_text_cudaq_hs1",
+          "stderr_tail": "",
+          "stdout_tail": "cudaq_output.py\n\n=== CUDA-Q Timing Breakdown ===\n  Setup time:           0.000040s\n  Sample time:          1.564012s\n  Total time:           1.564052s\n  Per-shot time:        1.564012s\n\n=== CUDA-Q Results ===\n  Total number of distinct CUDA-Q shots collected:       1\n  Total number of distinct pieces of unlabeled CUDA-Q training data collected:       1\n  Total number of overall CUDA-Q shots collected:          1\n\n[GPU MEM] After CUDA-Q cleanup: 32.43 GB free / 34.19 GB total (1.76 GB in use)\n\n\u001b[1;92mCircuit 1 Summary:\u001b[0m (CUDA-Q: sample time; PTSBE: contraction loop only.)\n  CUDA-Q total: 1.5640s\n  CUDA-Q shots/s: 0.64\n  CUDA-Q unique shots/s: 0.64\n\n======================================================================\n\u001b[1;96mAVERAGED RESULTS (N=1 circuits)\u001b[0m\n======================================================================\n\n\u001b[1;92mTiming Comparison (Averaged) (Note this makes sense only when proportional_sampling = true and nnoise_samples = 1):\u001b[0m (CUDA-Q: sample time; PTSBE: contraction loop only.)\n  CUDA-Q total:             1.5640s +/- 0.0000s\n  PTSBE total:              0.0000s +/- 0.0000s\n  \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n  \u001b[1;91mSPEEDUP:                    0.00x +/- 0.00x (CUDA-Q faster)\u001b[0m\n\n\u001b[1;92mThroughput Comparison (Averaged):\u001b[0m (CUDA-Q: sample time; PTSBE: contraction loop only.)\n  CUDA-Q shots/s:             0.64 +/- 0.00\n  PTSBE shots/s:              0.00 +/- 0.00\n  \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n  \u001b[1;91mTHROUGHPUT ADVANTAGE:       0.00x +/- 0.00x (CUDA-Q faster)\u001b[0m\n\n\u001b[1;92mUnique Throughput Comparison (Averaged):\u001b[0m (CUDA-Q: sample time; PTSBE: contraction loop only.)\n  CUDA-Q unique shots/s:       0.64 +/- 0.00\n  PTSBE unique shots/s:       0.00 +/- 0.00\n  \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n  \u001b[1;91mUNIQUE THROUGHPUT ADVANTAGE:       0.00x +/- 0.00x (CUDA-Q faster)\u001b[0m\n\n======================================================================\n\n\u001b[1;92mResults saved to: /tmp/q-tensor-regime-reconciliation-cgd6368u/cudaq-hs1.json\u001b[0m\n\n",
+          "subprocess_wall_seconds": 4.4326151340064825,
+          "telemetry": {
+            "available": true,
+            "gpu_utilization_percent_mean": 4.415730337078652,
+            "gpu_utilization_percent_median": 0.0,
+            "gpu_utilization_percent_p90": 6.0,
+            "gpu_utilization_percent_peak": 66.0,
+            "interval_ms": 50,
+            "memory_used_mib_delta": 16502.0,
+            "memory_used_mib_min": 4521.0,
+            "memory_used_mib_peak": 21023.0,
+            "samples": 89,
+            "scope": "global device counters; separate untimed telemetry run"
+          },
+          "upstream_result": {
+            "comparison": {
+              "cudaq_shots_per_second_mean": 0.6393812835195638,
+              "cudaq_shots_per_second_std": 0.0,
+              "cudaq_unique_shots_per_second_mean": 0.6393812835195638,
+              "cudaq_unique_shots_per_second_std": 0.0
+            },
+            "config": {
+              "batch_qubit_policy": "custom",
+              "batch_shots_policy": "custom",
+              "circuit_dir": "/home/manager/q-tensor/upstream/Accelerated_TN_PTSBE/scaling/data_collection/circuits/50q_200g",
+              "circuit_id": 0,
+              "circuit_idx": 0,
+              "cudaq_nshots": 1,
+              "final_batch_qubits": null,
+              "final_nshots": 100,
+              "first_fixed": 10,
+              "max_free_qubits": 10,
+              "ngates": 200,
+              "nnoise_samples": 10,
+              "no_count_degenerate_shots": false,
+              "nqubits": 50,
+              "num_fixed": 40,
+              "prob_range": [
+                0.02,
+                0.2
+              ],
+              "proportion_two_qubit": 0.2,
+              "ptsbe_nshots": 100,
+              "qubits_per_batch": [
+                10,
+                10,
+                2,
+                28
+              ],
+              "shots_per_batch": [
+                1,
+                1,
+                1,
+                100
+              ],
+              "smart_opt_off": "both"
+            },
+            "cudaq": {
+              "num_distinct_shots_mean": 1.0,
+              "num_distinct_shots_std": 0.0,
+              "num_total_shots_mean": 1.0,
+              "num_total_shots_std": 0.0,
+              "time_sample_mean": 1.564012,
+              "time_sample_std": 0.0,
+              "time_setup_mean": 4e-05,
+              "time_setup_std": 0.0,
+              "time_total_mean": 1.564052,
+              "time_total_std": 0.0
+            },
+            "individual_results": [
+              {
+                "comparison": {
+                  "cudaq_shots_per_second": 0.6393812835195638,
+                  "cudaq_total": 1.564012,
+                  "cudaq_unique_shots_per_second": 0.6393812835195638
+                },
+                "config": {
+                  "batch_qubit_policy": "custom",
+                  "batch_shots_policy": "custom",
+                  "circuit_dir": "/home/manager/q-tensor/upstream/Accelerated_TN_PTSBE/scaling/data_collection/circuits/50q_200g",
+                  "circuit_id": 0,
+                  "circuit_idx": 0,
+                  "cudaq_nshots": 1,
+                  "final_batch_qubits": null,
+                  "final_nshots": 100,
+                  "first_fixed": 10,
+                  "max_free_qubits": 10,
+                  "ngates": 200,
+                  "nnoise_samples": 10,
+                  "no_count_degenerate_shots": false,
+                  "nqubits": 50,
+                  "num_fixed": 40,
+                  "prob_range": [
+                    0.02,
+                    0.2
+                  ],
+                  "proportion_two_qubit": 0.2,
+                  "ptsbe_nshots": 100,
+                  "qubits_per_batch": [
+                    10,
+                    10,
+                    2,
+                    28
+                  ],
+                  "shots_per_batch": [
+                    1,
+                    1,
+                    1,
+                    100
+                  ],
+                  "smart_opt_off": "both"
+                },
+                "cudaq": {
+                  "num_distinct_shots": 1,
+                  "num_total_shots": 1,
+                  "time_execution_wallclock": 3.0318170850077877,
+                  "time_per_shot": 1.564012,
+                  "time_sample": 1.564012,
+                  "time_setup": 4e-05,
+                  "time_stim_to_cudaq": 0.016672330995788798,
+                  "time_total": 1.564052
+                },
+                "ptsbe": {},
+                "time_build_circuit": 0.00014077599917072803
+              }
+            ],
+            "num_circuits": 1,
+            "ptsbe": {}
+          }
+        }
+      ]
+    },
+    "validated_q_tensor_baseline": {
+      "all_points_passed_validation": true,
+      "crossover": {
+        "approach_definition": "CUDA-Q/TN steady runtime ratio >= 0.8",
+        "best_measured_point": {
+          "entangling_depth": 2,
+          "nqubits": 5,
+          "speedup_baseline_over_tn": 0.030988661239152546
+        },
+        "first_approach_point": null,
+        "first_crossover_point": null
+      },
+      "experiment_id": "validated-complexity-crossover-pilot-v1",
+      "parameters": {
+        "cudaq_target": "nvidia fp64",
+        "entangling_depths": [
+          2,
+          4
+        ],
+        "max_free_qubits": 2,
+        "null_trials_per_validation_check": 1000,
+        "process_isolation": "one fresh worker process per qubit/depth point",
+        "qubits": [
+          5,
+          8,
+          11
+        ],
+        "repeats": 5,
+        "shots_per_trajectory": 64,
+        "speedup_definition": "CUDA-Q explicit steady total / TN proportional steady total",
+        "timing_order": "TN cold first-use, CUDA-Q build/compile warmup, alternating steady repeats",
+        "tn_dtype": "complex128",
+        "total_effective_shots": 65536,
+        "trajectory_count": 1024,
+        "trajectory_stream": "identical categorical code list and multiplicities from seed 5772"
+      },
+      "points": [
+        {
+          "coherent_gate_count": 24,
+          "entangling_depth": 2,
+          "nqubits": 5,
+          "speedup_baseline_over_tn": 0.030988661239152546
+        },
+        {
+          "coherent_gate_count": 48,
+          "entangling_depth": 4,
+          "nqubits": 5,
+          "speedup_baseline_over_tn": 0.02023178783096079
+        },
+        {
+          "coherent_gate_count": 39,
+          "entangling_depth": 2,
+          "nqubits": 8,
+          "speedup_baseline_over_tn": 0.008431836335122404
+        },
+        {
+          "coherent_gate_count": 78,
+          "entangling_depth": 4,
+          "nqubits": 8,
+          "speedup_baseline_over_tn": 0.004787159974606613
+        },
+        {
+          "coherent_gate_count": 54,
+          "entangling_depth": 2,
+          "nqubits": 11,
+          "speedup_baseline_over_tn": 0.0018377622638142232
+        },
+        {
+          "coherent_gate_count": 108,
+          "entangling_depth": 4,
+          "nqubits": 11,
+          "speedup_baseline_over_tn": 0.000608445390044831
+        }
+      ],
+      "source": "results/performance/2026-09-10_complexity_crossover_pilot.json"
+    }
+  },
+  "parameters": {
+    "metric": "PTSBE unique labeled records/contraction-loop second divided by CUDA-Q shots/sample second",
+    "official_workload": {
+      "batch_qubits": [
+        10,
+        10,
+        2,
+        28
+      ],
+      "batch_shots": [
+        1,
+        1,
+        1,
+        100
+      ],
+      "circuit_family": "public Figure 3 noisy random-circuit data-collection artifact",
+      "circuit_id": 0,
+      "circuit_qpy_sha256": "0a7257bfe1228858a60dce8b7cc4b27e9da99eff3279229a690cc9e32c799c82",
+      "circuit_stim_sha256": "962886ae3f65526b3218221e9196cbf9006be31ab6078237e5493d047480ffa7",
+      "circuit_summary": {
+        "coherent_gate_count": 200,
+        "noise_probability_max": 0.1996673848984835,
+        "noise_probability_min": 0.020166370450562764,
+        "single_qubit_gate_count": 160,
+        "single_qubit_noise_sites": 160,
+        "two_qubit_gate_count": 40,
+        "two_qubit_label_separation_max": 44,
+        "two_qubit_label_separation_median": 11,
+        "two_qubit_label_separation_min": 1,
+        "two_qubit_noise_sites": 40
+      },
+      "contraction_optimizer": {
+        "cache_reuse_nruns": 1000000,
+        "smart_option": 0
+      },
+      "cudaq_backend": "tensornet",
+      "manuscript_stated_cudaq_hypersamples": 1,
+      "ngates": 200,
+      "noise_trajectories": 10,
+      "nqubits": 50,
+      "population_sampling": "non-proportional unique prefixes; exhaustive nonzero final batch",
+      "precision": "complex128",
+      "ptsbe_hypersamples": 100,
+      "public_artifact_cudaq_hypersamples": 100,
+      "qpy_summary": {
+        "coherent_gate_count": 200,
+        "depth": 10,
+        "nqubits": 50,
+        "operation_counts": {
+          "ch": 7,
+          "crx": 8,
+          "cx": 7,
+          "cy": 7,
+          "cz": 11,
+          "h": 24,
+          "rx": 26,
+          "t": 26,
+          "x": 34,
+          "y": 28,
+          "z": 22
+        }
+      },
+      "trajectory_seed": null,
+      "trajectory_seed_note": "the public upstream Figure 3 driver exposes no seed",
+      "topology": "exact retained gate graph; two-qubit operand label separations 1-44 (median 11), not assumed nearest-neighbor geometry"
+    },
+    "paper_figure": "Figure 3 non-proportional data-collection speedup",
+    "statistical_validation": {
+      "applicable": false,
+      "reason": "official Figure 3 exhaustively harvests a non-proportional final-batch dataset, not IID shots"
+    }
+  },
+  "schema_version": 1,
+  "software": {
+    "packages": {
+      "cuda-quantum-cu12": "0.13.0",
+      "cupy-cuda12x": "13.6.0",
+      "cuquantum-python-cu12": "26.1.0",
+      "mpi4py": "4.1.0",
+      "numpy": "1.26.4",
+      "qiskit": "2.2.3",
+      "scipy": "1.16.2"
+    },
+    "python": "3.11.16"
+  },
+  "timestamp_utc": "2026-09-11T18:25:43Z",
+  "upstream_commit": "0569f848d9a3e385d6c20162c534a8031f6a69c5"
+}
