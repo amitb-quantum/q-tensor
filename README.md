@@ -1,6 +1,6 @@
 # Q-Tensor
 
-Independent reproduction, correction, benchmarking, and prospective hardware validation of GPU-accelerated noisy quantum trajectory simulation with tensor networks.
+Independent reproduction, correction, benchmarking, and prospective hardware study of GPU-accelerated noisy quantum trajectory simulation with tensor networks.
 
 Q-Tensor started from NVIDIA Research's open-source PTSBE work and asks three practical questions:
 
@@ -16,13 +16,14 @@ Q-Tensor started from NVIDIA Research's open-source PTSBE work and asks three pr
 | **Small-workload regime** | No proportional crossover through the validated 11-qubit sweep; CUDA-Q remained faster | **NO CROSSOVER** |
 | **50q proportional crossover** | Exact public 50-qubit / 200-gate Figure-3 workload: TN **40.419 s** vs CUDA-Q TensorNet **277.865 s** for the same frozen 1,000 effective shots | **6.875× TN speedup** |
 | **Non-proportional regime** | Figure-3 PTSBE generated **24,378,496 distinct labeled records from 40 contractions**; this is a unique-data-harvest result, **not** a raw execution speedup | **REPRODUCED** |
-| **Prospective IBM hardware test** | Within one preregistered four-depth circuit family, Q-Tensor had lower TVD to IBM Kingston than the ideal model at all four tested depths; 3 depth-wise bootstrap intervals were entirely above zero | **PREREGISTERED PASS** |
-| **4096-shot resolution diagnostic** | Every observed Q-Tensor→IBM residual fell inside the 95% finite-shot TVD envelope under both the Q-Tensor and empirical IBM distributions | **RESOLUTION-LIMITED** |
-| **Exploratory Aer baseline** | Q-Tensor was numerically closer at 2 depths and Aer default at 2; every paired 95% CI crossed zero and both models remained inside the 4096-shot resolution floor | **INDISTINGUISHABLE** |
+| **Prospective IBM model study** | Within one preregistered four-depth circuit family, Q-Tensor had lower TVD to IBM Kingston than the ideal model at all four tested depths; 3 depth-wise bootstrap intervals were entirely above zero | **PREREGISTERED PASS** |
+| **Exact-channel check** | Frozen 100k-trajectory predictions reproduced an independent exact 4-qubit implementation of the specified channel to TVD **1.1e-4–2.7e-4** | **CONSISTENT** |
+| **4096-shot resolution** | Exact-model residual percentiles were **61.35%, 97.24%, 96.21%, 83.73%**; all remained inside pointwise 95% envelopes, with two near the upper boundary | **RESOLUTION-LIMITED** |
+| **Corrected Aer baseline** | Aer default and Q-Tensor differed by **<0.001 TVD** in hardware fit at every tested depth; every paired 95% CI crossed zero | **INDISTINGUISHABLE** |
 
 The central finding is not that tensor networks always win. They do not. Q-Tensor measured a clear regime split: small proportional workloads favored CUDA-Q, while the exact 50q/200g workload produced a measured **6.875× equal-shot proportional crossover**. Separately, a prospectively frozen calibration-informed model had lower TVD than the ideal noiseless circuit at all four tested depths within one preregistered circuit family.
 
-## Prospective IBM hardware validation
+## Prospective IBM hardware study
 
 Q-Tensor's first real-QPU experiment was executed on IBM `ibm_kingston` using physical qubits `[79, 93, 94, 95]`.
 
@@ -46,11 +47,15 @@ No model parameter was tuned after observing hardware results.
 
 Primary preregistered result: **PASS** — within this single four-depth circuit family, Q-Tensor had lower TVD than the ideal model at every tested depth, with the complete 95% bootstrap interval above zero at three depths.
 
-A post-hoc resolution analysis showed that all four Q-Tensor→IBM residual TVDs were inside the expected 95% finite-shot envelope for a 4096-shot observation. An exploratory comparison with Qiskit Aer's standard backend-derived noise model was likewise unresolved at this shot count: Q-Tensor was numerically closer at two depths, Aer at two, every paired confidence interval crossed zero, and both models were inside the same finite-shot resolution floor.
+Post-hoc exact-channel adjudication showed that the frozen 100,000-trajectory Q-Tensor predictions reproduce the independently constructed specified Pauli-plus-readout channel to TVD 1.1e-4–2.7e-4. This validates implementation consistency of the sampler with the stated model; it does not independently establish that the chosen conversion from IBM-reported gate error is the unique physical interpretation of that calibration quantity.
+
+Using the exact model as the finite-shot null, the IBM residuals fell at the 61.35th, 97.24th, 96.21st, and 83.73rd percentiles. All are inside the pointwise 95% envelopes, but all four are above the null median and two are near the upper boundary, suggesting a small residual model discrepancy near the experiment's resolution limit.
+
+A corrected exploratory Aer comparison was also statistically unresolved. Q-Tensor was numerically closer at two depths and Aer default at two, the hardware-fit TVDs differed by less than 0.001 at every depth, and every paired 95% confidence interval crossed zero.
 
 The IBM job used **6 quantum seconds**.
 
-See the full [IBM hardware validation report](reports/IBM_HARDWARE_VALIDATION.md).
+See the full [IBM Kingston noise-model study](reports/IBM_KINGSTON_NOISE_MODEL_STUDY.md).
 
 ## 50-qubit proportional crossover
 
@@ -125,7 +130,7 @@ Q_TENSOR_UPSTREAM="$PWD/upstream/Accelerated_TN_PTSBE" pytest -m gpu
 
 ## Reports
 
-- [IBM prospective hardware validation](reports/IBM_HARDWARE_VALIDATION.md)
+- [IBM Kingston calibration-informed noise-model study](reports/IBM_KINGSTON_NOISE_MODEL_STUDY.md)
 - [Figure-3 proportional crossover](reports/FIGURE3_PROPORTIONAL_CONTROL.md)
 - [Statistical validation](reports/STATISTICAL_VALIDATION.md)
 - [Complexity crossover sweep](reports/COMPLEXITY_CROSSOVER.md)
@@ -158,10 +163,12 @@ The results are deliberately bounded to measured workloads and hardware.
 - The original H100 80 GB campaigns were not rerun.
 - The 6.875× proportional speedup is established only at the measured 50q/200g point; the crossover boundary was not located.
 - The IBM experiment covers one processor, one four-qubit path, one nested four-depth circuit family, and one calibration regime; the four depth points are not independent replications.
-- At 4096 hardware shots, Q-Tensor and the standard Aer backend-derived model cannot be statistically ranked from these data because both lie inside the measured finite-shot resolution envelope.
-- An exploratory Aer no-relaxation cross-check did not reproduce Q-Tensor's gate-noise distribution; decomposition localized the difference to gate-noise semantics/application rather than readout. This remains an open implementation diagnostic.
+- At 4096 hardware shots, Q-Tensor and the corrected standard Aer backend-derived model cannot be statistically ranked from these data.
+- All four exact-model hardware residuals lie above their null medians and two lie near the pointwise 95% upper boundary; this is suggestive of a small residual model discrepancy near the available resolution limit.
+- The exact-channel check validates that Q-Tensor samples its stated Pauli-plus-readout model correctly; it does not independently prove that the chosen interpretation of IBM's reported average gate error is uniquely correct.
+- An initial exploratory Aer reconstruction retained measurement-family `gate_error` entries while also enabling separate readout error, effectively applying the same measurement calibration twice. The corrected comparator excludes those measurement-family gate entries.
 - The IBM model uses independent stochastic Pauli gate noise and asymmetric readout error; it does not model all coherent, correlated, leakage, crosstalk, or time-dependent effects.
-- The IBM result validates Q-Tensor's calibration-informed prediction methodology under the tested conditions; it is **not** a claim that PTSBE itself was directly validated by IBM hardware.
+- The IBM study is a bounded calibration-informed noise-model result on one circuit family and one physical path; it is **not** a claim that PTSBE itself was directly validated by IBM hardware.
 
 ## Repository structure
 

@@ -1,4 +1,4 @@
-# Prospective Hardware Validation of Q-Tensor on IBM Kingston
+# Prospective Calibration-Informed Noise-Model Study on IBM Kingston
 
 **Date:** September 11, 2026  
 **Backend:** IBM Quantum `ibm_kingston`  
@@ -24,6 +24,10 @@ Within this single preregistered four-depth circuit family:
 The preregistered primary success criterion therefore **PASSed**.
 
 These four nested depth points share one physical path and circuit family and should not be interpreted as four independent experimental replications.
+
+Post-hoc exact-channel analysis confirmed that the frozen trajectory prediction reproduces its specified noise channel to Monte Carlo accuracy. The remaining exact-model discrepancy to IBM is near the 4096-shot resolution limit: all four residuals are above the corresponding null median and two lie near the pointwise 95% upper boundary.
+
+A corrected exploratory Qiskit Aer comparator produced hardware-fit TVDs within 0.001 of Q-Tensor at every tested depth, with no statistically resolved difference between the two models.
 
 This experiment does not establish that the model generalizes to arbitrary circuits, processors, or noise regimes. It demonstrates that, for this prospectively frozen four-circuit experiment on IBM Kingston, a simple calibration-informed stochastic noise model predicted the physical device more accurately than an ideal noiseless model.
 
@@ -187,6 +191,8 @@ IBM-reported average gate error `r` was converted to a Pauli-channel probability
 
 Repeated sampled trajectories retained their exact multiplicities.
 
+The post-hoc exact-channel check validates that the implementation correctly samples this **stated** channel construction. It does not independently establish that converting IBM-reported average gate error using these Pauli-channel formulas is the unique or complete physical interpretation of the calibration quantity.
+
 ### Readout
 
 Independent asymmetric assignment errors were constructed from the frozen IBM properties:
@@ -243,7 +249,7 @@ A **strong predictive win** required the entire 95% interval for Δ to remain ab
 
 ---
 
-## Hardware Result
+## Prospective Hardware Comparison
 
 IBM Runtime job:
 
@@ -286,71 +292,105 @@ This indicates that modeled gate noise added predictive information beyond reado
 
 ---
 
-## Post-Hoc Resolution Diagnostic
+## Exact-Channel Correctness Check
 
-After the preregistered analysis was complete, a separate resolution diagnostic estimated the TVD expected solely from finite sampling at 4096 shots.
+After the preregistered hardware analysis, the four-qubit prediction model was independently reconstructed as an exact density-matrix channel.
 
-For each tested depth, 10,000 synthetic 4096-shot observations were generated under both:
+This adjudicator used:
 
-1. the frozen Q-Tensor predicted distribution, and
-2. the empirical IBM distribution.
-
-The observed Q-Tensor-to-IBM residual fell inside the 95% one-sample TVD envelope in every case:
-
-| Circuit | Observed Q-Tensor → IBM TVD | Q-Tensor 95% shot-noise envelope | IBM-empirical 95% envelope |
-|---|---:|---:|---:|
-| CZ03 | 0.022535 | [0.012974, 0.031289] | [0.013184, 0.031012] |
-| CZ06 | 0.031467 | [0.013592, 0.031628] | [0.013672, 0.031738] |
-| CZ09 | 0.030458 | [0.013387, 0.031388] | [0.013672, 0.031982] |
-| CZ12 | 0.026653 | [0.013524, 0.031873] | [0.013672, 0.031738] |
-
-The appropriate interpretation is therefore:
-
-> At 4096-shot resolution, the remaining difference between Q-Tensor and IBM Kingston is not distinguishable from ordinary finite-shot sampling variation at any tested depth.
-
-This post-hoc diagnostic does not alter the preregistered PASS. It limits how strongly the residual model error can be interpreted.
-
-Machine-readable result: `experiments/ibm_kingston_20260911/analysis/SHOT_NOISE_FLOOR.json`.
-
----
-
-## Exploratory Qiskit Aer Baseline
-
-A post-hoc baseline comparison was also performed against Qiskit Aer's standard backend-properties noise model using the same frozen Kingston calibration data.
-
-Aer default includes calibrated readout error and composes thermal relaxation with a depolarizing component chosen to reproduce the reported gate infidelity.
+- deterministic four-qubit density-matrix evolution;
+- the stated joint categorical Pauli channels;
+- the frozen IBM calibration values;
+- the stated `p = (3/2)r` and `p = (5/4)r` conversion rules;
+- the frozen asymmetric readout confusion matrices;
+- no Q-Tensor trajectory sampling; and
+- no Aer noise-model construction.
 
 Results:
 
+| Circuit | Ideal exact ↔ frozen | Readout-only exact ↔ frozen | Gate-noise exact ↔ Q-Tensor | Full exact ↔ Q-Tensor |
+|---|---:|---:|---:|---:|
+| CZ03 | 0 | 0 | 0.000141 | 0.000134 |
+| CZ06 | 0 | 0 | 0.000118 | 0.000114 |
+| CZ09 | 0 | 0 | 0.000278 | 0.000265 |
+| CZ12 | 0 | 0 | 0.000179 | 0.000172 |
+
+The ideal and readout-only comparisons agree to machine precision. The full noisy predictions agree at TVD `1.1e-4`–`2.7e-4`, the same scale as the trajectory Monte Carlo stability diagnostics.
+
+This establishes that Q-Tensor's 100,000-trajectory implementation is sampling its **specified** Pauli-plus-readout channel correctly to finite-trajectory accuracy.
+
+It does **not** independently establish that this channel is a complete physical model of IBM Kingston or that the selected conversion from IBM-reported average gate error is the only valid interpretation of the calibration quantity.
+
+At four qubits, an exact density-matrix calculation is simpler and more accurate than trajectory simulation. The purpose of this check is therefore implementation adjudication, not computational advantage.
+
+Machine-readable result: `experiments/ibm_kingston_20260911/analysis/EXACT_CHANNEL_VALIDATION.json`.
+
+---
+
+## Post-Hoc Exact-Model Resolution Diagnostic
+
+The finite-shot analysis was recomputed using the independently constructed exact model rather than the 100,000-trajectory approximation.
+
+For each depth, 100,000 synthetic 4096-shot observations were drawn from the exact specified model.
+
+| Circuit | Exact model → IBM TVD | Exact-model 95% null envelope | Observed percentile |
+|---|---:|---:|---:|
+| CZ03 | 0.022545 | [0.013170, 0.031261] | 61.35% |
+| CZ06 | 0.031504 | [0.013552, 0.031720] | 97.24% |
+| CZ09 | 0.030483 | [0.013307, 0.031520] | 96.21% |
+| CZ12 | 0.026673 | [0.013668, 0.031879] | 83.73% |
+
+Every individual residual remains inside its pointwise 95% finite-shot envelope.
+
+However, the family-level pattern is not centered on the null: all four residuals are above the corresponding null median, and CZ06 and CZ09 lie close to the upper boundary.
+
+The appropriate interpretation is therefore:
+
+> The remaining model discrepancy is at or just below the resolution available from 4096 hardware shots. The consistent one-sided pattern is suggestive of a small residual model error, but these four nested depths are correlated observations from one circuit family and are not treated as four independent hypothesis tests.
+
+This post-hoc resolution analysis does not alter the preregistered primary result.
+
+Machine-readable result: `experiments/ibm_kingston_20260911/analysis/EXACT_SHOT_NOISE_FLOOR.json`.
+
+---
+
+## Corrected Exploratory Qiskit Aer Baseline
+
+A post-hoc comparison was performed against Qiskit Aer's backend-properties noise construction using the same frozen Kingston calibration data.
+
+The initial exploratory reconstruction inadvertently retained IBM measurement-family `gate_error` entries while simultaneously enabling Aer's separate asymmetric readout-error model. Those measurement gate-error values duplicated the same calibration quantities already represented by readout error and therefore did not provide an apples-to-apples comparison with Q-Tensor.
+
+The comparator was corrected by restricting the reconstructed gate model to the operations represented by Q-Tensor:
+
+- `sx`
+- `x`
+- `rz`
+- `cz`
+
+Asymmetric readout calibration remained enabled separately.
+
+Independent channel checks then established:
+
+- Aer and Q-Tensor use equivalent no-relaxation SX and CZ depolarizing channels for the stated conversion rules;
+- an exact Aer superoperator execution agrees with the independently constructed exact specified channel to approximately `1e-16`;
+- the earlier large no-relaxation discrepancy was caused by the comparator construction, not by Q-Tensor's trajectory sampler.
+
+Corrected exploratory hardware comparison:
+
 | Circuit | Q-Tensor → IBM TVD | Aer default → IBM TVD | Aer − Q-Tensor | Paired 95% CI |
 |---|---:|---:|---:|---:|
-| CZ03 | 0.022535 | 0.028144 | +0.005609 | [-0.003154, +0.011132] |
-| CZ06 | 0.031467 | 0.031168 | -0.000299 | [-0.005650, +0.004840] |
-| CZ09 | 0.030458 | 0.028912 | -0.001546 | [-0.007055, +0.004987] |
-| CZ12 | 0.026653 | 0.030055 | +0.003402 | [-0.003729, +0.006551] |
+| CZ03 | 0.022535 | 0.021571 | -0.000964 | [-0.002347, +0.001323] |
+| CZ06 | 0.031467 | 0.031194 | -0.000273 | [-0.001832, +0.001120] |
+| CZ09 | 0.030458 | 0.031011 | +0.000553 | [-0.001029, +0.002689] |
+| CZ12 | 0.026653 | 0.026857 | +0.000204 | [-0.001420, +0.001786] |
 
-Q-Tensor was numerically closer at two tested depths and Aer default at two. Every paired confidence interval crossed zero, and both models remained inside the 4096-shot finite-sampling envelope at every depth.
+Aer default was numerically closer at CZ03 and CZ06; Q-Tensor was numerically closer at CZ09 and CZ12. The difference in hardware-fit TVD was below `0.001` at every depth, and every paired 95% confidence interval crossed zero.
 
 The defensible conclusion is:
 
-> Q-Tensor and the standard Aer backend-derived model are statistically indistinguishable with the available 4096-shot IBM data.
+> Q-Tensor and the corrected standard Aer backend-derived model are statistically indistinguishable with the available 4096-shot IBM dataset.
 
-### No-relaxation implementation cross-check
-
-Aer with thermal relaxation disabled was also evaluated as an implementation cross-check rather than as a second scientific baseline.
-
-It did **not** reproduce the Q-Tensor prediction exactly. A 500,000-shot decomposition localized the discrepancy primarily to the gate-noise path:
-
-| Circuit | Readout-only TVD | Gate-only TVD | Full no-relax TVD |
-|---|---:|---:|---:|
-| CZ03 | 0.002599 | 0.018587 | 0.017316 |
-| CZ06 | 0.002461 | 0.012999 | 0.011804 |
-| CZ09 | 0.001853 | 0.016058 | 0.014977 |
-| CZ12 | 0.002834 | 0.012986 | 0.012916 |
-
-The readout difference is close to the simulation sampling scale, while the gate-channel difference is structural. Frozen gate-error values were independently checked and matched exactly between `TARGET_INPUT.json` and `IBM_PROPERTIES.json`.
-
-The precise source of this gate-channel discrepancy remains unresolved and is retained as an open implementation diagnostic. No claim of Q-Tensor/Aer no-relax equivalence is made.
+The initial exploratory Aer numbers committed before the measurement-entry correction are superseded and are not used for scientific conclusions.
 
 Machine-readable result: `experiments/ibm_kingston_20260911/analysis/AER_BASELINE.json`.
 

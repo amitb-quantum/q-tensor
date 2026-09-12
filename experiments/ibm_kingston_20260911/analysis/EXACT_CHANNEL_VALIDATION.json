@@ -1,0 +1,39 @@
+{
+  "circuits": [
+    {
+      "circuit": "QTIBM_CZ03",
+      "exact_vs_qtensor_full_tvd": 0.00013424252303155656,
+      "exact_vs_qtensor_gate_tvd": 0.00014089494094654564,
+      "exact_vs_qtensor_ideal_tvd": 3.5952144039619327e-16,
+      "exact_vs_qtensor_readout_only_tvd": 3.859759734048396e-16,
+      "qtensor_half_vs_full_mc_tvd": 0.00039407015467432136
+    },
+    {
+      "circuit": "QTIBM_CZ06",
+      "exact_vs_qtensor_full_tvd": 0.00011369604490106761,
+      "exact_vs_qtensor_gate_tvd": 0.0001179680916669507,
+      "exact_vs_qtensor_ideal_tvd": 4.61111183958085e-16,
+      "exact_vs_qtensor_readout_only_tvd": 4.2760933682828295e-16,
+      "qtensor_half_vs_full_mc_tvd": 0.0002366587432582586
+    },
+    {
+      "circuit": "QTIBM_CZ09",
+      "exact_vs_qtensor_full_tvd": 0.0002649633130324355,
+      "exact_vs_qtensor_gate_tvd": 0.00027798022466427215,
+      "exact_vs_qtensor_ideal_tvd": 7.272828173032764e-16,
+      "exact_vs_qtensor_readout_only_tvd": 6.570265165262157e-16,
+      "qtensor_half_vs_full_mc_tvd": 0.00013040703417844515
+    },
+    {
+      "circuit": "QTIBM_CZ12",
+      "exact_vs_qtensor_full_tvd": 0.0001720675557677293,
+      "exact_vs_qtensor_gate_tvd": 0.00017879763373405207,
+      "exact_vs_qtensor_ideal_tvd": 6.009732642087151e-16,
+      "exact_vs_qtensor_readout_only_tvd": 6.002143226879753e-16,
+      "qtensor_half_vs_full_mc_tvd": 0.00034798096820319374
+    }
+  ],
+  "method": "Exact 4-qubit density-matrix evolution with explicit categorical Pauli channels and classical asymmetric readout; no trajectory sampling and no Aer noise-model construction.",
+  "schema": "q-tensor.ibm-exact-channel-validation.v1",
+  "status": "POST_HOC_INDEPENDENT_CORRECTNESS_CHECK"
+}

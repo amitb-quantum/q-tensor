@@ -105,9 +105,22 @@ for q in PHYS:
 
     small_props["qubits"].append(qprops)
 
+# Keep only gate operations represented by the Q-Tensor model.
+#
+# IBM BackendProperties also contains measurement-family entries carrying
+# values numerically equal to readout calibration. Passing those through
+# NoiseModel.from_backend_properties causes Aer to attach a quantum error
+# to measurement in addition to its separate ReadoutError, which is not
+# equivalent to the frozen Q-Tensor model.
+MODEL_GATES = {"sx", "x", "rz", "cz"}
+
 for gate in props_dict["gates"]:
     qs = list(gate.get("qubits", []))
-    if qs and all(q in LOCAL for q in qs):
+    if (
+        gate.get("gate") in MODEL_GATES
+        and qs
+        and all(q in LOCAL for q in qs)
+    ):
         g = copy.deepcopy(gate)
         g["qubits"] = [LOCAL[q] for q in qs]
         small_props["gates"].append(g)
@@ -298,8 +311,18 @@ for cid in expected_names:
     })
 
 output = {
-    "schema": "q-tensor.ibm-aer-baseline.v1",
+    "schema": "q-tensor.ibm-aer-baseline.v2",
     "status": "POST_HOC_EXPLORATORY_BASELINE",
+    "comparator_construction": (
+        "Reduced frozen BackendProperties restricted to sx, x, rz, and cz "
+        "gate entries; measurement-family gate_error entries excluded; "
+        "asymmetric readout calibration retained separately."
+    ),
+    "correction_note": (
+        "Supersedes the initial exploratory comparator that retained "
+        "measurement-family gate_error entries while also enabling separate "
+        "readout error."
+    ),
     "backend": "ibm_kingston",
     "hardware_job_id": raw["job_id"],
     "aer_simulation_shots": SHOTS,

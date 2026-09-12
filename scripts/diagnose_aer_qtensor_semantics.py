@@ -66,9 +66,15 @@ for q in PHYS:
         })
     small["qubits"].append(qp)
 
+MODEL_GATES = {"sx", "x", "rz", "cz"}
+
 for gate in props_dict["gates"]:
     qs = list(gate.get("qubits", []))
-    if qs and all(q in LOCAL for q in qs):
+    if (
+        gate.get("gate") in MODEL_GATES
+        and qs
+        and all(q in LOCAL for q in qs)
+    ):
         g = copy.deepcopy(gate)
         g["qubits"] = [LOCAL[q] for q in qs]
         small["gates"].append(g)
@@ -159,4 +165,4 @@ for cid in [c.name for c in circuits]:
     )
 
 print()
-print("500k Aer shots/model; differences >> ~0.002 are structural, not MC noise.")
+print("Finite-shot diagnostic only; exact superoperator adjudication is authoritative for structural equality.")

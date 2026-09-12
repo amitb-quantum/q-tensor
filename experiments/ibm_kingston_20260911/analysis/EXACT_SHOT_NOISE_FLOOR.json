@@ -1,0 +1,67 @@
+{
+  "circuits": [
+    {
+      "circuit": "QTIBM_CZ03",
+      "exact_model_vs_ibm_tvd": 0.022545299639029556,
+      "exact_null": {
+        "median": 0.02118639974965178,
+        "p2_5": 0.013170355481272551,
+        "p97_5": 0.03126117482669591
+      },
+      "frozen_qtensor_vs_exact_tvd": 0.00013424252303155656,
+      "inside_95pct_exact_null": true,
+      "observed_percentile_under_exact_null": 61.349,
+      "shots": 4096,
+      "upper_tail_fraction": 0.38651
+    },
+    {
+      "circuit": "QTIBM_CZ06",
+      "exact_model_vs_ibm_tvd": 0.0315041906538097,
+      "exact_null": {
+        "median": 0.021723571405586537,
+        "p2_5": 0.013551939022766291,
+        "p97_5": 0.031719797216098584
+      },
+      "frozen_qtensor_vs_exact_tvd": 0.00011369604490105677,
+      "inside_95pct_exact_null": true,
+      "observed_percentile_under_exact_null": 97.244,
+      "shots": 4096,
+      "upper_tail_fraction": 0.02756
+    },
+    {
+      "circuit": "QTIBM_CZ09",
+      "exact_model_vs_ibm_tvd": 0.03048318928371984,
+      "exact_null": {
+        "median": 0.021445001463531926,
+        "p2_5": 0.013307001672031925,
+        "p97_5": 0.03152034880747417
+      },
+      "frozen_qtensor_vs_exact_tvd": 0.0002649633130325617,
+      "inside_95pct_exact_null": true,
+      "observed_percentile_under_exact_null": 96.214,
+      "shots": 4096,
+      "upper_tail_fraction": 0.03786
+    },
+    {
+      "circuit": "QTIBM_CZ12",
+      "exact_model_vs_ibm_tvd": 0.026672858717162698,
+      "exact_null": {
+        "median": 0.021830250359581978,
+        "p2_5": 0.013667656484061942,
+        "p97_5": 0.03187945820395758
+      },
+      "frozen_qtensor_vs_exact_tvd": 0.00017206755576769936,
+      "inside_95pct_exact_null": true,
+      "observed_percentile_under_exact_null": 83.73,
+      "shots": 4096,
+      "upper_tail_fraction": 0.1627
+    }
+  ],
+  "generator": "Independent exact 4-qubit density-matrix implementation of the specified Q-Tensor Pauli-plus-readout channel.",
+  "hardware_job_id": "dai8c4hhvn6c73cstebg",
+  "replicates": 100000,
+  "schema": "q-tensor.ibm-exact-shot-noise-floor.v1",
+  "seed": 2026091141,
+  "shots": 4096,
+  "status": "POST_HOC_EXACT_MODEL_RESOLUTION_DIAGNOSTIC"
+}
