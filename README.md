@@ -16,10 +16,11 @@ Q-Tensor started from NVIDIA Research's open-source PTSBE work and asks three pr
 | **Small-workload regime** | No proportional crossover through the validated 11-qubit sweep; CUDA-Q remained faster | **NO CROSSOVER** |
 | **50q proportional crossover** | Exact public 50-qubit / 200-gate Figure-3 workload: TN **40.419 s** vs CUDA-Q TensorNet **277.865 s** for the same frozen 1,000 effective shots | **6.875× TN speedup** |
 | **Non-proportional regime** | Figure-3 PTSBE generated **24,378,496 distinct labeled records from 40 contractions**; this is a unique-data-harvest result, **not** a raw execution speedup | **REPRODUCED** |
-| **Prospective IBM hardware test** | Frozen Q-Tensor prediction was closer to IBM Kingston than the ideal model on **4/4 circuits**, with **3/4 statistically strong wins** | **PASS** |
-| **Gate-noise control** | Full calibration-informed model beat the readout-only control on **3/4 IBM circuits** | **PASS** |
+| **Prospective IBM hardware test** | Within one preregistered four-depth circuit family, Q-Tensor had lower TVD to IBM Kingston than the ideal model at all four tested depths; 3 depth-wise bootstrap intervals were entirely above zero | **PREREGISTERED PASS** |
+| **4096-shot resolution diagnostic** | Every observed Q-Tensor→IBM residual fell inside the 95% finite-shot TVD envelope under both the Q-Tensor and empirical IBM distributions | **RESOLUTION-LIMITED** |
+| **Exploratory Aer baseline** | Q-Tensor was numerically closer at 2 depths and Aer default at 2; every paired 95% CI crossed zero and both models remained inside the 4096-shot resolution floor | **INDISTINGUISHABLE** |
 
-The central finding is not that tensor networks always win. They do not. Q-Tensor measured a clear regime split: small proportional workloads favored CUDA-Q, while the exact 50q/200g workload produced a measured **6.875× equal-shot proportional crossover**. Separately, a prospectively frozen calibration-informed model predicted IBM Kingston hardware more accurately than the ideal noiseless circuit on every preregistered test circuit.
+The central finding is not that tensor networks always win. They do not. Q-Tensor measured a clear regime split: small proportional workloads favored CUDA-Q, while the exact 50q/200g workload produced a measured **6.875× equal-shot proportional crossover**. Separately, a prospectively frozen calibration-informed model had lower TVD than the ideal noiseless circuit at all four tested depths within one preregistered circuit family.
 
 ## Prospective IBM hardware validation
 
@@ -43,7 +44,11 @@ No model parameter was tuned after observing hardware results.
 | `QTIBM_CZ09` | 9 | 0.048038 | **0.030458** | +0.017580 | **Strong win** |
 | `QTIBM_CZ12` | 12 | 0.046108 | **0.026653** | +0.019455 | **Strong win** |
 
-Primary preregistered result: **PASS** — Q-Tensor beat the ideal model on 4/4 circuits, with the complete 95% bootstrap interval above zero on 3/4. The IBM job used **6 quantum seconds**.
+Primary preregistered result: **PASS** — within this single four-depth circuit family, Q-Tensor had lower TVD than the ideal model at every tested depth, with the complete 95% bootstrap interval above zero at three depths.
+
+A post-hoc resolution analysis showed that all four Q-Tensor→IBM residual TVDs were inside the expected 95% finite-shot envelope for a 4096-shot observation. An exploratory comparison with Qiskit Aer's standard backend-derived noise model was likewise unresolved at this shot count: Q-Tensor was numerically closer at two depths, Aer at two, every paired confidence interval crossed zero, and both models were inside the same finite-shot resolution floor.
+
+The IBM job used **6 quantum seconds**.
 
 See the full [IBM hardware validation report](reports/IBM_HARDWARE_VALIDATION.md).
 
@@ -152,7 +157,9 @@ The results are deliberately bounded to measured workloads and hardware.
 
 - The original H100 80 GB campaigns were not rerun.
 - The 6.875× proportional speedup is established only at the measured 50q/200g point; the crossover boundary was not located.
-- The IBM experiment covers one processor, one four-qubit path, four related circuits, and one calibration regime.
+- The IBM experiment covers one processor, one four-qubit path, one nested four-depth circuit family, and one calibration regime; the four depth points are not independent replications.
+- At 4096 hardware shots, Q-Tensor and the standard Aer backend-derived model cannot be statistically ranked from these data because both lie inside the measured finite-shot resolution envelope.
+- An exploratory Aer no-relaxation cross-check did not reproduce Q-Tensor's gate-noise distribution; decomposition localized the difference to gate-noise semantics/application rather than readout. This remains an open implementation diagnostic.
 - The IBM model uses independent stochastic Pauli gate noise and asymmetric readout error; it does not model all coherent, correlated, leakage, crosstalk, or time-dependent effects.
 - The IBM result validates Q-Tensor's calibration-informed prediction methodology under the tested conditions; it is **not** a claim that PTSBE itself was directly validated by IBM hardware.
 

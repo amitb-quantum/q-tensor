@@ -1,0 +1,127 @@
+{
+  "circuits": [
+    {
+      "circuit": "QTIBM_CZ03",
+      "ibm_floor_exceedance_fraction": 0.3714,
+      "observed_above_ibm_95pct_floor": false,
+      "observed_above_qtensor_95pct_floor": false,
+      "observed_qtensor_vs_ibm_tvd": 0.02253509181308241,
+      "one_sample_floor_under_ibm_empirical": {
+        "median": 0.02099609375,
+        "p2_5": 0.01318359375,
+        "p97_5": 0.03101196289062491
+      },
+      "one_sample_floor_under_qtensor": {
+        "median": 0.021223655943833797,
+        "p2_5": 0.012974429625099343,
+        "p97_5": 0.03128893056792064
+      },
+      "qtensor_floor_exceedance_fraction": 0.3971,
+      "shots": 4096,
+      "two_sample_floor_under_ibm_empirical": {
+        "median": 0.02978515625,
+        "p2_5": 0.0185546875,
+        "p97_5": 0.044189453125
+      },
+      "two_sample_floor_under_qtensor": {
+        "median": 0.02978515625,
+        "p2_5": 0.0185546875,
+        "p97_5": 0.0439453125
+      }
+    },
+    {
+      "circuit": "QTIBM_CZ06",
+      "ibm_floor_exceedance_fraction": 0.03,
+      "observed_above_ibm_95pct_floor": false,
+      "observed_above_qtensor_95pct_floor": false,
+      "observed_qtensor_vs_ibm_tvd": 0.031466919959082136,
+      "one_sample_floor_under_ibm_empirical": {
+        "median": 0.02197265625,
+        "p2_5": 0.013671875,
+        "p97_5": 0.03173828125
+      },
+      "one_sample_floor_under_qtensor": {
+        "median": 0.021776383289815165,
+        "p2_5": 0.013591929353896554,
+        "p97_5": 0.03162841812074286
+      },
+      "qtensor_floor_exceedance_fraction": 0.0266,
+      "shots": 4096,
+      "two_sample_floor_under_ibm_empirical": {
+        "median": 0.031005859375,
+        "p2_5": 0.019287109375,
+        "p97_5": 0.04492797851562491
+      },
+      "two_sample_floor_under_qtensor": {
+        "median": 0.03076171875,
+        "p2_5": 0.01904296875,
+        "p97_5": 0.044677734375
+      }
+    },
+    {
+      "circuit": "QTIBM_CZ09",
+      "ibm_floor_exceedance_fraction": 0.0458,
+      "observed_above_ibm_95pct_floor": false,
+      "observed_above_qtensor_95pct_floor": false,
+      "observed_qtensor_vs_ibm_tvd": 0.03045769379036894,
+      "one_sample_floor_under_ibm_empirical": {
+        "median": 0.021728515625,
+        "p2_5": 0.013671875,
+        "p97_5": 0.031982421875
+      },
+      "one_sample_floor_under_qtensor": {
+        "median": 0.02146701327048558,
+        "p2_5": 0.013386567434204535,
+        "p97_5": 0.031388106350305194
+      },
+      "qtensor_floor_exceedance_fraction": 0.0366,
+      "shots": 4096,
+      "two_sample_floor_under_ibm_empirical": {
+        "median": 0.03076171875,
+        "p2_5": 0.019287109375,
+        "p97_5": 0.044921875
+      },
+      "two_sample_floor_under_qtensor": {
+        "median": 0.0302734375,
+        "p2_5": 0.018798828125,
+        "p97_5": 0.044677734375
+      }
+    },
+    {
+      "circuit": "QTIBM_CZ12",
+      "ibm_floor_exceedance_fraction": 0.1614,
+      "observed_above_ibm_95pct_floor": false,
+      "observed_above_qtensor_95pct_floor": false,
+      "observed_qtensor_vs_ibm_tvd": 0.02665278468828692,
+      "one_sample_floor_under_ibm_empirical": {
+        "median": 0.021728515625,
+        "p2_5": 0.013671875,
+        "p97_5": 0.03173828125
+      },
+      "one_sample_floor_under_qtensor": {
+        "median": 0.021901827221442554,
+        "p2_5": 0.01352377091510874,
+        "p97_5": 0.0318728880088005
+      },
+      "qtensor_floor_exceedance_fraction": 0.1585,
+      "shots": 4096,
+      "two_sample_floor_under_ibm_empirical": {
+        "median": 0.03076171875,
+        "p2_5": 0.019287109375,
+        "p97_5": 0.044921875
+      },
+      "two_sample_floor_under_qtensor": {
+        "median": 0.031005859375,
+        "p2_5": 0.01904296875,
+        "p97_5": 0.045166015625
+      }
+    }
+  ],
+  "hardware_job_id": "dai8c4hhvn6c73cstebg",
+  "interpretation_rule": "If observed Q-Tensor-to-IBM TVD lies within the 95% one-sample floor under the relevant distribution, the experiment cannot resolve that residual from ordinary 4096-shot sampling noise.",
+  "replicates": 10000,
+  "schema": "q-tensor.ibm-shot-noise-floor.v1",
+  "seed": 2026091121,
+  "shots": 4096,
+  "status": "POST_HOC_RESOLUTION_DIAGNOSTIC"
+}

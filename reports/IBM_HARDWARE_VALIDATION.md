@@ -15,13 +15,15 @@ The prediction model, physical qubits, circuit family, calibration inputs, stati
 
 Across all four preregistered circuits, the frozen Q-Tensor noisy prediction was closer to the observed IBM hardware distribution than the corresponding ideal noiseless prediction.
 
-Q-Tensor beat the ideal model on:
+Within this single preregistered four-depth circuit family:
 
-- **4 of 4 circuits**
-- with **statistically strong improvement on 3 of 4 circuits**
-- and the gate-noise model added predictive value beyond readout calibration alone on **3 of 4 circuits**
+- Q-Tensor had lower TVD to IBM than the ideal model at **all four tested depths**
+- the complete preregistered 95% bootstrap interval was above zero at **three depths**
+- the full gate-noise model was numerically closer than the preregistered readout-only control at **three depths**
 
 The preregistered primary success criterion therefore **PASSed**.
+
+These four nested depth points share one physical path and circuit family and should not be interpreted as four independent experimental replications.
 
 This experiment does not establish that the model generalizes to arbitrary circuits, processors, or noise regimes. It demonstrates that, for this prospectively frozen four-circuit experiment on IBM Kingston, a simple calibration-informed stochastic noise model predicted the physical device more accurately than an ideal noiseless model.
 
@@ -284,6 +286,76 @@ This indicates that modeled gate noise added predictive information beyond reado
 
 ---
 
+## Post-Hoc Resolution Diagnostic
+
+After the preregistered analysis was complete, a separate resolution diagnostic estimated the TVD expected solely from finite sampling at 4096 shots.
+
+For each tested depth, 10,000 synthetic 4096-shot observations were generated under both:
+
+1. the frozen Q-Tensor predicted distribution, and
+2. the empirical IBM distribution.
+
+The observed Q-Tensor-to-IBM residual fell inside the 95% one-sample TVD envelope in every case:
+
+| Circuit | Observed Q-Tensor → IBM TVD | Q-Tensor 95% shot-noise envelope | IBM-empirical 95% envelope |
+|---|---:|---:|---:|
+| CZ03 | 0.022535 | [0.012974, 0.031289] | [0.013184, 0.031012] |
+| CZ06 | 0.031467 | [0.013592, 0.031628] | [0.013672, 0.031738] |
+| CZ09 | 0.030458 | [0.013387, 0.031388] | [0.013672, 0.031982] |
+| CZ12 | 0.026653 | [0.013524, 0.031873] | [0.013672, 0.031738] |
+
+The appropriate interpretation is therefore:
+
+> At 4096-shot resolution, the remaining difference between Q-Tensor and IBM Kingston is not distinguishable from ordinary finite-shot sampling variation at any tested depth.
+
+This post-hoc diagnostic does not alter the preregistered PASS. It limits how strongly the residual model error can be interpreted.
+
+Machine-readable result: `experiments/ibm_kingston_20260911/analysis/SHOT_NOISE_FLOOR.json`.
+
+---
+
+## Exploratory Qiskit Aer Baseline
+
+A post-hoc baseline comparison was also performed against Qiskit Aer's standard backend-properties noise model using the same frozen Kingston calibration data.
+
+Aer default includes calibrated readout error and composes thermal relaxation with a depolarizing component chosen to reproduce the reported gate infidelity.
+
+Results:
+
+| Circuit | Q-Tensor → IBM TVD | Aer default → IBM TVD | Aer − Q-Tensor | Paired 95% CI |
+|---|---:|---:|---:|---:|
+| CZ03 | 0.022535 | 0.028144 | +0.005609 | [-0.003154, +0.011132] |
+| CZ06 | 0.031467 | 0.031168 | -0.000299 | [-0.005650, +0.004840] |
+| CZ09 | 0.030458 | 0.028912 | -0.001546 | [-0.007055, +0.004987] |
+| CZ12 | 0.026653 | 0.030055 | +0.003402 | [-0.003729, +0.006551] |
+
+Q-Tensor was numerically closer at two tested depths and Aer default at two. Every paired confidence interval crossed zero, and both models remained inside the 4096-shot finite-sampling envelope at every depth.
+
+The defensible conclusion is:
+
+> Q-Tensor and the standard Aer backend-derived model are statistically indistinguishable with the available 4096-shot IBM data.
+
+### No-relaxation implementation cross-check
+
+Aer with thermal relaxation disabled was also evaluated as an implementation cross-check rather than as a second scientific baseline.
+
+It did **not** reproduce the Q-Tensor prediction exactly. A 500,000-shot decomposition localized the discrepancy primarily to the gate-noise path:
+
+| Circuit | Readout-only TVD | Gate-only TVD | Full no-relax TVD |
+|---|---:|---:|---:|
+| CZ03 | 0.002599 | 0.018587 | 0.017316 |
+| CZ06 | 0.002461 | 0.012999 | 0.011804 |
+| CZ09 | 0.001853 | 0.016058 | 0.014977 |
+| CZ12 | 0.002834 | 0.012986 | 0.012916 |
+
+The readout difference is close to the simulation sampling scale, while the gate-channel difference is structural. Frozen gate-error values were independently checked and matched exactly between `TARGET_INPUT.json` and `IBM_PROPERTIES.json`.
+
+The precise source of this gate-channel discrepancy remains unresolved and is retained as an open implementation diagnostic. No claim of Q-Tensor/Aer no-relax equivalence is made.
+
+Machine-readable result: `experiments/ibm_kingston_20260911/analysis/AER_BASELINE.json`.
+
+---
+
 ## Increasing-CZ Observation
 
 Within this specific four-circuit family, the advantage of Q-Tensor over the ideal prediction increased as the number of CZ gates increased:
@@ -343,7 +415,9 @@ The experiment preserved separate hashes for selection, calibration, circuits, p
 
 `e4df94d8aea6a532fc9eaf17c36ecfd0d7ac11e0dc0c2b4bd7a2c63fe8319a83`
 
-These hashes make it possible to establish that the prediction artifact existed independently of the subsequently observed IBM hardware result.
+These hashes establish artifact identity and integrity within the recorded workflow. Because the repository was first published after QPU execution, they do **not** provide an independent public timestamp proving that the prediction artifact existed before the hardware run.
+
+The prediction is nevertheless constrained by reproducibility: it regenerates from the frozen circuit family, calibration inputs, fixed seeds, and explicitly stated gate-error conversion rules. This limits opportunities for arbitrary post-hoc fitting, but it is weaker evidence than an external pre-execution timestamp. Future prospective runs should externally timestamp the preregistration manifest before submission.
 
 ---
 
@@ -376,7 +450,7 @@ This procedural detail is retained explicitly rather than omitted.
 
 The experiment supports a narrow but meaningful conclusion:
 
-> For four prospectively frozen circuits executed on IBM Kingston using physical qubits 79, 93, 94, and 95, Q-Tensor's calibration-informed stochastic prediction matched the observed hardware distribution more closely than the ideal noiseless model for every circuit tested.
+> For four prospectively frozen circuits executed on IBM Kingston using physical qubits 79, 93, 94, and 95, Q-Tensor's calibration-informed stochastic prediction had lower TVD to the observed hardware distribution than the ideal noiseless model at every tested depth within the single preregistered circuit family.
 
 Three of those four improvements remained positive across the complete preregistered 95% bootstrap interval.
 
@@ -471,9 +545,10 @@ No additional hardware experiment is required to interpret the present Kingston 
 
 Q-Tensor's first prospectively frozen hardware experiment passed its preregistered criterion.
 
-- **4 / 4 circuits:** Q-Tensor closer to IBM than ideal
-- **3 / 4 circuits:** statistically strong improvement
-- **3 / 4 circuits:** gate-noise model better than readout-only control
+- **All four tested depths:** Q-Tensor had lower TVD to IBM than the ideal model
+- **Three tested depths:** preregistered bootstrap interval entirely above zero
+- **4096-shot resolution:** every Q-Tensor residual remained inside the finite-shot 95% envelope
+- **Aer exploratory baseline:** Q-Tensor and Aer default were statistically indistinguishable at this resolution
 
 The result establishes a concrete connection between Q-Tensor's classical noisy-trajectory modeling and measurements from a real IBM quantum processor, while preserving a cryptographic provenance chain from calibration selection through final analysis.
 

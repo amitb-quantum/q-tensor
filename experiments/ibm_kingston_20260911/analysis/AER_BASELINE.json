@@ -1,0 +1,80 @@
+{
+  "aer_default_seed": 2026091122,
+  "aer_no_relax_seed": 2026091123,
+  "aer_simulation_shots": 200000,
+  "backend": "ibm_kingston",
+  "circuits": [
+    {
+      "aer_default_inside_4096_floor": true,
+      "aer_default_minus_qtensor_delta": 0.005608736311917606,
+      "aer_default_vs_ibm_tvd": 0.028143828125000016,
+      "aer_no_relax_vs_ibm_tvd": 0.030848828125000005,
+      "circuit": "QTIBM_CZ03",
+      "ibm_empirical_4096_floor_p97_5": 0.03101196289062491,
+      "paired_bootstrap_delta_95pct": [
+        -0.003153560492372301,
+        0.011132041122575771
+      ],
+      "paired_bootstrap_delta_median": 0.004301640903526948,
+      "qtensor_inside_4096_floor": true,
+      "qtensor_vs_aer_no_relax_tvd": 0.01721191342167109,
+      "qtensor_vs_ibm_tvd": 0.02253509181308241
+    },
+    {
+      "aer_default_inside_4096_floor": true,
+      "aer_default_minus_qtensor_delta": -0.00029887308408214214,
+      "aer_default_vs_ibm_tvd": 0.031168046874999994,
+      "aer_no_relax_vs_ibm_tvd": 0.032477421874999995,
+      "circuit": "QTIBM_CZ06",
+      "ibm_empirical_4096_floor_p97_5": 0.03173828125,
+      "paired_bootstrap_delta_95pct": [
+        -0.005649615351622395,
+        0.004840453966988144
+      ],
+      "paired_bootstrap_delta_median": -0.0005742068628384785,
+      "qtensor_inside_4096_floor": true,
+      "qtensor_vs_aer_no_relax_tvd": 0.012310457547744867,
+      "qtensor_vs_ibm_tvd": 0.031466919959082136
+    },
+    {
+      "aer_default_inside_4096_floor": true,
+      "aer_default_minus_qtensor_delta": -0.0015456625403689542,
+      "aer_default_vs_ibm_tvd": 0.028912031249999987,
+      "aer_no_relax_vs_ibm_tvd": 0.033014609375000004,
+      "circuit": "QTIBM_CZ09",
+      "ibm_empirical_4096_floor_p97_5": 0.031982421875,
+      "paired_bootstrap_delta_95pct": [
+        -0.00705496349841743,
+        0.00498708513188985
+      ],
+      "paired_bootstrap_delta_median": -0.0011831080979413482,
+      "qtensor_inside_4096_floor": true,
+      "qtensor_vs_aer_no_relax_tvd": 0.015400048414324123,
+      "qtensor_vs_ibm_tvd": 0.03045769379036894
+    },
+    {
+      "aer_default_inside_4096_floor": true,
+      "aer_default_minus_qtensor_delta": 0.003401980936713088,
+      "aer_default_vs_ibm_tvd": 0.030054765625000007,
+      "aer_no_relax_vs_ibm_tvd": 0.029318749999999994,
+      "circuit": "QTIBM_CZ12",
+      "ibm_empirical_4096_floor_p97_5": 0.03173828125,
+      "paired_bootstrap_delta_95pct": [
+        -0.00372901933481507,
+        0.006550856760494128
+      ],
+      "paired_bootstrap_delta_median": 0.001668427294381325,
+      "qtensor_inside_4096_floor": true,
+      "qtensor_vs_aer_no_relax_tvd": 0.013989189970698986,
+      "qtensor_vs_ibm_tvd": 0.02665278468828692
+    }
+  ],
+  "default_model": "Aer backend-properties model with gate error, asymmetric readout error, and thermal relaxation enabled.",
+  "default_model_warnings": [],
+  "hardware_job_id": "dai8c4hhvn6c73cstebg",
+  "no_relax_model": "Aer backend-properties model with thermal relaxation disabled; used only as implementation cross-validation against Q-Tensor.",
+  "paired_bootstrap_replicates": 10000,
+  "paired_bootstrap_seed": 2026091124,
+  "schema": "q-tensor.ibm-aer-baseline.v1",
+  "status": "POST_HOC_EXPLORATORY_BASELINE"
+}
